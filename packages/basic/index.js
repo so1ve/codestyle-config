@@ -44,7 +44,7 @@ module.exports = {
       parser: 'jsonc-eslint-parser',
       rules: {
         'quotes': ['error', 'double'],
-        'quote-props': ['error', 'never'],
+        'quote-props': ['error', 'consistent-as-needed'],
         'comma-dangle': ['error', 'always'],
       },
     },

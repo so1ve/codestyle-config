@@ -16,8 +16,8 @@ importers:
 
   packages/all:
     specifiers:
-      '@so1ve/eslint-config-react': ^0.18.9
-      '@so1ve/eslint-config-vue': ^0.18.9
+      '@so1ve/eslint-config-react': ^0.18.10
+      '@so1ve/eslint-config-vue': ^0.18.10
       '@typescript-eslint/eslint-plugin': ^5.13.0
       '@typescript-eslint/parser': ^5.13.0
       eslint: ^8.10.0
@@ -86,7 +86,7 @@ importers:
 
   packages/react:
     specifiers:
-      '@so1ve/eslint-config-ts': ^0.18.9
+      '@so1ve/eslint-config-ts': ^0.18.10
       eslint: ^8.10.0
       eslint-plugin-react: ^7.29.3
       react: ^17.0.2
@@ -101,7 +101,7 @@ importers:
 
   packages/typescript:
     specifiers:
-      '@so1ve/eslint-config-basic': ^0.18.8
+      '@so1ve/eslint-config-basic': ^0.18.10
       '@typescript-eslint/eslint-plugin': ^5.13.0
       '@typescript-eslint/parser': ^5.13.0
       eslint: ^8.10.0
@@ -114,7 +114,7 @@ importers:
 
   packages/vue:
     specifiers:
-      '@so1ve/eslint-config-ts': ^0.18.8
+      '@so1ve/eslint-config-ts': ^0.18.10
       eslint: ^8.10.0
       eslint-plugin-vue: ^8.5.0
     dependencies:
