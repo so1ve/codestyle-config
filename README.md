@@ -1,8 +1,8 @@
-# @antfu/eslint-config
+# @so1ve/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@antfu/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@antfu/eslint-config)
+[![npm](https://img.shields.io/npm/v/@so1ve/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@so1ve/eslint-config)
 
-- Single quotes, no semi
+- Double quotes, semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
 - TypeScript, Vue, React out-of-box
 - Lint also for json, yaml, markdown
@@ -14,14 +14,14 @@
 ### Install
 
 ```bash
-pnpm add -D eslint @antfu/eslint-config
+pnpm add -D eslint @so1ve/eslint-config
 ```
 
 ### Config `.eslintrc`
 
 ```json
 {
-  "extends": "@antfu"
+  "extends": "@so1ve"
 }
 ```
 

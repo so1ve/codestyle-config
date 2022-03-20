@@ -44,8 +44,8 @@ module.exports = {
       parser: 'jsonc-eslint-parser',
       rules: {
         'quotes': ['error', 'double'],
-        'quote-props': ['error', 'always'],
-        'comma-dangle': ['error', 'never'],
+        'quote-props': ['error', 'never'],
+        'comma-dangle': ['error', 'always'],
       },
     },
     {
@@ -153,9 +153,9 @@ module.exports = {
     'import/no-absolute-path': 'off',
 
     // Common
-    'semi': ['error', 'never'],
+    'semi': ['error', 'always'],
     'curly': ['error', 'multi-or-nest', 'consistent'],
-    'quotes': ['error', 'single'],
+    'quotes': ['error', 'double'],
     'quote-props': ['error', 'consistent-as-needed'],
     'no-unused-vars': 'warn',
     'no-param-reassign': 'off',
@@ -286,7 +286,7 @@ module.exports = {
     ],
 
     // yml
-    'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
+    'yml/quotes': ['error', { prefer: 'double', avoidEscape: false }],
     'yml/no-empty-document': 'off',
   },
 }

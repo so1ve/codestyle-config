@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const basic = require('@antfu/eslint-config-basic')
+const basic = require('@so1ve/eslint-config-basic')
 
 module.exports = {
   extends: [
-    '@antfu/eslint-config-basic',
+    '@so1ve/eslint-config-basic',
     'plugin:@typescript-eslint/recommended',
   ],
   overrides: basic.overrides,
@@ -11,7 +11,7 @@ module.exports = {
     'import/named': 'off',
 
     // TS
-    '@typescript-eslint/semi': ['error', 'never'],
+    '@typescript-eslint/semi': ['error', 'always'],
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
     '@typescript-eslint/member-delimiter-style': ['error', { multiline: { delimiter: 'none' } }],
     '@typescript-eslint/type-annotation-spacing': ['error', {}],
