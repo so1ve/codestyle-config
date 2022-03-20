@@ -1,5 +1,5 @@
 {
-  "name": "@antfu/eslint-config-ts",
+  "name": "@so1ve/eslint-config-ts",
   "version": "0.18.9",
   "description": "",
   "keywords": [],
@@ -17,11 +17,12 @@
     "typescript": ">=3.9"
   },
   "dependencies": {
-    "@antfu/eslint-config-basic": "^0.18.8",
+    "@so1ve/eslint-config-basic": "^0.18.8",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0"
   },
   "devDependencies": {
     "eslint": "^8.10.0"
-  }
+  },
+  "gitHead": "dc3fa1c03a2ad68479abb3cc7a8000abe319761b"
 }

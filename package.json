@@ -9,7 +9,7 @@
     "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {
-    "@so1veeslint-config": "*",
+    "@so1ve/eslint-config": "*",
     "eslint": "^8.10.0",
     "lerna": "^4.0.0",
     "typescript": "^4.6.2"
