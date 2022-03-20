@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-vue",
-  "version": "0.18.9",
+  "version": "0.18.10",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -16,7 +16,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@so1ve/eslint-config-ts": "^0.18.8",
+    "@so1ve/eslint-config-ts": "^0.18.10",
     "eslint-plugin-vue": "^8.5.0"
   },
   "devDependencies": {
