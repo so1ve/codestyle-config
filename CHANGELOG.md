@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/so1ve/eslint-config/compare/v0.18.11...v0.19.0) (2022-04-09)
+
+
+### Features
+
+* update brace-style ([a4fe2b1](https://github.com/so1ve/eslint-config/commit/a4fe2b1286383b87ebfb105e6dd3adc3b9fc9244))
+
+
+
+
+
 ## [0.18.11](https://github.com/so1ve/eslint-config/compare/v0.18.10...v0.18.11) (2022-03-20)
 
 **Note:** Version bump only for package @so1ve/eslint-config-monorepo

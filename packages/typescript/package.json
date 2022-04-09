@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-ts",
-  "version": "0.18.11",
+  "version": "0.19.0",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -17,7 +17,7 @@
     "typescript": ">=3.9"
   },
   "dependencies": {
-    "@so1ve/eslint-config-basic": "^0.18.11",
+    "@so1ve/eslint-config-basic": "^0.19.0",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0"
   },

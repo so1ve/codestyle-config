@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config",
-  "version": "0.18.11",
+  "version": "0.19.0",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -13,8 +13,8 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@so1ve/eslint-config-react": "^0.18.11",
-    "@so1ve/eslint-config-vue": "^0.18.11",
+    "@so1ve/eslint-config-react": "^0.19.0",
+    "@so1ve/eslint-config-vue": "^0.19.0",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "eslint-config-standard": "17.0.0-1",
