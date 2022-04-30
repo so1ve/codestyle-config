@@ -36,5 +36,9 @@ module.exports = {
       condition: "parens-new-line",
       logical: "parens-new-line",
     }],
+    "react/self-closing-comp": ["warn", {
+      component: true,
+      html: true,
+    }],
   },
 };
