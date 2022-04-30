@@ -43,9 +43,9 @@ module.exports = {
       files: ["*.json", "*.json5"],
       parser: "jsonc-eslint-parser",
       rules: {
-        "quotes": ["error", "double"],
-        "quote-props": ["error", "consistent-as-needed"],
-        "comma-dangle": ["error", "always"],
+        "quotes": ["warn", "double"],
+        "quote-props": ["warn", "consistent-as-needed"],
+        "comma-dangle": ["warn", "always"],
       },
     },
     {
@@ -60,7 +60,7 @@ module.exports = {
       parser: "jsonc-eslint-parser",
       rules: {
         "jsonc/sort-keys": [
-          "error",
+          "warn",
           {
             pathPattern: "^$",
             order: [
@@ -146,74 +146,74 @@ module.exports = {
   ],
   rules: {
     // import
-    "import/order": "error",
-    "import/first": "error",
-    "import/no-mutable-exports": "error",
+    "import/order": "warn",
+    "import/first": "warn",
+    "import/no-mutable-exports": "warn",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
 
     // Common
-    "semi": ["error", "always"],
-    "curly": ["error", "multi-or-nest", "consistent"],
-    "quotes": ["error", "double"],
-    "quote-props": ["error", "consistent-as-needed"],
+    "semi": ["warn", "always"],
+    "curly": ["warn", "multi-or-nest", "consistent"],
+    "quotes": ["warn", "double"],
+    "quote-props": ["warn", "consistent-as-needed"],
     "no-unused-vars": "warn",
     "no-param-reassign": "off",
-    "array-bracket-spacing": ["error", "never"],
-    "brace-style": ["error", "1tbs", { allowSingleLine: true }],
-    "block-spacing": ["error", "always"],
+    "array-bracket-spacing": ["warn", "never"],
+    "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
+    "block-spacing": ["warn", "always"],
     "camelcase": "off",
-    "comma-spacing": ["error", { before: false, after: true }],
-    "comma-style": ["error", "last"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-spacing": ["warn", { before: false, after: true }],
+    "comma-style": ["warn", "last"],
+    "comma-dangle": ["warn", "always-multiline"],
     "no-constant-condition": "warn",
-    "no-debugger": "error",
-    "no-console": ["error", { allow: ["warn", "error"] }],
-    "no-cond-assign": ["error", "always"],
+    "no-debugger": "warn",
+    "no-console": ["warn", { allow: ["error", "warn"] }],
+    "no-cond-assign": ["warn", "always"],
     "func-call-spacing": ["off", "never"],
-    "key-spacing": ["error", { beforeColon: false, afterColon: true }],
-    "indent": ["error", 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
+    "key-spacing": ["warn", { beforeColon: false, afterColon: true }],
+    "indent": ["warn", 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
     "no-restricted-syntax": [
-      "error",
+      "warn",
       "DebuggerStatement",
       "LabeledStatement",
       "WithStatement",
     ],
-    "object-curly-spacing": ["error", "always"],
+    "object-curly-spacing": ["warn", "always"],
     "no-return-await": "off",
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": ["warn", "never"],
 
     // es6
-    "no-var": "error",
+    "no-var": "warn",
     "prefer-const": [
-      "error",
+      "warn",
       {
         destructuring: "any",
         ignoreReadBeforeAssign: true,
       },
     ],
     "prefer-arrow-callback": [
-      "error",
+      "warn",
       {
         allowNamedFunctions: false,
         allowUnboundThis: true,
       },
     ],
     "object-shorthand": [
-      "error",
+      "warn",
       "always",
       {
         ignoreConstructors: false,
         avoidQuotes: true,
       },
     ],
-    "prefer-rest-params": "error",
-    "prefer-spread": "error",
-    "prefer-template": "error",
-    "template-curly-spacing": "error",
-    "arrow-parens": ["error", "as-needed", { requireForBlockBody: true }],
+    "prefer-rest-params": "warn",
+    "prefer-spread": "warn",
+    "prefer-template": "warn",
+    "template-curly-spacing": "warn",
+    "arrow-parens": ["warn", "as-needed", { requireForBlockBody: true }],
     "generator-star-spacing": "off",
-    "spaced-comment": ["error", "always", {
+    "spaced-comment": ["warn", "always", {
       line: {
         markers: ["/"],
         exceptions: ["/", "#"],
@@ -226,56 +226,56 @@ module.exports = {
     }],
 
     // best-practice
-    "array-callback-return": "error",
-    "block-scoped-var": "error",
+    "array-callback-return": "warn",
+    "block-scoped-var": "warn",
     "consistent-return": "off",
     "complexity": ["off", 11],
-    "eqeqeq": ["error", "smart"],
+    "eqeqeq": ["warn", "smart"],
     "no-alert": "warn",
-    "no-case-declarations": "error",
-    "no-multi-spaces": "error",
-    "no-multi-str": "error",
-    "no-with": "error",
-    "no-void": "error",
+    "no-case-declarations": "warn",
+    "no-multi-spaces": "warn",
+    "no-multi-str": "warn",
+    "no-with": "warn",
+    "no-void": "warn",
     "no-useless-escape": "off",
-    "vars-on-top": "error",
+    "vars-on-top": "warn",
     "require-await": "off",
     "no-return-assign": "off",
-    "operator-linebreak": ["error", "before"],
+    "operator-linebreak": ["warn", "before"],
 
     // unicorns
     // Pass error message when throwing errors
-    "unicorn/error-message": "error",
+    "unicorn/error-message": "warn",
     // Uppercase regex escapes
-    "unicorn/escape-case": "error",
+    "unicorn/escape-case": "warn",
     // Array.isArray instead of instanceof
-    "unicorn/no-array-instanceof": "error",
+    "unicorn/no-array-instanceof": "warn",
     // Prevent deprecated `new Buffer()`
-    "unicorn/no-new-buffer": "error",
+    "unicorn/no-new-buffer": "warn",
     // Keep regex literals safe!
     "unicorn/no-unsafe-regex": "off",
     // Lowercase number formatting for octal, hex, binary (0x1'error' instead of 0X1'error')
-    "unicorn/number-literal-case": "error",
+    "unicorn/number-literal-case": "warn",
     // ** instead of Math.pow()
-    "unicorn/prefer-exponentiation-operator": "error",
+    "unicorn/prefer-exponentiation-operator": "warn",
     // includes over indexOf when checking for existence
-    "unicorn/prefer-includes": "error",
+    "unicorn/prefer-includes": "warn",
     // String methods startsWith/endsWith instead of more complicated stuff
-    "unicorn/prefer-starts-ends-with": "error",
+    "unicorn/prefer-starts-ends-with": "warn",
     // textContent instead of innerText
-    "unicorn/prefer-text-content": "error",
+    "unicorn/prefer-text-content": "warn",
     // Enforce throwing type error when throwing error while checking typeof
-    "unicorn/prefer-type-error": "error",
+    "unicorn/prefer-type-error": "warn",
     // Use new when throwing error
-    "unicorn/throw-new-error": "error",
+    "unicorn/throw-new-error": "warn",
 
-    "no-use-before-define": ["error", { functions: false, classes: false, variables: true }],
+    "no-use-before-define": ["warn", { functions: false, classes: false, variables: true }],
     "eslint-comments/disable-enable-pair": "off",
     "import/no-named-as-default-member": "off",
     "n/no-callback-literal": "off",
 
     "sort-imports": [
-      "error",
+      "warn",
       {
         ignoreCase: false,
         ignoreDeclarationSort: true,
@@ -286,7 +286,7 @@ module.exports = {
     ],
 
     // yml
-    "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
+    "yml/quotes": ["warn", { prefer: "double", avoidEscape: false }],
     "yml/no-empty-document": "off",
   },
 };
