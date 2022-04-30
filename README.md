@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/@so1ve/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@so1ve/eslint-config)
 
+> Forked from [antfu/eslint-config](https://github.com/antfu/eslint-config)
+
 - Double quotes, semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
 - TypeScript, Vue, React out-of-box
