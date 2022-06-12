@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-react",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -24,7 +24,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@so1ve/eslint-config-ts": "^0.21.0",
+    "@so1ve/eslint-config-ts": "^0.21.1",
     "eslint-plugin-react": "^7.29.3"
   },
   "devDependencies": {
