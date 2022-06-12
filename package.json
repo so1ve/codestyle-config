@@ -2,7 +2,12 @@
   "name": "@so1ve/eslint-config-monorepo",
   "private": true,
   "license": "MIT",
-  "author": "Ray <nn_201312@163.com> (https://github.com/so1ve/)",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
+  "contributors": [
+    {
+      "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
+    }
+  ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint .",
