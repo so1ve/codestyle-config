@@ -36,6 +36,7 @@ module.exports = {
     "@typescript-eslint/comma-dangle": ["warn", "always-multiline"],
     "object-curly-spacing": "off",
     "@typescript-eslint/object-curly-spacing": ["warn", "always"],
+    "space-before-function-paren": ["warn", "always"],
 
     // off
     "@typescript-eslint/camelcase": "off",
