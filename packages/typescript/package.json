@@ -1,0 +1,33 @@
+{
+  "name": "@so1ve/eslint-config-ts",
+  "version": "0.21.1",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
+  "contributors": [
+    {
+      "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
+    }
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=3.9"
+  },
+  "dependencies": {
+    "@so1ve/eslint-config-basic": "^0.21.1",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  },
+  "gitHead": "dc3fa1c03a2ad68479abb3cc7a8000abe319761b"
+}

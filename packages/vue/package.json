@@ -1,0 +1,31 @@
+{
+  "name": "@so1ve/eslint-config-vue",
+  "version": "0.21.1",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
+  "contributors": [
+    {
+      "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
+    }
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@so1ve/eslint-config-ts": "^0.21.1",
+    "eslint-plugin-vue": "^8.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  },
+  "gitHead": "dc3fa1c03a2ad68479abb3cc7a8000abe319761b"
+}

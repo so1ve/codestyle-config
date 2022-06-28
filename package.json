@@ -1,0 +1,23 @@
+{
+  "name": "@so1ve/eslint-config-monorepo",
+  "private": true,
+  "license": "MIT",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
+  "contributors": [
+    {
+      "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
+    }
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "lerna publish --conventional-commits"
+  },
+  "devDependencies": {
+    "@so1ve/eslint-config": "*",
+    "eslint": "^8.10.0",
+    "lerna": "^4.0.0",
+    "typescript": "^4.6.2"
+  }
+}
