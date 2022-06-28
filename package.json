@@ -12,7 +12,7 @@
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish"
+    "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/*"
   },
   "devDependencies": {
     "@so1ve/eslint-config": "*",
