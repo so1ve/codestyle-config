@@ -21,7 +21,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@so1ve/eslint-config-ts": "^0.21.1",
+    "@so1ve/eslint-config-ts": "workspace:*",
     "eslint-plugin-vue": "^8.5.0"
   },
   "devDependencies": {

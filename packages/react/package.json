@@ -24,7 +24,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@so1ve/eslint-config-ts": "^0.21.1",
+    "@so1ve/eslint-config-ts": "workspace:*",
     "eslint-plugin-react": "^7.29.3"
   },
   "devDependencies": {

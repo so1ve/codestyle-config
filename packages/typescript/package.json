@@ -22,7 +22,7 @@
     "typescript": ">=3.9"
   },
   "dependencies": {
-    "@so1ve/eslint-config-basic": "^0.21.1",
+    "@so1ve/eslint-config-basic": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0"
   },
