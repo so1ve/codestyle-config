@@ -154,7 +154,7 @@ module.exports = {
 
     // Common
     "semi": ["warn", "always"],
-    "curly": ["warn", "multi-or-nest", "consistent"],
+    "curly": ["warn", "all"],
     "quotes": ["warn", "double"],
     "quote-props": ["warn", "consistent-as-needed"],
     "no-unused-vars": "warn",
@@ -265,6 +265,8 @@ module.exports = {
     "unicorn/prefer-text-content": "warn",
     // Enforce throwing type error when throwing error while checking typeof
     "unicorn/prefer-type-error": "warn",
+    // Enforce adding `node:` protocol
+    "unicorn/prefer-node-protocol": "warn",
     // Use new when throwing error
     "unicorn/throw-new-error": "warn",
 
