@@ -10,24 +10,24 @@ module.exports = {
     },
   },
   rules: {
-    "jsx-quotes": ["warn", "prefer-double"],
-    "react/jsx-closing-bracket-location": ["warn", "line-aligned"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-closing-bracket-location": ["error", "line-aligned"],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-boolean-value": ["warn", "never"],
-    "react/jsx-closing-tag-location": ["warn"],
-    "react/jsx-curly-spacing": ["warn", { when: "never" }],
-    "react/jsx-equals-spacing": ["warn", "never"],
-    "react/jsx-indent-props": ["warn", 2],
-    "react/jsx-indent": ["warn", 2, { indentLogicalExpressions: true }],
-    "react/jsx-no-comment-textnodes": ["warn"],
-    "react/jsx-no-useless-fragment": ["warn", { allowExpressions: true }],
-    "react/jsx-one-expression-per-line": ["warn"],
-    "react/jsx-pascal-case": ["warn"],
-    "react/jsx-tag-spacing": ["warn", {
+    "react/jsx-boolean-value": ["error", "never"],
+    "react/jsx-closing-tag-location": ["error"],
+    "react/jsx-curly-spacing": ["error", { when: "never" }],
+    "react/jsx-equals-spacing": ["error", "never"],
+    "react/jsx-indent-props": ["error", 2],
+    "react/jsx-indent": ["error", 2, { indentLogicalExpressions: true }],
+    "react/jsx-no-comment-textnodes": ["error"],
+    "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
+    "react/jsx-one-expression-per-line": ["error"],
+    "react/jsx-pascal-case": ["error"],
+    "react/jsx-tag-spacing": ["error", {
       beforeSelfClosing: "always",
       beforeClosing: "never",
     }],
-    "react/jsx-wrap-multilines": ["warn", {
+    "react/jsx-wrap-multilines": ["error", {
       declaration: "parens-new-line",
       assignment: "parens-new-line",
       return: "parens-new-line",
@@ -36,7 +36,7 @@ module.exports = {
       condition: "parens-new-line",
       logical: "parens-new-line",
     }],
-    "react/self-closing-comp": ["warn", {
+    "react/self-closing-comp": ["error", {
       component: true,
       html: true,
     }],

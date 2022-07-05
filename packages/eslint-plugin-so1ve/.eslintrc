@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@so1ve"
+    // "plugin:so1ve/recommended"
+  ]
+  // "plugins": [
+  //   "so1ve"
+  // ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "eslint-plugin-so1ve",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
+  "version": "0.22.0",
+  "homepage": "https://github.com/so1ve/eslint-config",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
+    }
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "stub": "unbuild --stub",
+    "test": "vitest",
+    "prepublishOnly": "nr build"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^5.26.0"
+  },
+  "devDependencies": {
+    "unbuild": "^0.7.4",
+    "vitest": "^0.12.9"
+  }
+}

@@ -54,12 +54,6 @@ Create `.vscode/settings.json`
 }
 ```
 
-## Check Also
-
-- [antfu/vscode-settings](https://github.com/antfu/vscode-settings) - My VS Code settings
-- [antfu/ts-starter](https://github.com/antfu/ts-starter) - My starter template for TypeScript library
-- [antfu/vitesse](https://github.com/antfu/vitesse) - My starter template for Vue & Vite app
-
 ## License
 
 MIT
