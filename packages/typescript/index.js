@@ -4,14 +4,19 @@ const basic = require("@so1ve/eslint-config-basic");
 module.exports = {
   extends: [
     "@so1ve/eslint-config-basic",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
   ],
+  settings: {
+    "import/resolver": {
+      node: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
+    },
+  },
   overrides: basic.overrides,
   rules: {
     "import/named": "off",
 
     // TS
-    "@typescript-eslint/semi": ["error", "always"],
     "@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
     "@typescript-eslint/member-delimiter-style": ["error", { multiline: { delimiter: "none" } }],
     "@typescript-eslint/type-annotation-spacing": ["error", {}],
@@ -36,7 +41,36 @@ module.exports = {
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
     "object-curly-spacing": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
-    "space-before-function-paren": ["error", "always"],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error", "always"],
+    "quotes": "off",
+    "@typescript-eslint/quotes": ["error", "double"],
+    "space-before-blocks": "off",
+    "@typescript-eslint/space-before-blocks": ["error", "always"],
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": ["error", "always"],
+    "space-infix-ops": "off",
+    "@typescript-eslint/space-infix-ops": "error",
+    "keyword-spacing": "off",
+    "@typescript-eslint/keyword-spacing": ["error", { before: true, after: true }],
+    "comma-spacing": "off",
+    "@typescript-eslint/comma-spacing": ["error", { before: false, after: true }],
+    "no-extra-parens": "off",
+    "@typescript-eslint/no-extra-parens": ["error", "functions"],
+    "no-dupe-class-members": "off",
+    "@typescript-eslint/no-dupe-class-members": "error",
+    "no-loss-of-precision": "off",
+    "@typescript-eslint/no-loss-of-precision": "error",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }],
+    // The following rule overrides require a parser service, aka. require a `typescript.json` path.
+    // This needs to be done individually for each project, and it slows down linting significantly.
+    // 'no-throw-literal': 'off',
+    // '@typescript-eslint/no-throw-literal': 'error',
+    // 'no-implied-eval': 'off',
+    // '@typescript-eslint/no-implied-eval': 'error',
+    // 'dot-notation': 'off',
+    // '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
 
     // off
     "@typescript-eslint/camelcase": "off",

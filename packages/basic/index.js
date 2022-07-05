@@ -36,7 +36,7 @@ module.exports = {
   ],
   settings: {
     "import/resolver": {
-      node: { extensions: [".js", ".mjs", ".ts", ".d.ts"] },
+      node: { extensions: [".js", ".mjs"] },
     },
   },
   overrides: [
@@ -44,6 +44,8 @@ module.exports = {
       files: ["*.json", "*.json5"],
       parser: "jsonc-eslint-parser",
       rules: {
+        "jsonc/quotes": ["error", "double"],
+        "jsonc/quote-props": ["error", "always"],
         "jsonc/array-bracket-spacing": ["error", "never"],
         "jsonc/comma-dangle": ["error", "never"],
         "jsonc/comma-style": ["error", "last"],
