@@ -188,7 +188,7 @@ module.exports = {
     "curly": ["error", "all"],
     "quotes": ["error", "double"],
     "quote-props": ["error", "consistent-as-needed"],
-    "no-unused-vars": "error",
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     "no-param-reassign": "off",
     "array-bracket-spacing": ["error", "never"],
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
