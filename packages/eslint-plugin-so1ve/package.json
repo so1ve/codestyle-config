@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-so1ve",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "homepage": "https://github.com/so1ve/eslint-config",
   "license": "MIT",
   "contributors": [
