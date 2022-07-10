@@ -15,6 +15,7 @@
   "bugs": {
     "url": "https://github.com/so1ve/eslint-config/issues"
   },
+  "description": "Monorepo for Ray's eslint config.",
   "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
