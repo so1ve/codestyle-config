@@ -1,15 +1,26 @@
 {
   "name": "@so1ve/eslint-config-basic",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "version": "0.24.0",
-  "description": "",
-  "keywords": [],
-  "license": "MIT",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "contributors": [
     {
       "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
     }
   ],
+  "description": "Ray's basic eslint config.",
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "homepage": "https://github.com/so1ve/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/eslint-config/issues"
+  },
+  "license": "MIT",
   "main": "index.js",
   "files": [
     "index.js"
