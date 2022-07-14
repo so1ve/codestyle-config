@@ -40,7 +40,7 @@
     "eslint-plugin-markdown": "^2.2.1",
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-unicorn": "^43.0.0",
+    "eslint-plugin-unicorn": "^43.0.1",
     "eslint-plugin-yml": "^1.0.0",
     "jsonc-eslint-parser": "^2.1.0",
     "yaml-eslint-parser": "^1.0.1"
