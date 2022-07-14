@@ -7,6 +7,7 @@
       "name": "Ray <nn_201312@163.com> (https://github.com/so1ve/)"
     }
   ],
+  "description": "Monorepo for Ray's eslint config.",
   "homepage": "https://github.com/so1ve/eslint-config#readme",
   "repository": {
     "type": "git",
@@ -15,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/so1ve/eslint-config/issues"
   },
-  "description": "Monorepo for Ray's eslint config.",
   "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
