@@ -27,6 +27,15 @@ module.exports = {
       beforeSelfClosing: "always",
       beforeClosing: "never",
     }],
+    "react/jsx-sort-props": ["error", {
+      callbacksLast: true,
+      shorthandFirst: true,
+      multiline: "last",
+      ignoreCase: true,
+      noSortAlphabetically: true,
+      reservedFirst: true,
+      locale: "auto",
+    }],
     "react/jsx-wrap-multilines": ["error", {
       declaration: "parens-new-line",
       assignment: "parens-new-line",
