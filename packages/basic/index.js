@@ -64,13 +64,13 @@ module.exports = {
         "spaced-comment": "off",
       },
     },
-    {
-      files: ["*.json", "*.jsonc", "*.json5"],
-      parser: "jsonc-eslint-parser",
-      rules: {
-        "eol-last": ["error", "never"],
-      },
-    },
+    // {
+    //   files: ["*.json", "*.jsonc", "*.json5"],
+    //   parser: "jsonc-eslint-parser",
+    //   rules: {
+    //     "eol-last": ["error", "never"],
+    //   },
+    // },
     {
       files: ["package.json"],
       parser: "jsonc-eslint-parser",
