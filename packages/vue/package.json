@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-plugin-vue": "^9.2.0"
+    "eslint-plugin-vue": "^9.4.0"
   },
   "devDependencies": {
-    "eslint": "^8.19.0"
+    "eslint": "^8.23.0"
   }
 }

@@ -34,10 +34,10 @@
     "prepublishOnly": "nr build"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.30.6"
+    "@typescript-eslint/utils": "^5.35.1"
   },
   "devDependencies": {
-    "unbuild": "^0.7.4",
-    "vitest": "^0.18.0"
+    "unbuild": "^0.8.9",
+    "vitest": "^0.22.1"
   }
 }

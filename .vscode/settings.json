@@ -5,5 +5,7 @@
   "editor.quickSuggestions": {
     "strings": true
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "editor.tabCompletion": "on",
+  "diffEditor.codeLens": true
 }

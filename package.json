@@ -26,8 +26,8 @@
   "devDependencies": {
     "@so1ve/eslint-config": "*",
     "bumpp": "^8.2.1",
-    "eslint": "^8.19.0",
+    "eslint": "^8.23.0",
     "eslint-plugin-so1ve": "workspace:*",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.2"
   }
 }
