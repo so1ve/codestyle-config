@@ -104,6 +104,7 @@ module.exports = {
               "engines",
               "activationEvents",
               "contributes",
+              "publishConfig",
               "scripts",
               "peerDependencies",
               "peerDependenciesMeta",
