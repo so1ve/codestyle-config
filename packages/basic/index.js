@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     node: true,
   },
+  reportUnusedDisableDirectives: true,
   extends: [
     "standard",
     "plugin:import/recommended",
@@ -22,7 +23,7 @@ module.exports = {
     "coverage",
     "public",
     "temp",
-    "packages-lock.json",
+    "package-lock.json",
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
@@ -32,6 +33,7 @@ module.exports = {
   ],
   plugins: [
     "html",
+    "@so1ve",
     "unicorn",
   ],
   settings: {
@@ -107,10 +109,10 @@ module.exports = {
               "publishConfig",
               "scripts",
               "peerDependencies",
-              "peerDependenciesMeta",
               "dependencies",
-              "optionalDependencies",
               "devDependencies",
+              "optionalDependencies",
+              "peerDependenciesMeta",
               "pnpm",
               "overrides",
               "resolutions",
@@ -292,7 +294,7 @@ module.exports = {
     // includes over indexOf when checking for existence
     "unicorn/prefer-includes": "error",
     // String methods startsWith/endsWith instead of more complicated stuff
-    "unicorn/prefer-starts-ends-with": "error",
+    "unicorn/prefer-string-starts-ends-with": "error",
     // textContent instead of innerText
     "unicorn/prefer-text-content": "error",
     // Enforce throwing type error when throwing error while checking typeof
@@ -321,5 +323,8 @@ module.exports = {
     // yml
     "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
     "yml/no-empty-document": "off",
+
+    // so1ve
+    "@so1ve/import-dedupe": "error",
   },
 };

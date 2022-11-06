@@ -27,17 +27,17 @@
   "files": [
     "index.js"
   ],
-  "peerDependencies": {
-    "eslint": ">=7.4.0"
-  },
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-plugin-vue": "^9.4.0"
+    "eslint-plugin-vue": "^9.7.0"
   },
   "devDependencies": {
-    "eslint": "^8.23.0"
+    "eslint": "^8.26.0"
   }
 }

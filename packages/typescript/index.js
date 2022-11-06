@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const basic = require("@so1ve/eslint-config-basic");
 
 module.exports = {
@@ -28,7 +27,44 @@ module.exports = {
     // Override JS
     "no-useless-constructor": "off",
     "indent": "off",
-    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/indent": ["error", 2, {
+      SwitchCase: 1,
+      VariableDeclarator: 1,
+      outerIIFEBody: 1,
+      MemberExpression: 1,
+      FunctionDeclaration: { parameters: 1, body: 1 },
+      FunctionExpression: { parameters: 1, body: 1 },
+      CallExpression: { arguments: 1 },
+      ArrayExpression: 1,
+      ObjectExpression: 1,
+      ImportDeclaration: 1,
+      flatTernaryExpressions: false,
+      ignoreComments: false,
+      ignoredNodes: [
+        "TemplateLiteral *",
+        "JSXElement",
+        "JSXElement > *",
+        "JSXAttribute",
+        "JSXIdentifier",
+        "JSXNamespacedName",
+        "JSXMemberExpression",
+        "JSXSpreadAttribute",
+        "JSXExpressionContainer",
+        "JSXOpeningElement",
+        "JSXClosingElement",
+        "JSXFragment",
+        "JSXOpeningFragment",
+        "JSXClosingFragment",
+        "JSXText",
+        "JSXEmptyExpression",
+        "JSXSpreadChild",
+        "TSTypeParameterInstantiation",
+        "FunctionExpression > .params[decorators.length > 0]",
+        "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
+        "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key",
+      ],
+      offsetTernaryExpressions: true,
+    }],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     "no-redeclare": "off",
@@ -71,6 +107,9 @@ module.exports = {
     // '@typescript-eslint/no-implied-eval': 'error',
     // 'dot-notation': 'off',
     // '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
+
+    // so1ve
+    "@so1ve/generic-spacing": "error",
 
     // off
     "@typescript-eslint/camelcase": "off",
