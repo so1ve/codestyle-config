@@ -32,7 +32,6 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@so1ve/eslint-config-react": "workspace:*",
     "@so1ve/eslint-config-vue": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
