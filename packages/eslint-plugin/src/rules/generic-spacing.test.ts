@@ -20,6 +20,7 @@ type Foo<
   `interface Log {
   <T>(name: T): void
 }`,
+  "type Fn = <T>(t: T) => void;",
 ];
 const invalids = [
   ["type Foo<T=true> = T", "type Foo<T = true> = T"],
@@ -31,6 +32,7 @@ const invalids = [
 }`, `interface Log {
   foo<T>(name: T): void
 }`],
+  ["type Fn =<T> (t: T) => void", "type Fn = <T>(t: T) => void"],
 ] as const;
 
 it("runs", () => {

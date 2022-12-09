@@ -26,13 +26,26 @@ export default createEslintRule<Options, MessageIds>({
         if (!["TSCallSignatureDeclaration", "ArrowFunctionExpression"].includes(node.parent.type)) {
           const pre = sourceCode.text.slice(0, node.range[0]);
           const preSpace = pre.match(/(\s+)$/)?.[0];
+          const post = sourceCode.text.slice(node.range[1]);
+          const postBracket = post.match(/^(\s*)\(/)?.[0];
           // strip space before <T>
-          if (preSpace && preSpace.length) {
+          // NOTE: don't strip when type Fn = <T>(t: T) => void;
+          if (preSpace && preSpace.length && !postBracket) {
             context.report({
               node,
               messageId: "genericSpacingMismatch",
               *fix (fixer) {
                 yield fixer.replaceTextRange([node.range[0] - preSpace.length, node.range[0]], "");
+              },
+            });
+          }
+          // strip space between <T> and (t: T)
+          if (postBracket && postBracket.length > 1) {
+            context.report({
+              node,
+              messageId: "genericSpacingMismatch",
+              *fix (fixer) {
+                yield fixer.replaceTextRange([node.range[1], node.range[1] + postBracket.length - 1], "");
               },
             });
           }
