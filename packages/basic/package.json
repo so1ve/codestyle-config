@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-basic",
-  "version": "0.32.1",
+  "version": "0.32.2",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "contributors": [
     {
@@ -35,6 +35,7 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
+    "@so1ve/eslint-plugin": "workspace:*",
     "eslint-config-standard": "17.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^7.1.0",
@@ -43,7 +44,6 @@
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-n": "^15.5.0",
     "eslint-plugin-promise": "^6.1.1",
-    "@so1ve/eslint-plugin": "workspace:*",
     "eslint-plugin-unicorn": "^44.0.2",
     "eslint-plugin-yml": "^1.2.0",
     "jsonc-eslint-parser": "^2.1.0",
