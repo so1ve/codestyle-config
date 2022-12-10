@@ -84,7 +84,7 @@ module.exports = {
     "space-before-blocks": "off",
     "@typescript-eslint/space-before-blocks": ["error", "always"],
     "space-before-function-paren": "off",
-    "@typescript-eslint/space-before-function-paren": ["error", "always"],
+    "@typescript-eslint/space-before-function-paren": ["error", "never"],
     "space-infix-ops": "off",
     "@typescript-eslint/space-infix-ops": "error",
     "keyword-spacing": "off",
