@@ -1,21 +1,16 @@
 import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
 import { it } from "vitest";
-import rule, { RULE_NAME } from "./import-dedupe";
+import rule, { RULE_NAME } from "./space-in-empty-block";
 
 const valids = [
-  "import { a } from 'foo'",
+  "function a() {}",
 ];
 const invalids = [
   [
-    "import { a, b, a, a, c, a } from 'foo'",
-    "import { a, b, c } from 'foo'",
-  ],
-  [
-    "import { a, b,   c,  } from 'foo'",
-    "import { a, b, c } from 'foo'",
+    "function a <T> (t: T) { return t; }",
+    "function a<T>(t: T) { return t; }",
   ],
 ];
-
 it("runs", () => {
   const ruleTester: RuleTester = new RuleTester({
     parser: require.resolve("@typescript-eslint/parser"),
@@ -26,7 +21,7 @@ it("runs", () => {
     invalid: invalids.map(i => ({
       code: i[0],
       output: i[1],
-      errors: [{ messageId: "importDedupe" }, { messageId: "importDedupe" }, { messageId: "importDedupe" }],
+      errors: [{ messageId: "spaceInEmptyBlockMismatch" }],
     })),
   });
 });

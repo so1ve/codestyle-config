@@ -23,6 +23,34 @@ export default createEslintRule<Options, MessageIds>({
     const sourceCode = context.getSourceCode();
     return {
       TSTypeParameterDeclaration: (node) => {
+        // e.g type A< T > = 1;
+        // trim space before and after T
+        const params = node.params;
+        for (let i = 0; i < params.length; i++) {
+          const param = params[i];
+          const pre = sourceCode.text.slice(0, param.range[0]);
+          const preSpace = pre.match(/(\s+)$/)?.[0];
+          const post = sourceCode.text.slice(param.range[1]);
+          const postSpace = post.match(/^(\s*)/)?.[0];
+          if (preSpace && preSpace.length) {
+            context.report({
+              node,
+              messageId: "genericSpacingMismatch",
+              *fix(fixer) {
+                yield fixer.replaceTextRange([param.range[0] - preSpace.length, param.range[0]], "");
+              },
+            });
+          }
+          if (postSpace && postSpace.length) {
+            context.report({
+              node,
+              messageId: "genericSpacingMismatch",
+              *fix(fixer) {
+                yield fixer.replaceTextRange([param.range[1], param.range[1] + postSpace.length], "");
+              },
+            });
+          }
+        }
         if (!["TSCallSignatureDeclaration", "ArrowFunctionExpression"].includes(node.parent.type)) {
           const pre = sourceCode.text.slice(0, node.range[0]);
           const preSpace = pre.match(/(\s+)$/)?.[0];
@@ -50,9 +78,7 @@ export default createEslintRule<Options, MessageIds>({
             });
           }
         }
-
         // add space between <T,K>
-        const params = node.params;
         for (let i = 1; i < params.length; i++) {
           const prev = params[i - 1];
           const current = params[i];

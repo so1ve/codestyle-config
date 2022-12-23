@@ -114,6 +114,8 @@ module.exports = {
 
     // so1ve
     "@so1ve/generic-spacing": "error",
+    "@so1ve/space-between-generic-and-paren": "error",
+    "@so1ve/space-in-empty-block": "error",
 
     // off
     "@typescript-eslint/camelcase": "off",

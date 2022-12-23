@@ -34,7 +34,6 @@ const invalids = [
 }`],
   ["type Fn =<T> (t: T) => void", "type Fn = <T>(t: T) => void"],
 ] as const;
-
 it("runs", () => {
   const ruleTester: RuleTester = new RuleTester({
     parser: require.resolve("@typescript-eslint/parser"),
