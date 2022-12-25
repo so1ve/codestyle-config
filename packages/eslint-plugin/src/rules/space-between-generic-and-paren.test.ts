@@ -31,7 +31,7 @@ it("runs", () => {
     invalid: invalids.map(i => ({
       code: i[0],
       output: i[1],
-      errors: [{ messageId: "spaceBetweenGenericAndParenMismatch" }],
+      errors: [{ messageId: "noSpaceBetweenGenericAndParen" }],
     })),
   });
 });

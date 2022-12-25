@@ -1,7 +1,7 @@
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "space-in-empty-block";
-export type MessageIds = "spaceInEmptyBlockMismatch";
+export type MessageIds = "noSpaceInEmptyBlock";
 export type Options = [];
 
 export default createEslintRule<Options, MessageIds>({
@@ -9,13 +9,13 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "suggestion",
     docs: {
-      description: "Spaces in empty block",
+      description: "Disallow spaces in empty block",
       recommended: "error",
     },
     fixable: "code",
     schema: [],
     messages: {
-      spaceInEmptyBlockMismatch: "Space in empty block mismatch",
+      noSpaceInEmptyBlock: "Expected no space in empty block",
     },
   },
   defaultOptions: [],
@@ -40,7 +40,7 @@ export default createEslintRule<Options, MessageIds>({
                 column: node.loc.end.column - 1 + postSpace.length,
               },
             },
-            messageId: "spaceInEmptyBlockMismatch",
+            messageId: "noSpaceInEmptyBlock",
             *fix(fixer) {
               yield fixer.replaceTextRange([node.range[0] + 1, spaceStartRange + postSpace.length], "");
             },
@@ -61,7 +61,7 @@ export default createEslintRule<Options, MessageIds>({
                 column: node.loc.start.column,
               },
             },
-            messageId: "spaceInEmptyBlockMismatch",
+            messageId: "noSpaceInEmptyBlock",
             *fix(fixer) {
               yield fixer.replaceTextRange([spaceEndRange - preSpace.length, spaceEndRange], "");
             },

@@ -1,7 +1,7 @@
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "semi-spacing";
-export type MessageIds = "semiSpacingMismatch";
+export type MessageIds = "noSpaceBeforeSemi";
 export type Options = [];
 
 export default createEslintRule<Options, MessageIds>({
@@ -15,7 +15,7 @@ export default createEslintRule<Options, MessageIds>({
     fixable: "code",
     schema: [],
     messages: {
-      semiSpacingMismatch: "Semi spacing mismatch",
+      noSpaceBeforeSemi: "Expected no space before semicolon",
     },
   },
   defaultOptions: [],
@@ -41,7 +41,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             },
             node,
-            messageId: "semiSpacingMismatch",
+            messageId: "noSpaceBeforeSemi",
             *fix(fixer) {
               yield fixer.removeRange([spaceStart, spaceEnd]);
             },

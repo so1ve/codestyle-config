@@ -21,7 +21,7 @@ it("runs", () => {
     invalid: invalids.map(i => ({
       code: i[0],
       output: i[1],
-      errors: [{ messageId: "spaceInEmptyBlockMismatch" }],
+      errors: [{ messageId: "noSpaceInEmptyBlock" }],
     })),
   });
 });

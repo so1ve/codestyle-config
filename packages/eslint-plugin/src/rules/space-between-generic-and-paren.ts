@@ -1,7 +1,7 @@
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "space-between-generic-and-paren";
-export type MessageIds = "spaceBetweenGenericAndParenMismatch";
+export type MessageIds = "noSpaceBetweenGenericAndParen";
 export type Options = [];
 
 export default createEslintRule<Options, MessageIds>({
@@ -15,7 +15,7 @@ export default createEslintRule<Options, MessageIds>({
     fixable: "code",
     schema: [],
     messages: {
-      spaceBetweenGenericAndParenMismatch: "Space between generic and paren mismatch",
+      noSpaceBetweenGenericAndParen: "Expected no space between generic type parameters and paren",
     },
   },
   defaultOptions: [],
@@ -53,7 +53,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             },
             node,
-            messageId: "spaceBetweenGenericAndParenMismatch",
+            messageId: "noSpaceBetweenGenericAndParen",
             *fix(fixer) {
               yield fixer.replaceTextRange([spaceStartRange, spaceStartRange + postSpace.length], "");
             },
@@ -76,7 +76,7 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               node,
-              messageId: "spaceBetweenGenericAndParenMismatch",
+              messageId: "noSpaceBetweenGenericAndParen",
               *fix(fixer) {
                 yield fixer.replaceTextRange([spaceEndRange - preSpace.length, spaceEndRange], "");
               },
