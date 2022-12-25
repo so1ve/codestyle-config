@@ -21,6 +21,7 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     const sourceCode = context.getSourceCode();
+    const text = sourceCode.text;
     // e.g const a = <T>(t: T) => t; is correct
     // e.g const a = <T> (t: T) => t; is incorrect
     // e.g function a<T>(t: T) { return t; } is correct
@@ -28,9 +29,13 @@ export default createEslintRule<Options, MessageIds>({
     return {
       TSTypeParameter: (node) => {
         const spaceStartRange = node.range[1] + 1;
-        const post = sourceCode.text.slice(spaceStartRange);
+        const post = text.slice(spaceStartRange);
         const postSpace = post.match(/^(\s*)/)?.[0];
-        if (postSpace && postSpace.length) {
+        const postEqual = post.slice(postSpace.length)
+          .match(/^(=)/)?.[0];
+        const postComma = text.slice(node.range[1])
+          .match(/^(,)/)?.[0];
+        if (postSpace && postSpace.length && !postEqual && !postComma) {
           context.report({
             loc: {
               start: {
@@ -42,6 +47,7 @@ export default createEslintRule<Options, MessageIds>({
                 column: node.loc.end.column + 1 + postSpace.length,
               },
             },
+            node,
             messageId: "spaceBetweenGenericAndParenMismatch",
             *fix(fixer) {
               yield fixer.replaceTextRange([spaceStartRange, spaceStartRange + postSpace.length], "");
@@ -64,6 +70,7 @@ export default createEslintRule<Options, MessageIds>({
                   column: node.loc.start.column - 1,
                 },
               },
+              node,
               messageId: "spaceBetweenGenericAndParenMismatch",
               *fix(fixer) {
                 yield fixer.replaceTextRange([spaceEndRange - preSpace.length, spaceEndRange], "");

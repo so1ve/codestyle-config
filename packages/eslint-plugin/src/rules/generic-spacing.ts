@@ -30,11 +30,22 @@ export default createEslintRule<Options, MessageIds>({
           const param = params[i];
           const pre = sourceCode.text.slice(0, param.range[0]);
           const preSpace = pre.match(/(\s+)$/)?.[0];
+          const preComma = pre.match(/(,)\s+$/)?.[0];
           const post = sourceCode.text.slice(param.range[1]);
           const postSpace = post.match(/^(\s*)/)?.[0];
-          if (preSpace && preSpace.length) {
+          if (preSpace && preSpace.length && !preComma) {
             context.report({
               node,
+              loc: {
+                start: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column - 1 - preSpace.length,
+                },
+                end: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column - 1,
+                },
+              },
               messageId: "genericSpacingMismatch",
               *fix(fixer) {
                 yield fixer.replaceTextRange([param.range[0] - preSpace.length, param.range[0]], "");
@@ -43,6 +54,16 @@ export default createEslintRule<Options, MessageIds>({
           }
           if (postSpace && postSpace.length) {
             context.report({
+              loc: {
+                start: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column,
+                },
+                end: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column + postSpace.length,
+                },
+              },
               node,
               messageId: "genericSpacingMismatch",
               *fix(fixer) {
@@ -106,18 +127,47 @@ export default createEslintRule<Options, MessageIds>({
         const endNode = node.constraint || node.name;
         const from = endNode.range[1];
         const to = node.default.range[0];
-        if (sourceCode.text.slice(from, to) !== " = ") {
-          context.report({
-            *fix(fixer) {
-              yield fixer.replaceTextRange([from, to], " = ");
-            },
-            loc: {
-              start: endNode.loc.end,
-              end: node.default.loc.start,
-            },
-            messageId: "genericSpacingMismatch",
-            node,
-          });
+        const spaceAndEqual = sourceCode.text.slice(from, to);
+        if (spaceAndEqual !== " = ") {
+          const preSpace = spaceAndEqual.match(/^(\s*)/)?.[0];
+          const postSpace = spaceAndEqual.match(/(\s*)$/)?.[0];
+          if (preSpace.length !== 1) {
+            context.report({
+              *fix(fixer) {
+                yield fixer.replaceTextRange([from, from + preSpace.length], " ");
+              },
+              loc: {
+                start: {
+                  line: node.loc.start.line,
+                  column: node.loc.start.column + 1,
+                },
+                end: {
+                  line: node.loc.end.line,
+                  column: node.loc.end.column - 2 - postSpace.length,
+                },
+              },
+              node,
+              messageId: "genericSpacingMismatch",
+            });
+          }
+          if (postSpace.length !== 1) {
+            context.report({
+              *fix(fixer) {
+                yield fixer.replaceTextRange([to - postSpace.length, to], " ");
+              },
+              loc: {
+                start: {
+                  line: node.loc.start.line,
+                  column: node.loc.start.column + 2 + preSpace.length,
+                },
+                end: {
+                  line: node.loc.end.line,
+                  column: node.loc.end.column - 1,
+                },
+              },
+              messageId: "genericSpacingMismatch",
+            });
+          }
         }
       },
     };

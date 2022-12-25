@@ -45,8 +45,6 @@ export default createEslintRule<Options, MessageIds>({
           }
           names.add(id);
         });
-
-        // console.log(node)
       },
     };
   },

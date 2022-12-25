@@ -34,18 +34,15 @@ export default createEslintRule<Options, MessageIds>({
         if (postSpace && postSpace.length) {
           context.report({
             loc: {
-              start: {
-                line: node.loc.end.line,
-                column: node.loc.end.column - 2,
-              },
+              start: node.loc.start,
               end: {
                 line: node.loc.end.line,
-                column: node.loc.end.column - 2 + postSpace.length,
+                column: node.loc.end.column - 1 + postSpace.length,
               },
             },
             messageId: "spaceInEmptyBlockMismatch",
             *fix(fixer) {
-              yield fixer.replaceTextRange([spaceStartRange, spaceStartRange + postSpace.length], "");
+              yield fixer.replaceTextRange([node.range[0] + 1, spaceStartRange + postSpace.length], "");
             },
           });
         }
