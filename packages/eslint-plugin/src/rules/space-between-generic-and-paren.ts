@@ -35,7 +35,10 @@ export default createEslintRule<Options, MessageIds>({
           .match(/^(=)/)?.[0];
         const postComma = text.slice(node.range[1])
           .match(/^(,)/)?.[0];
-        if (postSpace && postSpace.length && !postEqual && !postComma) {
+        // Edge case: type GetTail<T extends any[]> = T extends [infer _Head, ...infer Tail] ? Tail : never;
+        const postQuestionMark = text.slice(spaceStartRange + postSpace.length)
+          .match(/^(\?)/)?.[0];
+        if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark) {
           context.report({
             loc: {
               start: {
