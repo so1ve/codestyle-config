@@ -22,7 +22,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/*",
-    "test": "pnpm run -r --filter=./packages/* test"
+    "test": "pnpm run -r --filter=./packages/* test",
+    "stub": "pnpm run -r --filter=./packages/eslint-plugin stub"
   },
   "devDependencies": {
     "@so1ve/eslint-config": "*",

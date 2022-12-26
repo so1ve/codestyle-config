@@ -20,15 +20,7 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: [],
   create: (context) => {
-    // e.g import type { a } from "a" is correct
-    // e.g import { type a } from "a" is incorrect
-    // e.g import { type a, b } from "a" is incorrect
-    // e.g import { a, type b } from "a" is incorrect
-    // e.g import { a } from "a" is correct
-    // Do not remove the import directly
-    // e.g import { type a, b } from "a" fix to:
-    // import { b } from "a"
-    // import type { a } from "a"
+    const sourceCode = context.getSourceCode();
     return {
       ImportDeclaration: (node) => {
         const specifiers = node.specifiers;
@@ -39,10 +31,18 @@ export default createEslintRule<Options, MessageIds>({
             loc: node.loc,
             messageId: "noInlineTypeImport",
             *fix(fixer) {
-              const sourceCode = context.getSourceCode();
               const typeSpecifiersText = typeSpecifiers.map(s => sourceCode.getText(s).replace("type ", "")).join(", ");
               const valueSpecifiersText = valueSpecifiers.map(s => sourceCode.getText(s)).join(", ");
               yield fixer.replaceText(node, `import type { ${typeSpecifiersText} } from "${node.source.value}";\nimport { ${valueSpecifiersText} } from "${node.source.value}";`);
+            },
+          });
+        } else if (typeSpecifiers.length) {
+          context.report({
+            loc: node.loc,
+            messageId: "noInlineTypeImport",
+            *fix(fixer) {
+              const typeSpecifiersText = typeSpecifiers.map(s => sourceCode.getText(s).replace("type ", "")).join(", ");
+              yield fixer.replaceText(node, `import type { ${typeSpecifiersText} } from "${node.source.value}";`);
             },
           });
         }
