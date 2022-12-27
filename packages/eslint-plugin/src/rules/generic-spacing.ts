@@ -170,6 +170,7 @@ export default createEslintRule<Options, MessageIds>({
           }
         }
       },
+      // type T = Generic< any >
       TSTypeParameterInstantiation: (node) => {
         const params = node.params;
         for (let i = 0; i < params.length; i++) {
@@ -217,6 +218,37 @@ export default createEslintRule<Options, MessageIds>({
               },
             });
           }
+        }
+      },
+      // Add spaces before extends
+      // interface a {}
+      // interface A<B extends 1>extends a {}
+      // Fix to: interface A<B extends 1> extends a {}
+      TSInterfaceDeclaration: (node) => {
+        if (!node.extends || !node.typeParameters) { return; }
+        const text = sourceCode.getText();
+        const { typeParameters } = node;
+        const extendsKeywordStart = typeParameters.range[1];
+        const extendsKeywordEnd = node.extends[0].range[0];
+        const extendsText = text.slice(extendsKeywordStart, extendsKeywordEnd);
+        if (!/^\s+/.test(extendsText)) {
+          context.report({
+            loc: {
+              start: {
+                line: typeParameters.loc.end.line,
+                column: typeParameters.loc.end.column,
+              },
+              end: {
+                line: typeParameters.loc.end.line,
+                column: typeParameters.loc.end.column + 7,
+              },
+            },
+            node,
+            messageId: "genericSpacingMismatch",
+            *fix(fixer) {
+              yield fixer.replaceTextRange([extendsKeywordStart, extendsKeywordEnd - 8], " ");
+            },
+          });
         }
       },
     };
