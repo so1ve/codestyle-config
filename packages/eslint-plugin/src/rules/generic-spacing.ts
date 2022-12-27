@@ -38,12 +38,12 @@ export default createEslintRule<Options, MessageIds>({
               node,
               loc: {
                 start: {
-                  line: param.loc.end.line,
-                  column: param.loc.end.column - 1 - preSpace.length,
+                  line: param.loc.start.line,
+                  column: param.loc.start.column + 1 - preSpace.length,
                 },
                 end: {
-                  line: param.loc.end.line,
-                  column: param.loc.end.column - 1,
+                  line: param.loc.start.line,
+                  column: param.loc.start.column - 1,
                 },
               },
               messageId: "genericSpacingMismatch",
@@ -166,6 +166,55 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
+            });
+          }
+        }
+      },
+      TSTypeParameterInstantiation: (node) => {
+        const params = node.params;
+        for (let i = 0; i < params.length; i++) {
+          const param = params[i];
+          const pre = sourceCode.text.slice(0, param.range[0]);
+          const preSpace = pre.match(/(\s+)$/)?.[0];
+          const preComma = pre.match(/(,)\s+$/)?.[0];
+          const post = sourceCode.text.slice(param.range[1]);
+          const postSpace = post.match(/^(\s*)/)?.[0];
+          if (preSpace && preSpace.length && !preComma) {
+            context.report({
+              node,
+              loc: {
+                start: {
+                  line: param.loc.start.line,
+                  column: param.loc.start.column + 1 - preSpace.length,
+                },
+                end: {
+                  line: param.loc.start.line,
+                  column: param.loc.start.column - 1,
+                },
+              },
+              messageId: "genericSpacingMismatch",
+              *fix(fixer) {
+                yield fixer.replaceTextRange([param.range[0] - preSpace.length, param.range[0]], "");
+              },
+            });
+          }
+          if (postSpace && postSpace.length) {
+            context.report({
+              loc: {
+                start: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column,
+                },
+                end: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column + postSpace.length,
+                },
+              },
+              node,
+              messageId: "genericSpacingMismatch",
+              *fix(fixer) {
+                yield fixer.replaceTextRange([param.range[1], param.range[1] + postSpace.length], "");
+              },
             });
           }
         }
