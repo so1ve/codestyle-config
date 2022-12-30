@@ -7,12 +7,12 @@ export type Options = [];
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
   meta: {
-    type: "suggestion",
+    type: "layout",
     docs: {
       description: "Spaces around generic type parameters",
       recommended: "error",
     },
-    fixable: "code",
+    fixable: "whitespace",
     schema: [],
     messages: {
       genericSpacingMismatch: "Generic spaces mismatch",
@@ -21,6 +21,7 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     const sourceCode = context.getSourceCode();
+    const text = sourceCode.getText();
     return {
       TSTypeParameterDeclaration: (node) => {
         // e.g type A< T > = 1;
@@ -226,7 +227,6 @@ export default createEslintRule<Options, MessageIds>({
       // Fix to: interface A<B extends 1> extends a {}
       TSInterfaceDeclaration: (node) => {
         if (!node.extends || !node.typeParameters) { return; }
-        const text = sourceCode.getText();
         const { typeParameters } = node;
         const extendsKeywordStart = typeParameters.range[1];
         const extendsKeywordEnd = node.extends[0].range[0];

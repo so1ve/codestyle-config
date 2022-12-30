@@ -7,12 +7,12 @@ export type Options = [];
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
   meta: {
-    type: "suggestion",
+    type: "layout",
     docs: {
       description: "Semicolon spacing",
       recommended: "error",
     },
-    fixable: "code",
+    fixable: "whitespace",
     schema: [],
     messages: {
       noSpaceBeforeSemi: "Expected no space before semicolon",

@@ -7,12 +7,12 @@ export type Options = [];
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
   meta: {
-    type: "suggestion",
+    type: "layout",
     docs: {
       description: "Disallow spaces in empty block",
       recommended: "error",
     },
-    fixable: "code",
+    fixable: "whitespace",
     schema: [],
     messages: {
       noSpaceInEmptyBlock: "Expected no space in empty block",

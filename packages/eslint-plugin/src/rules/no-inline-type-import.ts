@@ -7,7 +7,7 @@ export type Options = [];
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
   meta: {
-    type: "suggestion",
+    type: "layout",
     docs: {
       description: "Disallow inline type import",
       recommended: "error",
