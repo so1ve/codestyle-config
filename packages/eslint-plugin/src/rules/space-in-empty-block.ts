@@ -25,7 +25,7 @@ export default createEslintRule<Options, MessageIds>({
     // e.g function a() { } is incorrect
     return {
       BlockStatement: (node) => {
-        if (node.body.length) {
+        if (node.body.length || sourceCode.getCommentsInside(node).length) {
           return;
         }
         const spaceStartRange = node.range[1] - 2;
