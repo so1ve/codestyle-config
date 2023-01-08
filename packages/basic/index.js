@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require("eslint-define-config");
+
+module.exports = defineConfig({
   env: {
     es6: true,
     browser: true,
@@ -334,4 +337,4 @@ module.exports = {
     // so1ve
     "@so1ve/import-dedupe": "error",
   },
-};
+});

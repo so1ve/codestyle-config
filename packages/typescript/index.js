@@ -1,6 +1,8 @@
+// @ts-check
+const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
 
-module.exports = {
+module.exports = defineConfig({
   extends: [
     "@so1ve/eslint-config-basic",
     "plugin:import/typescript",
@@ -133,4 +135,4 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-namespace": "off",
   },
-};
+});

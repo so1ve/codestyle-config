@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require("eslint-define-config");
+
+module.exports = defineConfig({
   extends: [
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
@@ -51,4 +54,4 @@ module.exports = {
       html: true,
     }],
   },
-};
+});

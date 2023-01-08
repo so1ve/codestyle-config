@@ -23,6 +23,7 @@ importers:
       '@typescript-eslint/parser': ^5.48.0
       eslint: ^8.31.0
       eslint-config-standard: 17.0.0
+      eslint-define-config: ^1.13.0
       eslint-plugin-eslint-comments: ^3.2.0
       eslint-plugin-html: ^7.1.0
       eslint-plugin-import: ^2.26.0
@@ -39,6 +40,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.0_m2kn7xiag5lymyarkgri27ztxm
       '@typescript-eslint/parser': 5.48.0_eslint@8.31.0
       eslint-config-standard: 17.0.0_bnqb5qzb3pd2ps6dat4mcipgfi
+      eslint-define-config: 1.13.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.31.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_m2kn7xiag5lymyarkgri27ztxm
@@ -58,6 +60,7 @@ importers:
       '@so1ve/eslint-plugin': workspace:*
       eslint: ^8.31.0
       eslint-config-standard: 17.0.0
+      eslint-define-config: ^1.13.0
       eslint-plugin-eslint-comments: ^3.2.0
       eslint-plugin-html: ^7.1.0
       eslint-plugin-import: ^2.26.0
@@ -72,6 +75,7 @@ importers:
     dependencies:
       '@so1ve/eslint-plugin': link:../eslint-plugin
       eslint-config-standard: 17.0.0_bnqb5qzb3pd2ps6dat4mcipgfi
+      eslint-define-config: 1.13.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.31.0
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_eslint@8.31.0
@@ -90,10 +94,12 @@ importers:
     specifiers:
       '@types/node': ^18.11.18
       '@typescript-eslint/utils': ^5.48.0
+      eslint-define-config: ^1.13.0
       unbuild: ^1.0.2
       vitest: ^0.26.3
     dependencies:
       '@typescript-eslint/utils': 5.48.0
+      eslint-define-config: 1.13.0
     devDependencies:
       '@types/node': 18.11.18
       unbuild: 1.0.2
@@ -103,12 +109,14 @@ importers:
     specifiers:
       '@so1ve/eslint-config-ts': workspace:*
       eslint: ^8.31.0
+      eslint-define-config: ^1.13.0
       eslint-plugin-react: ^7.31.11
       eslint-plugin-react-hooks: ^4.6.0
       react: ^18.2.0
       typescript: ^4.9.4
     dependencies:
       '@so1ve/eslint-config-ts': link:../typescript
+      eslint-define-config: 1.13.0
       eslint-plugin-react: 7.31.11_eslint@8.31.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.31.0
     devDependencies:
@@ -120,9 +128,11 @@ importers:
     specifiers:
       '@so1ve/eslint-config-ts': workspace:*
       eslint: ^8.31.0
+      eslint-define-config: ^1.13.0
       eslint-plugin-svelte3: ^4.0.0
     dependencies:
       '@so1ve/eslint-config-ts': link:../typescript
+      eslint-define-config: 1.13.0
       eslint-plugin-svelte3: 4.0.0_eslint@8.31.0
     devDependencies:
       eslint: 8.31.0
@@ -134,11 +144,13 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.48.0
       '@typescript-eslint/parser': ^5.48.0
       eslint: ^8.31.0
+      eslint-define-config: ^1.13.0
     dependencies:
       '@so1ve/eslint-config-basic': link:../basic
       '@so1ve/eslint-plugin': link:../eslint-plugin
       '@typescript-eslint/eslint-plugin': 5.48.0_m2kn7xiag5lymyarkgri27ztxm
       '@typescript-eslint/parser': 5.48.0_eslint@8.31.0
+      eslint-define-config: 1.13.0
     devDependencies:
       eslint: 8.31.0
 
@@ -146,9 +158,11 @@ importers:
     specifiers:
       '@so1ve/eslint-config-ts': workspace:*
       eslint: ^8.31.0
+      eslint-define-config: ^1.13.0
       eslint-plugin-vue: ^9.8.0
     dependencies:
       '@so1ve/eslint-config-ts': link:../typescript
+      eslint-define-config: 1.13.0
       eslint-plugin-vue: 9.8.0_eslint@8.31.0
     devDependencies:
       eslint: 8.31.0
@@ -1564,9 +1578,14 @@ packages:
       eslint-plugin-promise: ^6.0.0
     dependencies:
       eslint: 8.31.0
-      eslint-plugin-import: 2.26.0_m2kn7xiag5lymyarkgri27ztxm
+      eslint-plugin-import: 2.26.0_eslint@8.31.0
       eslint-plugin-n: 15.6.0_eslint@8.31.0
       eslint-plugin-promise: 6.1.1_eslint@8.31.0
+    dev: false
+
+  /eslint-define-config/1.13.0:
+    resolution: {integrity: sha512-d0BfmPGBcMusfiz6QY/piAhWaEyJriJtvk9SHfuJzI7am9k4ce07SfmPkpcR0ckXNyu4FBons10akOO2Tx+X+Q==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13', pnpm: '>= 7.0.0'}
     dev: false
 
   /eslint-import-resolver-node/0.3.6:
