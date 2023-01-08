@@ -34,7 +34,31 @@ export default createEslintRule<Options, MessageIds>({
           const preComma = pre.match(/(,)\s+$/)?.[0];
           const post = sourceCode.text.slice(param.range[1]);
           const postSpace = post.match(/^(\s*)/)?.[0];
-          if (preSpace && preSpace.length && !preComma) {
+          const expectedIndent = node.parent.loc.start.column + 2;
+          if (
+            param.loc.start.column !== expectedIndent
+            && param.loc.start.line !== node.parent.loc.start.line
+          ) {
+            context.report({
+              node,
+              loc: {
+                start: {
+                  line: param.loc.start.line,
+                  column: 0,
+                },
+                end: {
+                  line: param.loc.start.line,
+                  column: param.loc.start.column - 1,
+                },
+              },
+              messageId: "genericSpacingMismatch",
+              *fix(fixer) {
+                // 2 - \n\r
+                yield fixer.replaceTextRange([param.range[0] + 2 - preSpace.length, param.range[0]], " ".repeat(node.parent.loc.start.column + 2));
+              },
+            });
+          }
+          if (preSpace && preSpace.length && !preComma && param.loc.start.line === node.loc.start.line) {
             context.report({
               node,
               loc: {
@@ -49,11 +73,11 @@ export default createEslintRule<Options, MessageIds>({
               },
               messageId: "genericSpacingMismatch",
               *fix(fixer) {
-                yield fixer.replaceTextRange([param.range[0] - preSpace.length, param.range[0]], "");
+                yield fixer.removeRange([param.range[0] - preSpace.length, param.range[0]]);
               },
             });
           }
-          if (postSpace && postSpace.length) {
+          if (postSpace && postSpace.length && param.loc.end.line === node.loc.end.line) {
             context.report({
               loc: {
                 start: {
@@ -85,7 +109,7 @@ export default createEslintRule<Options, MessageIds>({
               node,
               messageId: "genericSpacingMismatch",
               *fix(fixer) {
-                yield fixer.replaceTextRange([node.range[0] - preSpace.length, node.range[0]], "");
+                yield fixer.removeRange([node.range[0] - preSpace.length, node.range[0]]);
               },
             });
           }
@@ -95,7 +119,7 @@ export default createEslintRule<Options, MessageIds>({
               node,
               messageId: "genericSpacingMismatch",
               *fix(fixer) {
-                yield fixer.replaceTextRange([node.range[1], node.range[1] + postBracket.length - 1], "");
+                yield fixer.removeRange([node.range[1], node.range[1] + postBracket.length - 1]);
               },
             });
           }
