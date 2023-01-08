@@ -36,9 +36,9 @@ module.exports = defineConfig({
     "!.vscode",
   ],
   plugins: [
-    "html",
     "@so1ve",
     "unicorn",
+    "@html-eslint",
   ],
   settings: {
     "import/resolver": {
@@ -46,6 +46,15 @@ module.exports = defineConfig({
     },
   },
   overrides: [
+    {
+      files: ["*.html"],
+      parser: "@html-eslint/parser",
+      extends: ["plugin:@html-eslint/recommended"],
+      rules: {
+        "@html-eslint/no-multiple-empty-lines": ["error", { max: 1 }],
+        "@html-eslint/no-trailing-spaces": "error",
+      },
+    },
     {
       files: ["*.json", "*.json5"],
       parser: "jsonc-eslint-parser",

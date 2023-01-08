@@ -57,12 +57,13 @@ importers:
 
   packages/basic:
     specifiers:
+      '@html-eslint/eslint-plugin': ^0.15.0
+      '@html-eslint/parser': ^0.15.0
       '@so1ve/eslint-plugin': workspace:*
       eslint: ^8.31.0
       eslint-config-standard: 17.0.0
       eslint-define-config: ^1.13.0
       eslint-plugin-eslint-comments: ^3.2.0
-      eslint-plugin-html: ^7.1.0
       eslint-plugin-import: ^2.26.0
       eslint-plugin-jsonc: ^2.6.0
       eslint-plugin-markdown: ^3.0.0
@@ -73,11 +74,12 @@ importers:
       jsonc-eslint-parser: ^2.1.0
       yaml-eslint-parser: ^1.1.0
     dependencies:
+      '@html-eslint/eslint-plugin': 0.15.0
+      '@html-eslint/parser': 0.15.0
       '@so1ve/eslint-plugin': link:../eslint-plugin
       eslint-config-standard: 17.0.0_bnqb5qzb3pd2ps6dat4mcipgfi
       eslint-define-config: 1.13.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.31.0
-      eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.26.0_eslint@8.31.0
       eslint-plugin-jsonc: 2.6.0_eslint@8.31.0
       eslint-plugin-markdown: 3.0.0_eslint@8.31.0
@@ -416,6 +418,18 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  /@html-eslint/eslint-plugin/0.15.0:
+    resolution: {integrity: sha512-6DUb2ZN1PUlzlNzNj4aBhoObBp3Kl/+YbZ6CnkgFAsQSW0tSFAu7p8WwESkz9RZLZZN9gCUlcaYKJnQjTkmnDA==}
+    engines: {node: '>=8.10.0'}
+    dev: false
+
+  /@html-eslint/parser/0.15.0:
+    resolution: {integrity: sha512-fA+HQtWnODhOIK6j1p4XWqltINx7hM0WNNTM2RvlH/2glzeRDCcYq3vEmeQhnytvGocidu4ofTzNk80cLnnyiw==}
+    engines: {node: '>=8.10.0'}
+    dependencies:
+      es-html-parser: 0.0.8
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -1320,6 +1334,10 @@ packages:
       typed-array-length: 1.0.4
       unbox-primitive: 1.0.2
       which-typed-array: 1.1.9
+    dev: false
+
+  /es-html-parser/0.0.8:
+    resolution: {integrity: sha512-kjMH23xhvTBw/7Ve1Dtb/7yZdFajfvwOpdsgRHmnyt8yvTsDJnkFjUgEEaMZFW+e1OhN/eoZrvF9wehq+waTGg==}
     dev: false
 
   /es-set-tostringtag/2.0.1:
