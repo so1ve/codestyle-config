@@ -18,7 +18,6 @@ module.exports = {
     "@so1ve/eslint-config-ts",
   ],
   rules: {
-    "vue/max-attributes-per-line": "off",
     "vue/no-v-html": "off",
     "vue/require-prop-types": "off",
     "vue/require-default-prop": "off",
@@ -50,6 +49,7 @@ module.exports = {
     "vue/no-v-text-v-html-on-component": "error",
     "vue/padding-line-between-blocks": ["error", "always"],
     "vue/prefer-separate-static-class": "error",
+    "vue/max-attributes-per-line": ["error", { singleline: 3 }],
 
     // extensions
     "vue/array-bracket-spacing": ["error", "never"],
