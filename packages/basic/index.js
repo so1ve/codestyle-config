@@ -20,6 +20,7 @@ module.exports = {
     "dist",
     "LICENSE*",
     "output",
+    "out",
     "coverage",
     "public",
     "temp",
@@ -150,6 +151,12 @@ module.exports = {
       },
     },
     {
+      files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
+      rules: {
+        'no-void': ['error', { allowAsStatement: true }],
+      },
+    },
+    {
       files: ["scripts/**/*.*", "cli.*"],
       rules: {
         "no-console": "off",
@@ -272,7 +279,6 @@ module.exports = {
     "no-multi-spaces": "error",
     "no-multi-str": "error",
     "no-with": "error",
-    "no-void": "error",
     "no-useless-escape": "off",
     "vars-on-top": "error",
     "require-await": "off",

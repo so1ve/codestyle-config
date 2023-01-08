@@ -39,10 +39,10 @@
   "dependencies": {
     "@so1ve/eslint-config-basic": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0"
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0"
   },
   "devDependencies": {
-    "eslint": "^8.26.0"
+    "eslint": "^8.31.0"
   }
 }
