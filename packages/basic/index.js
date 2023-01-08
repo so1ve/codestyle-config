@@ -151,9 +151,9 @@ module.exports = {
       },
     },
     {
-      files: ['*.ts', '*.tsx', '*.mts', '*.cts'],
+      files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
       rules: {
-        'no-void': ['error', { allowAsStatement: true }],
+        "no-void": ["error", { allowAsStatement: true }],
       },
     },
     {
