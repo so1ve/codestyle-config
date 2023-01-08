@@ -246,6 +246,7 @@ module.exports = {
     "prefer-spread": "error",
     "prefer-template": "error",
     "template-curly-spacing": "error",
+    "space-before-function-paren": ["error", "always"],
     "arrow-parens": ["error", "as-needed", { requireForBlockBody: true }],
     "generator-star-spacing": "off",
     "spaced-comment": ["error", "always", {

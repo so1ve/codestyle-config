@@ -14,7 +14,7 @@ module.exports = {
     },
   ],
   extends: [
-    "plugin:vue/vue3-recommended",
+    "./eslint-plugin-vue/recommended",
     "@so1ve/eslint-config-ts",
   ],
   rules: {
@@ -34,7 +34,8 @@ module.exports = {
       singleline: "always",
       multiline: "always",
     }],
-    "vue/component-name-in-template-casing": ["error", "PascalCase"],
+    "vue/component-api-style": ["error", ["script-setup", "composition"]],
+    "vue/component-name-in-template-casing": ["error", "PascalCase", { registeredComponentsOnly: false }],
     "vue/component-options-name-casing": ["error", "PascalCase"],
     "vue/custom-event-name-casing": ["error", "camelCase"],
     "vue/define-macros-order": ["error", {
