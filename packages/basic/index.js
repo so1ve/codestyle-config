@@ -203,7 +203,7 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
     "no-constant-condition": "error",
     "no-debugger": "error",
-    "no-console": ["error", { allow: ["error", "warn"] }],
+    "no-console": ["error", { allow: ["error", "warn", "table", "time"] }],
     "no-cond-assign": ["error", "always"],
     "func-call-spacing": ["off", "never"],
     "key-spacing": ["error", { beforeColon: false, afterColon: true }],
