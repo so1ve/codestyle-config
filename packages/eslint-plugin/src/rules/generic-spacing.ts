@@ -34,30 +34,6 @@ export default createEslintRule<Options, MessageIds>({
           const preComma = pre.match(/(,)\s+$/)?.[0];
           const post = sourceCode.text.slice(param.range[1]);
           const postSpace = post.match(/^(\s*)/)?.[0];
-          const expectedIndent = node.parent.loc.start.column + 2;
-          if (
-            param.loc.start.column !== expectedIndent
-            && param.loc.start.line !== node.parent.loc.start.line
-          ) {
-            context.report({
-              node,
-              loc: {
-                start: {
-                  line: param.loc.start.line,
-                  column: 0,
-                },
-                end: {
-                  line: param.loc.start.line,
-                  column: param.loc.start.column - 1,
-                },
-              },
-              messageId: "genericSpacingMismatch",
-              *fix(fixer) {
-                // 2 - \n\r
-                yield fixer.replaceTextRange([param.range[0] + 2 - preSpace.length, param.range[0]], " ".repeat(node.parent.loc.start.column + 2));
-              },
-            });
-          }
           if (preSpace && preSpace.length && !preComma && param.loc.start.line === node.loc.start.line) {
             context.report({
               node,
@@ -205,7 +181,7 @@ export default createEslintRule<Options, MessageIds>({
           const preComma = pre.match(/(,)\s+$/)?.[0];
           const post = sourceCode.text.slice(param.range[1]);
           const postSpace = post.match(/^(\s*)/)?.[0];
-          if (preSpace && preSpace.length && !preComma) {
+          if (preSpace && preSpace.length && !preComma && param.loc.start.line === node.loc.start.line) {
             context.report({
               node,
               loc: {
@@ -224,7 +200,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             });
           }
-          if (postSpace && postSpace.length) {
+          if (postSpace && postSpace.length && param.loc.end.line === node.loc.end.line) {
             context.report({
               loc: {
                 start: {
