@@ -35,6 +35,7 @@ module.exports = defineConfig({
     "vue/block-tag-newline": ["error", {
       singleline: "always",
       multiline: "always",
+      maxEmptyLines: 0,
     }],
     "vue/component-api-style": ["error", ["script-setup", "composition"]],
     "vue/component-name-in-template-casing": ["error", "PascalCase", { registeredComponentsOnly: false }],
@@ -43,16 +44,14 @@ module.exports = defineConfig({
     "vue/define-macros-order": ["error", {
       order: ["defineProps", "defineEmits"],
     }],
-    "vue/html-comment-content-spacing": ["error", "always", {
-      exceptions: ["-"],
-    }],
+    "vue/html-comment-content-spacing": ["error", "always", { exceptions: ["-"] }],
     "vue/html-quotes": ["error", "double"],
     "vue/no-restricted-v-bind": ["error", "/^v-/"],
-    "vue/no-useless-v-bind": "error",
+    "vue/no-useless-v-bind": ["error", { ignoreIncludesComment: true },
+    ],
     "vue/no-v-text-v-html-on-component": "error",
     "vue/padding-line-between-blocks": ["error", "always"],
     "vue/prefer-separate-static-class": "error",
-    "vue/max-attributes-per-line": ["error", { singleline: 3 }],
 
     // extensions
     "vue/array-bracket-spacing": ["error", "never"],
@@ -70,7 +69,7 @@ module.exports = defineConfig({
     "vue/keyword-spacing": ["error", { before: true, after: true }],
     "vue/no-constant-condition": "error",
     "vue/no-empty-pattern": "error",
-    "vue/no-extra-parens": ["error", "functions"],
+    "vue/no-extra-parens": "error",
     "vue/no-irregular-whitespace": "error",
     "vue/no-loss-of-precision": "error",
     "vue/no-restricted-syntax": [
@@ -83,14 +82,7 @@ module.exports = defineConfig({
     "vue/object-curly-newline": ["error", { multiline: true, consistent: true }],
     "vue/object-curly-spacing": ["error", "always"],
     "vue/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
-    "vue/object-shorthand": [
-      "error",
-      "always",
-      {
-        ignoreConstructors: false,
-        avoidQuotes: true,
-      },
-    ],
+    "vue/object-shorthand": ["error", "always", { ignoreConstructors: false, avoidQuotes: true }],
     "vue/operator-linebreak": ["error", "before"],
     "vue/prefer-template": "error",
     "vue/quote-props": ["error", "consistent-as-needed"],
@@ -98,5 +90,64 @@ module.exports = defineConfig({
     "vue/space-infix-ops": "error",
     "vue/space-unary-ops": ["error", { words: true, nonwords: false }],
     "vue/template-curly-spacing": "error",
+    "vue/static-class-names-order": "error",
+    "vue/block-lang": [
+      "error",
+      {
+        script: {
+          lang: [
+            "js",
+            "ts",
+          ],
+        },
+        template: {
+          lang: [
+            "html",
+            "jade",
+            "pug",
+            "ejs",
+          ],
+        },
+        style: {
+          lang: [
+            "css",
+            "sass",
+            "scss",
+            "less",
+            "stylus",
+            "postcss",
+          ],
+        },
+      },
+    ],
+    "vue/no-static-inline-styles": ["error", { allowBinding: true }],
+    "vue/max-attributes-per-line": ["error", { singleline: 3, multiline: 1 }],
+    "vue/no-unused-refs": "error",
+    "vue/no-template-target-blank": "error",
+    "vue/camelcase": "error",
+    "vue/v-for-delimiter-style": ["error", "in"],
+    "vue/attributes-order": [
+      "error",
+      {
+        order: [
+          "DEFINITION",
+          "LIST_RENDERING",
+          "CONDITIONALS",
+          "RENDER_MODIFIERS",
+          "TWO_WAY_BINDING",
+          "OTHER_DIRECTIVES",
+          ["UNIQUE", "SLOT"],
+          "GLOBAL",
+          "OTHER_ATTR",
+          "EVENTS",
+          "CONTENT",
+        ],
+        alphabetical: true,
+      },
+    ],
+    "vue/prefer-true-attribute-shorthand": "error",
+    "vue/html-comment-content-newline": ["error", { singleline: "ignore", multiline: "always" }],
+    "vue/html-comment-indent": ["error", 2],
+    "vue/no-useless-concat": "error",
   },
 });

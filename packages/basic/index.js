@@ -220,6 +220,7 @@ module.exports = defineConfig({
     "comma-spacing": ["error", { before: false, after: true }],
     "comma-style": ["error", "last"],
     "comma-dangle": ["error", "always-multiline"],
+    "no-sparse-arrays": "error",
     "no-constant-condition": "error",
     "no-debugger": "error",
     "no-console": ["error", { allow: ["error", "warn", "table", "time"] }],
