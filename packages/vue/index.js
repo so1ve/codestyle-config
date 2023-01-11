@@ -149,5 +149,6 @@ module.exports = defineConfig({
     "vue/html-comment-content-newline": ["error", { singleline: "ignore", multiline: "always" }],
     "vue/html-comment-indent": ["error", 2],
     "vue/no-useless-concat": "error",
+    "vue/no-multiple-template-root": "off",
   },
 });
