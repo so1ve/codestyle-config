@@ -25,6 +25,8 @@ module.exports = defineConfig({
     "output",
     "out",
     "coverage",
+    "public",
+    "!src/public",
     "temp",
     "package-lock.json",
     "pnpm-lock.yaml",
