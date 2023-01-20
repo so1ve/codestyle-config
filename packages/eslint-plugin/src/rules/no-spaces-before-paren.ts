@@ -15,7 +15,7 @@ export default createEslintRule<Options, MessageIds>({
     fixable: "whitespace",
     schema: [],
     messages: {
-      noSpacesBeforeParen: "Expected no space between function name and paren",
+      noSpacesBeforeParen: "Expected no space before paren",
     },
   },
   defaultOptions: [],
