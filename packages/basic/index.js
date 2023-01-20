@@ -347,5 +347,6 @@ module.exports = defineConfig({
 
     // so1ve
     "@so1ve/import-dedupe": "error",
+    "@so1ve/no-spaces-before-paren": "error",
   },
 });
