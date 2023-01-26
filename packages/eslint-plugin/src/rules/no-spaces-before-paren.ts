@@ -41,12 +41,11 @@ export default createEslintRule<Options, MessageIds>({
       },
       CallExpression(node) {
         const caller = "property" in node.callee ? node.callee.property : node.callee;
-        const firstArgument = node.arguments[0];
-        const firstArgumentStart = firstArgument ? firstArgument.range[0] : undefined;
-        const parenStart = firstArgument ? firstArgumentStart - 1/* ( */ : node.range[1] - 2/* () */;
+        const textAfterCaller = text.slice(caller.range[1]);
+        const parenStart = caller.range[1] + textAfterCaller.indexOf("(");
         const textBetweenFunctionNameAndParenRange = [caller.range[1], parenStart] as const;
         const textBetweenFunctionNameAndParen = text.slice(...textBetweenFunctionNameAndParenRange);
-        const hasGenerics = !/^\s*$/.test(textBetweenFunctionNameAndParen);
+        const hasGenerics = textBetweenFunctionNameAndParen.includes("<");
         if (!hasGenerics) {
           if (textBetweenFunctionNameAndParen.length > 0) {
             context.report({
