@@ -43,16 +43,21 @@ export default createEslintRule<Options, MessageIds>({
         const caller = "property" in node.callee ? node.callee.property : node.callee;
         const textAfterCaller = text.slice(caller.range[1]);
         const parenStart = caller.range[1] + textAfterCaller.indexOf("(");
-        const textBetweenFunctionNameAndParenRange = [caller.range[1], parenStart] as const;
-        const textBetweenFunctionNameAndParen = text.slice(...textBetweenFunctionNameAndParenRange);
-        const hasGenerics = textBetweenFunctionNameAndParen.includes("<");
+        const textBetweenFunctionNameAndParenRange = [caller.range[1], parenStart] as [number, number];
+        let textBetweenFunctionNameAndParen = text.slice(...textBetweenFunctionNameAndParenRange);
+        const hasGenerics = />\s*$/.test(textBetweenFunctionNameAndParen);
+        const hasIndex = textBetweenFunctionNameAndParen.startsWith("]");
+        if (hasIndex) {
+          textBetweenFunctionNameAndParenRange[0] += 1;
+          textBetweenFunctionNameAndParen = text.slice(...textBetweenFunctionNameAndParenRange);
+        }
         if (!hasGenerics) {
-          if (textBetweenFunctionNameAndParen.length > 0) {
+          if (textBetweenFunctionNameAndParen.length > 0 && textBetweenFunctionNameAndParen !== "?.") {
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
               *fix(fixer) {
-                yield fixer.removeRange(textBetweenFunctionNameAndParenRange);
+                yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange, node.optional ? "?." : "");
               },
             });
           }
