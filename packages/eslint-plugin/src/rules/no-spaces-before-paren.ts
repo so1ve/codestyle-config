@@ -42,9 +42,9 @@ export default createEslintRule<Options, MessageIds>({
       },
       CallExpression(node) {
         const caller = "property" in node.callee ? node.callee.property : node.callee;
-        const textAfterCaller = text.slice(caller.range[1]);
-        const parenStart = caller.range[1] + textAfterCaller.indexOf("(");
         const callerEnd = ref(caller.range[1]);
+        const textAfterCaller = text.slice(callerEnd.value);
+        const parenStart = callerEnd.value + textAfterCaller.indexOf("(");
         const textBetweenFunctionNameAndParenRange = computed(() => [callerEnd.value, parenStart] as [number, number]);
         const textBetweenFunctionNameAndParen = computed(() => text.slice(...textBetweenFunctionNameAndParenRange.value));
         const hasGenerics = />\s*$/.test(textBetweenFunctionNameAndParen.value);
