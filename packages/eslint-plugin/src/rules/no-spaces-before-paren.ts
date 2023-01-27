@@ -27,7 +27,7 @@ export default createEslintRule<Options, MessageIds>({
       ImportExpression(node) {
         const sourceRange = node.source.range;
         const parenStart = sourceRange[0] - 1;
-        const importEnd = node.range[0] + 6/* import */;
+        const importEnd = node.range[0] + 6/* "import" */;
         const textBetweenImportAndParenRange = [importEnd, parenStart] as const;
         const textBetweenImportAndParen = text.slice(...textBetweenImportAndParenRange);
         if (textBetweenImportAndParen.length > 0) {
