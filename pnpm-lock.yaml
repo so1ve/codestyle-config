@@ -96,11 +96,13 @@ importers:
     specifiers:
       '@types/node': ^18.11.18
       '@typescript-eslint/utils': ^5.48.0
+      '@vue/reactivity': ^3.2.45
       eslint-define-config: ^1.13.0
       unbuild: ^1.0.2
       vitest: ^0.26.3
     dependencies:
       '@typescript-eslint/utils': 5.48.0
+      '@vue/reactivity': 3.2.45
       eslint-define-config: 1.13.0
     devDependencies:
       '@types/node': 18.11.18
@@ -816,6 +818,16 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.48.0
       eslint-visitor-keys: 3.3.0
+    dev: false
+
+  /@vue/reactivity/3.2.45:
+    resolution: {integrity: sha512-PRvhCcQcyEVohW0P8iQ7HDcIOXRjZfAsOds3N99X/Dzewy8TVhTCT4uXpAHfoKjVTJRA0O0K+6QNkDIZAxNi3A==}
+    dependencies:
+      '@vue/shared': 3.2.45
+    dev: false
+
+  /@vue/shared/3.2.45:
+    resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
     dev: false
 
   /acorn-jsx/5.3.1_acorn@8.7.0:

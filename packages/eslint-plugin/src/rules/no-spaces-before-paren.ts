@@ -1,3 +1,4 @@
+import { computed, ref } from "@vue/reactivity";
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "no-spaces-before-paren";
@@ -43,33 +44,33 @@ export default createEslintRule<Options, MessageIds>({
         const caller = "property" in node.callee ? node.callee.property : node.callee;
         const textAfterCaller = text.slice(caller.range[1]);
         const parenStart = caller.range[1] + textAfterCaller.indexOf("(");
-        const textBetweenFunctionNameAndParenRange = [caller.range[1], parenStart] as [number, number];
-        let textBetweenFunctionNameAndParen = text.slice(...textBetweenFunctionNameAndParenRange);
-        const hasGenerics = />\s*$/.test(textBetweenFunctionNameAndParen);
-        const hasIndex = textBetweenFunctionNameAndParen.startsWith("]");
+        const callerEnd = ref(caller.range[1]);
+        const textBetweenFunctionNameAndParenRange = computed(() => [callerEnd.value, parenStart] as [number, number]);
+        const textBetweenFunctionNameAndParen = computed(() => text.slice(...textBetweenFunctionNameAndParenRange.value));
+        const hasGenerics = />\s*$/.test(textBetweenFunctionNameAndParen.value);
+        const hasIndex = textBetweenFunctionNameAndParen.value.startsWith("]");
         if (hasIndex) {
-          textBetweenFunctionNameAndParenRange[0] += 1;
-          textBetweenFunctionNameAndParen = text.slice(...textBetweenFunctionNameAndParenRange);
+          callerEnd.value += 1;
         }
         if (!hasGenerics) {
-          if (textBetweenFunctionNameAndParen.length > 0 && textBetweenFunctionNameAndParen !== "?.") {
+          if (textBetweenFunctionNameAndParen.value.length > 0 && textBetweenFunctionNameAndParen.value !== "?.") {
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
               *fix(fixer) {
-                yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange, node.optional ? "?." : "");
+                yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange.value, node.optional ? "?." : "");
               },
             });
           }
         } else {
-          const preSpaces = /^(\s*)/.exec(textBetweenFunctionNameAndParen)[1];
-          const postSpaces = /(\s*)$/.exec(textBetweenFunctionNameAndParen)[1];
+          const preSpaces = /^(\s*)/.exec(textBetweenFunctionNameAndParen.value)[1];
+          const postSpaces = /(\s*)$/.exec(textBetweenFunctionNameAndParen.value)[1];
           if (preSpaces.length > 0) {
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
               *fix(fixer) {
-                yield fixer.removeRange([caller.range[1], caller.range[1] + preSpaces.length]);
+                yield fixer.removeRange([callerEnd.value, callerEnd.value + preSpaces.length]);
               },
             });
           }

@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@typescript-eslint/utils": "^5.48.0",
+    "@vue/reactivity": "^3.2.45",
     "eslint-define-config": "^1.13.0"
   },
   "devDependencies": {
