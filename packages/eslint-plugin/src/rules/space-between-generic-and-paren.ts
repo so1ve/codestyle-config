@@ -1,5 +1,7 @@
 import { createEslintRule } from "../utils";
 
+const operatorOrAnyBracketOrKeywordRE = /^(\||&|\*|\+|\-|\/|%|<|>|<=|>=|==|!=|===|!==|\[|\(|\{|as|extends|implements|keyof|new|readonly|typeof|unique|unknown)/;
+
 export const RULE_NAME = "space-between-generic-and-paren";
 export type MessageIds = "noSpaceBetweenGenericAndParen";
 export type Options = [];
@@ -39,7 +41,7 @@ export default createEslintRule<Options, MessageIds>({
         const postQuestionMark = text.slice(spaceStartRange + postSpace.length)
           .match(/^(\?)/)?.[0];
         const postOperatorOrAnyBracketOrKeyword = text.slice(spaceStartRange + postSpace.length)
-          .match(/^(\||&|\*|\+|\-|\/|%|<|>|<=|>=|==|!=|===|!==|\[|\(|\{|as|extends|implements|keyof|new|readonly|typeof|unique|unknown)/)?.[0];
+          .match(operatorOrAnyBracketOrKeywordRE)?.[0];
         if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark && !postOperatorOrAnyBracketOrKeyword) {
           context.report({
             loc: {
