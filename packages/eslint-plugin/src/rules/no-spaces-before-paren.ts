@@ -41,18 +41,20 @@ export default createEslintRule<Options, MessageIds>({
         }
       },
       CallExpression(node) {
-        const caller = "property" in node.callee ? node.callee.property : node.callee;
-        const callerEnd = ref(caller.range[1]);
-        const textAfterCaller = text.slice(callerEnd.value);
-        const parenStart = callerEnd.value + textAfterCaller.indexOf("(");
-        const textBetweenFunctionNameAndParenRange = computed(() => [callerEnd.value, parenStart] as [number, number]);
-        const textBetweenFunctionNameAndParen = computed(() => text.slice(...textBetweenFunctionNameAndParenRange.value));
-        const hasGenerics = />\s*$/.test(textBetweenFunctionNameAndParen.value);
-        const hasIndex = textBetweenFunctionNameAndParen.value.startsWith("]");
-        if (hasIndex) {
-          callerEnd.value += 1;
+        let caller = "property" in node.callee ? node.callee.property : node.callee;
+        if (caller.type === "TSInstantiationExpression" && "property" in caller.expression) {
+          caller = caller.expression.property;
         }
-        if (!hasGenerics) {
+        const callerEnd = ref(caller.range[1]);
+        const textAfterCaller = computed(() => text.slice(callerEnd.value));
+        const parenStart = ref(callerEnd.value + textAfterCaller.value.indexOf("("));
+        const textBetweenFunctionNameAndParenRange = computed(() => [callerEnd.value, parenStart.value] as [number, number]);
+        const textBetweenFunctionNameAndParen = computed(() => text.slice(...textBetweenFunctionNameAndParenRange.value));
+        const hasGenerics = computed(() => /^\s*</.test(textBetweenFunctionNameAndParen.value));
+        const hasIndex = computed(() => textBetweenFunctionNameAndParen.value.startsWith("]"));
+        if (hasIndex.value) { callerEnd.value += 1; }
+        if (node.optional) { parenStart.value = callerEnd.value + textAfterCaller.value.indexOf("("); }
+        if (!hasGenerics.value) {
           if (textBetweenFunctionNameAndParen.value.length > 0 && textBetweenFunctionNameAndParen.value !== "?.") {
             context.report({
               node,
@@ -65,6 +67,7 @@ export default createEslintRule<Options, MessageIds>({
         } else {
           const preSpaces = /^(\s*)/.exec(textBetweenFunctionNameAndParen.value)[1];
           const postSpaces = /(\s*)$/.exec(textBetweenFunctionNameAndParen.value)[1];
+          const spacesBeforeOptionalMark = /(\s*)\?\./.exec(textBetweenFunctionNameAndParen.value)?.[1] || "";
           if (preSpaces.length > 0) {
             context.report({
               node,
@@ -79,7 +82,16 @@ export default createEslintRule<Options, MessageIds>({
               node,
               messageId: "noSpacesBeforeParen",
               *fix(fixer) {
-                yield fixer.removeRange([parenStart - postSpaces.length, parenStart]);
+                yield fixer.removeRange([parenStart.value - postSpaces.length, parenStart.value]);
+              },
+            });
+          }
+          if (spacesBeforeOptionalMark.length > 0 && !textBetweenFunctionNameAndParen.value.endsWith(" ")) {
+            context.report({
+              node,
+              messageId: "noSpacesBeforeParen",
+              *fix(fixer) {
+                yield fixer.removeRange([parenStart.value - spacesBeforeOptionalMark.length - 2, parenStart.value - 2]);
               },
             });
           }
