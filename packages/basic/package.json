@@ -35,16 +35,16 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@html-eslint/eslint-plugin": "^0.15.0",
-    "@html-eslint/parser": "^0.15.0",
+    "@html-eslint/eslint-plugin": "^0.16.0",
+    "@html-eslint/parser": "^0.16.0",
     "@so1ve/eslint-plugin": "workspace:*",
     "eslint-config-standard": "17.0.0",
-    "eslint-define-config": "^1.13.0",
+    "eslint-define-config": "^1.14.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsonc": "^2.6.0",
     "eslint-plugin-markdown": "^3.0.0",
-    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^45.0.2",
     "eslint-plugin-yml": "^1.4.0",
@@ -52,6 +52,6 @@
     "yaml-eslint-parser": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^8.31.0"
+    "eslint": "^8.32.0"
   }
 }
