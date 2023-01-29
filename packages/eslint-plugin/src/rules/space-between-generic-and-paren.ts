@@ -28,7 +28,6 @@ export default createEslintRule<Options, MessageIds>({
     // e.g const a = <T> (t: T) => t; is incorrect
     // e.g function a<T>(t: T) { return t; } is correct
     // e.g function a <T> (t: T) { return t; } is incorrect
-    type CamelCase<T extends string> = (T extends `${infer Prefix}-${infer Suffix}` | `${infer Prefix} ${infer Suffix}` ? `${Prefix}${Capitalize<CamelCase<Suffix>>}` : T);
     return {
       TSTypeParameter: (node) => {
         const spaceStartRange = node.range[1] + 1;
