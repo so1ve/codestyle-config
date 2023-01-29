@@ -28,6 +28,7 @@ export default createEslintRule<Options, MessageIds>({
     // e.g const a = <T> (t: T) => t; is incorrect
     // e.g function a<T>(t: T) { return t; } is correct
     // e.g function a <T> (t: T) { return t; } is incorrect
+    type CamelCase<T extends string> = (T extends `${infer Prefix}-${infer Suffix}` | `${infer Prefix} ${infer Suffix}` ? `${Prefix}${Capitalize<CamelCase<Suffix>>}` : T);
     return {
       TSTypeParameter: (node) => {
         const spaceStartRange = node.range[1] + 1;
@@ -42,7 +43,7 @@ export default createEslintRule<Options, MessageIds>({
           .match(/^(\?)/)?.[0];
         const postOperatorOrAnyBracketOrKeyword = text.slice(spaceStartRange + postSpace.length)
           .match(operatorOrAnyBracketOrKeywordRE)?.[0];
-        if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark && !postOperatorOrAnyBracketOrKeyword) {
+        if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark && !postOperatorOrAnyBracketOrKeyword && node.parent.type !== "TSInferType") {
           context.report({
             loc: {
               start: {
