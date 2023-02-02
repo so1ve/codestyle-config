@@ -56,7 +56,7 @@ export default createEslintRule<Options, MessageIds>({
             },
             node,
             messageId: "noSpaceBetweenGenericAndParen",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.replaceTextRange([spaceStartRange, spaceStartRange + postSpace.length], "");
             },
           });
@@ -79,7 +79,7 @@ export default createEslintRule<Options, MessageIds>({
               },
               node,
               messageId: "noSpaceBetweenGenericAndParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.replaceTextRange([spaceEndRange - preSpace.length, spaceEndRange], "");
               },
             });

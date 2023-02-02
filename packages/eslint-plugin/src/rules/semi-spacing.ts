@@ -23,7 +23,7 @@ export default createEslintRule<Options, MessageIds>({
     const sourceCode = context.getSourceCode();
     const text = sourceCode.text;
     return {
-      TSTypeAliasDeclaration(node) {
+      TSTypeAliasDeclaration (node) {
         const sourceLine = text.slice(node.range[0], node.range[1]);
         const preSemiSpace = sourceLine.match(/(\s+);$/)?.[0];
         if (preSemiSpace) {
@@ -42,7 +42,7 @@ export default createEslintRule<Options, MessageIds>({
             },
             node,
             messageId: "noSpaceBeforeSemi",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.removeRange([spaceStart, spaceEnd]);
             },
           });

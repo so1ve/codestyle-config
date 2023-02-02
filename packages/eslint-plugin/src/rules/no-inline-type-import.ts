@@ -30,7 +30,7 @@ export default createEslintRule<Options, MessageIds>({
           context.report({
             loc: node.loc,
             messageId: "noInlineTypeImport",
-            *fix(fixer) {
+            *fix (fixer) {
               const typeSpecifiersText = typeSpecifiers.map(s => sourceCode.getText(s).replace("type ", "")).join(", ");
               const valueSpecifiersText = valueSpecifiers.map(s => sourceCode.getText(s)).join(", ");
               yield fixer.replaceText(node, `import type { ${typeSpecifiersText} } from "${node.source.value}";\nimport { ${valueSpecifiersText} } from "${node.source.value}";`);
@@ -40,7 +40,7 @@ export default createEslintRule<Options, MessageIds>({
           context.report({
             loc: node.loc,
             messageId: "noInlineTypeImport",
-            *fix(fixer) {
+            *fix (fixer) {
               const typeSpecifiersText = typeSpecifiers.map(s => sourceCode.getText(s).replace("type ", "")).join(", ");
               yield fixer.replaceText(node, `import type { ${typeSpecifiersText} } from "${node.source.value}";`);
             },

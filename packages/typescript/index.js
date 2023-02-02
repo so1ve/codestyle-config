@@ -86,11 +86,6 @@ module.exports = defineConfig({
     "space-before-blocks": "off",
     "@typescript-eslint/space-before-blocks": ["error", "always"],
     "space-before-function-paren": "off",
-    "@typescript-eslint/space-before-function-paren": ["error", {
-      anonymous: "always",
-      named: "never",
-      asyncArrow: "always",
-    }],
     "space-infix-ops": "off",
     "@typescript-eslint/space-infix-ops": "error",
     "keyword-spacing": "off",
@@ -120,6 +115,7 @@ module.exports = defineConfig({
     "@so1ve/space-in-empty-block": "error",
     "@so1ve/semi-spacing": "error",
     "@so1ve/no-inline-type-import": "error",
+    "@so1ve/space-before-function-paren": ["error", "always"],
 
     // off
     "@typescript-eslint/camelcase": "off",

@@ -24,7 +24,7 @@ export default createEslintRule<Options, MessageIds>({
     const sourceCode = context.getSourceCode();
     const text = sourceCode.getText();
     return {
-      ImportExpression(node) {
+      ImportExpression (node) {
         const sourceRange = node.source.range;
         const parenStart = sourceRange[0] - 1;
         const importEnd = node.range[0] + 6/* "import" */;
@@ -34,13 +34,13 @@ export default createEslintRule<Options, MessageIds>({
           context.report({
             node,
             messageId: "noSpacesBeforeParen",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.removeRange(textBetweenImportAndParenRange);
             },
           });
         }
       },
-      CallExpression(node) {
+      CallExpression (node) {
         let caller = "property" in node.callee ? node.callee.property : node.callee;
         if (caller.type === "TSInstantiationExpression" && "property" in caller.expression) {
           caller = caller.expression.property;
@@ -59,7 +59,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange.value, node.optional ? "?." : "");
               },
             });
@@ -72,7 +72,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([callerEnd.value, callerEnd.value + preSpaces.length]);
               },
             });
@@ -81,7 +81,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([parenStart.value - postSpaces.length, parenStart.value]);
               },
             });
@@ -90,7 +90,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpacesBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([parenStart.value - spacesBeforeOptionalMark.length - 2, parenStart.value - 2]);
               },
             });

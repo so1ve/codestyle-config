@@ -41,7 +41,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             },
             messageId: "noSpaceInEmptyBlock",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.replaceTextRange([node.range[0] + 1, spaceStartRange + postSpace.length], "");
             },
           });
@@ -62,7 +62,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             },
             messageId: "noSpaceInEmptyBlock",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.replaceTextRange([spaceEndRange - preSpace.length, spaceEndRange], "");
             },
           });
