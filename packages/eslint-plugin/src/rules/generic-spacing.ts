@@ -107,6 +107,16 @@ export default createEslintRule<Options, MessageIds>({
           if (hasSpacingBeforeNode && node.parent.type !== AST_NODE_TYPES.TSFunctionType) {
             context.report({
               node,
+              loc: {
+                start: {
+                  line: leftToken.loc.end.line,
+                  column: leftToken.loc.end.column,
+                },
+                end: {
+                  line: node.loc.start.line,
+                  column: node.loc.start.column,
+                },
+              },
               messageId: "genericSpacingMismatch",
               *fix (fixer) {
                 yield fixer.removeRange([leftToken.range[1], node.range[0]]);
@@ -114,9 +124,19 @@ export default createEslintRule<Options, MessageIds>({
             });
           }
           // strip space between <T> and (t: T)
-          if (hasSpacingAfterParam && node.parent.type === AST_NODE_TYPES.TSFunctionType) {
+          if (hasSpacingAfterParam && [AST_NODE_TYPES.TSFunctionType, AST_NODE_TYPES.FunctionDeclaration].includes(node.parent.type)) {
             context.report({
               node,
+              loc: {
+                start: {
+                  line: endBracket.loc.end.line,
+                  column: endBracket.loc.end.column,
+                },
+                end: {
+                  line: rightToken.loc.start.line,
+                  column: rightToken.loc.start.column,
+                },
+              },
               messageId: "genericSpacingMismatch",
               *fix (fixer) {
                 yield fixer.removeRange([endBracket.range[1], rightToken.range[0]]);
@@ -183,20 +203,40 @@ export default createEslintRule<Options, MessageIds>({
           const rightToken = sourceCode.getTokenAfter(param);
           const hasSpacingBeforeParam = leftToken.value === "<" ? sourceCode.isSpaceBetween(leftToken, param) : false;
           const hasSpacingAfterParam = rightToken.value === ">" ? sourceCode.isSpaceBetween(param, rightToken) : false;
-          if (hasSpacingBeforeParam) {
+          if (hasSpacingBeforeParam && leftToken.loc.end.line === param.loc.start.line) {
             // Remove space before param
             context.report({
               node,
+              loc: {
+                start: {
+                  line: leftToken.loc.end.line,
+                  column: leftToken.loc.end.column,
+                },
+                end: {
+                  line: param.loc.start.line,
+                  column: param.loc.start.column,
+                },
+              },
               messageId: "genericSpacingMismatch",
               *fix (fixer) {
                 yield fixer.removeRange([leftToken.range[1], param.range[0]]);
               },
             });
           }
-          if (hasSpacingAfterParam) {
+          if (hasSpacingAfterParam && param.loc.end.line === rightToken.loc.start.line) {
             // Remove space after param
             context.report({
               node,
+              loc: {
+                start: {
+                  line: param.loc.end.line,
+                  column: param.loc.end.column,
+                },
+                end: {
+                  line: rightToken.loc.start.line,
+                  column: rightToken.loc.start.column,
+                },
+              },
               messageId: "genericSpacingMismatch",
               *fix (fixer) {
                 yield fixer.removeRange([param.range[1], rightToken.range[0]]);
