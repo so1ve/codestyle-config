@@ -1,4 +1,6 @@
+import { AST_NODE_TYPES } from "@typescript-eslint/utils";
 import { computed, ref } from "@vue/reactivity";
+
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "no-spaces-before-paren";
@@ -42,7 +44,7 @@ export default createEslintRule<Options, MessageIds>({
       },
       CallExpression (node) {
         let caller = "property" in node.callee ? node.callee.property : node.callee;
-        if (caller.type === "TSInstantiationExpression" && "property" in caller.expression) {
+        if (caller.type === AST_NODE_TYPES.TSInstantiationExpression && "property" in caller.expression) {
           caller = caller.expression.property;
         }
         const callerEnd = ref(caller.range[1]);

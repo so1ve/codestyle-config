@@ -150,7 +150,7 @@ export default createEslintRule<Options, MessageIds>({
         rightToken = sourceCode.getFirstToken(node, util.isOpeningParenToken)!;
         leftToken = sourceCode.getTokenBefore(rightToken)!;
       }
-      const hasSpacing = sourceCode.isSpaceBetweenTokens(leftToken, rightToken);
+      const hasSpacing = sourceCode.isSpaceBetween(leftToken, rightToken);
 
       if (hasSpacing && functionConfig === "never") {
         context.report({

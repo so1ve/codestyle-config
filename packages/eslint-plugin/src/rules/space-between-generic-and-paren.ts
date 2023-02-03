@@ -1,3 +1,4 @@
+import { AST_NODE_TYPES } from "@typescript-eslint/utils";
 import { createEslintRule } from "../utils";
 
 const operatorOrAnyBracketOrKeywordRE = /^(\||&|\*|\+|\-|\/|%|<|>|<=|>=|==|!=|===|!==|\[|\(|\{|as|extends|implements|keyof|new|readonly|typeof|unique|unknown)/;
@@ -42,7 +43,7 @@ export default createEslintRule<Options, MessageIds>({
           .match(/^(\?)/)?.[0];
         const postOperatorOrAnyBracketOrKeyword = text.slice(spaceStartRange + postSpace.length)
           .match(operatorOrAnyBracketOrKeywordRE)?.[0];
-        if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark && !postOperatorOrAnyBracketOrKeyword && node.parent.type !== "TSInferType") {
+        if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark && !postOperatorOrAnyBracketOrKeyword && node.parent.type !== AST_NODE_TYPES.TSInferType) {
           context.report({
             loc: {
               start: {
@@ -61,7 +62,7 @@ export default createEslintRule<Options, MessageIds>({
             },
           });
         }
-        if (node.parent?.parent.type === "FunctionDeclaration") {
+        if (node.parent?.parent.type === AST_NODE_TYPES.FunctionDeclaration) {
           const spaceEndRange = node.range[0] - 1;
           const pre = sourceCode.text.slice(0, spaceEndRange);
           const preSpace = pre.match(/(\s+)$/)?.[0];

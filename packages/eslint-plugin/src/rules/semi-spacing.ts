@@ -1,3 +1,4 @@
+import { AST_TOKEN_TYPES } from "@typescript-eslint/utils";
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "semi-spacing";
@@ -21,29 +22,28 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     const sourceCode = context.getSourceCode();
-    const text = sourceCode.text;
     return {
       TSTypeAliasDeclaration (node) {
-        const sourceLine = text.slice(node.range[0], node.range[1]);
-        const preSemiSpace = sourceLine.match(/(\s+);$/)?.[0];
-        if (preSemiSpace) {
-          const spaceStart = node.range[0] + sourceLine.length - preSemiSpace.length;
-          const spaceEnd = node.range[0] + sourceLine.length - 1;
+        const leftToken = node.typeAnnotation;
+        const rightToken = sourceCode.getTokenAfter(node.typeAnnotation);
+        if (rightToken.type !== AST_TOKEN_TYPES.Punctuator) { return; }
+        const hasSpacing = sourceCode.isSpaceBetween(leftToken, rightToken);
+        if (hasSpacing) {
           context.report({
             loc: {
               start: {
-                line: node.loc.start.line,
-                column: node.loc.start.column + sourceLine.length - preSemiSpace.length,
+                line: leftToken.loc.end.line,
+                column: leftToken.loc.end.column,
               },
               end: {
-                line: node.loc.start.line,
-                column: node.loc.start.column + sourceLine.length - 1,
+                line: rightToken.loc.start.line,
+                column: rightToken.loc.start.column,
               },
             },
             node,
             messageId: "noSpaceBeforeSemi",
             *fix (fixer) {
-              yield fixer.removeRange([spaceStart, spaceEnd]);
+              yield fixer.removeRange([leftToken.range[1], rightToken.range[0]]);
             },
           });
         }
