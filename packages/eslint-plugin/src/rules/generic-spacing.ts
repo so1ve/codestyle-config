@@ -74,7 +74,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             });
           }
-          if (!hasSpacingBeforeParam && leftToken.value === ",") {
+          if (!hasSpacingBeforeParam && util.isCommaToken(leftToken)) {
             // Add space before ,
             context.report({
               node,
