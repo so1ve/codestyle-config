@@ -1,7 +1,7 @@
 import genericSpacing from "./rules/generic-spacing";
 import importDedupe from "./rules/import-dedupe";
 import spaceBetweenGenericAndParen from "./rules/space-between-generic-and-paren";
-import noSpacesBeforeParen from "./rules/no-spaces-before-paren";
+import noSpaceBeforeParen from "./rules/no-space-before-paren";
 import spaceInEmptyBlock from "./rules/space-in-empty-block";
 import spaceBeforeFunctionParen from "./rules/space-before-function-paren";
 import semiSpacing from "./rules/semi-spacing";
@@ -16,7 +16,7 @@ export default {
     "space-in-empty-block": spaceInEmptyBlock,
     "semi-spacing": semiSpacing,
     "no-inline-type-import": noInlineTypeImport,
-    "no-spaces-before-paren": noSpacesBeforeParen,
+    "no-space-before-paren": noSpaceBeforeParen,
     "space-before-function-paren": spaceBeforeFunctionParen,
     "no-beginning-newline": noBeginningNewline,
   },

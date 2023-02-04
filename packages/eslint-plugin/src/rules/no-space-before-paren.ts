@@ -3,8 +3,8 @@ import { computed, ref } from "@vue/reactivity";
 
 import { createEslintRule } from "../utils";
 
-export const RULE_NAME = "no-spaces-before-paren";
-export type MessageIds = "noSpacesBeforeParen";
+export const RULE_NAME = "no-space-before-paren";
+export type MessageIds = "noSpaceBeforeParen";
 export type Options = [];
 
 export default createEslintRule<Options, MessageIds>({
@@ -12,13 +12,13 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "layout",
     docs: {
-      description: "Spaces before paren",
+      description: "Space before paren",
       recommended: "error",
     },
     fixable: "whitespace",
     schema: [],
     messages: {
-      noSpacesBeforeParen: "Expected no space before paren",
+      noSpaceBeforeParen: "Expected no space before paren",
     },
   },
   defaultOptions: [],
@@ -35,7 +35,7 @@ export default createEslintRule<Options, MessageIds>({
         if (textBetweenImportAndParen.length > 0) {
           context.report({
             node,
-            messageId: "noSpacesBeforeParen",
+            messageId: "noSpaceBeforeParen",
             *fix (fixer) {
               yield fixer.removeRange(textBetweenImportAndParenRange);
             },
@@ -60,7 +60,7 @@ export default createEslintRule<Options, MessageIds>({
           if (textBetweenFunctionNameAndParen.value.length > 0 && textBetweenFunctionNameAndParen.value !== "?.") {
             context.report({
               node,
-              messageId: "noSpacesBeforeParen",
+              messageId: "noSpaceBeforeParen",
               *fix (fixer) {
                 yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange.value, node.optional ? "?." : "");
               },
@@ -73,7 +73,7 @@ export default createEslintRule<Options, MessageIds>({
           if (preSpaces.length > 0) {
             context.report({
               node,
-              messageId: "noSpacesBeforeParen",
+              messageId: "noSpaceBeforeParen",
               *fix (fixer) {
                 yield fixer.removeRange([callerEnd.value, callerEnd.value + preSpaces.length]);
               },
@@ -82,7 +82,7 @@ export default createEslintRule<Options, MessageIds>({
           if (postSpaces.length > 0) {
             context.report({
               node,
-              messageId: "noSpacesBeforeParen",
+              messageId: "noSpaceBeforeParen",
               *fix (fixer) {
                 yield fixer.removeRange([parenStart.value - postSpaces.length, parenStart.value]);
               },
@@ -91,7 +91,7 @@ export default createEslintRule<Options, MessageIds>({
           if (spacesBeforeOptionalMark.length > 0 && !textBetweenFunctionNameAndParen.value.endsWith(" ")) {
             context.report({
               node,
-              messageId: "noSpacesBeforeParen",
+              messageId: "noSpaceBeforeParen",
               *fix (fixer) {
                 yield fixer.removeRange([parenStart.value - spacesBeforeOptionalMark.length - 2, parenStart.value - 2]);
               },
