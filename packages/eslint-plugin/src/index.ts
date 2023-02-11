@@ -7,6 +7,7 @@ import spaceBeforeFunctionParen from "./rules/space-before-function-paren";
 import semiSpacing from "./rules/semi-spacing";
 import noInlineTypeImport from "./rules/no-inline-type-import";
 import noBeginningNewline from "./rules/no-beginning-newline";
+import arrayBracketSpacing from "./rules/array-spacing";
 
 export default {
   rules: {
@@ -19,5 +20,6 @@ export default {
     "no-space-before-paren": noSpaceBeforeParen,
     "space-before-function-paren": spaceBeforeFunctionParen,
     "no-beginning-newline": noBeginningNewline,
+    "array-bracket-spacing": arrayBracketSpacing,
   },
 };

@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "@typescript-eslint/types": "^5.50.0",
     "unbuild": "^1.1.1",
     "vitest": "^0.28.3"
   }

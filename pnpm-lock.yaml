@@ -95,6 +95,7 @@ importers:
   packages/eslint-plugin:
     specifiers:
       '@types/node': ^18.11.18
+      '@typescript-eslint/types': ^5.50.0
       '@typescript-eslint/utils': ^5.49.0
       '@vue/reactivity': ^3.2.45
       eslint-define-config: ^1.14.0
@@ -106,6 +107,7 @@ importers:
       eslint-define-config: 1.14.0
     devDependencies:
       '@types/node': 18.11.18
+      '@typescript-eslint/types': 5.50.0
       unbuild: 1.1.1
       vitest: 0.28.3
 
@@ -950,6 +952,11 @@ packages:
     resolution: {integrity: sha512-7If46kusG+sSnEpu0yOz2xFv5nRz158nzEXnJFCGVEHWnuzolXKwrH5Bsf9zsNlOQkyZuk0BZKKoJQI+1JPBBg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
+
+  /@typescript-eslint/types/5.50.0:
+    resolution: {integrity: sha512-atruOuJpir4OtyNdKahiHZobPKFvZnBnfDiyEaBf6d9vy9visE7gDjlmhl+y29uxZ2ZDgvXijcungGFjGGex7w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
 
   /@typescript-eslint/typescript-estree/5.49.0:
     resolution: {integrity: sha512-PBdx+V7deZT/3GjNYPVQv1Nc0U46dAHbIuOG8AZ3on3vuEKiPDwFE/lG1snN2eUB9IhF7EyF7K1hmTcLztNIsA==}

@@ -116,6 +116,7 @@ module.exports = defineConfig({
     "@so1ve/semi-spacing": "error",
     "@so1ve/no-inline-type-import": "error",
     "@so1ve/space-before-function-paren": ["error", "always"],
+    "@so1ve/array-bracket-spacing": "error",
 
     // off
     "@typescript-eslint/camelcase": "off",

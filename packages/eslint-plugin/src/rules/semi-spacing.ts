@@ -10,7 +10,7 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "layout",
     docs: {
-      description: "Semicolon spacing",
+      description: "Semicolon spacing in types",
       recommended: "error",
     },
     fixable: "whitespace",
