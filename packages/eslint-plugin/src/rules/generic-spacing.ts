@@ -123,6 +123,7 @@ export default createEslintRule<Options, MessageIds>({
               },
             });
           }
+
           // strip space between <T> and (t: T)
           if (hasSpacingAfterParam && [AST_NODE_TYPES.TSFunctionType, AST_NODE_TYPES.FunctionDeclaration, AST_NODE_TYPES.FunctionExpression].includes(node.parent.type)) {
             context.report({
