@@ -101,6 +101,7 @@ export default createEslintRule<Options, MessageIds>({
           const lastParam = params[params.length - 1];
           const endBracket = sourceCode.getTokenAfter(lastParam);
           const rightToken = sourceCode.getTokenAfter(endBracket, util.isOpeningParenToken);
+          if (!rightToken) { return; }
           const hasSpacingAfterParam = sourceCode.isSpaceBetween(endBracket, rightToken);
           // strip space before <T>
           // NOTE: don't strip when type Fn = <T>(t: T) => void;
