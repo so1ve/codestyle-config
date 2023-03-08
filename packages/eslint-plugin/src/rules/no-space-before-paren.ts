@@ -99,6 +99,44 @@ export default createEslintRule<Options, MessageIds>({
           }
         }
       },
+      NewExpression (node) {
+        const calleeEnd = node.callee.range[1];
+        const textAfterCallee = text.slice(calleeEnd);
+        const parenStart = calleeEnd + textAfterCallee.indexOf("(");
+        const textBetweenCalleeAndParenRange = [calleeEnd, parenStart] as const;
+        const textBetweenCalleeAndParen = text.slice(...textBetweenCalleeAndParenRange);
+        const hasGenerics = /^\s*</.test(textBetweenCalleeAndParen);
+        if (!hasGenerics && textBetweenCalleeAndParen.length > 0) {
+          context.report({
+            node,
+            messageId: "noSpaceBeforeParen",
+            *fix (fixer) {
+              yield fixer.removeRange(textBetweenCalleeAndParenRange);
+            },
+          });
+        } else if (hasGenerics) {
+          const preSpaces = /^(\s*)/.exec(textBetweenCalleeAndParen)[1];
+          const postSpaces = /(\s*)$/.exec(textBetweenCalleeAndParen)[1];
+          if (preSpaces.length > 0) {
+            context.report({
+              node,
+              messageId: "noSpaceBeforeParen",
+              *fix (fixer) {
+                yield fixer.removeRange([calleeEnd, calleeEnd + preSpaces.length]);
+              },
+            });
+          }
+          if (postSpaces.length > 0) {
+            context.report({
+              node,
+              messageId: "noSpaceBeforeParen",
+              *fix (fixer) {
+                yield fixer.removeRange([parenStart - postSpaces.length, parenStart]);
+              },
+            });
+          }
+        }
+      },
     };
   },
 });
