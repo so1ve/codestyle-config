@@ -38,7 +38,7 @@ export default createEslintRule<Options, MessageIds>({
       TSTypeAliasDeclaration (node) {
         const leftToken = node.typeAnnotation;
         const rightToken = sourceCode.getTokenAfter(node.typeAnnotation);
-        if (rightToken.type !== AST_TOKEN_TYPES.Punctuator || rightToken.value !== ";") { return; }
+        if (!rightToken || rightToken.type !== AST_TOKEN_TYPES.Punctuator || rightToken.value !== ";") { return; }
         const hasSpacing = sourceCode.isSpaceBetween(leftToken, rightToken);
         if (hasSpacing) {
           context.report({
