@@ -23,7 +23,8 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "standard.js"
   ],
   "publishConfig": {
     "access": "public"
