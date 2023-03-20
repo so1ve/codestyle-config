@@ -94,7 +94,7 @@ module.exports = defineConfig({
     "@typescript-eslint/ban-ts-comment": ["error", {
       minimumDescriptionLength: 0,
     }],
-    "@typescript-eslint/member-delimiter-style": ["error", { multiline: { delimiter: "none" } }],
+    "@typescript-eslint/member-delimiter-style": "error",
     "@typescript-eslint/type-annotation-spacing": ["error", {}],
     "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports", disallowTypeAnnotations: false }],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],

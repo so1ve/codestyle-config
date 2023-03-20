@@ -11,9 +11,9 @@ export const RULE_NAME = "space-before-function-paren";
 export type Options = [
   | Option
   | {
-    anonymous?: FuncOption
-    named?: FuncOption
-    asyncArrow?: FuncOption
+    anonymous?: FuncOption;
+    named?: FuncOption;
+    asyncArrow?: FuncOption;
   },
 ];
 export type MessageIds = "unexpected" | "missing";
