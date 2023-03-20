@@ -8,11 +8,20 @@ module.exports = defineConfig({
     node: true,
   },
   reportUnusedDisableDirectives: true,
+  plugins: [
+    "@so1ve",
+    "@html-eslint",
+    "jsdoc",
+    "unicorn",
+    "unused-imports",
+    "no-only-tests",
+  ],
   extends: [
-    "standard",
+    "./standard",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
+    "plugin:jsdoc/recommended-error",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
   ],
@@ -32,14 +41,20 @@ module.exports = defineConfig({
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
+    // ignore for in lint-staged
+    "*.css",
+    "*.png",
+    "*.ico",
+    "*.toml",
+    "*.patch",
+    "*.txt",
+    "*.crt",
+    "*.key",
+    "Dockerfile",
+    // force include
     "!.github",
     "!.vitepress",
     "!.vscode",
-  ],
-  plugins: [
-    "@so1ve",
-    "unicorn",
-    "@html-eslint",
   ],
   settings: {
     "import/resolver": {
@@ -158,7 +173,7 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ["*.js"],
+      files: ["*.js", "*.cjs"],
       rules: {
         "@typescript-eslint/no-var-requires": "off",
       },
@@ -179,6 +194,7 @@ module.exports = defineConfig({
       files: ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
       rules: {
         "no-unused-expressions": "off",
+        "no-only-tests/no-only-tests": "error",
       },
     },
     {
@@ -189,7 +205,10 @@ module.exports = defineConfig({
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
         "import/no-unresolved": "off",
+        "unused-imports/no-unused-imports": "off",
+        "unused-imports/no-unused-vars": "off",
         "no-alert": "off",
         "no-console": "off",
         "no-restricted-imports": "off",
@@ -201,18 +220,34 @@ module.exports = defineConfig({
   ],
   rules: {
     // import
-    "import/order": "error",
+    "import/order": ["error", {
+      "newlines-between": "always",
+      "warnOnUnassignedImports": true,
+    }],
     "import/first": "error",
+    "import/exports-last": "error",
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
+
+    // Not supported in ESLint 8 yet
+    // "jsdoc/check-examples": "error",
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/check-indentation": "error",
+    "jsdoc/check-param-names": ["error", { enableFixer: true }],
 
     // Common
     "semi": ["error", "always"],
     "curly": ["error", "all"],
     "quotes": ["error", "double"],
     "quote-props": ["error", "consistent-as-needed"],
-    "no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+    ],
+
     "no-param-reassign": "off",
     "array-bracket-spacing": ["error", "never"],
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
@@ -348,6 +383,5 @@ module.exports = defineConfig({
     // so1ve
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-space-before-paren": "error",
-    "@so1ve/no-beginning-newline": "error",
   },
 });

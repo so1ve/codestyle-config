@@ -1,5 +1,6 @@
 import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
 import { it } from "vitest";
+
 import rule, { RULE_NAME } from "./space-in-empty-block";
 
 const valids = [

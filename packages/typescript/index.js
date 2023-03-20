@@ -1,6 +1,76 @@
 // @ts-check
+const fs = require("node:fs");
+const path = require("node:path");
+
 const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
+
+const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
+
+/**
+ * @type {import("eslint-define-config").Override}
+ */
+const typescriptOverride = {
+  parserOptions: {
+    tsconfigRootDir: process.cwd(),
+    project: [tsconfig],
+  },
+  parser: "@typescript-eslint/parser",
+  excludedFiles: ["**/*.md/*.*"],
+  files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+  // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
+  rules: {
+    "no-throw-literal": "off",
+    "@typescript-eslint/no-throw-literal": "error",
+    "no-implied-eval": "off",
+    "@typescript-eslint/no-implied-eval": "error",
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
+    "no-void": ["error", { allowAsStatement: true }],
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-for-in-array": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/no-unsafe-argument": "error",
+    "@typescript-eslint/no-unsafe-assignment": "error",
+    "@typescript-eslint/no-unsafe-call": "error",
+    "@typescript-eslint/no-unsafe-member-access": "error",
+    "@typescript-eslint/no-unsafe-return": "error",
+    "require-await": "off",
+    "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/restrict-plus-operands": "error",
+    "@typescript-eslint/restrict-template-expressions": "error",
+    "@typescript-eslint/unbound-method": "error",
+    "@typescript-eslint/array-type": ["error", { default: "generic", readonly: "generic" }],
+    "@typescript-eslint/consistent-generic-constructors": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-type-arguments": "error",
+    "@typescript-eslint/no-redundant-type-constituents": "error",
+    "@typescript-eslint/non-nullable-type-assertion-style": "error",
+  },
+};
+
+/**
+ * @type {import("eslint-define-config").Override}
+ */
+const jestOverride = {
+  // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
+  files: ["**/__tests__/**/*.ts", "**/*.spec.ts", "**/*.test.ts"],
+  plugins: ["jest"],
+  rules: {
+    // you should turn the original rule off *only* for test files
+    "@typescript-eslint/unbound-method": "off",
+    "jest/unbound-method": "error",
+  },
+};
+
+const overrides = !fs.existsSync(path.join(process.cwd(), tsconfig))
+  ? []
+  : [typescriptOverride, jestOverride];
 
 module.exports = defineConfig({
   extends: [
@@ -13,16 +83,21 @@ module.exports = defineConfig({
       node: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
     },
   },
-  overrides: basic.overrides,
+  overrides: [
+    ...(basic.overrides || []),
+    ...overrides,
+  ],
   rules: {
     "import/named": "off",
 
     // TS
-    "@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
+    "@typescript-eslint/ban-ts-comment": ["error", {
+      minimumDescriptionLength: 0,
+    }],
     "@typescript-eslint/member-delimiter-style": ["error", { multiline: { delimiter: "none" } }],
     "@typescript-eslint/type-annotation-spacing": ["error", {}],
     "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports", disallowTypeAnnotations: false }],
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
     "@typescript-eslint/prefer-ts-expect-error": "error",
 
@@ -67,8 +142,6 @@ module.exports = defineConfig({
       ],
       offsetTernaryExpressions: true,
     }],
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "error",
     "no-use-before-define": "off",
@@ -100,15 +173,6 @@ module.exports = defineConfig({
     "@typescript-eslint/no-loss-of-precision": "error",
     "lines-between-class-members": "off",
     "@typescript-eslint/lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }],
-    // The following rule overrides require a parser service, aka. require a `typescript.json` path.
-    // This needs to be done individually for each project, and it slows down linting significantly.
-    // 'no-throw-literal': 'off',
-    // '@typescript-eslint/no-throw-literal': 'error',
-    // 'no-implied-eval': 'off',
-    // '@typescript-eslint/no-implied-eval': 'error',
-    // 'dot-notation': 'off',
-    // '@typescript-eslint/dot-notation': ['error', { allowKeywords: true }],
-
     // so1ve
     "@so1ve/generic-spacing": "error",
     "@so1ve/space-between-generic-and-paren": "error",
@@ -131,5 +195,12 @@ module.exports = defineConfig({
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/triple-slash-reference": "off",
+    "@typescript-eslint/prefer-for-of": "error",
+    "@typescript-eslint/no-duplicate-enum-values": "error",
+    "@typescript-eslint/no-invalid-void-type": "error",
+    "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
+    // handled by unused-imports/no-unused-imports
+    "@typescript-eslint/no-unused-vars": "off",
   },
 });

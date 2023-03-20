@@ -48,6 +48,7 @@ module.exports = defineConfig({
     "vue/html-quotes": ["error", "double"],
     "vue/no-restricted-v-bind": ["error", "/^v-/"],
     "vue/no-useless-v-bind": ["error", { ignoreIncludesComment: true }],
+    "vue/no-unused-refs": "error",
     "vue/no-v-text-v-html-on-component": "error",
     "vue/padding-line-between-blocks": ["error", "always"],
     "vue/prefer-separate-static-class": "error",
@@ -121,7 +122,6 @@ module.exports = defineConfig({
     ],
     "vue/no-static-inline-styles": ["error", { allowBinding: true }],
     "vue/max-attributes-per-line": ["error", { singleline: 3, multiline: 1 }],
-    "vue/no-unused-refs": "error",
     "vue/camelcase": "error",
     "vue/v-for-delimiter-style": ["error", "in"],
     "vue/attributes-order": [

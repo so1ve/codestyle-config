@@ -30,8 +30,7 @@ export default createEslintRule<Options, MessageIds>({
         // e.g type A< T > = 1;
         // trim space before and after T
         const params = node.params;
-        for (let i = 0; i < params.length; i++) {
-          const param = params[i];
+        for (const param of params) {
           const leftToken = sourceCode.getTokenBefore(param);
           const rightToken = sourceCode.getTokenAfter(param);
           const hasSpacingBeforeParam = sourceCode.isSpaceBetween(leftToken, param);
@@ -199,8 +198,7 @@ export default createEslintRule<Options, MessageIds>({
       // type T = Generic< any >
       TSTypeParameterInstantiation: (node) => {
         const params = node.params;
-        for (let i = 0; i < params.length; i++) {
-          const param = params[i];
+        for (const param of params) {
           const leftToken = sourceCode.getTokenBefore(param);
           const rightToken = sourceCode.getTokenAfter(param);
           const hasSpacingBeforeParam = leftToken.value === "<" ? sourceCode.isSpaceBetween(leftToken, param) : false;

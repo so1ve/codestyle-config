@@ -1,4 +1,5 @@
 import { AST_NODE_TYPES } from "@typescript-eslint/utils";
+
 import { createEslintRule } from "../utils";
 
 const operatorOrAnyBracketOrKeywordRE = /^(\||&|\*|\+|\-|\/|%|<|>|<=|>=|==|!=|===|!==|\[|\(|\{|as|extends|implements|keyof|new|readonly|typeof|unique|unknown)/;

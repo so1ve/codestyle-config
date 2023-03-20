@@ -1,4 +1,5 @@
 import { AST_TOKEN_TYPES } from "@typescript-eslint/utils";
+
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "semi-spacing";

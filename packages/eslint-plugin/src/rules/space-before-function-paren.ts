@@ -64,11 +64,6 @@ export default createEslintRule<Options, MessageIds>({
     const baseConfig = typeof firstOption === "string" ? firstOption : "always";
     const overrideConfig = typeof firstOption === "object" ? firstOption : {};
 
-    /**
-     * Determines whether a function has a name.
-     * @param {ASTNode} node The function node.
-     * @returns {boolean} Whether the function has a name.
-     */
     function isNamedFunction (
       node:
       | TSESTree.ArrowFunctionExpression
@@ -91,11 +86,6 @@ export default createEslintRule<Options, MessageIds>({
       );
     }
 
-    /**
-     * Gets the config for a given function
-     * @param {ASTNode} node The function node
-     * @returns {string} "always", "never", or "ignore"
-     */
     function getConfigForFunction (
       node:
       | TSESTree.ArrowFunctionExpression
@@ -123,11 +113,6 @@ export default createEslintRule<Options, MessageIds>({
       return "ignore";
     }
 
-    /**
-     * Checks the parens of a function node
-     * @param {ASTNode} node A function node
-     * @returns {void}
-     */
     function checkFunction (
       node:
       | TSESTree.ArrowFunctionExpression

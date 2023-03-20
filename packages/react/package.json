@@ -38,13 +38,13 @@
   },
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-define-config": "^1.14.0",
-    "eslint-plugin-react": "^7.32.1",
+    "eslint-define-config": "^1.17.0",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.32.0",
+    "eslint": "^8.36.0",
     "react": "^18.2.0",
-    "typescript": "^4.9.4"
+    "typescript": "^5.0.2"
   }
 }
