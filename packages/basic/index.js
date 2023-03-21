@@ -236,6 +236,7 @@ module.exports = defineConfig({
     "jsdoc/require-jsdoc": "off",
     "jsdoc/check-indentation": "error",
     "jsdoc/check-param-names": ["error", { enableFixer: true }],
+    "jsdoc/require-returns-type": "off",
 
     // Common
     "semi": ["error", "always"],
