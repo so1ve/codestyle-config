@@ -215,6 +215,7 @@ module.exports = defineConfig({
         "no-undef": "off",
         "no-unused-expressions": "off",
         "no-unused-vars": "off",
+        "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }],
       },
     },
   ],
