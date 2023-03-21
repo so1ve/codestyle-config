@@ -42,7 +42,7 @@ const typescriptOverride = {
     "@typescript-eslint/restrict-plus-operands": "error",
     "@typescript-eslint/restrict-template-expressions": "error",
     "@typescript-eslint/unbound-method": "error",
-    "@typescript-eslint/array-type": ["error", { default: "generic", readonly: "generic" }],
+    "@typescript-eslint/array-type": ["error", { default: "array", readonly: "array" }],
     "@typescript-eslint/consistent-generic-constructors": "error",
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
