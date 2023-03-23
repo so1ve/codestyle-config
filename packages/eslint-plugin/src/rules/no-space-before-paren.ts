@@ -56,13 +56,15 @@ export default createEslintRule<Options, MessageIds>({
         const hasIndex = computed(() => textBetweenFunctionNameAndParen.value.startsWith("]"));
         if (hasIndex.value) { callerEnd.value += 1; }
         if (node.optional) { parenStart.value = callerEnd.value + textAfterCaller.value.indexOf("("); }
+        const spaces = /(\s*)$/.exec(textBetweenFunctionNameAndParen.value)[1];
         if (!hasGenerics.value) {
-          if (textBetweenFunctionNameAndParen.value.length > 0 && textBetweenFunctionNameAndParen.value !== "?.") {
+          if (spaces.length > 0 && textBetweenFunctionNameAndParen.value !== "?.") {
+            const textBeforeSpaces = textBetweenFunctionNameAndParen.value.slice(0, textBetweenFunctionNameAndParen.value.length - spaces.length);
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
               *fix (fixer) {
-                yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange.value, node.optional ? "?." : "");
+                yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange.value, textBeforeSpaces + (node.optional ? "?." : ""));
               },
             });
           }
