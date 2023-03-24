@@ -241,6 +241,7 @@ module.exports = defineConfig({
     "jsdoc/check-indentation": "error",
     "jsdoc/check-param-names": ["error", { enableFixer: true }],
     "jsdoc/require-returns-type": "off",
+    "jsdoc/require-returns": "off",
 
     // Common
     "semi": ["error", "always"],

@@ -37,7 +37,6 @@ const typescriptOverride = {
     "@typescript-eslint/require-await": "error",
     "@typescript-eslint/restrict-plus-operands": "error",
     "@typescript-eslint/restrict-template-expressions": "error",
-    "@typescript-eslint/unbound-method": "error",
     "@typescript-eslint/array-type": ["error", { default: "array", readonly: "array" }],
     "@typescript-eslint/consistent-generic-constructors": "error",
     "@typescript-eslint/consistent-type-exports": "error",
@@ -59,7 +58,6 @@ const jestOverride = {
   plugins: ["jest"],
   rules: {
     // you should turn the original rule off *only* for test files
-    "@typescript-eslint/unbound-method": "off",
     "jest/unbound-method": "error",
   },
 };
