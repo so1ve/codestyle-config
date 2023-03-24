@@ -28,7 +28,6 @@ const typescriptOverride = {
     "dot-notation": "off",
     "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
     "no-void": ["error", { allowAsStatement: true }],
-    "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/no-misused-promises": "error",
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-for-in-array": "error",
