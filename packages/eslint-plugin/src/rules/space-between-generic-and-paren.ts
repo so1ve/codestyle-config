@@ -2,8 +2,7 @@ import { AST_NODE_TYPES } from "@typescript-eslint/utils";
 
 import { createEslintRule } from "../utils";
 
-const operatorOrAnyBracketOrKeywordRE =
-  /^(\||&|\*|\+|\-|\/|%|<|>|<=|>=|==|!=|===|!==|\[|\(|\{|as|extends|implements|keyof|new|readonly|typeof|unique|unknown)/;
+const operatorOrAnyBracketOrKeywordRE = /^(\||&|\*|\+|\-|\/|%|<|>|<=|>=|==|!=|===|!==|\[|\(|\{|as|extends|implements|keyof|new|readonly|typeof|unique|unknown)/;
 
 export const RULE_NAME = "space-between-generic-and-paren";
 export type MessageIds = "noSpaceBetweenGenericAndParen";
@@ -45,10 +44,7 @@ export default createEslintRule<Options, MessageIds>({
           .match(/^(\?)/)?.[0];
         const postOperatorOrAnyBracketOrKeyword = text.slice(spaceStartRange + postSpace.length)
           .match(operatorOrAnyBracketOrKeywordRE)?.[0];
-        if (
-          postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark
-          && !postOperatorOrAnyBracketOrKeyword && node.parent.type !== AST_NODE_TYPES.TSInferType
-        ) {
+        if (postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark && !postOperatorOrAnyBracketOrKeyword && node.parent.type !== AST_NODE_TYPES.TSInferType) {
           context.report({
             loc: {
               start: {
@@ -62,7 +58,7 @@ export default createEslintRule<Options, MessageIds>({
             },
             node,
             messageId: "noSpaceBetweenGenericAndParen",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.replaceTextRange([spaceStartRange, spaceStartRange + postSpace.length], "");
             },
           });
@@ -85,7 +81,7 @@ export default createEslintRule<Options, MessageIds>({
               },
               node,
               messageId: "noSpaceBetweenGenericAndParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.replaceTextRange([spaceEndRange - preSpace.length, spaceEndRange], "");
               },
             });

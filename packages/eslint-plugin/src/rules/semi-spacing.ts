@@ -24,7 +24,7 @@ export default createEslintRule<Options, MessageIds>({
   create: (context) => {
     const sourceCode = context.getSourceCode();
     return {
-      TSTypeAliasDeclaration(node) {
+      TSTypeAliasDeclaration (node) {
         const leftToken = node.typeAnnotation;
         const rightToken = sourceCode.getTokenAfter(node.typeAnnotation);
         if (!rightToken || rightToken.type !== AST_TOKEN_TYPES.Punctuator || rightToken.value !== ";") { return; }
@@ -43,7 +43,7 @@ export default createEslintRule<Options, MessageIds>({
             },
             node,
             messageId: "noSpaceBeforeSemi",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.removeRange([leftToken.range[1], rightToken.range[0]]);
             },
           });

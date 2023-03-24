@@ -24,8 +24,7 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "standard.js",
-    "disable-dprint-conflict.js"
+    "standard.js"
   ],
   "publishConfig": {
     "access": "public"

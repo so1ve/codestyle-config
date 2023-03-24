@@ -45,7 +45,7 @@ export default createEslintRule<Options, MessageIds>({
         context.report({
           node,
           messageId: "arrayBracketSpacing",
-          *fix(fixer) {
+          *fix (fixer) {
             yield fixer.removeRange([leftToken.range[1], firstElement.range[0]]);
           },
         });
@@ -55,7 +55,7 @@ export default createEslintRule<Options, MessageIds>({
           context.report({
             node,
             messageId: "arrayBracketSpacing",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.removeRange([lastElement.range[1], rightToken.value.range[0]]);
             },
           });
@@ -65,7 +65,7 @@ export default createEslintRule<Options, MessageIds>({
         context.report({
           node,
           messageId: "arrayBracketSpacing",
-          *fix(fixer) {
+          *fix (fixer) {
             yield fixer.replaceTextRange([lastElement.range[1], rightToken.value.range[0]], "\n");
           },
         });

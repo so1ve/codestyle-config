@@ -17,7 +17,8 @@ module.exports = defineConfig({
       },
     },
   ],
-  rules: {},
+  rules: {
+  },
   settings: {
     "svelte3/typescript": true,
   },

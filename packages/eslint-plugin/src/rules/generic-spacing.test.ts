@@ -28,14 +28,11 @@ const invalids = [
   ["type Foo<T,K> = T", "type Foo<T, K> = T"],
   ["type Foo<T=false,K=1|2> = T", "type Foo<T = false, K = 1|2> = T", 3],
   ["function foo <T>() {}", "function foo<T>() {}"],
-  [
-    `interface Log {
+  [`interface Log {
   foo <T>(name: T): void
-}`,
-    `interface Log {
+}`, `interface Log {
   foo<T>(name: T): void
-}`,
-  ],
+}`],
   ["type Fn =<T> (t: T) => void", "type Fn = <T>(t: T) => void"],
 ] as const;
 it("runs", () => {

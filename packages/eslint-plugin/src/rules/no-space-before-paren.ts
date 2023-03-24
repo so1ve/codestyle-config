@@ -26,23 +26,23 @@ export default createEslintRule<Options, MessageIds>({
     const sourceCode = context.getSourceCode();
     const text = sourceCode.getText();
     return {
-      ImportExpression(node) {
+      ImportExpression (node) {
         const sourceRange = node.source.range;
         const parenStart = sourceRange[0] - 1;
-        const importEnd = node.range[0] + 6 /* "import" */;
+        const importEnd = node.range[0] + 6/* "import" */;
         const textBetweenImportAndParenRange = [importEnd, parenStart] as const;
         const textBetweenImportAndParen = text.slice(...textBetweenImportAndParenRange);
         if (textBetweenImportAndParen.length > 0) {
           context.report({
             node,
             messageId: "noSpaceBeforeParen",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.removeRange(textBetweenImportAndParenRange);
             },
           });
         }
       },
-      CallExpression(node) {
+      CallExpression (node) {
         let caller = "property" in node.callee ? node.callee.property : node.callee;
         if (caller.type === AST_NODE_TYPES.TSInstantiationExpression && "property" in caller.expression) {
           caller = caller.expression.property;
@@ -50,12 +50,8 @@ export default createEslintRule<Options, MessageIds>({
         const callerEnd = ref(caller.range[1]);
         const textAfterCaller = computed(() => text.slice(callerEnd.value));
         const parenStart = ref(callerEnd.value + textAfterCaller.value.indexOf("("));
-        const textBetweenFunctionNameAndParenRange = computed(() =>
-          [callerEnd.value, parenStart.value] as [number, number]
-        );
-        const textBetweenFunctionNameAndParen = computed(() =>
-          text.slice(...textBetweenFunctionNameAndParenRange.value)
-        );
+        const textBetweenFunctionNameAndParenRange = computed(() => [callerEnd.value, parenStart.value] as [number, number]);
+        const textBetweenFunctionNameAndParen = computed(() => text.slice(...textBetweenFunctionNameAndParenRange.value));
         const hasGenerics = computed(() => /^\s*</.test(textBetweenFunctionNameAndParen.value));
         const hasIndex = computed(() => textBetweenFunctionNameAndParen.value.startsWith("]"));
         if (hasIndex.value) { callerEnd.value += 1; }
@@ -63,18 +59,12 @@ export default createEslintRule<Options, MessageIds>({
         const spaces = /(\s*)$/.exec(textBetweenFunctionNameAndParen.value)[1];
         if (!hasGenerics.value) {
           if (spaces.length > 0 && textBetweenFunctionNameAndParen.value !== "?.") {
-            const textBeforeSpaces = textBetweenFunctionNameAndParen.value.slice(
-              0,
-              textBetweenFunctionNameAndParen.value.length - spaces.length,
-            );
+            const textBeforeSpaces = textBetweenFunctionNameAndParen.value.slice(0, textBetweenFunctionNameAndParen.value.length - spaces.length);
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
-              *fix(fixer) {
-                yield fixer.replaceTextRange(
-                  textBetweenFunctionNameAndParenRange.value,
-                  textBeforeSpaces + (node.optional ? "?." : ""),
-                );
+              *fix (fixer) {
+                yield fixer.replaceTextRange(textBetweenFunctionNameAndParenRange.value, textBeforeSpaces + (node.optional ? "?." : ""));
               },
             });
           }
@@ -86,7 +76,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([callerEnd.value, callerEnd.value + preSpaces.length]);
               },
             });
@@ -95,7 +85,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([parenStart.value - postSpaces.length, parenStart.value]);
               },
             });
@@ -104,14 +94,14 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([parenStart.value - spacesBeforeOptionalMark.length - 2, parenStart.value - 2]);
               },
             });
           }
         }
       },
-      NewExpression(node) {
+      NewExpression (node) {
         const calleeEnd = node.callee.range[1];
         const textAfterCallee = text.slice(calleeEnd);
         const parenStart = calleeEnd + textAfterCallee.indexOf("(");
@@ -122,7 +112,7 @@ export default createEslintRule<Options, MessageIds>({
           context.report({
             node,
             messageId: "noSpaceBeforeParen",
-            *fix(fixer) {
+            *fix (fixer) {
               yield fixer.removeRange(textBetweenCalleeAndParenRange);
             },
           });
@@ -133,7 +123,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([calleeEnd, calleeEnd + preSpaces.length]);
               },
             });
@@ -142,7 +132,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node,
               messageId: "noSpaceBeforeParen",
-              *fix(fixer) {
+              *fix (fixer) {
                 yield fixer.removeRange([parenStart - postSpaces.length, parenStart]);
               },
             });
