@@ -1,12 +1,12 @@
+import arrayBracketSpacing from "./rules/array-spacing";
 import genericSpacing from "./rules/generic-spacing";
 import importDedupe from "./rules/import-dedupe";
-import spaceBetweenGenericAndParen from "./rules/space-between-generic-and-paren";
-import noSpaceBeforeParen from "./rules/no-space-before-paren";
-import spaceInEmptyBlock from "./rules/space-in-empty-block";
-import spaceBeforeFunctionParen from "./rules/space-before-function-paren";
-import semiSpacing from "./rules/semi-spacing";
 import noInlineTypeImport from "./rules/no-inline-type-import";
-import arrayBracketSpacing from "./rules/array-spacing";
+import noSpaceBeforeParen from "./rules/no-space-before-paren";
+import semiSpacing from "./rules/semi-spacing";
+import spaceBeforeFunctionParen from "./rules/space-before-function-paren";
+import spaceBetweenGenericAndParen from "./rules/space-between-generic-and-paren";
+import spaceInEmptyBlock from "./rules/space-in-empty-block";
 
 export default {
   rules: {

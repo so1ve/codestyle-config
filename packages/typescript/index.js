@@ -4,6 +4,7 @@ const path = require("node:path");
 
 const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
+const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict.js");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
 
@@ -174,7 +175,7 @@ module.exports = defineConfig({
     "@so1ve/space-in-empty-block": "error",
     "@so1ve/semi-spacing": "error",
     "@so1ve/no-inline-type-import": "error",
-    "@so1ve/space-before-function-paren": ["error", "always"],
+    // "@so1ve/space-before-function-paren": ["error", "always"],
     "@so1ve/array-bracket-spacing": "error",
 
     // off
@@ -197,5 +198,7 @@ module.exports = defineConfig({
     "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
+    // Make sure they take effect
+    ...disableDprintConflict.rules,
   },
 });

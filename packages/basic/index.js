@@ -18,6 +18,7 @@ module.exports = defineConfig({
   ],
   extends: [
     "./standard",
+    "./disable-dprint-conflict",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
