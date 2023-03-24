@@ -59,18 +59,18 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: ["always"],
 
-  create (context, [firstOption]) {
+  create(context, [firstOption]) {
     const sourceCode = context.getSourceCode();
     const baseConfig = typeof firstOption === "string" ? firstOption : "always";
     const overrideConfig = typeof firstOption === "object" ? firstOption : {};
 
     function isNamedFunction (
       node:
-      | TSESTree.ArrowFunctionExpression
-      | TSESTree.FunctionDeclaration
-      | TSESTree.FunctionExpression
-      | TSESTree.TSEmptyBodyFunctionExpression
-      | TSESTree.TSDeclareFunction,
+        | TSESTree.ArrowFunctionExpression
+        | TSESTree.FunctionDeclaration
+        | TSESTree.FunctionExpression
+        | TSESTree.TSEmptyBodyFunctionExpression
+        | TSESTree.TSDeclareFunction,
     ): boolean {
       if (node.id != null) {
         return true;
@@ -88,11 +88,11 @@ export default createEslintRule<Options, MessageIds>({
 
     function getConfigForFunction (
       node:
-      | TSESTree.ArrowFunctionExpression
-      | TSESTree.FunctionDeclaration
-      | TSESTree.FunctionExpression
-      | TSESTree.TSEmptyBodyFunctionExpression
-      | TSESTree.TSDeclareFunction,
+        | TSESTree.ArrowFunctionExpression
+        | TSESTree.FunctionDeclaration
+        | TSESTree.FunctionExpression
+        | TSESTree.TSEmptyBodyFunctionExpression
+        | TSESTree.TSDeclareFunction,
     ): FuncOption {
       if (node.type === AST_NODE_TYPES.ArrowFunctionExpression) {
         // Always ignore non-async functions and arrow functions without parens, e.g. async foo => bar
@@ -115,11 +115,11 @@ export default createEslintRule<Options, MessageIds>({
 
     function checkFunction (
       node:
-      | TSESTree.ArrowFunctionExpression
-      | TSESTree.FunctionDeclaration
-      | TSESTree.FunctionExpression
-      | TSESTree.TSEmptyBodyFunctionExpression
-      | TSESTree.TSDeclareFunction,
+        | TSESTree.ArrowFunctionExpression
+        | TSESTree.FunctionDeclaration
+        | TSESTree.FunctionExpression
+        | TSESTree.TSEmptyBodyFunctionExpression
+        | TSESTree.TSDeclareFunction,
     ): void {
       const functionConfig = getConfigForFunction(node);
 
@@ -145,8 +145,7 @@ export default createEslintRule<Options, MessageIds>({
             end: rightToken.loc.start,
           },
           messageId: "unexpected",
-          fix: fixer =>
-            fixer.removeRange([leftToken.range[1], rightToken.range[0]]),
+          fix: fixer => fixer.removeRange([leftToken.range[1], rightToken.range[0]]),
         });
       } else if (
         !hasSpacing

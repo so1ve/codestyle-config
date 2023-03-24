@@ -49,7 +49,7 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.removeRange([leftToken.range[1], param.range[0]]);
               },
             });
@@ -68,7 +68,7 @@ export default createEslintRule<Options, MessageIds>({
               },
               node,
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.removeRange([param.range[1], rightToken.range[0]]);
               },
             });
@@ -88,7 +88,7 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.replaceTextRange([leftToken.range[1], param.range[0]], " ");
               },
             });
@@ -118,14 +118,18 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.removeRange([leftToken.range[1], node.range[0]]);
               },
             });
           }
 
           // strip space between <T> and (t: T)
-          if (hasSpacingAfterParam && [AST_NODE_TYPES.TSFunctionType, AST_NODE_TYPES.FunctionDeclaration, AST_NODE_TYPES.FunctionExpression].includes(node.parent.type)) {
+          if (
+            hasSpacingAfterParam
+            && [AST_NODE_TYPES.TSFunctionType, AST_NODE_TYPES.FunctionDeclaration, AST_NODE_TYPES.FunctionExpression]
+              .includes(node.parent.type)
+          ) {
             context.report({
               node,
               loc: {
@@ -139,7 +143,7 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.removeRange([endBracket.range[1], rightToken.range[0]]);
               },
             });
@@ -158,7 +162,7 @@ export default createEslintRule<Options, MessageIds>({
           const postSpace = spaceAndEqual.match(/(\s*)$/)?.[0];
           if (preSpace.length !== 1) {
             context.report({
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.replaceTextRange([from, from + preSpace.length], " ");
               },
               loc: {
@@ -177,7 +181,7 @@ export default createEslintRule<Options, MessageIds>({
           }
           if (postSpace.length !== 1) {
             context.report({
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.replaceTextRange([to - postSpace.length, to], " ");
               },
               loc: {
@@ -218,7 +222,7 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.removeRange([leftToken.range[1], param.range[0]]);
               },
             });
@@ -238,7 +242,7 @@ export default createEslintRule<Options, MessageIds>({
                 },
               },
               messageId: "genericSpacingMismatch",
-              *fix (fixer) {
+              *fix(fixer) {
                 yield fixer.removeRange([param.range[1], rightToken.range[0]]);
               },
             });
@@ -269,7 +273,7 @@ export default createEslintRule<Options, MessageIds>({
             },
             node,
             messageId: "genericSpacingMismatch",
-            *fix (fixer) {
+            *fix(fixer) {
               yield fixer.replaceTextRange([extendsKeywordStart, extendsKeywordEnd - 8], " ");
             },
           });
