@@ -1,6 +1,8 @@
 // @ts-check
 const { defineConfig } = require("eslint-define-config");
 
+const disableDprintConflict = require("./disable-dprint-conflict");
+
 module.exports = defineConfig({
   env: {
     es6: true,
@@ -387,5 +389,7 @@ module.exports = defineConfig({
     // so1ve
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-space-before-paren": "error",
+
+    ...disableDprintConflict.rules,
   },
 });

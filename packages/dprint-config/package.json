@@ -15,7 +15,7 @@
     "url": "https://github.com/so1ve/eslint-config/issues"
   },
   "license": "MIT",
-  "main": "index.js",
+  "main": "index.json",
   "files": [
     "index.json"
   ],
