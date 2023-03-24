@@ -1,7 +1,15 @@
 // @ts-check
+const fs = require("node:fs");
+const path = require("node:path");
+
 const { defineConfig } = require("eslint-define-config");
 
 const disableDprintConflict = require("./disable-dprint-conflict");
+
+const dprint = process.env.DPRINT || "dprint.json";
+const disableDprintConflictRules = !fs.existsSync(path.join(process.cwd(), dprint))
+  ? {}
+  : disableDprintConflict.rules;
 
 module.exports = defineConfig({
   env: {
@@ -391,6 +399,6 @@ module.exports = defineConfig({
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-space-before-paren": "error",
 
-    ...disableDprintConflict.rules,
+    ...disableDprintConflictRules,
   },
 });

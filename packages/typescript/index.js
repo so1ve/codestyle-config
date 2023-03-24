@@ -7,6 +7,7 @@ const basic = require("@so1ve/eslint-config-basic");
 const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict.js");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
+const dprint = process.env.DPRINT || "dprint.json";
 
 /**
  * @type {import("eslint-define-config").Override}
@@ -64,6 +65,10 @@ const jestOverride = {
 const overrides = !fs.existsSync(path.join(process.cwd(), tsconfig))
   ? []
   : [typescriptOverride, jestOverride];
+
+const disableDprintConflictRules = !fs.existsSync(path.join(process.cwd(), dprint))
+  ? {}
+  : disableDprintConflict.rules;
 
 module.exports = defineConfig({
   extends: [
@@ -196,6 +201,6 @@ module.exports = defineConfig({
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
     // Make sure they take effect
-    ...disableDprintConflict.rules,
+    ...disableDprintConflictRules,
   },
 });
