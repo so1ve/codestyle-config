@@ -1,6 +1,10 @@
 {
   "typescript": {
     "functionDeclaration.spaceBeforeParentheses": true,
+    "module.sortImportDeclarations": "caseSensitive",
+    "module.sortExportDeclarations": "caseSensitive",
+    "exportDeclaration.sortNamedExports": "caseSensitive",
+    "importDeclaration.sortNamedImports": "caseSensitive",
     "useBraces": "always"
   },
   "json": {

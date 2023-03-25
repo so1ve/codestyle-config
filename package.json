@@ -21,6 +21,7 @@
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "check": "dprint check",
     "fmt": "dprint fmt",
     "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
     "test": "pnpm run -r --filter=./packages/* test",
