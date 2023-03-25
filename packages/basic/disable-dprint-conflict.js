@@ -1,7 +1,10 @@
 // @ts-check
+const fs = require("node:fs");
+const path = require("node:path");
+
 const { defineConfig } = require("eslint-define-config");
 
-module.exports = defineConfig({
+const rules = defineConfig({
   rules: {
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
@@ -82,6 +85,7 @@ module.exports = defineConfig({
     "wrap-regex": "off",
     "yield-star-spacing": "off",
 
+    "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/brace-style": "off",
     "@typescript-eslint/comma-spacing": "off",
     "@typescript-eslint/func-call-spacing": "off",
@@ -112,3 +116,9 @@ module.exports = defineConfig({
     "react/jsx-wrap-multilines": "off",
   },
 });
+
+const dprint = process.env.DPRINT || "dprint.json";
+const disableDprintConflict = !fs.existsSync(path.join(process.cwd(), dprint))
+  ? {}
+  : rules;
+module.exports = disableDprintConflict.rules;

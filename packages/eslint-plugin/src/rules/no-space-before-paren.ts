@@ -81,7 +81,7 @@ export default createEslintRule<Options, MessageIds>({
         } else {
           const preSpaces = /^(\s*)/.exec(textBetweenFunctionNameAndParen.value)[1];
           const postSpaces = /(\s*)$/.exec(textBetweenFunctionNameAndParen.value)[1];
-          const spacesBeforeOptionalMark = /(\s*)\?\./.exec(textBetweenFunctionNameAndParen.value)?.[1] || "";
+          const spacesBeforeOptionalMark = /(\s*)\?\./.exec(textBetweenFunctionNameAndParen.value)?.[1] ?? "";
           if (preSpaces.length > 0) {
             context.report({
               node,

@@ -46,7 +46,7 @@ export default createEslintRule<Options, MessageIds>({
         const postOperatorOrAnyBracketOrKeyword = text.slice(spaceStartRange + postSpace.length)
           .match(operatorOrAnyBracketOrKeywordRE)?.[0];
         if (
-          postSpace && postSpace.length && !postEqual && !postComma && !postQuestionMark
+          postSpace?.length && !postEqual && !postComma && !postQuestionMark
           && !postOperatorOrAnyBracketOrKeyword && node.parent.type !== AST_NODE_TYPES.TSInferType
         ) {
           context.report({
@@ -71,7 +71,7 @@ export default createEslintRule<Options, MessageIds>({
           const spaceEndRange = node.range[0] - 1;
           const pre = sourceCode.text.slice(0, spaceEndRange);
           const preSpace = pre.match(/(\s+)$/)?.[0];
-          if (preSpace && preSpace.length) {
+          if (preSpace?.length) {
             context.report({
               loc: {
                 start: {

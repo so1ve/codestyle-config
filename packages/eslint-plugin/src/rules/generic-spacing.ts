@@ -153,7 +153,7 @@ export default createEslintRule<Options, MessageIds>({
       // add space around = in type Foo<T = true>
       TSTypeParameter: (node) => {
         if (!node.default) { return; }
-        const endNode = node.constraint || node.name;
+        const endNode = node.constraint ?? node.name;
         const from = endNode.range[1];
         const to = node.default.range[0];
         const spaceAndEqual = sourceCode.text.slice(from, to);

@@ -48,7 +48,7 @@ it("runs", () => {
     invalid: invalids.map(i => ({
       code: i[0],
       output: i[1].trim(),
-      errors: Array.from({ length: i[2] || 1 }, () => ({ messageId: "genericSpacingMismatch" })),
+      errors: Array.from({ length: i[2] ?? 1 }, () => ({ messageId: "genericSpacingMismatch" })),
     })),
   });
 });
