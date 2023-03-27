@@ -4,7 +4,7 @@ const path = require("node:path");
 
 const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
-const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict.js");
+const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
 
@@ -28,19 +28,16 @@ const typescriptOverride = {
     "dot-notation": "off",
     "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
     "no-void": ["error", { allowAsStatement: true }],
-    "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/no-misused-promises": "error",
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-for-in-array": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/restrict-template-expressions": "error",
-    "@typescript-eslint/unbound-method": "error",
     "@typescript-eslint/array-type": ["error", { default: "array", readonly: "array" }],
     "@typescript-eslint/consistent-generic-constructors": "error",
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/no-unnecessary-type-arguments": "error",
     "@typescript-eslint/no-redundant-type-constituents": "error",
     "@typescript-eslint/non-nullable-type-assertion-style": "error",
@@ -56,7 +53,6 @@ const jestOverride = {
   plugins: ["jest"],
   rules: {
     // you should turn the original rule off *only* for test files
-    "@typescript-eslint/unbound-method": "off",
     "jest/unbound-method": "error",
   },
 };
@@ -196,6 +192,6 @@ module.exports = defineConfig({
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
     // Make sure they take effect
-    ...disableDprintConflict.rules,
+    ...disableDprintConflict,
   },
 });

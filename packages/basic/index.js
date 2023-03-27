@@ -1,5 +1,8 @@
 // @ts-check
+
 const { defineConfig } = require("eslint-define-config");
+
+const disableDprintConflict = require("./disable-dprint-conflict");
 
 module.exports = defineConfig({
   env: {
@@ -18,7 +21,6 @@ module.exports = defineConfig({
   ],
   extends: [
     "./standard",
-    "./disable-dprint-conflict",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
@@ -239,6 +241,7 @@ module.exports = defineConfig({
     "jsdoc/check-indentation": "error",
     "jsdoc/check-param-names": ["error", { enableFixer: true }],
     "jsdoc/require-returns-type": "off",
+    "jsdoc/require-returns": "off",
 
     // Common
     "semi": ["error", "always"],
@@ -387,5 +390,7 @@ module.exports = defineConfig({
     // so1ve
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-space-before-paren": "error",
+
+    ...disableDprintConflict,
   },
 });

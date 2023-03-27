@@ -31,7 +31,7 @@ export default createEslintRule<Options, MessageIds>({
         const spaceStartRange = node.range[1] - 2;
         const post = sourceCode.text.slice(spaceStartRange);
         const postSpace = post.match(/^(\s*)/)?.[0];
-        if (postSpace && postSpace.length) {
+        if (postSpace?.length) {
           context.report({
             loc: {
               start: node.loc.start,
@@ -49,7 +49,7 @@ export default createEslintRule<Options, MessageIds>({
         const spaceEndRange = node.range[0] + 1;
         const pre = sourceCode.text.slice(0, spaceEndRange);
         const preSpace = pre.match(/(\s+)$/)?.[0];
-        if (preSpace && preSpace.length) {
+        if (preSpace?.length) {
           context.report({
             loc: {
               start: {
