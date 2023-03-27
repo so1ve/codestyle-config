@@ -39,7 +39,6 @@ const typescriptOverride = {
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/no-unnecessary-type-arguments": "error",
-    "@typescript-eslint/no-redundant-type-constituents": "error",
     "@typescript-eslint/non-nullable-type-assertion-style": "error",
   },
 };

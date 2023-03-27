@@ -1,5 +1,3 @@
-
-
 export const RULE_NAME = "type-indent";
 export type MessageIds = "expected";
 export type Options = [];
