@@ -258,16 +258,21 @@ module.exports = defineConfig({
       { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
     ],
 
-    "dprint-integration/dprint": ["error", {}, {
-      typescript: {
-        "functionDeclaration.spaceBeforeParentheses": true,
-        "module.sortImportDeclarations": "caseSensitive",
-        "module.sortExportDeclarations": "caseSensitive",
-        "exportDeclaration.sortNamedExports": "caseSensitive",
-        "importDeclaration.sortNamedImports": "caseSensitive",
-        "useBraces": "always",
+    "dprint-integration/dprint": [
+      "error",
+      {},
+      {
+        typescript: {
+          "useBraces": "always",
+          "quoteStyle": "alwaysDouble",
+          "functionDeclaration.spaceBeforeParentheses": true,
+          "module.sortImportDeclarations": "caseSensitive",
+          "module.sortExportDeclarations": "caseSensitive",
+          "exportDeclaration.sortNamedExports": "caseSensitive",
+          "importDeclaration.sortNamedImports": "caseSensitive",
+        },
       },
-    }],
+    ],
 
     "no-param-reassign": "off",
     "array-bracket-spacing": ["error", "never"],

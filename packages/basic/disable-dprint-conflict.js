@@ -57,7 +57,6 @@ module.exports = defineConfig({
     "one-var-declaration-per-line": "off",
     "operator-linebreak": "off",
     "padded-blocks": "off",
-    "quote-props": "off",
     "quotes": "off",
     "rest-spread-spacing": "off",
     "semi": "off",
