@@ -18,6 +18,8 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
+
+    "dprint-integration",
   ],
   extends: [
     "./standard",
@@ -27,6 +29,7 @@ module.exports = defineConfig({
     "plugin:jsdoc/recommended-error",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
+    "plugin:dprint-integration/recommended",
   ],
   ignorePatterns: [
     "*.min.*",
@@ -254,6 +257,17 @@ module.exports = defineConfig({
       "error",
       { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
     ],
+
+    "dprint-integration/dprint": ["error", {}, {
+      typescript: {
+        "functionDeclaration.spaceBeforeParentheses": true,
+        "module.sortImportDeclarations": "caseSensitive",
+        "module.sortExportDeclarations": "caseSensitive",
+        "exportDeclaration.sortNamedExports": "caseSensitive",
+        "importDeclaration.sortNamedImports": "caseSensitive",
+        "useBraces": "always",
+      },
+    }],
 
     "no-param-reassign": "off",
     "array-bracket-spacing": ["error", "never"],

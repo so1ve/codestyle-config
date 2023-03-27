@@ -1,10 +1,8 @@
 // @ts-check
-const fs = require("node:fs");
-const path = require("node:path");
-
+// TODO: Remove this and delete the conflict rules
 const { defineConfig } = require("eslint-define-config");
 
-const rules = defineConfig({
+module.exports = defineConfig({
   rules: {
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
@@ -115,10 +113,4 @@ const rules = defineConfig({
     "react/jsx-tag-spacing": "off",
     "react/jsx-wrap-multilines": "off",
   },
-});
-
-const dprint = process.env.DPRINT || "dprint.json";
-const disableDprintConflict = !fs.existsSync(path.join(process.cwd(), dprint))
-  ? {}
-  : rules;
-module.exports = disableDprintConflict.rules;
+}).rules;

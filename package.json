@@ -30,8 +30,8 @@
   "devDependencies": {
     "@so1ve/eslint-config": "*",
     "@so1ve/eslint-plugin": "workspace:*",
+    "@types/node": "^18.15.3",
     "bumpp": "^9.0.0",
-    "dprint": "^0.35.3",
     "eslint": "^8.36.0",
     "typescript": "^5.0.2"
   }
