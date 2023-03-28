@@ -226,7 +226,7 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ["!*.vue"],
+      files: ["!*.vue", "!*.html"],
       rules: disableDprintConflict,
     },
   ],
