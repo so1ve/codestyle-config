@@ -75,7 +75,7 @@ module.exports = defineConfig({
     ...(basic.overrides || []),
     ...overrides,
     {
-      files: ["!*.vue", "!*.html"],
+      files: ["!*.vue"],
       rules: disableDprintConflict,
     },
   ],
