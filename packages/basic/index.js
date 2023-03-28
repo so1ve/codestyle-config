@@ -27,6 +27,7 @@ module.exports = defineConfig({
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
+    "plugin:dprint-integration/recommended",
   ],
   ignorePatterns: [
     "*.min.*",
@@ -170,46 +171,6 @@ module.exports = defineConfig({
         ],
       },
     },
-    // Enable Dprint on these files only
-    {
-      files: [
-        "*.md",
-        "*.mkd",
-        "*.mkdn",
-        "*.mdown",
-        "*.markdown",
-        "*.js",
-        "*.jsx",
-        "*.cjs",
-        "*.mjs",
-        "*.ts",
-        "*.tsx",
-        "*.mts",
-        "*.cts",
-        "*.json",
-        "*.json5",
-        "*.jsonc",
-        "*.toml",
-        "Dockerfile",
-      ],
-      rules: {
-        "dprint-integration/dprint": [
-          "error",
-          {},
-          {
-            typescript: {
-              "useBraces": "always",
-              "quoteStyle": "alwaysDouble",
-              "functionDeclaration.spaceBeforeParentheses": true,
-              "module.sortImportDeclarations": "caseSensitive",
-              "module.sortExportDeclarations": "caseSensitive",
-              "exportDeclaration.sortNamedExports": "caseSensitive",
-              "importDeclaration.sortNamedImports": "caseSensitive",
-            },
-          },
-        ],
-      },
-    },
     {
       files: ["*.d.ts"],
       rules: {
@@ -304,6 +265,22 @@ module.exports = defineConfig({
     "unused-imports/no-unused-vars": [
       "error",
       { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+    ],
+
+    "dprint-integration/dprint": [
+      "error",
+      {},
+      {
+        typescript: {
+          "useBraces": "always",
+          "quoteStyle": "alwaysDouble",
+          "functionDeclaration.spaceBeforeParentheses": true,
+          "module.sortImportDeclarations": "caseSensitive",
+          "module.sortExportDeclarations": "caseSensitive",
+          "exportDeclaration.sortNamedExports": "caseSensitive",
+          "importDeclaration.sortNamedImports": "caseSensitive",
+        },
+      },
     ],
 
     "no-param-reassign": "off",
