@@ -4,6 +4,29 @@ const { defineConfig } = require("eslint-define-config");
 
 const disableDprintConflict = require("./disable-dprint-conflict");
 
+const origFiles = [
+  "*.md",
+  "*.mkd",
+  "*.mkdn",
+  "*.mdown",
+  "*.markdown",
+  "*.js",
+  "*.jsx",
+  "*.cjs",
+  "*.mjs",
+  "*.ts",
+  "*.tsx",
+  "*.mts",
+  "*.cts",
+  "*.json",
+  "*.json5",
+  "*.jsonc",
+  "*.toml",
+  "Dockerfile",
+];
+const filesWithinMarkdown = origFiles.map((f) => `**/*.md/${f}`);
+exports.filesWithinMarkdown = filesWithinMarkdown;
+
 module.exports = defineConfig({
   env: {
     es6: true,
@@ -27,13 +50,13 @@ module.exports = defineConfig({
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
-    "plugin:dprint-integration/recommended",
   ],
   ignorePatterns: [
     "*.min.*",
     "*.d.ts",
     "CHANGELOG.md",
-    "dist",
+    "dist*",
+    "release",
     "LICENSE*",
     "output",
     "out",
@@ -49,12 +72,10 @@ module.exports = defineConfig({
     "*.css",
     "*.png",
     "*.ico",
-    "*.toml",
     "*.patch",
     "*.txt",
     "*.crt",
     "*.key",
-    "Dockerfile",
     // force include
     "!.github",
     "!.vitepress",
@@ -239,8 +260,40 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ["!*.vue"],
+      files: [
+        "*.js",
+        "*.jsx",
+        "*.cjs",
+        "*.mjs",
+        "*.ts",
+        "*.tsx",
+        "*.mts",
+        "*.cts",
+        "*.json",
+        "*.json5",
+        "*.jsonc",
+      ],
       rules: disableDprintConflict,
+    },
+    {
+      files: filesWithinMarkdown,
+      rules: {
+        "dprint-integration/dprint": [
+          "error",
+          {},
+          {
+            typescript: {
+              "useBraces": "always",
+              "quoteStyle": "alwaysDouble",
+              "functionDeclaration.spaceBeforeParentheses": true,
+              "module.sortImportDeclarations": "caseSensitive",
+              "module.sortExportDeclarations": "caseSensitive",
+              "exportDeclaration.sortNamedExports": "caseSensitive",
+              "importDeclaration.sortNamedImports": "caseSensitive",
+            },
+          },
+        ],
+      },
     },
   ],
   rules: {
@@ -265,22 +318,6 @@ module.exports = defineConfig({
     "unused-imports/no-unused-vars": [
       "error",
       { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
-    ],
-
-    "dprint-integration/dprint": [
-      "error",
-      {},
-      {
-        typescript: {
-          "useBraces": "always",
-          "quoteStyle": "alwaysDouble",
-          "functionDeclaration.spaceBeforeParentheses": true,
-          "module.sortImportDeclarations": "caseSensitive",
-          "module.sortExportDeclarations": "caseSensitive",
-          "exportDeclaration.sortNamedExports": "caseSensitive",
-          "importDeclaration.sortNamedImports": "caseSensitive",
-        },
-      },
     ],
 
     "no-param-reassign": "off",

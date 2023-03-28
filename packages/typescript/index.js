@@ -4,6 +4,7 @@ const path = require("node:path");
 
 const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
+const { filesWithinMarkdown } = basic;
 const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
@@ -75,8 +76,40 @@ module.exports = defineConfig({
     ...(basic.overrides || []),
     ...overrides,
     {
-      files: ["!*.vue"],
+      files: [
+        "*.js",
+        "*.jsx",
+        "*.cjs",
+        "*.mjs",
+        "*.ts",
+        "*.tsx",
+        "*.mts",
+        "*.cts",
+        "*.json",
+        "*.json5",
+        "*.jsonc",
+      ],
       rules: disableDprintConflict,
+    },
+    {
+      files: filesWithinMarkdown,
+      rules: {
+        "dprint-integration/dprint": [
+          "error",
+          {},
+          {
+            typescript: {
+              "useBraces": "always",
+              "quoteStyle": "alwaysDouble",
+              "functionDeclaration.spaceBeforeParentheses": true,
+              "module.sortImportDeclarations": "caseSensitive",
+              "module.sortExportDeclarations": "caseSensitive",
+              "exportDeclaration.sortNamedExports": "caseSensitive",
+              "importDeclaration.sortNamedImports": "caseSensitive",
+            },
+          },
+        ],
+      },
     },
   ],
   rules: {
