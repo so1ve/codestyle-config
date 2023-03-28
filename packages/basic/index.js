@@ -18,7 +18,6 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
-
     "dprint-integration",
   ],
   extends: [
@@ -26,7 +25,6 @@ module.exports = defineConfig({
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
-    "plugin:jsdoc/recommended-error",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
     "plugin:dprint-integration/recommended",
@@ -192,6 +190,21 @@ module.exports = defineConfig({
       },
     },
     {
+      files: ["*.js", "*.jsx", "*.cjs", "*.mjs", "*.ts", "*.tsx", "*.mts", "*.cts"],
+      rules: {
+        // Not supported in ESLint 8 yet
+        // "jsdoc/check-examples": "error",
+        "jsdoc/require-jsdoc": "off",
+        "jsdoc/check-indentation": "error",
+        "jsdoc/check-param-names": ["error", { enableFixer: true }],
+        "jsdoc/require-returns-type": "off",
+        "jsdoc/require-returns": "off",
+      },
+      extends: [
+        "plugin:jsdoc/recommended-error",
+      ],
+    },
+    {
       files: ["scripts/**/*.*", "cli.*"],
       rules: {
         "no-console": "off",
@@ -241,14 +254,6 @@ module.exports = defineConfig({
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
-
-    // Not supported in ESLint 8 yet
-    // "jsdoc/check-examples": "error",
-    "jsdoc/require-jsdoc": "off",
-    "jsdoc/check-indentation": "error",
-    "jsdoc/check-param-names": ["error", { enableFixer: true }],
-    "jsdoc/require-returns-type": "off",
-    "jsdoc/require-returns": "off",
 
     // Common
     "semi": ["error", "always"],
