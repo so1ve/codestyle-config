@@ -25,7 +25,8 @@
   "files": [
     "index.js",
     "standard.js",
-    "disable-dprint-conflict.js"
+    "disable-dprint-conflict.js",
+    "files-within-markdown.js"
   ],
   "publishConfig": {
     "access": "public"

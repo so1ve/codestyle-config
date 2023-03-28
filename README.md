@@ -32,7 +32,6 @@ pnpm add -D eslint @so1ve/eslint-config
 ### Add script for package.json
 
 For example:
-
 ```json
 {
   "scripts": {

@@ -4,7 +4,7 @@ const path = require("node:path");
 
 const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
-const { filesWithinMarkdown } = basic;
+const filesWithinMarkdown = require("@so1ve/eslint-config-basic/files-within-markdown");
 const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";

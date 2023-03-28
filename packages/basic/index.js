@@ -3,29 +3,7 @@
 const { defineConfig } = require("eslint-define-config");
 
 const disableDprintConflict = require("./disable-dprint-conflict");
-
-const origFiles = [
-  "*.md",
-  "*.mkd",
-  "*.mkdn",
-  "*.mdown",
-  "*.markdown",
-  "*.js",
-  "*.jsx",
-  "*.cjs",
-  "*.mjs",
-  "*.ts",
-  "*.tsx",
-  "*.mts",
-  "*.cts",
-  "*.json",
-  "*.json5",
-  "*.jsonc",
-  "*.toml",
-  "Dockerfile",
-];
-const filesWithinMarkdown = origFiles.map((f) => `**/*.md/${f}`);
-exports.filesWithinMarkdown = filesWithinMarkdown;
+const filesWithinMarkdown = require("./files-within-markdown");
 
 module.exports = defineConfig({
   env: {
