@@ -37,14 +37,14 @@
     "prepublishOnly": "nr build"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.55.0",
+    "@typescript-eslint/utils": "^5.57.0",
     "@vue/reactivity": "^3.2.47",
     "eslint-define-config": "^1.17.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3",
-    "@typescript-eslint/types": "^5.55.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/types": "^5.57.0",
     "unbuild": "^1.1.2",
-    "vitest": "^0.29.3"
+    "vitest": "^0.29.8"
   }
 }

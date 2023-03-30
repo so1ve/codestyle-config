@@ -3,7 +3,6 @@
 const { defineConfig } = require("eslint-define-config");
 
 const disableDprintConflict = require("./disable-dprint-conflict");
-const filesWithinMarkdown = require("./files-within-markdown");
 
 module.exports = defineConfig({
   env: {
@@ -253,26 +252,6 @@ module.exports = defineConfig({
       ],
       rules: disableDprintConflict,
     },
-    {
-      files: filesWithinMarkdown,
-      rules: {
-        "dprint-integration/dprint": [
-          "error",
-          {},
-          {
-            typescript: {
-              "useBraces": "always",
-              "quoteStyle": "alwaysDouble",
-              "functionDeclaration.spaceBeforeParentheses": true,
-              "module.sortImportDeclarations": "caseSensitive",
-              "module.sortExportDeclarations": "caseSensitive",
-              "exportDeclaration.sortNamedExports": "caseSensitive",
-              "importDeclaration.sortNamedImports": "caseSensitive",
-            },
-          },
-        ],
-      },
-    },
   ],
   rules: {
     // import
@@ -433,5 +412,22 @@ module.exports = defineConfig({
     // so1ve
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-space-before-paren": "error",
+
+    "dprint-integration/dprint": [
+      "error",
+      {},
+      {
+        typescript: {
+          "useBraces": "always",
+          "quoteStyle": "alwaysDouble",
+          "functionDeclaration.spaceBeforeParentheses": true,
+          "module.sortImportDeclarations": "caseSensitive",
+          "module.sortExportDeclarations": "caseSensitive",
+          "exportDeclaration.sortNamedExports": "caseSensitive",
+          "importDeclaration.sortNamedImports": "caseSensitive",
+        },
+      },
+    ],
+    ...disableDprintConflict,
   },
 });

@@ -4,7 +4,6 @@ const path = require("node:path");
 
 const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
-const filesWithinMarkdown = require("@so1ve/eslint-config-basic/files-within-markdown");
 const disableDprintConflict = require("@so1ve/eslint-config-basic/disable-dprint-conflict");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
@@ -75,42 +74,6 @@ module.exports = defineConfig({
   overrides: [
     ...(basic.overrides || []),
     ...overrides,
-    {
-      files: [
-        "*.js",
-        "*.jsx",
-        "*.cjs",
-        "*.mjs",
-        "*.ts",
-        "*.tsx",
-        "*.mts",
-        "*.cts",
-        "*.json",
-        "*.json5",
-        "*.jsonc",
-      ],
-      rules: disableDprintConflict,
-    },
-    {
-      files: filesWithinMarkdown,
-      rules: {
-        "dprint-integration/dprint": [
-          "error",
-          {},
-          {
-            typescript: {
-              "useBraces": "always",
-              "quoteStyle": "alwaysDouble",
-              "functionDeclaration.spaceBeforeParentheses": true,
-              "module.sortImportDeclarations": "caseSensitive",
-              "module.sortExportDeclarations": "caseSensitive",
-              "exportDeclaration.sortNamedExports": "caseSensitive",
-              "importDeclaration.sortNamedImports": "caseSensitive",
-            },
-          },
-        ],
-      },
-    },
   ],
   rules: {
     "import/named": "off",
@@ -227,5 +190,21 @@ module.exports = defineConfig({
     "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
+    "dprint-integration/dprint": [
+      "error",
+      {},
+      {
+        typescript: {
+          "useBraces": "always",
+          "quoteStyle": "alwaysDouble",
+          "functionDeclaration.spaceBeforeParentheses": true,
+          "module.sortImportDeclarations": "caseSensitive",
+          "module.sortExportDeclarations": "caseSensitive",
+          "exportDeclaration.sortNamedExports": "caseSensitive",
+          "importDeclaration.sortNamedImports": "caseSensitive",
+        },
+      },
+    ],
+    ...disableDprintConflict,
   },
 });

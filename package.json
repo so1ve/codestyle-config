@@ -30,9 +30,14 @@
   "devDependencies": {
     "@so1ve/eslint-config": "*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@types/node": "^18.15.3",
-    "bumpp": "^9.0.0",
-    "eslint": "^8.36.0",
+    "@types/node": "^18.15.11",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.37.0",
     "typescript": "^5.0.2"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": ["typescript"]
+    }
   }
 }
