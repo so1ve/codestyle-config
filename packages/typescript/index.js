@@ -190,6 +190,7 @@ module.exports = defineConfig({
     "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
+
     "dprint-integration/dprint": [
       "error",
       {},

@@ -37,7 +37,10 @@
   },
   "pnpm": {
     "peerDependencyRules": {
-      "ignoreMissing": ["typescript"]
+      "ignoreMissing": [
+        "typescript",
+        "svelte"
+      ]
     }
   }
 }
