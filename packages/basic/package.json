@@ -41,7 +41,7 @@
     "@html-eslint/parser": "^0.17.1",
     "@so1ve/eslint-plugin": "workspace:*",
     "eslint-define-config": "^1.17.0",
-    "eslint-plugin-dprint-integration": "^0.1.5",
+    "eslint-plugin-dprint-integration": "^0.1.6",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsdoc": "^40.1.0",

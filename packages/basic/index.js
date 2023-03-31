@@ -260,7 +260,6 @@ module.exports = defineConfig({
       "warnOnUnassignedImports": true,
     }],
     "import/first": "error",
-    "import/exports-last": "error",
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
@@ -411,7 +410,6 @@ module.exports = defineConfig({
 
     // so1ve
     "@so1ve/import-dedupe": "error",
-    "@so1ve/no-space-before-paren": "error",
 
     "dprint-integration/dprint": [
       "error",

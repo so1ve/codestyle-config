@@ -9,14 +9,14 @@ importers:
       '@types/node': ^18.15.11
       bumpp: ^9.1.0
       eslint: ^8.37.0
-      typescript: ^5.0.2
+      typescript: ^5.0.3
     devDependencies:
       '@so1ve/eslint-config': link:packages/all
       '@so1ve/eslint-plugin': link:packages/eslint-plugin
       '@types/node': 18.15.11
       bumpp: 9.1.0
       eslint: 8.37.0
-      typescript: 5.0.2
+      typescript: 5.0.3
 
   packages/all:
     specifiers:
@@ -64,7 +64,7 @@ importers:
       '@so1ve/eslint-plugin': workspace:*
       eslint: ^8.37.0
       eslint-define-config: ^1.17.0
-      eslint-plugin-dprint-integration: ^0.1.5
+      eslint-plugin-dprint-integration: ^0.1.6
       eslint-plugin-eslint-comments: ^3.2.0
       eslint-plugin-import: ^2.27.5
       eslint-plugin-jsdoc: ^40.1.0
@@ -83,7 +83,7 @@ importers:
       '@html-eslint/parser': 0.17.1
       '@so1ve/eslint-plugin': link:../eslint-plugin
       eslint-define-config: 1.17.0
-      eslint-plugin-dprint-integration: 0.1.5
+      eslint-plugin-dprint-integration: 0.1.6
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.37.0
       eslint-plugin-import: 2.27.5_eslint@8.37.0
       eslint-plugin-jsdoc: 40.1.0_eslint@8.37.0
@@ -127,7 +127,7 @@ importers:
       eslint-plugin-react: ^7.32.2
       eslint-plugin-react-hooks: ^4.6.0
       react: ^18.2.0
-      typescript: ^5.0.2
+      typescript: ^5.0.3
     dependencies:
       '@so1ve/eslint-config-ts': link:../typescript
       eslint-define-config: 1.17.0
@@ -136,7 +136,7 @@ importers:
     devDependencies:
       eslint: 8.37.0
       react: 18.2.0
-      typescript: 5.0.2
+      typescript: 5.0.3
 
   packages/svelte:
     specifiers:
@@ -2020,8 +2020,8 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-dprint-integration/0.1.5:
-    resolution: {integrity: sha512-NNNkGsYheI4ahuu3qk/ioES0rJbfeQGnosgjnMgpFY8GTHyivrEKXKjqP/twHnKHQJjOluqGYxTUgAmVjC612A==}
+  /eslint-plugin-dprint-integration/0.1.6:
+    resolution: {integrity: sha512-yykdwUS3/thpiP81E/e1LHk9XapU11JSJSLoRmcSkxVhxA+NhoZiZhaEgsO47IwvWGFFuS/fKNY3U1VYQ/O7lw==}
     dependencies:
       '@dprint/dockerfile': 0.3.0
       '@dprint/formatter': 0.2.0
@@ -2257,6 +2257,9 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
       svelte: ^3.2.0
+    peerDependenciesMeta:
+      svelte:
+        optional: true
     dependencies:
       eslint: 8.37.0
     dev: false
@@ -4042,8 +4045,8 @@ packages:
     hasBin: true
     dev: true
 
-  /typescript/5.0.2:
-    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+  /typescript/5.0.3:
+    resolution: {integrity: sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==}
     engines: {node: '>=12.20'}
     hasBin: true
     dev: true

@@ -161,14 +161,9 @@ module.exports = defineConfig({
     "@typescript-eslint/no-loss-of-precision": "error",
     "lines-between-class-members": "off",
     "@typescript-eslint/lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }],
+
     // so1ve
-    "@so1ve/generic-spacing": "error",
-    "@so1ve/space-between-generic-and-paren": "error",
-    "@so1ve/space-in-empty-block": "error",
-    "@so1ve/semi-spacing": "error",
     "@so1ve/no-inline-type-import": "error",
-    // "@so1ve/space-before-function-paren": ["error", "always"],
-    "@so1ve/array-bracket-spacing": "error",
 
     // off
     "@typescript-eslint/camelcase": "off",
