@@ -32,7 +32,11 @@ const typescriptOverride = {
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-for-in-array": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/restrict-template-expressions": "error",
+    "@typescript-eslint/restrict-template-expressions": ["error", {
+      allowAny: true,
+      allowNumber: true,
+      allowBoolean: true,
+    }],
     "@typescript-eslint/array-type": ["error", { default: "array", readonly: "array" }],
     "@typescript-eslint/consistent-generic-constructors": "error",
     "@typescript-eslint/consistent-type-exports": "error",
