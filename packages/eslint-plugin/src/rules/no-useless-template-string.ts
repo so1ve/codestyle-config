@@ -9,13 +9,13 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "problem",
     docs: {
-      description: "No useless template string",
+      description: "No useless template string.",
       recommended: "error",
     },
     fixable: "code",
     schema: [],
     messages: {
-      noUselessTemplateString: "No useless template string",
+      noUselessTemplateString: "No useless template string.",
     },
   },
   defaultOptions: [],

@@ -9,13 +9,13 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "layout",
     docs: {
-      description: "Disallow inline type import",
+      description: "Disallow inline type import.",
       recommended: "error",
     },
     fixable: "code",
     schema: [],
     messages: {
-      noInlineTypeImport: "Expected no inline type import",
+      noInlineTypeImport: "Expected no inline type import.",
     },
   },
   defaultOptions: [],

@@ -9,13 +9,13 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "problem",
     docs: {
-      description: "Fix duplication in imports",
+      description: "Fix duplication in imports.",
       recommended: "error",
     },
     fixable: "code",
     schema: [],
     messages: {
-      importDedupe: "Expect no duplication in imports",
+      importDedupe: "Expect no duplication in imports.",
     },
   },
   defaultOptions: [],
