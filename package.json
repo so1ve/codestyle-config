@@ -24,8 +24,8 @@
     "check": "dprint check",
     "fmt": "dprint fmt",
     "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
-    "test": "pnpm run -r --filter=./packages/* test",
-    "stub": "pnpm run -r --filter=./packages/eslint-plugin stub"
+    "test": "pnpm run -C=./packages/eslint-plugin test",
+    "stub": "pnpm run -C=./packages/eslint-plugin stub"
   },
   "devDependencies": {
     "@so1ve/eslint-config": "*",
