@@ -322,7 +322,6 @@ module.exports = defineConfig({
       "always",
       {
         ignoreConstructors: false,
-        avoidQuotes: true,
       },
     ],
     "prefer-exponentiation-operator": "error",
