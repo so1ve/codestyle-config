@@ -21,7 +21,7 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     return {
-      ImportDeclaration(node) {
+      ImportDeclaration (node) {
         if (node.specifiers.length <= 1) { return; }
 
         const names = new Set<string>();
@@ -35,7 +35,7 @@ export default createEslintRule<Options, MessageIds>({
                 end: n.loc.start,
               },
               messageId: "importDedupe",
-              fix(fixer) {
+              fix (fixer) {
                 const s = n.range[0];
                 let e = n.range[1];
                 if (context.getSourceCode().text[e] === ",") { e += 1; }

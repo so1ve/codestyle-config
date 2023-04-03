@@ -21,13 +21,13 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     return {
-      TemplateLiteral(node) {
+      TemplateLiteral (node) {
         const hasNewline = node.quasis.some((n) => n.value.raw.includes("\n"));
         if (node.expressions.length === 0 && !hasNewline) {
           context.report({
             node,
             messageId: "noUselessTemplateString",
-            fix(fixer) {
+            fix (fixer) {
               const s = node.range[0];
               const e = node.range[1];
               return fixer.replaceTextRange([s, e], `"${node.quasis[0].value.raw}"`);
