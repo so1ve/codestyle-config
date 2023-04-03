@@ -410,6 +410,7 @@ module.exports = defineConfig({
     // so1ve
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-useless-template-string": "error",
+    "@so1ve/pad-after-last-import": "error",
 
     "dprint-integration/dprint": [
       "error",
@@ -419,6 +420,10 @@ module.exports = defineConfig({
           "useBraces": "always",
           "quoteStyle": "alwaysDouble",
           "functionDeclaration.spaceBeforeParentheses": true,
+          "constructor.spaceBeforeParentheses": true,
+          "getAccessor.spaceBeforeParentheses": true,
+          "setAccessor.spaceBeforeParentheses": true,
+          "method.spaceBeforeParentheses": true,
           "module.sortImportDeclarations": "caseSensitive",
           "module.sortExportDeclarations": "caseSensitive",
           "exportDeclaration.sortNamedExports": "caseSensitive",

@@ -190,21 +190,6 @@ module.exports = defineConfig({
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
 
-    "dprint-integration/dprint": [
-      "error",
-      {},
-      {
-        typescript: {
-          "useBraces": "always",
-          "quoteStyle": "alwaysDouble",
-          "functionDeclaration.spaceBeforeParentheses": true,
-          "module.sortImportDeclarations": "caseSensitive",
-          "module.sortExportDeclarations": "caseSensitive",
-          "exportDeclaration.sortNamedExports": "caseSensitive",
-          "importDeclaration.sortNamedImports": "caseSensitive",
-        },
-      },
-    ],
     ...disableDprintConflict,
   },
 });
