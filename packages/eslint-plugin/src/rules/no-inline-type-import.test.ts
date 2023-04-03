@@ -1,15 +1,15 @@
 import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
 import { it } from "vitest";
 
-import rule, { RULE_NAME } from "./import-dedupe";
+import rule, { RULE_NAME } from "./no-inline-type-import";
 
 const valids = [
-  "import { a } from \"foo\";",
+  "import type { a } from \"foo\";",
 ];
 const invalids = [
   [
-    "import { a, b, a, a, c, a } from \"foo\";",
-    "import { a, b,   c,  } from \"foo\";",
+    "import { type a } from \"foo\";",
+    "import type { a } from \"foo\";",
   ],
 ];
 
@@ -23,7 +23,9 @@ it("runs", () => {
     invalid: invalids.map(i => ({
       code: i[0],
       output: i[1],
-      errors: [{ messageId: "importDedupe" }, { messageId: "importDedupe" }, { messageId: "importDedupe" }],
+      errors: [
+        { messageId: "noInlineTypeImport" },
+      ],
     })),
   });
 });
