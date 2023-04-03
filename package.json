@@ -27,7 +27,7 @@
     "stub": "pnpm run -C=./packages/eslint-plugin stub"
   },
   "devDependencies": {
-    "@so1ve/eslint-config": "*",
+    "@so1ve/eslint-config": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
     "@types/node": "^18.15.11",
     "bumpp": "^9.1.0",
