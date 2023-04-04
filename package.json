@@ -38,7 +38,9 @@
     "peerDependencyRules": {
       "ignoreMissing": [
         "typescript",
-        "svelte"
+        "svelte",
+        "eslint-plugin-import",
+        "eslint"
       ]
     }
   }

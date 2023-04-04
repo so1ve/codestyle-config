@@ -11,14 +11,14 @@ importers:
       eslint: ^8.37.0
       typescript: ^5.0.3
     devDependencies:
-      '@so1ve/eslint-config': link:packages/all
+      '@so1ve/eslint-config': link:packages/eslint-config
       '@so1ve/eslint-plugin': link:packages/eslint-plugin
       '@types/node': 18.15.11
       bumpp: 9.1.0
       eslint: 8.37.0
       typescript: 5.0.3
 
-  packages/all:
+  packages/eslint-config:
     specifiers:
       '@so1ve/eslint-config-vue': workspace:*
       '@typescript-eslint/eslint-plugin': ^5.57.0
@@ -38,7 +38,7 @@ importers:
       jsonc-eslint-parser: ^2.2.0
       yaml-eslint-parser: ^1.2.0
     dependencies:
-      '@so1ve/eslint-config-vue': link:../vue
+      '@so1ve/eslint-config-vue': link:../eslint-config-vue
       '@typescript-eslint/eslint-plugin': 5.57.0_2niwd2uqke2jpnohndnwvllrkm
       '@typescript-eslint/parser': 5.57.0_eslint@8.37.0
       eslint-config-standard: 17.0.0_ed26cu7hf3bvb66klim2omkahq
@@ -57,7 +57,7 @@ importers:
     devDependencies:
       eslint: 8.37.0
 
-  packages/basic:
+  packages/eslint-config-basic:
     specifiers:
       '@html-eslint/eslint-plugin': ^0.17.2
       '@html-eslint/parser': ^0.17.1
@@ -100,6 +100,74 @@ importers:
     devDependencies:
       eslint: 8.37.0
 
+  packages/eslint-config-react:
+    specifiers:
+      '@so1ve/eslint-config-ts': workspace:*
+      eslint: ^8.37.0
+      eslint-define-config: ^1.17.0
+      eslint-plugin-react: ^7.32.2
+      eslint-plugin-react-hooks: ^4.6.0
+      react: ^18.2.0
+      typescript: ^5.0.3
+    dependencies:
+      '@so1ve/eslint-config-ts': link:../eslint-config-ts
+      eslint-define-config: 1.17.0
+      eslint-plugin-react: 7.32.2_eslint@8.37.0
+      eslint-plugin-react-hooks: 4.6.0_eslint@8.37.0
+    devDependencies:
+      eslint: 8.37.0
+      react: 18.2.0
+      typescript: 5.0.3
+
+  packages/eslint-config-svelte:
+    specifiers:
+      '@so1ve/eslint-config-ts': workspace:*
+      eslint: ^8.37.0
+      eslint-define-config: ^1.17.0
+      eslint-plugin-svelte3: ^4.0.0
+    dependencies:
+      '@so1ve/eslint-config-ts': link:../eslint-config-ts
+      eslint-define-config: 1.17.0
+      eslint-plugin-svelte3: 4.0.0_eslint@8.37.0
+    devDependencies:
+      eslint: 8.37.0
+
+  packages/eslint-config-ts:
+    specifiers:
+      '@so1ve/eslint-config-basic': workspace:*
+      '@so1ve/eslint-plugin': workspace:*
+      '@types/node': ^18.15.11
+      '@typescript-eslint/eslint-plugin': ^5.57.0
+      '@typescript-eslint/parser': ^5.57.0
+      eslint: ^8.37.0
+      eslint-define-config: ^1.17.0
+      eslint-import-resolver-typescript: ^3.5.4
+      eslint-plugin-jest: ^27.2.1
+    dependencies:
+      '@so1ve/eslint-config-basic': link:../eslint-config-basic
+      '@so1ve/eslint-plugin': link:../eslint-plugin
+      '@typescript-eslint/eslint-plugin': 5.57.0_2niwd2uqke2jpnohndnwvllrkm
+      '@typescript-eslint/parser': 5.57.0_eslint@8.37.0
+      eslint-define-config: 1.17.0
+      eslint-import-resolver-typescript: 3.5.4_eslint@8.37.0
+      eslint-plugin-jest: 27.2.1_tcpbyjk6zcdyxrbru46r4bg3yy
+    devDependencies:
+      '@types/node': 18.15.11
+      eslint: 8.37.0
+
+  packages/eslint-config-vue:
+    specifiers:
+      '@so1ve/eslint-config-ts': workspace:*
+      eslint: ^8.37.0
+      eslint-define-config: ^1.17.0
+      eslint-plugin-vue: ^9.10.0
+    dependencies:
+      '@so1ve/eslint-config-ts': link:../eslint-config-ts
+      eslint-define-config: 1.17.0
+      eslint-plugin-vue: 9.10.0_eslint@8.37.0
+    devDependencies:
+      eslint: 8.37.0
+
   packages/eslint-plugin:
     specifiers:
       '@types/node': ^18.15.11
@@ -118,74 +186,6 @@ importers:
       '@typescript-eslint/types': 5.57.0
       unbuild: 1.1.2
       vitest: 0.29.8
-
-  packages/react:
-    specifiers:
-      '@so1ve/eslint-config-ts': workspace:*
-      eslint: ^8.37.0
-      eslint-define-config: ^1.17.0
-      eslint-plugin-react: ^7.32.2
-      eslint-plugin-react-hooks: ^4.6.0
-      react: ^18.2.0
-      typescript: ^5.0.3
-    dependencies:
-      '@so1ve/eslint-config-ts': link:../typescript
-      eslint-define-config: 1.17.0
-      eslint-plugin-react: 7.32.2_eslint@8.37.0
-      eslint-plugin-react-hooks: 4.6.0_eslint@8.37.0
-    devDependencies:
-      eslint: 8.37.0
-      react: 18.2.0
-      typescript: 5.0.3
-
-  packages/svelte:
-    specifiers:
-      '@so1ve/eslint-config-ts': workspace:*
-      eslint: ^8.37.0
-      eslint-define-config: ^1.17.0
-      eslint-plugin-svelte3: ^4.0.0
-    dependencies:
-      '@so1ve/eslint-config-ts': link:../typescript
-      eslint-define-config: 1.17.0
-      eslint-plugin-svelte3: 4.0.0_eslint@8.37.0
-    devDependencies:
-      eslint: 8.37.0
-
-  packages/typescript:
-    specifiers:
-      '@so1ve/eslint-config-basic': workspace:*
-      '@so1ve/eslint-plugin': workspace:*
-      '@types/node': ^18.15.11
-      '@typescript-eslint/eslint-plugin': ^5.57.0
-      '@typescript-eslint/parser': ^5.57.0
-      eslint: ^8.37.0
-      eslint-define-config: ^1.17.0
-      eslint-import-resolver-typescript: ^3.5.4
-      eslint-plugin-jest: ^27.2.1
-    dependencies:
-      '@so1ve/eslint-config-basic': link:../basic
-      '@so1ve/eslint-plugin': link:../eslint-plugin
-      '@typescript-eslint/eslint-plugin': 5.57.0_2niwd2uqke2jpnohndnwvllrkm
-      '@typescript-eslint/parser': 5.57.0_eslint@8.37.0
-      eslint-define-config: 1.17.0
-      eslint-import-resolver-typescript: 3.5.4_eslint@8.37.0
-      eslint-plugin-jest: 27.2.1_tcpbyjk6zcdyxrbru46r4bg3yy
-    devDependencies:
-      '@types/node': 18.15.11
-      eslint: 8.37.0
-
-  packages/vue:
-    specifiers:
-      '@so1ve/eslint-config-ts': workspace:*
-      eslint: ^8.37.0
-      eslint-define-config: ^1.17.0
-      eslint-plugin-vue: ^9.10.0
-    dependencies:
-      '@so1ve/eslint-config-ts': link:../typescript
-      eslint-define-config: 1.17.0
-      eslint-plugin-vue: 9.10.0_eslint@8.37.0
-    devDependencies:
-      eslint: 8.37.0
 
 packages:
 
@@ -641,16 +641,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@eslint-community/eslint-utils/4.1.2_eslint@8.37.0:
-    resolution: {integrity: sha512-7qELuQWWjVDdVsFQ5+beUl+KPczrEDA7S3zM4QUd/bJl7oXgsmpXaEVqrRTnOBqenOV4rWf2kVZk2Ot085zPWA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      eslint: 8.37.0
-      eslint-visitor-keys: 3.3.0
-    dev: false
 
   /@eslint-community/eslint-utils/4.3.0:
     resolution: {integrity: sha512-v3oplH6FYCULtFuCeqyuTd9D2WKO937Dxdq+GmHOLL72TTRriLxz2VLlNfkZRsvj6PKnOPAtuT6dwrs/pA5DvA==}
@@ -1128,14 +1118,6 @@ packages:
     resolution: {integrity: sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==}
     dev: false
 
-  /acorn-jsx/5.3.2_acorn@8.8.1:
-    resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
-    peerDependencies:
-      acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      acorn: 8.8.1
-    dev: false
-
   /acorn-jsx/5.3.2_acorn@8.8.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -1147,12 +1129,6 @@ packages:
     resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
     engines: {node: '>=0.4.0'}
     dev: true
-
-  /acorn/8.8.1:
-    resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-    dev: false
 
   /acorn/8.8.2:
     resolution: {integrity: sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==}
@@ -2097,7 +2073,7 @@ packages:
     dependencies:
       escape-string-regexp: 1.0.5
       eslint: 8.37.0
-      ignore: 5.1.8
+      ignore: 5.2.0
     dev: false
 
   /eslint-plugin-html/7.1.0:
@@ -2313,11 +2289,11 @@ packages:
       eslint: '>=8.28.0'
     dependencies:
       '@babel/helper-validator-identifier': 7.19.1
-      '@eslint-community/eslint-utils': 4.1.2_eslint@8.37.0
+      '@eslint-community/eslint-utils': 4.3.0_eslint@8.37.0
       ci-info: 3.7.1
       clean-regexp: 1.0.0
       eslint: 8.37.0
-      esquery: 1.4.0
+      esquery: 1.5.0
       indent-string: 4.0.0
       is-builtin-module: 3.2.0
       jsesc: 3.0.2
@@ -2481,15 +2457,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /espree/9.4.0:
-    resolution: {integrity: sha512-DQmnRpLj7f6TgN/NYb0MTzJXL+vJF9h3pHy4JhCIs3zwcgez8xmGg3sXHcEO97BrmO2OSvCwMdfdlyl+E9KjOw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dependencies:
-      acorn: 8.8.1
-      acorn-jsx: 5.3.2_acorn@8.8.1
-      eslint-visitor-keys: 3.3.0
-    dev: false
-
   /espree/9.5.1:
     resolution: {integrity: sha512-5yxtHSZXRSW5pvv3hAlXM5+/Oswi1AUFqBmbibKb5s6bp3rGIDkyXU6xCoyuuLhijr4SFwPrXRoZjz0AZDN9tg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2497,13 +2464,6 @@ packages:
       acorn: 8.8.2
       acorn-jsx: 5.3.2_acorn@8.8.2
       eslint-visitor-keys: 3.4.0
-
-  /esquery/1.4.0:
-    resolution: {integrity: sha512-cCDispWt5vHHtwMY2YrAQ4ibFkAL8RbH5YGBnZBc90MolvvfkkQcJro/aZiAQUlQ3qgrYS6D6v8Gc5G5CQsc9w==}
-    engines: {node: '>=0.10'}
-    dependencies:
-      estraverse: 5.3.0
-    dev: false
 
   /esquery/1.5.0:
     resolution: {integrity: sha512-YQLXUplAwJgCydQ78IMJywZCceoqk1oH01OERdSAJc/7U2AylwjhSCLDEtqwg811idIS/9fIU5GjG73IgjKMVg==}
@@ -2859,11 +2819,6 @@ packages:
       - supports-color
     dev: true
 
-  /ignore/5.1.8:
-    resolution: {integrity: sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==}
-    engines: {node: '>= 4'}
-    dev: false
-
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
@@ -3135,9 +3090,9 @@ packages:
     resolution: {integrity: sha512-x5QjzBOORd+T2EjErIxJnkOEbLVEdD1ILEeBbIJt8Eq/zUn7P7M8qdnWiNVBK5f8oxnJpc6SBHOeeIEl/swPjg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.8.1
-      eslint-visitor-keys: 3.3.0
-      espree: 9.4.0
+      acorn: 8.8.2
+      eslint-visitor-keys: 3.4.0
+      espree: 9.5.1
       semver: 7.3.8
     dev: false
 
@@ -4436,7 +4391,7 @@ packages:
     resolution: {integrity: sha512-OmuvQd5lyIJWfFALc39K5fGqp0aWNc+EtyhVgcQIPZaUKMnTb7An3RMp+QJizJ/x0F4kpgTNe6BL/ctdvoIwIg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dependencies:
-      eslint-visitor-keys: 3.3.0
+      eslint-visitor-keys: 3.4.0
       lodash: 4.17.21
       yaml: 2.1.1
     dev: false

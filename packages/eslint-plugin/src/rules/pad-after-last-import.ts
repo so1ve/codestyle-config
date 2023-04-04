@@ -24,10 +24,10 @@ export default createEslintRule<Options, MessageIds>({
     let lastImportNode = null;
 
     return {
-      ImportDeclaration (node) {
+      ImportDeclaration(node) {
         lastImportNode = node;
       },
-      "Program:exit" () {
+      "Program:exit"() {
         if (lastImportNode) {
           const nextToken = sourceCode.getTokenAfter(lastImportNode);
           if (nextToken && lastImportNode.loc.end.line + 1 === nextToken.loc.start.line) {

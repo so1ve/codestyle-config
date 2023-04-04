@@ -460,11 +460,12 @@ module.exports = defineConfig({
         typescript: {
           "useBraces": "always",
           "quoteStyle": "alwaysDouble",
-          "functionDeclaration.spaceBeforeParentheses": true,
-          "constructor.spaceBeforeParentheses": true,
-          "getAccessor.spaceBeforeParentheses": true,
-          "setAccessor.spaceBeforeParentheses": true,
-          "method.spaceBeforeParentheses": true,
+          // Disable temporalily until https://github.com/dprint/dprint-plugin-typescript/issues/512 is solved
+          // "functionDeclaration.spaceBeforeParentheses": true,
+          // "constructor.spaceBeforeParentheses": true,
+          // "getAccessor.spaceBeforeParentheses": true,
+          // "setAccessor.spaceBeforeParentheses": true,
+          // "method.spaceBeforeParentheses": true,
           "module.sortImportDeclarations": "caseSensitive",
           "module.sortExportDeclarations": "caseSensitive",
           "exportDeclaration.sortNamedExports": "caseSensitive",
