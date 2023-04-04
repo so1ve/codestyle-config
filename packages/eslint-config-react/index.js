@@ -48,5 +48,7 @@ module.exports = defineConfig({
       component: true,
       html: true,
     }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
   },
 });
