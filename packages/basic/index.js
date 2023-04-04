@@ -263,6 +263,7 @@ module.exports = defineConfig({
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
+    "import/namespace": "off", // Disable this for better performance
 
     // Common
     "semi": ["error", "always"],
