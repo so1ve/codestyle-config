@@ -7,6 +7,5 @@
   },
   "editor.tabSize": 2,
   "editor.tabCompletion": "on",
-  "diffEditor.codeLens": true,
-  "dprint.path": "./node_modules/dprint/dprint.exe"
+  "diffEditor.codeLens": true
 }
