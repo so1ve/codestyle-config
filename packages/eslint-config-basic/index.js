@@ -184,21 +184,21 @@ module.exports = defineConfig({
         "no-void": ["error", { allowAsStatement: true }],
       },
     },
-    {
-      files: ["*.js", "*.jsx", "*.cjs", "*.mjs", "*.ts", "*.tsx", "*.mts", "*.cts"],
-      rules: {
-        // Not supported in ESLint 8 yet
-        // "jsdoc/check-examples": "error",
-        "jsdoc/require-jsdoc": "off",
-        "jsdoc/check-indentation": "error",
-        "jsdoc/check-param-names": ["error", { enableFixer: true }],
-        "jsdoc/require-returns-type": "off",
-        "jsdoc/require-returns": "off",
-      },
-      extends: [
-        "plugin:jsdoc/recommended-error",
-      ],
-    },
+    // {
+    //   files: ["*.js", "*.jsx", "*.cjs", "*.mjs", "*.ts", "*.tsx", "*.mts", "*.cts"],
+    //   rules: {
+    //     // Not supported in ESLint 8 yet
+    //     // "jsdoc/check-examples": "error",
+    //     "jsdoc/require-jsdoc": "off",
+    //     "jsdoc/check-indentation": "error",
+    //     "jsdoc/check-param-names": ["error", { enableFixer: true }],
+    //     "jsdoc/require-returns-type": "off",
+    //     "jsdoc/require-returns": "off",
+    //   },
+    //   extends: [
+    //     "plugin:jsdoc/recommended-error",
+    //   ],
+    // },
     {
       files: ["scripts/**/*.*", "cli.*"],
       rules: {
