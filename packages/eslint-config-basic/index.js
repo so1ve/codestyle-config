@@ -16,7 +16,6 @@ module.exports = defineConfig({
     "unused-imports",
     "no-only-tests",
     "dprint-integration",
-    "simple-import-sort",
   ],
   extends: [
     "./standard",
@@ -237,13 +236,15 @@ module.exports = defineConfig({
   ],
   rules: {
     // import
+    "import/order": ["error", {
+      "newlines-between": "always",
+      "warnOnUnassignedImports": true,
+    }],
     "import/first": "error",
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
 
     // Common
     "array-bracket-newline": "off",
