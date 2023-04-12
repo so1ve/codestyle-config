@@ -15,6 +15,7 @@ const typescriptOverride = {
     tsconfigRootDir: process.cwd(),
     project: [tsconfig],
   },
+  extends: ["plugin:etc/recommended"],
   parser: "@typescript-eslint/parser",
   excludedFiles: ["**/*.md/*.*"],
   files: ["*.ts", "*.tsx", "*.mts", "*.cts"],

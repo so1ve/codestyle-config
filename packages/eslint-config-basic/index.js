@@ -24,6 +24,7 @@ module.exports = defineConfig({
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
+    "plugin:array-func/all",
   ],
   ignorePatterns: [
     "*.min.*",
