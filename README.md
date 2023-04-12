@@ -5,9 +5,9 @@
 > Forked from [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
 - Double quotes, semi
-- Auto fix for formatting (aimed to be used standalone without Prettier)
-- TypeScript, Vue, React out-of-box
-- Lint also for json, yaml, markdown
+- Auto fix for formatting (Powered by [Dprint](https://github.com/dprint/dprint))
+- TypeScript, Vue, React, Svelte out-of-box
+- Lint also for json, yaml, markdown, toml and Dockerfile
 - Sorted imports, dangling commas for cleaner commit diff
 - Reasonable defaults, best practices, only one-line of config
 
