@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-react",
-  "version": "0.66.0",
+  "version": "0.67.0",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "contributors": [
     {
@@ -43,8 +43,8 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "react": "^18.2.0",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.4"
   }
 }
