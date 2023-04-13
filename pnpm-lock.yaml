@@ -62,7 +62,7 @@ importers:
   packages/eslint-config-basic:
     specifiers:
       '@html-eslint/eslint-plugin': ^0.17.2
-      '@html-eslint/parser': ^0.17.1
+      '@html-eslint/parser': ^0.18.0
       '@so1ve/eslint-plugin': workspace:*
       eslint: ^8.38.0
       eslint-define-config: ^1.17.0
@@ -83,7 +83,7 @@ importers:
       yaml-eslint-parser: ^1.2.0
     dependencies:
       '@html-eslint/eslint-plugin': 0.17.2
-      '@html-eslint/parser': 0.17.1
+      '@html-eslint/parser': 0.18.0
       '@so1ve/eslint-plugin': link:../eslint-plugin
       eslint-define-config: 1.17.0
       eslint-plugin-array-func: 3.1.8_eslint@8.38.0
@@ -710,8 +710,8 @@ packages:
     engines: {node: '>=8.10.0'}
     dev: false
 
-  /@html-eslint/parser/0.17.1:
-    resolution: {integrity: sha512-1DgkkEs7CsdXcRP2FstknsrXzdv+Sh5dIURbpJl+ET2fiB94XdWp37+lTqB6JvhKlIbOMGQTAcUL6/Jx5Ub81g==}
+  /@html-eslint/parser/0.18.0:
+    resolution: {integrity: sha512-VgwWK2VnwojgAF1w38dc69XRUvcXAmpTaC8LebYkURgczThZF769KrTjefEH6vTima7fIgoVkwV9Emzd6fvjkw==}
     engines: {node: '>=8.10.0'}
     dependencies:
       es-html-parser: 0.0.8

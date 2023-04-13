@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@html-eslint/eslint-plugin": "^0.17.2",
-    "@html-eslint/parser": "^0.17.1",
+    "@html-eslint/parser": "^0.18.0",
     "@so1ve/eslint-plugin": "workspace:*",
     "eslint-define-config": "^1.17.0",
     "eslint-plugin-array-func": "^3.1.8",
