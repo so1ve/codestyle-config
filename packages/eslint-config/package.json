@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config",
-  "version": "0.66.0",
+  "version": "0.67.0",
   "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
   "contributors": [
     {
@@ -33,8 +33,8 @@
   },
   "dependencies": {
     "@so1ve/eslint-config-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "eslint-config-standard": "17.0.0",
     "eslint-define-config": "^1.17.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -50,6 +50,6 @@
     "yaml-eslint-parser": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.37.0"
+    "eslint": "^8.38.0"
   }
 }
