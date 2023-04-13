@@ -61,7 +61,7 @@ importers:
 
   packages/eslint-config-basic:
     specifiers:
-      '@html-eslint/eslint-plugin': ^0.17.2
+      '@html-eslint/eslint-plugin': ^0.18.0
       '@html-eslint/parser': ^0.17.1
       '@so1ve/eslint-plugin': workspace:*
       eslint: ^8.38.0
@@ -82,7 +82,7 @@ importers:
       jsonc-eslint-parser: ^2.2.0
       yaml-eslint-parser: ^1.2.0
     dependencies:
-      '@html-eslint/eslint-plugin': 0.17.2
+      '@html-eslint/eslint-plugin': 0.18.0
       '@html-eslint/parser': 0.17.1
       '@so1ve/eslint-plugin': link:../eslint-plugin
       eslint-define-config: 1.17.0
@@ -705,8 +705,8 @@ packages:
     resolution: {integrity: sha512-IoD2MfUnOV58ghIHCiil01PcohxjbYR/qCxsoC+xNgUwh1EY8jOOrYmu3d3a71+tJJ23uscEV4X2HJWMsPJu4g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /@html-eslint/eslint-plugin/0.17.2:
-    resolution: {integrity: sha512-tK5cPTqQ42+spT/hEfTLP06jw8dE/taJTmIEQNXU01YwH5NBnvpu6xVaaH1kQ7Xs2se69PWzsGlVuV5rfh462w==}
+  /@html-eslint/eslint-plugin/0.18.0:
+    resolution: {integrity: sha512-41O4n2MOUry4hdeS5L+RII59ZcAFRzfuZIX0dVbp0xStHsv4OY7S+89FKqeVmrY8HEyAD3EEk5NXZdlMdAV0Zw==}
     engines: {node: '>=8.10.0'}
     dev: false
 
