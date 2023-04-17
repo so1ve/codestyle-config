@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-define-config": "^1.17.0",
+    "eslint-define-config": "^1.18.0",
     "eslint-plugin-svelte3": "^4.0.0"
   },
   "devDependencies": {

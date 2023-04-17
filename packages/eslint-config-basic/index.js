@@ -247,6 +247,9 @@ module.exports = defineConfig({
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
 
+    // array-func
+    "array-func/prefer-array-from": "off",
+
     // Common
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
