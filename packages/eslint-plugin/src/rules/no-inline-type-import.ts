@@ -26,7 +26,7 @@ export default createEslintRule<Options, MessageIds>({
         const specifiers = node.specifiers;
         const typeSpecifiers = specifiers.filter(s => s.type === "ImportSpecifier" && s.importKind === "type");
         const valueSpecifiers = specifiers.filter(s => s.type === "ImportSpecifier" && s.importKind === "value");
-        if (typeSpecifiers.length && valueSpecifiers.length) {
+        if (typeSpecifiers.length > 0 && valueSpecifiers.length > 0) {
           context.report({
             loc: node.loc,
             messageId: "noInlineTypeImport",
@@ -39,7 +39,7 @@ export default createEslintRule<Options, MessageIds>({
               );
             },
           });
-        } else if (typeSpecifiers.length) {
+        } else if (typeSpecifiers.length > 0) {
           context.report({
             loc: node.loc,
             messageId: "noInlineTypeImport",

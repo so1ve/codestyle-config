@@ -59,9 +59,9 @@ const jestOverride = {
   },
 };
 
-const overrides = !fs.existsSync(path.join(process.cwd(), tsconfig))
-  ? []
-  : [typescriptOverride, jestOverride];
+const overrides = fs.existsSync(path.join(process.cwd(), tsconfig))
+  ? [typescriptOverride, jestOverride]
+  : [];
 
 module.exports = defineConfig({
   extends: [

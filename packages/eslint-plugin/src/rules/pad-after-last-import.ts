@@ -30,7 +30,12 @@ export default createEslintRule<Options, MessageIds>({
       "Program:exit"() {
         if (lastImportNode) {
           const nextToken = sourceCode.getTokenAfter(lastImportNode);
-          if (nextToken && lastImportNode.loc.end.line + 1 === nextToken.loc.start.line) {
+          if (
+            nextToken
+            // Workaround: Vue
+            && nextToken.value !== "</script>"
+            && lastImportNode.loc.end.line + 1 === nextToken.loc.start.line
+          ) {
             context.report({
               node: lastImportNode,
               messageId: "padAfterLastImport",
