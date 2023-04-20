@@ -1,3 +1,5 @@
+import type { TSESTree } from "@typescript-eslint/types";
+
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "pad-after-last-import";
@@ -21,7 +23,7 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     const sourceCode = context.getSourceCode();
-    let lastImportNode = null;
+    let lastImportNode: TSESTree.ImportDeclaration | null = null;
 
     return {
       ImportDeclaration(node) {
@@ -39,7 +41,7 @@ export default createEslintRule<Options, MessageIds>({
             context.report({
               node: lastImportNode,
               messageId: "padAfterLastImport",
-              fix: (fixer) => fixer.insertTextAfter(lastImportNode, "\n"),
+              fix: (fixer) => fixer.insertTextAfter(lastImportNode!, "\n"),
             });
           }
         }
