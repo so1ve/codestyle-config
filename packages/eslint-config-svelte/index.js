@@ -4,21 +4,20 @@ const { defineConfig } = require("eslint-define-config");
 module.exports = defineConfig({
   extends: [
     "@so1ve/eslint-config-ts",
-  ],
-  plugins: [
-    "svelte3",
+    "plugin:svelte/recommended",
+    // For Dprint
+    "plugin:svelte/prettier",
   ],
   overrides: [
     {
+      plugins: [
+        "svelte",
+      ],
       files: ["*.svelte"],
-      processor: "svelte3/svelte3",
+      parser: "svelte-eslint-parser",
       parserOptions: {
         parser: "@typescript-eslint/parser",
       },
     },
   ],
-  rules: {},
-  settings: {
-    "svelte3/typescript": true,
-  },
 });
