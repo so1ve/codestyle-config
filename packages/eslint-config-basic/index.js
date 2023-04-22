@@ -71,6 +71,7 @@ module.exports = defineConfig({
       rules: {
         "@html-eslint/no-multiple-empty-lines": ["error", { max: 1 }],
         "@html-eslint/no-trailing-spaces": "error",
+        "prettier/prettier": ["error", { parser: "angular", tabWidth: 4 }],
       },
     },
     {
@@ -89,6 +90,7 @@ module.exports = defineConfig({
         "jsonc/object-curly-spacing": ["error", "always"],
         "jsonc/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
         "eol-last": "error",
+        "prettier/prettier": ["error", { ...prettierConfig, trailingComma: "none" }],
       },
     },
     {
