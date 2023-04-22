@@ -70,7 +70,11 @@ module.exports = defineConfig({
       extends: ["plugin:@html-eslint/recommended"],
       rules: {
         "@html-eslint/no-multiple-empty-lines": ["error", { max: 1 }],
-        "@html-eslint/no-trailing-spaces": "error",
+        "@html-eslint/indent": "off",
+        "@html-eslint/no-trailing-spaces": "off",
+        "@html-eslint/require-closing-tags": "off",
+        "@html-eslint/no-extra-spacing-attrs": "off",
+        "@html-eslint/quotes": "off",
         "prettier/prettier": ["error", { parser: "angular", tabWidth: 4 }],
       },
     },
