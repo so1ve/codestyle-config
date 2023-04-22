@@ -107,7 +107,6 @@ module.exports = defineConfig({
       },
     ],
     "vue/no-static-inline-styles": ["error", { allowBinding: true }],
-    "vue/max-attributes-per-line": ["error", { singleline: 3, multiline: 1 }],
     "vue/camelcase": "error",
     "vue/v-for-delimiter-style": ["error", "in"],
     "vue/attributes-order": [
