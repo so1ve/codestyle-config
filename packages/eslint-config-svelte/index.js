@@ -5,9 +5,12 @@ module.exports = defineConfig({
   extends: [
     "@so1ve/eslint-config-ts",
     "plugin:svelte/recommended",
-    // For Dprint
+    // For Prettier
     "plugin:svelte/prettier",
   ],
+  parserOptions: {
+    extraFileExtensions: [".svelte"],
+  },
   overrides: [
     {
       plugins: ["svelte"],

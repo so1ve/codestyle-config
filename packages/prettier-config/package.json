@@ -30,8 +30,13 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
+    "@prettier/plugin-xml": "^2.2.0",
     "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-autocorrect": "^0.3.0",
+    "prettier-plugin-properties": "^0.2.0",
     "prettier-plugin-rust": "^0.1.8",
-    "prettier-plugin-svelte": "^2.10.0"
+    "prettier-plugin-sql": "^0.14.0",
+    "prettier-plugin-svelte": "^2.10.0",
+    "prettier-plugin-toml": "^0.3.1"
   }
 }

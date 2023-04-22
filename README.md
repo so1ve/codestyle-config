@@ -5,7 +5,7 @@
 > Forked from [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
 - Double quotes, semi
-- Auto fix for formatting (Powered by [Dprint](https://github.com/dprint/dprint))
+- Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))
 - TypeScript, Vue, React, Svelte out-of-box
 - Lint also for json, yaml, markdown, toml and Dockerfile
 - Sorted imports, dangling commas for cleaner commit diff
@@ -16,7 +16,7 @@
 ### Install
 
 ```bash
-pnpm add -D eslint @so1ve/eslint-config
+pnpm add -D eslint svelte @so1ve/eslint-config
 ```
 
 ### Config `.eslintrc`
