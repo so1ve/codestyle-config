@@ -15,7 +15,8 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
-    "dprint-integration",
+    // "dprint-integration",
+    "prettier",
   ],
   extends: [
     "./standard",
@@ -158,11 +159,7 @@ module.exports = defineConfig({
           },
           {
             pathPattern: "^exports.*$",
-            order: [
-              "types",
-              "require",
-              "import",
-            ],
+            order: ["types", "require", "import"],
           },
         ],
       },
@@ -237,10 +234,13 @@ module.exports = defineConfig({
   ],
   rules: {
     // import
-    "import/order": ["error", {
-      "newlines-between": "always",
-      "warnOnUnassignedImports": true,
-    }],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true,
+      },
+    ],
     "import/first": "error",
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
@@ -333,7 +333,12 @@ module.exports = defineConfig({
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "error",
-      { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
     ],
 
     "no-param-reassign": "off",
@@ -343,12 +348,7 @@ module.exports = defineConfig({
     "no-debugger": "error",
     "no-console": ["error", { allow: ["error", "warn", "table", "time"] }],
     "no-cond-assign": ["error", "always"],
-    "no-restricted-syntax": [
-      "error",
-      "DebuggerStatement",
-      "LabeledStatement",
-      "WithStatement",
-    ],
+    "no-restricted-syntax": ["error", "DebuggerStatement", "LabeledStatement", "WithStatement"],
     "no-return-await": "off",
 
     // es6
@@ -378,17 +378,21 @@ module.exports = defineConfig({
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
-    "spaced-comment": ["error", "always", {
-      line: {
-        markers: ["/"],
-        exceptions: ["/", "#"],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        line: {
+          markers: ["/"],
+          exceptions: ["/", "#"],
+        },
+        block: {
+          markers: ["!"],
+          exceptions: ["*"],
+          balanced: true,
+        },
       },
-      block: {
-        markers: ["!"],
-        exceptions: ["*"],
-        balanced: true,
-      },
-    }],
+    ],
 
     // best-practice
     "array-callback-return": "error",
@@ -469,25 +473,26 @@ module.exports = defineConfig({
     "@so1ve/no-beginning-newline": "error",
     "@so1ve/pad-after-last-import": "error",
 
-    "dprint-integration/dprint": [
-      "error",
-      {},
-      {
-        typescript: {
-          "useBraces": "always",
-          "quoteStyle": "alwaysDouble",
-          // Disable temporalily until https://github.com/dprint/dprint-plugin-typescript/issues/512 is solved
-          // "functionDeclaration.spaceBeforeParentheses": true,
-          // "constructor.spaceBeforeParentheses": true,
-          // "getAccessor.spaceBeforeParentheses": true,
-          // "setAccessor.spaceBeforeParentheses": true,
-          // "method.spaceBeforeParentheses": true,
-          "module.sortImportDeclarations": "maintain",
-          "module.sortExportDeclarations": "maintain",
-          "exportDeclaration.sortNamedExports": "maintain",
-          "importDeclaration.sortNamedImports": "maintain",
-        },
-      },
-    ],
+    "prettier/prettier": "error",
+    // "dprint-integration/dprint": [
+    //   "error",
+    //   {},
+    //   {
+    //     typescript: {
+    //       "useBraces": "always",
+    //       "quoteStyle": "alwaysDouble",
+    //       // Disable temporalily until https://github.com/dprint/dprint-plugin-typescript/issues/512 is solved
+    //       // "functionDeclaration.spaceBeforeParentheses": true,
+    //       // "constructor.spaceBeforeParentheses": true,
+    //       // "getAccessor.spaceBeforeParentheses": true,
+    //       // "setAccessor.spaceBeforeParentheses": true,
+    //       // "method.spaceBeforeParentheses": true,
+    //       "module.sortImportDeclarations": "maintain",
+    //       "module.sortExportDeclarations": "maintain",
+    //       "exportDeclaration.sortNamedExports": "maintain",
+    //       "importDeclaration.sortNamedImports": "maintain",
+    //     },
+    //   },
+    // ],
   },
 });

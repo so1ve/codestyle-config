@@ -1,18 +1,11 @@
 {
-  "name": "@so1ve/eslint-config-vue",
+  "name": "@so1ve/prettier-config",
   "version": "0.70.0",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
-  "contributors": [
-    {
-      "name": "Ray <i@mk1.io> (https://github.com/so1ve/)"
-    }
-  ],
-  "description": "Ray's eslint config for vue.",
+  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+  "description": "Ray's prettier config.",
   "keywords": [
     "eslint",
-    "eslint-config",
-    "eslint-vue",
-    "vue"
+    "eslint-config"
   ],
   "homepage": "https://github.com/so1ve/eslint-config#readme",
   "repository": {
@@ -25,18 +18,20 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.js",
-    "eslint-plugin-vue"
+    "index.js"
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint . --config=index.js"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-define-config": "^1.18.0",
-    "eslint-plugin-vue": "^9.11.0"
+    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-rust": "^0.1.8",
+    "prettier-plugin-svelte": "^2.10.0"
   }
 }

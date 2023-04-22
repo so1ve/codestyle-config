@@ -31,11 +31,14 @@ const typescriptOverride = {
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-for-in-array": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/restrict-template-expressions": ["error", {
-      allowAny: true,
-      allowNumber: true,
-      allowBoolean: true,
-    }],
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        allowAny: true,
+        allowNumber: true,
+        allowBoolean: true,
+      },
+    ],
     "@typescript-eslint/array-type": ["error", { default: "array", readonly: "array" }],
     "@typescript-eslint/consistent-generic-constructors": "error",
     "@typescript-eslint/consistent-type-exports": "error",
@@ -59,26 +62,19 @@ const jestOverride = {
   },
 };
 
-const overrides = fs.existsSync(path.join(process.cwd(), tsconfig))
-  ? [typescriptOverride, jestOverride]
-  : [];
+const overrides = fs.existsSync(path.join(process.cwd(), tsconfig)) ? [typescriptOverride, jestOverride] : [];
 
 module.exports = defineConfig({
-  extends: [
-    "@so1ve/eslint-config-basic",
-    "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended",
-  ],
+  extends: ["@so1ve/eslint-config-basic", "plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
   settings: {
     "import/resolver": {
       node: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
-      typescript: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
+      typescript: {
+        extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
+      },
     },
   },
-  overrides: [
-    ...(basic.overrides || []),
-    ...overrides,
-  ],
+  overrides: [...(basic.overrides || []), ...overrides],
   rules: {
     "import/named": "off",
 
@@ -96,9 +92,12 @@ module.exports = defineConfig({
     "@typescript-eslint/semi": "off",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/type-annotation-spacing": "off",
-    "@typescript-eslint/ban-ts-comment": ["error", {
-      minimumDescriptionLength: 0,
-    }],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        minimumDescriptionLength: 0,
+      },
+    ],
     "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports", disallowTypeAnnotations: false }],
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],

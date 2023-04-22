@@ -10,9 +10,7 @@ module.exports = defineConfig({
   ],
   overrides: [
     {
-      plugins: [
-        "svelte",
-      ],
+      plugins: ["svelte"],
       files: ["*.svelte"],
       parser: "svelte-eslint-parser",
       parserOptions: {

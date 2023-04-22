@@ -16,10 +16,7 @@ module.exports = defineConfig({
       },
     },
   ],
-  extends: [
-    "./eslint-plugin-vue/recommended",
-    "@so1ve/eslint-config-ts",
-  ],
+  extends: ["./eslint-plugin-vue/recommended", "@so1ve/eslint-config-ts"],
   rules: {
     "vue/no-v-html": "off",
     "vue/require-prop-types": "off",
@@ -29,21 +26,30 @@ module.exports = defineConfig({
     // reactivity transform
     "vue/no-setup-props-destructure": "off",
 
-    "vue/component-tags-order": ["error", {
-      order: ["script", "template", "style"],
-    }],
-    "vue/block-tag-newline": ["error", {
-      singleline: "always",
-      multiline: "always",
-      maxEmptyLines: 0,
-    }],
+    "vue/component-tags-order": [
+      "error",
+      {
+        order: ["script", "template", "style"],
+      },
+    ],
+    "vue/block-tag-newline": [
+      "error",
+      {
+        singleline: "always",
+        multiline: "always",
+        maxEmptyLines: 0,
+      },
+    ],
     "vue/component-api-style": ["error", ["script-setup", "composition"]],
     "vue/component-name-in-template-casing": ["error", "PascalCase", { registeredComponentsOnly: false }],
     "vue/component-options-name-casing": ["error", "PascalCase"],
     "vue/custom-event-name-casing": ["error", "camelCase"],
-    "vue/define-macros-order": ["error", {
-      order: ["defineProps", "defineEmits"],
-    }],
+    "vue/define-macros-order": [
+      "error",
+      {
+        order: ["defineProps", "defineEmits"],
+      },
+    ],
     "vue/html-comment-content-spacing": ["error", "always", { exceptions: ["-"] }],
     "vue/html-quotes": ["error", "double"],
     "vue/no-restricted-v-bind": ["error", "/^v-/"],
@@ -72,12 +78,7 @@ module.exports = defineConfig({
     "vue/no-extra-parens": "error",
     "vue/no-irregular-whitespace": "error",
     "vue/no-loss-of-precision": "error",
-    "vue/no-restricted-syntax": [
-      "error",
-      "DebuggerStatement",
-      "LabeledStatement",
-      "WithStatement",
-    ],
+    "vue/no-restricted-syntax": ["error", "DebuggerStatement", "LabeledStatement", "WithStatement"],
     "vue/no-sparse-arrays": "error",
     "vue/object-curly-newline": ["error", { multiline: true, consistent: true }],
     "vue/object-curly-spacing": ["error", "always"],
@@ -95,28 +96,13 @@ module.exports = defineConfig({
       "error",
       {
         script: {
-          lang: [
-            "js",
-            "ts",
-          ],
+          lang: ["js", "ts"],
         },
         template: {
-          lang: [
-            "html",
-            "jade",
-            "pug",
-            "ejs",
-          ],
+          lang: ["html", "jade", "pug", "ejs"],
         },
         style: {
-          lang: [
-            "css",
-            "sass",
-            "scss",
-            "less",
-            "stylus",
-            "postcss",
-          ],
+          lang: ["css", "sass", "scss", "less", "stylus", "postcss"],
         },
       },
     ],

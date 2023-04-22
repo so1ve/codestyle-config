@@ -32,8 +32,5 @@
     "@so1ve/eslint-config-ts": "workspace:*",
     "eslint-define-config": "^1.18.0",
     "eslint-plugin-svelte": "^2.26.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.38.0"
   }
 }

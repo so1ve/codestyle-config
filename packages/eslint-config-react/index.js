@@ -35,19 +35,25 @@ module.exports = defineConfig({
     "react/jsx-no-comment-textnodes": ["error"],
     "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
     "react/jsx-pascal-case": ["error"],
-    "react/jsx-sort-props": ["error", {
-      callbacksLast: true,
-      shorthandFirst: true,
-      multiline: "last",
-      ignoreCase: true,
-      noSortAlphabetically: true,
-      reservedFirst: true,
-      locale: "auto",
-    }],
-    "react/self-closing-comp": ["error", {
-      component: true,
-      html: true,
-    }],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        callbacksLast: true,
+        shorthandFirst: true,
+        multiline: "last",
+        ignoreCase: true,
+        noSortAlphabetically: true,
+        reservedFirst: true,
+        locale: "auto",
+      },
+    ],
+    "react/self-closing-comp": [
+      "error",
+      {
+        component: true,
+        html: true,
+      },
+    ],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
   },

@@ -5,16 +5,11 @@ import rule, { RULE_NAME } from "./no-useless-template-string";
 
 const valids = [
   "const a = '1';",
-  "const a = \"1\"",
+  'const a = "1"',
   // eslint-disable-next-line no-template-curly-in-string
-  "const a = \`1${b}\`",
+  "const a = `1${b}`",
 ];
-const invalids = [
-  [
-    "const a = \`1\`",
-    "const a = \"1\"",
-  ],
-];
+const invalids = [["const a = `1`", 'const a = "1"']];
 
 it("runs", () => {
   const ruleTester: RuleTester = new RuleTester({
@@ -23,12 +18,10 @@ it("runs", () => {
 
   ruleTester.run(RULE_NAME, rule, {
     valid: valids,
-    invalid: invalids.map(i => ({
+    invalid: invalids.map((i) => ({
       code: i[0],
       output: i[1],
-      errors: [
-        { messageId: "noUselessTemplateString" },
-      ],
+      errors: [{ messageId: "noUselessTemplateString" }],
     })),
   });
 });

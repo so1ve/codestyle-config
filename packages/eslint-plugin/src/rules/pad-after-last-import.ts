@@ -33,10 +33,10 @@ export default createEslintRule<Options, MessageIds>({
         if (lastImportNode) {
           const nextToken = sourceCode.getTokenAfter(lastImportNode);
           if (
-            nextToken
+            nextToken &&
             // Workaround: Vue
-            && nextToken.value !== "</script>"
-            && lastImportNode.loc.end.line + 1 === nextToken.loc.start.line
+            nextToken.value !== "</script>" &&
+            lastImportNode.loc.end.line + 1 === nextToken.loc.start.line
           ) {
             context.report({
               node: lastImportNode,

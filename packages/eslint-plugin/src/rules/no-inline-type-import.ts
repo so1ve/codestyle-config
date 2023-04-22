@@ -24,18 +24,20 @@ export default createEslintRule<Options, MessageIds>({
     return {
       ImportDeclaration: (node) => {
         const specifiers = node.specifiers;
-        const typeSpecifiers = specifiers.filter(s => s.type === "ImportSpecifier" && s.importKind === "type");
-        const valueSpecifiers = specifiers.filter(s => s.type === "ImportSpecifier" && s.importKind === "value");
+        const typeSpecifiers = specifiers.filter((s) => s.type === "ImportSpecifier" && s.importKind === "type");
+        const valueSpecifiers = specifiers.filter((s) => s.type === "ImportSpecifier" && s.importKind === "value");
         if (typeSpecifiers.length > 0 && valueSpecifiers.length > 0) {
           context.report({
             loc: node.loc,
             messageId: "noInlineTypeImport",
             *fix(fixer) {
-              const typeSpecifiersText = typeSpecifiers.map(s => sourceCode.getText(s).replace("type ", "")).join(", ");
-              const valueSpecifiersText = valueSpecifiers.map(s => sourceCode.getText(s)).join(", ");
+              const typeSpecifiersText = typeSpecifiers
+                .map((s) => sourceCode.getText(s).replace("type ", ""))
+                .join(", ");
+              const valueSpecifiersText = valueSpecifiers.map((s) => sourceCode.getText(s)).join(", ");
               yield fixer.replaceText(
                 node,
-                `import type { ${typeSpecifiersText} } from "${node.source.value}";\nimport { ${valueSpecifiersText} } from "${node.source.value}";`,
+                `import type { ${typeSpecifiersText} } from "${node.source.value}";\nimport { ${valueSpecifiersText} } from "${node.source.value}";`
               );
             },
           });
@@ -44,7 +46,9 @@ export default createEslintRule<Options, MessageIds>({
             loc: node.loc,
             messageId: "noInlineTypeImport",
             *fix(fixer) {
-              const typeSpecifiersText = typeSpecifiers.map(s => sourceCode.getText(s).replace("type ", "")).join(", ");
+              const typeSpecifiersText = typeSpecifiers
+                .map((s) => sourceCode.getText(s).replace("type ", ""))
+                .join(", ");
               yield fixer.replaceText(node, `import type { ${typeSpecifiersText} } from "${node.source.value}";`);
             },
           });
