@@ -10,7 +10,6 @@ module.exports = {
     "vue/html-indent": "error",
     "vue/html-quotes": "error",
     "vue/html-self-closing": "error",
-    "vue/max-attributes-per-line": "error",
     "vue/multiline-html-element-content-newline": "error",
     "vue/mustache-interpolation-spacing": "error",
     "vue/no-multi-spaces": "error",

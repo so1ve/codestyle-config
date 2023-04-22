@@ -1,5 +1,6 @@
 // @ts-check
 const { defineConfig } = require("eslint-define-config");
+const prettierConfig = require("@so1ve/prettier-config");
 
 module.exports = defineConfig({
   env: {
@@ -473,7 +474,7 @@ module.exports = defineConfig({
     "@so1ve/no-beginning-newline": "error",
     "@so1ve/pad-after-last-import": "error",
 
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", prettierConfig],
     // "dprint-integration/dprint": [
     //   "error",
     //   {},

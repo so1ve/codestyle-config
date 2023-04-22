@@ -70,6 +70,7 @@ importers:
       '@html-eslint/eslint-plugin': ^0.18.0
       '@html-eslint/parser': ^0.18.0
       '@so1ve/eslint-plugin': workspace:*
+      '@so1ve/prettier-config': workspace:*
       eslint-define-config: ^1.18.0
       eslint-plugin-array-func: ^3.1.8
       eslint-plugin-dprint-integration: ^0.2.2
@@ -91,6 +92,7 @@ importers:
       '@html-eslint/eslint-plugin': 0.18.0
       '@html-eslint/parser': 0.18.0
       '@so1ve/eslint-plugin': link:../eslint-plugin
+      '@so1ve/prettier-config': link:../prettier-config
       eslint-define-config: 1.18.0
       eslint-plugin-array-func: 3.1.8
       eslint-plugin-dprint-integration: 0.2.2
@@ -2681,6 +2683,8 @@ packages:
       eslint:
         optional: true
       eslint-config-prettier:
+        optional: true
+      prettier:
         optional: true
     dependencies:
       prettier-linter-helpers: 1.0.0
