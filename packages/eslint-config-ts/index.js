@@ -39,7 +39,10 @@ const typescriptOverride = {
         allowBoolean: true,
       },
     ],
-    "@typescript-eslint/array-type": ["error", { default: "array", readonly: "array" }],
+    "@typescript-eslint/array-type": [
+      "error",
+      { default: "array", readonly: "array" },
+    ],
     "@typescript-eslint/consistent-generic-constructors": "error",
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
@@ -62,10 +65,16 @@ const jestOverride = {
   },
 };
 
-const overrides = fs.existsSync(path.join(process.cwd(), tsconfig)) ? [typescriptOverride, jestOverride] : [];
+const overrides = fs.existsSync(path.join(process.cwd(), tsconfig))
+  ? [typescriptOverride, jestOverride]
+  : [];
 
 module.exports = defineConfig({
-  extends: ["@so1ve/eslint-config-basic", "plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
+  extends: [
+    "@so1ve/eslint-config-basic",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+  ],
   settings: {
     "import/resolver": {
       node: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
@@ -98,7 +107,10 @@ module.exports = defineConfig({
         minimumDescriptionLength: 0,
       },
     ],
-    "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports", disallowTypeAnnotations: false }],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { prefer: "type-imports", disallowTypeAnnotations: false },
+    ],
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
     "@typescript-eslint/prefer-ts-expect-error": "error",
@@ -108,7 +120,10 @@ module.exports = defineConfig({
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "error",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error", { functions: false, classes: false, variables: true }],
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { functions: false, classes: false, variables: true },
+    ],
     "object-curly-spacing": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
     "space-before-blocks": "off",
@@ -121,7 +136,11 @@ module.exports = defineConfig({
     "no-loss-of-precision": "off",
     "@typescript-eslint/no-loss-of-precision": "error",
     "lines-between-class-members": "off",
-    "@typescript-eslint/lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }],
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      { exceptAfterSingleLine: true },
+    ],
 
     // so1ve
     "@so1ve/no-inline-type-import": "error",

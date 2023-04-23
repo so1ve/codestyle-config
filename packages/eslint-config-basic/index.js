@@ -88,13 +88,25 @@ module.exports = defineConfig({
         "jsonc/comma-dangle": ["error", "never"],
         "jsonc/comma-style": ["error", "last"],
         "jsonc/indent": ["error", 2],
-        "jsonc/key-spacing": ["error", { beforeColon: false, afterColon: true }],
+        "jsonc/key-spacing": [
+          "error",
+          { beforeColon: false, afterColon: true },
+        ],
         "jsonc/no-octal-escape": "error",
-        "jsonc/object-curly-newline": ["error", { multiline: true, consistent: true }],
+        "jsonc/object-curly-newline": [
+          "error",
+          { multiline: true, consistent: true },
+        ],
         "jsonc/object-curly-spacing": ["error", "always"],
-        "jsonc/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
+        "jsonc/object-property-newline": [
+          "error",
+          { allowMultiplePropertiesPerLine: true },
+        ],
         "eol-last": "error",
-        "prettier/prettier": ["error", { ...prettierConfig, trailingComma: "none" }],
+        "prettier/prettier": [
+          "error",
+          { ...prettierConfig, trailingComma: "none" },
+        ],
       },
     },
     {
@@ -355,7 +367,12 @@ module.exports = defineConfig({
     "no-debugger": "error",
     "no-console": ["error", { allow: ["error", "warn", "table", "time"] }],
     "no-cond-assign": ["error", "always"],
-    "no-restricted-syntax": ["error", "DebuggerStatement", "LabeledStatement", "WithStatement"],
+    "no-restricted-syntax": [
+      "error",
+      "DebuggerStatement",
+      "LabeledStatement",
+      "WithStatement",
+    ],
     "no-return-await": "off",
 
     // es6
@@ -454,7 +471,10 @@ module.exports = defineConfig({
     "unicorn/prefer-array-flat": "error",
     "unicorn/prefer-array-find": "error",
 
-    "no-use-before-define": ["error", { functions: false, classes: false, variables: true }],
+    "no-use-before-define": [
+      "error",
+      { functions: false, classes: false, variables: true },
+    ],
     "eslint-comments/disable-enable-pair": "off",
     "import/no-named-as-default-member": "off",
     "n/no-callback-literal": "off",

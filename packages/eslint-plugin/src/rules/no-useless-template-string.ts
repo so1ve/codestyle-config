@@ -30,7 +30,10 @@ export default createEslintRule<Options, MessageIds>({
             fix(fixer) {
               const s = node.range[0];
               const e = node.range[1];
-              return fixer.replaceTextRange([s, e], `"${node.quasis[0].value.raw}"`);
+              return fixer.replaceTextRange(
+                [s, e],
+                `"${node.quasis[0].value.raw}"`
+              );
             },
           });
         }
