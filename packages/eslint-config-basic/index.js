@@ -75,7 +75,6 @@ module.exports = defineConfig({
         "@html-eslint/require-closing-tags": "off",
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
-        "prettier/prettier": ["error", { parser: "angular", tabWidth: 4 }],
       },
     },
     {
