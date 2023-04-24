@@ -8,9 +8,15 @@ module.exports = defineConfig({
     "plugin:react-hooks/recommended",
     "@so1ve/eslint-config-ts",
   ],
+  overrides: [
+    {
+      files: ["*.jsx", "*.tsx"],
+      parser: "@typescript-eslint/parser",
+    },
+  ],
   settings: {
     react: {
-      version: "17.0",
+      version: "detect",
     },
   },
   rules: {
