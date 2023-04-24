@@ -26,7 +26,8 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": ">=7.4.0",
+    "prettier": ">=2.0.0"
   },
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",

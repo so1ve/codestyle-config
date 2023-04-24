@@ -27,7 +27,7 @@
     "lint": "eslint . --config=index.js"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "prettier": ">=2.0.0"
   },
   "dependencies": {
     "@prettier/plugin-xml": "^2.2.0",
