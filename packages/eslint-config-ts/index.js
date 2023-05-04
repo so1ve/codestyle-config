@@ -161,7 +161,6 @@ module.exports = defineConfig({
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/prefer-for-of": "error",
     "@typescript-eslint/no-duplicate-enum-values": "error",
-    "@typescript-eslint/no-invalid-void-type": "error",
     "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
