@@ -110,9 +110,6 @@ module.exports = defineConfig({
     "vue/operator-linebreak": ["error", "before"],
     "vue/prefer-template": "error",
     "vue/quote-props": ["error", "consistent-as-needed"],
-    "vue/space-in-parens": ["error", "never"],
-    "vue/space-infix-ops": "error",
-    "vue/space-unary-ops": ["error", { words: true, nonwords: false }],
     "vue/template-curly-spacing": "error",
     "vue/static-class-names-order": "error",
     "vue/block-lang": [

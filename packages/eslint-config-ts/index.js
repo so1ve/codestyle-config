@@ -129,8 +129,6 @@ module.exports = defineConfig({
     "space-before-blocks": "off",
     "@typescript-eslint/space-before-blocks": ["error", "always"],
     "space-before-function-paren": "off",
-    "space-infix-ops": "off",
-    "@typescript-eslint/space-infix-ops": "error",
     "no-dupe-class-members": "off",
     "@typescript-eslint/no-dupe-class-members": "error",
     "no-loss-of-precision": "off",
