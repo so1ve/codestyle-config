@@ -76,7 +76,6 @@ importers:
       '@so1ve/prettier-config': workspace:*
       eslint-define-config: ^1.18.0
       eslint-plugin-array-func: ^3.1.8
-      eslint-plugin-dprint-integration: ^0.2.2
       eslint-plugin-eslint-comments: ^3.2.0
       eslint-plugin-import: npm:eslint-plugin-i@2.27.5-1
       eslint-plugin-jsdoc: ^41.1.2
@@ -98,7 +97,6 @@ importers:
       '@so1ve/prettier-config': link:../prettier-config
       eslint-define-config: 1.20.0
       eslint-plugin-array-func: 3.1.8
-      eslint-plugin-dprint-integration: 0.2.2
       eslint-plugin-eslint-comments: 3.2.0
       eslint-plugin-import: /eslint-plugin-i/2.27.5-1
       eslint-plugin-jsdoc: 41.1.2
@@ -422,30 +420,6 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
     dev: true
-
-  /@dprint/dockerfile/0.3.0:
-    resolution: {integrity: sha512-u2XhDkS0LrhmBrJ6ecP0TZsFv5a4W688XnD3F11/i9H0r/4/6QHLk6B2aKZmjK3rHaO1ERBYRA6YtKGxwkn2xg==}
-    dev: false
-
-  /@dprint/formatter/0.2.0:
-    resolution: {integrity: sha512-E1q1JaOPeEUBhG//IUayqJQvNpqprZ0OCF8B/bIhUqSsMIp0Y74PgF8JPvDCrOdq43qiGUYAavVO8iCBHOoU/A==}
-    dev: false
-
-  /@dprint/json/0.17.2:
-    resolution: {integrity: sha512-V5T2HW3N10TrF4nAl+7bzeBebmrPimn8Xkliu/SucL6WUsqGtxY8sJLGa+8f7gE9dFRW+VTsfX9QWEXopfn+ww==}
-    dev: false
-
-  /@dprint/markdown/0.15.2:
-    resolution: {integrity: sha512-/9lq1JnszpRJKzy31PqJ4qdlj53dky3qjilG6bNGQdMnagTbK/CioYNAtLV8E2Dj9eFQxPh3u0WIY5aQf0PhKg==}
-    dev: false
-
-  /@dprint/toml/0.5.4:
-    resolution: {integrity: sha512-d+5GwwzztZD0QixmOBhaO6nWVLsAeYsJ1HJYNxDoDRbASFCpza9BBVshG5ctBRXCkkIHhD9BO1SnbOoRQltUQw==}
-    dev: false
-
-  /@dprint/typescript/0.84.2:
-    resolution: {integrity: sha512-xnux6yX0rsBHMqbDsSH9z/lWr6M1R7AjMhQpNNN/3CQolpcKLVeKxvbVhWiMbmneC4QHrdyy7Sf09e5N/JeRxw==}
-    dev: false
 
   /@es-joy/jsdoccomment/0.37.1:
     resolution: {integrity: sha512-5vxWJ1gEkEF0yRd0O+uK6dHJf7adrxwQSX8PuRiPfFSAbNLnY0ZJfXaZucoz14Jj2N11xn2DnlEPwWRpYpvRjg==}
@@ -1850,6 +1824,7 @@ packages:
 
   /defu/6.1.2:
     resolution: {integrity: sha512-+uO4+qr7msjNNWKYPHqN/3+Dx3NFkmIzayk2L1MyZQlvgZb/J1A0fo410dpKrN2SnqFjt8n4JL8fDJE0wIgjFQ==}
+    dev: true
 
   /destr/1.2.2:
     resolution: {integrity: sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==}
@@ -2222,20 +2197,6 @@ packages:
     peerDependenciesMeta:
       eslint:
         optional: true
-    dev: false
-
-  /eslint-plugin-dprint-integration/0.2.2:
-    resolution: {integrity: sha512-iFQbn6KkUU/6IcHrb2X0rS9nVyDhPfEol+q/Vljm6SsM2rd+bm+8FrEWVGs4Pwo/9RlvgFYIn7HOQeR4rN5JEw==}
-    dependencies:
-      '@dprint/dockerfile': 0.3.0
-      '@dprint/formatter': 0.2.0
-      '@dprint/json': 0.17.2
-      '@dprint/markdown': 0.15.2
-      '@dprint/toml': 0.5.4
-      '@dprint/typescript': 0.84.2
-      defu: 6.1.2
-      find-up: 5.0.0
-      prettier-linter-helpers: 1.0.0
     dev: false
 
   /eslint-plugin-es/4.1.0:
