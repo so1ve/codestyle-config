@@ -30,6 +30,9 @@ jobs:
       - name: Install
         run: ni
 
+      - name: Stub
+        run: nr stub
+
       - name: Lint and fix
         run: nr lint:fix
 
