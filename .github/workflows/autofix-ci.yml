@@ -28,7 +28,7 @@ jobs:
         run: npm i -g @antfu/ni
 
       - name: Install
-        run: ni
+        run: ni --no-frozen-lockfile
 
       - name: Stub
         run: nr stub
