@@ -1,0 +1,38 @@
+{
+  "name": "@so1ve/eslint-plugin-prettier",
+  "version": "0.73.0",
+  "author": "Teddy Katz",
+  "contributors": [
+    "JounQin (https://github.com/JounQin) <admin@1stg.me>"
+  ],
+  "description": "Runs prettier as an eslint rule",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "prettier"
+  ],
+  "homepage": "https://github.com/so1ve/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/eslint-config/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.28.0",
+    "prettier": ">=2.0.0"
+  },
+  "dependencies": {
+    "prettier-linter-helpers": "^1.0.0"
+  }
+}

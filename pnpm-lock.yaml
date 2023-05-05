@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@so1ve/eslint-config': workspace:*
       '@so1ve/eslint-plugin': workspace:*
+      '@so1ve/eslint-plugin-prettier': workspace:*
       '@so1ve/prettier-config': workspace:*
       '@types/node': ^18.15.11
       bumpp: ^9.1.0
@@ -17,6 +18,7 @@ importers:
     devDependencies:
       '@so1ve/eslint-config': link:packages/eslint-config
       '@so1ve/eslint-plugin': link:packages/eslint-plugin
+      '@so1ve/eslint-plugin-prettier': link:packages/eslint-plugin-prettier
       '@so1ve/prettier-config': link:packages/prettier-config
       '@types/node': 18.15.11
       bumpp: 9.1.0
@@ -70,6 +72,7 @@ importers:
       '@html-eslint/eslint-plugin': ^0.18.0
       '@html-eslint/parser': ^0.18.0
       '@so1ve/eslint-plugin': workspace:*
+      '@so1ve/eslint-plugin-prettier': workspace:*
       '@so1ve/prettier-config': workspace:*
       eslint-define-config: ^1.18.0
       eslint-plugin-array-func: ^3.1.8
@@ -81,7 +84,6 @@ importers:
       eslint-plugin-markdown: ^3.0.0
       eslint-plugin-n: ^15.7.0
       eslint-plugin-no-only-tests: ^3.1.0
-      eslint-plugin-prettier: ^4.2.1
       eslint-plugin-promise: ^6.1.1
       eslint-plugin-unicorn: ^46.0.0
       eslint-plugin-unused-imports: ^2.0.0
@@ -92,6 +94,7 @@ importers:
       '@html-eslint/eslint-plugin': 0.18.0
       '@html-eslint/parser': 0.18.0
       '@so1ve/eslint-plugin': link:../eslint-plugin
+      '@so1ve/eslint-plugin-prettier': link:../eslint-plugin-prettier
       '@so1ve/prettier-config': link:../prettier-config
       eslint-define-config: 1.18.0
       eslint-plugin-array-func: 3.1.8
@@ -103,7 +106,6 @@ importers:
       eslint-plugin-markdown: 3.0.0
       eslint-plugin-n: 15.7.0
       eslint-plugin-no-only-tests: 3.1.0
-      eslint-plugin-prettier: 4.2.1
       eslint-plugin-promise: 6.1.1
       eslint-plugin-unicorn: 46.0.0
       eslint-plugin-unused-imports: 2.0.0
@@ -183,6 +185,12 @@ importers:
     devDependencies:
       '@types/node': 18.15.11
       '@typescript-eslint/types': 5.58.0
+
+  packages/eslint-plugin-prettier:
+    specifiers:
+      prettier-linter-helpers: ^1.0.0
+    dependencies:
+      prettier-linter-helpers: 1.0.0
 
   packages/prettier-config:
     specifiers:
@@ -2670,24 +2678,6 @@ packages:
   /eslint-plugin-no-only-tests/3.1.0:
     resolution: {integrity: sha512-Lf4YW/bL6Un1R6A76pRZyE1dl1vr31G/ev8UzIc/geCgFWyrKil8hVjYqWVKGB/UIGmb6Slzs9T0wNezdSVegw==}
     engines: {node: '>=5.0.0'}
-    dev: false
-
-  /eslint-plugin-prettier/4.2.1:
-    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      eslint: '>=7.28.0'
-      eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
-    peerDependenciesMeta:
-      eslint:
-        optional: true
-      eslint-config-prettier:
-        optional: true
-      prettier:
-        optional: true
-    dependencies:
-      prettier-linter-helpers: 1.0.0
     dev: false
 
   /eslint-plugin-promise/6.1.1:

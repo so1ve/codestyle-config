@@ -17,7 +17,7 @@ module.exports = defineConfig({
     "unused-imports",
     "no-only-tests",
     // "dprint-integration",
-    "prettier",
+    "@so1ve/prettier",
   ],
   extends: [
     "./standard",
@@ -102,7 +102,7 @@ module.exports = defineConfig({
           { allowMultiplePropertiesPerLine: true },
         ],
         "eol-last": "error",
-        "prettier/prettier": [
+        "@so1ve/prettier/prettier": [
           "error",
           { ...prettierConfig, trailingComma: "none" },
         ],
@@ -499,7 +499,7 @@ module.exports = defineConfig({
     "@so1ve/no-beginning-newline": "error",
     "@so1ve/pad-after-last-import": "error",
 
-    "prettier/prettier": ["error", prettierConfig],
+    "@so1ve/prettier/prettier": ["error", prettierConfig],
     // "dprint-integration/dprint": [
     //   "error",
     //   {},
