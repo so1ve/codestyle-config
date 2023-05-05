@@ -96,7 +96,6 @@ module.exports = defineConfig({
           "error",
           { multiline: true, consistent: true },
         ],
-        "jsonc/object-curly-spacing": ["error", "always"],
         "jsonc/object-property-newline": [
           "error",
           { allowMultiplePropertiesPerLine: true },

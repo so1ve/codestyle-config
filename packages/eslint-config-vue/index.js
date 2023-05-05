@@ -97,7 +97,6 @@ module.exports = defineConfig({
       "error",
       { multiline: true, consistent: true },
     ],
-    "vue/object-curly-spacing": ["error", "always"],
     "vue/object-property-newline": [
       "error",
       { allowMultiplePropertiesPerLine: true },
