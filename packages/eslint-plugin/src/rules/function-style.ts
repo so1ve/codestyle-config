@@ -1,9 +1,5 @@
-import type {
-  ArrowFunctionExpression,
-  FunctionDeclaration,
-  Statement,
-} from "@typescript-eslint/types/dist/generated/ast-spec";
-import { AST_NODE_TYPES } from "@typescript-eslint/types/dist/generated/ast-spec";
+import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import type { TSESTree } from "@typescript-eslint/types";
 
 import { createEslintRule } from "../utils";
 
@@ -13,6 +9,16 @@ export type Options = [];
 
 const START_RETURN = /^return /;
 const END_SEMICOLON = /;$/;
+
+function getBeforeNode(node: TSESTree.Node) {
+  const { parent } = node;
+  if (!parent) return;
+  const { body } = parent as any;
+  if (!body) return;
+  const index = body.indexOf(node);
+  if (index === 0) return;
+  return body[index - 1];
+}
 
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
@@ -34,14 +40,14 @@ export default createEslintRule<Options, MessageIds>({
     const sourceCode = context.getSourceCode();
     const text = sourceCode.getText();
 
-    const getStatementRaw = (statement: Statement) =>
+    const getStatementRaw = (statement: TSESTree.Statement) =>
       `(${text
         .slice(statement.range[0], statement.range[1])
         .replace(START_RETURN, "")
         .replace(END_SEMICOLON, "")})`;
 
     function getReturnStatement(
-      node: FunctionDeclaration | ArrowFunctionExpression
+      node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression
     ) {
       const { body } = node;
       if (body.type === AST_NODE_TYPES.BlockStatement) {
@@ -55,7 +61,7 @@ export default createEslintRule<Options, MessageIds>({
       }
     }
 
-    function generateArrowFunction(node: FunctionDeclaration) {
+    function generateArrowFunction(node: TSESTree.FunctionDeclaration) {
       const async = node.async ? "async " : "";
       const params = node.params
         .map((param) => sourceCode.getText(param))
@@ -69,7 +75,9 @@ export default createEslintRule<Options, MessageIds>({
       } = ${async}${generics}(${params}) => ${body}`;
     }
 
-    function generateFunctionDeclaration(node: ArrowFunctionExpression) {
+    function generateFunctionDeclaration(
+      node: TSESTree.ArrowFunctionExpression
+    ) {
       const async = node.async ? "async " : "";
       const params = node.params
         .map((param) => sourceCode.getText(param))
@@ -87,7 +95,12 @@ export default createEslintRule<Options, MessageIds>({
       FunctionDeclaration(node) {
         if (!node.id?.name) return;
         const statement = getReturnStatement(node);
-        if (!statement || node.generator) return;
+        if (
+          !statement ||
+          node.generator ||
+          getBeforeNode(node)?.type === AST_NODE_TYPES.TSDeclareFunction
+        )
+          return;
         context.report({
           node,
           messageId: "arrow",
@@ -101,7 +114,8 @@ export default createEslintRule<Options, MessageIds>({
         });
       },
       ArrowFunctionExpression(node) {
-        const { body } = node;
+        const { body, parent } = node;
+        if ((parent as any)?.id?.typeAnnotation) return;
         if (body.type === AST_NODE_TYPES.BlockStatement) {
           const { body: blockBody } = body;
           if (
