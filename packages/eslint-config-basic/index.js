@@ -171,6 +171,10 @@ module.exports = defineConfig({
             ],
           },
           {
+            pathPattern: "^scripts$",
+            order: { type: "asc" },
+          },
+          {
             pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
             order: { type: "asc" },
           },

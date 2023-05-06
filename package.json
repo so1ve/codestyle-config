@@ -19,13 +19,13 @@
   },
   "license": "MIT",
   "scripts": {
+    "build": "pnpm run -r --filter=./packages/* build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
     "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
-    "test": "pnpm run -r --filter=./packages/* test",
     "stub": "pnpm run -r --filter=./packages/* stub",
-    "build": "pnpm run -r --filter=./packages/* build"
+    "test": "pnpm run -r --filter=./packages/* test",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@so1ve/eslint-config": "workspace:*",

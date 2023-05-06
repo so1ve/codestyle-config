@@ -32,9 +32,9 @@
   },
   "scripts": {
     "build": "unbuild",
+    "prepublishOnly": "nr build",
     "stub": "unbuild --stub",
-    "test": "vitest",
-    "prepublishOnly": "nr build"
+    "test": "vitest"
   },
   "dependencies": {
     "@typescript-eslint/utils": "^5.58.0",
