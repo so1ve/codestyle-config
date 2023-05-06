@@ -21,6 +21,7 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     const text = context.getSourceCode().text;
+
     return {
       Program: (node) => {
         const newlines = text.match(/([\n]*)/)![1];

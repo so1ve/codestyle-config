@@ -21,6 +21,7 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     const sourceCode = context.getSourceCode();
+
     return {
       ImportDeclaration: (node) => {
         const specifiers = node.specifiers;
