@@ -40,14 +40,14 @@
   "dependencies": {
     "@so1ve/eslint-config-basic": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
-    "eslint-define-config": "^1.18.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint-define-config": "^1.20.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-etc": "^2.0.2",
     "eslint-plugin-jest": "^27.2.1"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11"
+    "@types/node": "^18.16.5"
   }
 }

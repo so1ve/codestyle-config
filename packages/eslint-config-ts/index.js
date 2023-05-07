@@ -7,9 +7,7 @@ const basic = require("@so1ve/eslint-config-basic");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
 
-/**
- * @type {import("eslint-define-config").Override}
- */
+/** @type {import("eslint-define-config").Override} */
 const typescriptOverride = {
   parserOptions: {
     tsconfigRootDir: process.cwd(),
@@ -52,9 +50,7 @@ const typescriptOverride = {
   },
 };
 
-/**
- * @type {import("eslint-define-config").Override}
- */
+/** @type {import("eslint-define-config").Override} */
 const jestOverride = {
   // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
   files: ["**/__tests__/**/*.ts", "**/*.spec.ts", "**/*.test.ts"],
@@ -114,9 +110,12 @@ module.exports = defineConfig({
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
     "@typescript-eslint/prefer-ts-expect-error": "error",
+    "@typescript-eslint/no-require-imports": "error",
 
     // Override JS
     "no-useless-constructor": "off",
+    "no-invalid-this": "off",
+    "@typescript-eslint/no-invalid-this": "error",
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "error",
     "no-use-before-define": "off",
@@ -154,7 +153,6 @@ module.exports = defineConfig({
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-types": "off",
-    "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/triple-slash-reference": "off",
     "@typescript-eslint/prefer-for-of": "error",
     "@typescript-eslint/no-duplicate-enum-values": "error",

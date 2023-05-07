@@ -16,7 +16,6 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
-    // "dprint-integration",
     "@so1ve/prettier",
   ],
   extends: [
@@ -57,6 +56,8 @@ module.exports = defineConfig({
     "!.github",
     "!.vitepress",
     "!.vscode",
+    // force exclude
+    ".vitepress/cache",
   ],
   settings: {
     "import/resolver": {
@@ -193,9 +194,10 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ["*.js", "*.cjs"],
+      files: ["*.js", "*.cjs", "*.jsx"],
       rules: {
         "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-require-imports": "off",
       },
     },
     {
@@ -204,21 +206,6 @@ module.exports = defineConfig({
         "no-void": ["error", { allowAsStatement: true }],
       },
     },
-    // {
-    //   files: ["*.js", "*.jsx", "*.cjs", "*.mjs", "*.ts", "*.tsx", "*.mts", "*.cts"],
-    //   rules: {
-    //     // Not supported in ESLint 8 yet
-    //     // "jsdoc/check-examples": "error",
-    //     "jsdoc/require-jsdoc": "off",
-    //     "jsdoc/check-indentation": "error",
-    //     "jsdoc/check-param-names": ["error", { enableFixer: true }],
-    //     "jsdoc/require-returns-type": "off",
-    //     "jsdoc/require-returns": "off",
-    //   },
-    //   extends: [
-    //     "plugin:jsdoc/recommended-error",
-    //   ],
-    // },
     {
       files: ["scripts/**/*.*", "cli.*"],
       rules: {
@@ -241,6 +228,8 @@ module.exports = defineConfig({
         "@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-require-imports": "off",
         "import/no-unresolved": "off",
         "unused-imports/no-unused-imports": "off",
         "unused-imports/no-unused-vars": "off",
@@ -433,6 +422,7 @@ module.exports = defineConfig({
     "no-multi-str": "error",
     "no-with": "error",
     "no-useless-escape": "off",
+    "no-invalid-this": "error",
     "vars-on-top": "error",
     "require-await": "off",
     "no-return-assign": "off",
@@ -505,25 +495,5 @@ module.exports = defineConfig({
     "@so1ve/function-style": "error",
 
     "@so1ve/prettier/prettier": ["error", prettierConfig],
-    // "dprint-integration/dprint": [
-    //   "error",
-    //   {},
-    //   {
-    //     typescript: {
-    //       "useBraces": "always",
-    //       "quoteStyle": "alwaysDouble",
-    //       // Disable temporalily until https://github.com/dprint/dprint-plugin-typescript/issues/512 is solved
-    //       // "functionDeclaration.spaceBeforeParentheses": true,
-    //       // "constructor.spaceBeforeParentheses": true,
-    //       // "getAccessor.spaceBeforeParentheses": true,
-    //       // "setAccessor.spaceBeforeParentheses": true,
-    //       // "method.spaceBeforeParentheses": true,
-    //       "module.sortImportDeclarations": "maintain",
-    //       "module.sortExportDeclarations": "maintain",
-    //       "exportDeclaration.sortNamedExports": "maintain",
-    //       "importDeclaration.sortNamedImports": "maintain",
-    //     },
-    //   },
-    // ],
   },
 });

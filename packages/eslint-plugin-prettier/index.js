@@ -25,9 +25,7 @@ const { INSERT, DELETE, REPLACE } = generateDifferences;
 // ------------------------------------------------------------------------------
 
 // Lazily-loaded Prettier.
-/**
- * @type {import('prettier')}
- */
+/** @type {import("prettier")} */
 let prettier;
 
 // ------------------------------------------------------------------------------
@@ -37,8 +35,9 @@ let prettier;
 /**
  * Reports a difference.
  *
- * @param {import('eslint').Rule.RuleContext} context - The ESLint rule context.
- * @param {import('prettier-linter-helpers').Difference} difference - The difference object.
+ * @param {import("eslint").Rule.RuleContext} context - The ESLint rule context.
+ * @param {import("prettier-linter-helpers").Difference} difference - The
+ *   difference object.
  * @returns {void}
  */
 function reportDifference(context, difference) {

@@ -9,6 +9,7 @@ const plugins = [
   "prettier-plugin-sql",
   "prettier-plugin-svelte",
   "prettier-plugin-toml",
+  "prettier-plugin-jsdoc",
 ];
 
 module.exports = {
@@ -23,4 +24,9 @@ module.exports = {
     },
   ],
   plugins: plugins.map((p) => require.resolve(p)),
+
+  // Plugin Options
+  // JSDoc
+  jsdocPreferCodeFences: true,
+  tsdoc: true,
 };
