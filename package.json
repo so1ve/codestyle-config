@@ -1,4 +1,4 @@
-{
+{ 
   "name": "@so1ve/eslint-config-monorepo",
   "private": true,
   "packageManager": "pnpm@7.32.3",
