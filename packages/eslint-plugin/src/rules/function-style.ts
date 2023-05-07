@@ -4,7 +4,7 @@ import type { TSESTree } from "@typescript-eslint/types";
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "function-style";
-export type MessageIds = "arrow" | "declaration";
+export type MessageIds = "arrow" | "arrowShorthand" | "declaration";
 export type Options = [];
 
 const START_RETURN = /^return /;
@@ -32,6 +32,7 @@ export default createEslintRule<Options, MessageIds>({
     schema: [],
     messages: {
       arrow: "Expected an arrow function.",
+      arrowShorthand: "Expected an arrow function shorthand.",
       declaration: "Expected a function declaration.",
     },
   },
@@ -46,7 +47,7 @@ export default createEslintRule<Options, MessageIds>({
         .replace(START_RETURN, "")
         .replace(END_SEMICOLON, "")})`;
 
-    function getReturnStatement(
+    function getLonelyReturnStatement(
       node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression
     ) {
       const { body } = node;
@@ -61,22 +62,9 @@ export default createEslintRule<Options, MessageIds>({
       }
     }
 
-    function generateArrowFunction(node: TSESTree.FunctionDeclaration) {
-      const async = node.async ? "async " : "";
-      const params = node.params
-        .map((param) => sourceCode.getText(param))
-        .join(", ");
-      const generics = node.typeParameters
-        ? sourceCode.getText(node.typeParameters)
-        : "";
-      const body = sourceCode.getText(node.body);
-      return `const ${
-        node.id!.name
-      } = ${async}${generics}(${params}) => ${body}`;
-    }
-
-    function generateFunctionDeclaration(
-      node: TSESTree.ArrowFunctionExpression
+    function generateFunction(
+      node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
+      type: "arrow" | "declaration"
     ) {
       const async = node.async ? "async " : "";
       const params = node.params
@@ -86,15 +74,17 @@ export default createEslintRule<Options, MessageIds>({
         ? sourceCode.getText(node.typeParameters)
         : "";
       const body = sourceCode.getText(node.body);
-      return `${async} function ${
-        (node.parent as any).id.name
-      }${generics}(${params}) ${body}`;
+      return type === "arrow"
+        ? `const ${node.id!.name} = ${async}${generics}(${params}) => ${body}`
+        : `${async}function ${
+            (node.parent as any).id.name
+          }${generics}(${params}) ${body}`;
     }
 
     return {
       FunctionDeclaration(node) {
         if (!node.id?.name) return;
-        const statement = getReturnStatement(node);
+        const statement = getLonelyReturnStatement(node);
         if (
           !statement ||
           node.generator ||
@@ -108,7 +98,7 @@ export default createEslintRule<Options, MessageIds>({
             const [start, end] = node.range;
             return fixer.replaceTextRange(
               [start, end],
-              generateArrowFunction(node)
+              generateFunction(node, "arrow")
             );
           },
         });
@@ -130,26 +120,25 @@ export default createEslintRule<Options, MessageIds>({
                 const [start, end] = parent.range;
                 return fixer.replaceTextRange(
                   [start, end],
-                  generateFunctionDeclaration(node)
+                  generateFunction(node, "declaration")
                 );
               },
             });
           }
         }
-        // Convert arrow function return to shortcut
-        const statement = getReturnStatement(node);
-        if (!statement) return;
-        context.report({
-          node,
-          messageId: "arrow",
-          fix: (fixer) => {
-            const [start, end] = node.body.range;
-            return fixer.replaceTextRange(
-              [start, end],
-              getStatementRaw(statement)
-            );
-          },
-        });
+        const statement = getLonelyReturnStatement(node);
+        if (statement)
+          context.report({
+            node,
+            messageId: "arrowShorthand",
+            fix: (fixer) => {
+              const [start, end] = node.body.range;
+              return fixer.replaceTextRange(
+                [start, end],
+                getStatementRaw(statement)
+              );
+            },
+          });
       },
     };
   },
