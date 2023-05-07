@@ -7,8 +7,9 @@
 - Double quotes, semi
 - Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))
 - TypeScript, Vue, React, Svelte out-of-box
-- Lint also for json, yaml, markdown, toml and Dockerfile
+- Lint also for json, yaml, markdown
 - Sorted imports, dangling commas for cleaner commit diff
+- Focused on consistent code style, with custom rules to enforce style
 - Reasonable defaults, best practices, only one-line of config
 
 ## Usage
