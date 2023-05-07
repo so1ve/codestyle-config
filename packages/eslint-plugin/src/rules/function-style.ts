@@ -75,7 +75,7 @@ export default createEslintRule<Options, MessageIds>({
         : "";
       const body = sourceCode.getText(node.body);
       return type === "arrow"
-        ? `const ${node.id!.name} = ${async}${generics}(${params}) => ${body}`
+        ? `const ${node.id!.name} = ${async}${generics}(${params}) => ${body};`
         : `${async}function ${
             (node.parent as any).id.name
           }${generics}(${params}) ${body}`;
