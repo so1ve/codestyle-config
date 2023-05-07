@@ -1,7 +1,7 @@
 import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
 import { it } from "vitest";
 
-import type { InvalidCase } from "../types";
+import type { InvalidCase } from "../test-types";
 
 import type { MessageIds } from "./function-style";
 import rule, { RULE_NAME } from "./function-style";
