@@ -26,7 +26,7 @@ export default createEslintRule<Options, MessageIds>({
 
     return {
       ImportDeclaration: (node) => {
-        const specifiers = node.specifiers;
+        const {specifiers} = node
         const typeSpecifiers = specifiers.filter(
           (s) =>
             s.type === AST_NODE_TYPES.ImportSpecifier && s.importKind === "type"
