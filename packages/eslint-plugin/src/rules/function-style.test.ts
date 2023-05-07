@@ -33,7 +33,7 @@ const invalid: InvalidCase<MessageIds>[] = [
   },
   {
     code: "const a = () => { return 1; };",
-    output: "const a = () => (1);",
+    output: "const a = () => 1;",
     errors: [{ messageId: "arrowShorthand" }],
   },
   {
@@ -48,7 +48,7 @@ const invalid: InvalidCase<MessageIds>[] = [
   },
   {
     code: "const a = async () => { return 1; };",
-    output: "const a = async () => (1);",
+    output: "const a = async () => 1;",
     errors: [{ messageId: "arrowShorthand" }],
   },
   {
