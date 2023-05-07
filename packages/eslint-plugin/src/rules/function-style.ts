@@ -25,7 +25,7 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "problem",
     docs: {
-      description: "Pad after the last import.",
+      description: "Enforce function style.",
       recommended: "error",
     },
     fixable: "code",
