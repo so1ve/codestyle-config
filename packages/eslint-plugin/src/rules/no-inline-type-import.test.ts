@@ -3,9 +3,17 @@ import { it } from "vitest";
 
 import rule, { RULE_NAME } from "./no-inline-type-import";
 
-const valids = ['import type { a } from "foo";'];
-const invalids = [
+const valid = ['import type { a } from "foo";'];
+const invalid = [
   ['import { type a } from "foo";', 'import type { a } from "foo";'],
+  [
+    'import { type a, b } from "foo";',
+    'import type { a } from "foo";\nimport { b } from "foo";',
+  ],
+  [
+    'import D, { type a, b } from "foo";',
+    'import type { a } from "foo";\nimport D, { b } from "foo";',
+  ],
 ];
 
 it("runs", () => {
@@ -14,8 +22,8 @@ it("runs", () => {
   });
 
   ruleTester.run(RULE_NAME, rule, {
-    valid: valids,
-    invalid: invalids.map((i) => ({
+    valid,
+    invalid: invalid.map((i) => ({
       code: i[0],
       output: i[1],
       errors: [{ messageId: "noInlineTypeImport" }],

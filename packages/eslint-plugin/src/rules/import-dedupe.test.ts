@@ -3,8 +3,8 @@ import { it } from "vitest";
 
 import rule, { RULE_NAME } from "./import-dedupe";
 
-const valids = ['import { a } from "foo";'];
-const invalids = [
+const valid = ['import { a } from "foo";'];
+const invalid = [
   [
     'import { a, b, a, a, c, a } from "foo";',
     'import { a, b,   c,  } from "foo";',
@@ -17,8 +17,8 @@ it("runs", () => {
   });
 
   ruleTester.run(RULE_NAME, rule, {
-    valid: valids,
-    invalid: invalids.map((i) => ({
+    valid,
+    invalid: invalid.map((i) => ({
       code: i[0],
       output: i[1],
       errors: [

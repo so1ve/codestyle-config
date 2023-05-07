@@ -3,13 +3,13 @@ import { it } from "vitest";
 
 import rule, { RULE_NAME } from "./no-useless-template-string";
 
-const valids = [
+const valid = [
   "const a = '1';",
   'const a = "1"',
   // eslint-disable-next-line no-template-curly-in-string
   "const a = `1${b}`",
 ];
-const invalids = [["const a = `1`", 'const a = "1"']];
+const invalid = [["const a = `1`", 'const a = "1"']];
 
 it("runs", () => {
   const ruleTester: RuleTester = new RuleTester({
@@ -17,8 +17,8 @@ it("runs", () => {
   });
 
   ruleTester.run(RULE_NAME, rule, {
-    valid: valids,
-    invalid: invalids.map((i) => ({
+    valid,
+    invalid: invalid.map((i) => ({
       code: i[0],
       output: i[1],
       errors: [{ messageId: "noUselessTemplateString" }],
