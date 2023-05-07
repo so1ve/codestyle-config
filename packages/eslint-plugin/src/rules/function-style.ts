@@ -47,7 +47,7 @@ export default createEslintRule<Options, MessageIds>({
         .replace(START_RETURN, "")
         .replace(END_SEMICOLON, "");
 
-    function getLonelyReturnStatement(
+    function getLoneReturnStatement(
       node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression
     ) {
       const { body } = node;
@@ -84,7 +84,7 @@ export default createEslintRule<Options, MessageIds>({
     return {
       FunctionDeclaration(node) {
         if (!node.id?.name) return;
-        const statement = getLonelyReturnStatement(node);
+        const statement = getLoneReturnStatement(node);
         if (
           !statement ||
           node.generator ||
@@ -112,7 +112,7 @@ export default createEslintRule<Options, MessageIds>({
             blockBody.length > 1 &&
             node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
           ) {
-            const parent = node.parent.parent;
+            const parent = node.parent;
             context.report({
               node: parent,
               messageId: "declaration",
@@ -126,7 +126,7 @@ export default createEslintRule<Options, MessageIds>({
             });
           }
         }
-        const statement = getLonelyReturnStatement(node);
+        const statement = getLoneReturnStatement(node);
         if (statement)
           context.report({
             node,
