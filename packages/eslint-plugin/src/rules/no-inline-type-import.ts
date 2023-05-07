@@ -53,10 +53,9 @@ export default createEslintRule<Options, MessageIds>({
               const defaultImportSpecifierText = sourceCode.getText(
                 defaultImportSpecifier
               );
-              const defaultAndvalueSpecifiersText =
-                defaultImportSpecifier
-                  ? `import ${defaultImportSpecifierText}, { ${valueSpecifiersText} } from "${node.source.value}";`
-                  : `import { ${valueSpecifiersText} } from "${node.source.value}";`;
+              const defaultAndvalueSpecifiersText = defaultImportSpecifier
+                ? `import ${defaultImportSpecifierText}, { ${valueSpecifiersText} } from "${node.source.value}";`
+                : `import { ${valueSpecifiersText} } from "${node.source.value}";`;
               const texts = [
                 `import type { ${typeSpecifiersText} } from "${node.source.value}";`,
                 defaultAndvalueSpecifiersText,
