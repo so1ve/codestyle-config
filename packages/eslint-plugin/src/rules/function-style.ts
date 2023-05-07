@@ -42,10 +42,10 @@ export default createEslintRule<Options, MessageIds>({
     const text = sourceCode.getText();
 
     const getStatementRaw = (statement: TSESTree.Statement) =>
-      `${text
+      text
         .slice(statement.range[0], statement.range[1])
         .replace(START_RETURN, "")
-        .replace(END_SEMICOLON, "")}`;
+        .replace(END_SEMICOLON, "")
 
     function getLonelyReturnStatement(
       node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression
