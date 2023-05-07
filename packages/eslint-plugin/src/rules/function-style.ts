@@ -112,7 +112,7 @@ export default createEslintRule<Options, MessageIds>({
             blockBody.length > 1 &&
             node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
           ) {
-            const parent = node.parent;
+            const {parent} = node.parent;
             context.report({
               node: parent,
               messageId: "declaration",
