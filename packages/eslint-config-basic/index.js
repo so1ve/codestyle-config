@@ -75,6 +75,7 @@ module.exports = defineConfig({
         "@html-eslint/require-closing-tags": "off",
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
+        "prettier/prettier": ["error", { parser: "angular", tabWidth: 4 }],
       },
     },
     {
@@ -264,6 +265,7 @@ module.exports = defineConfig({
     ],
     "import/first": "error",
     "import/no-mutable-exports": "error",
+    "import/newline-after-import": ["error", { considerComments: true }],
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
@@ -500,7 +502,6 @@ module.exports = defineConfig({
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-useless-template-string": "error",
     "@so1ve/no-beginning-newline": "error",
-    "@so1ve/pad-after-last-import": "error",
     "@so1ve/function-style": "error",
 
     "@so1ve/prettier/prettier": ["error", prettierConfig],
