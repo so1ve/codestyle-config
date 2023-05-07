@@ -1,3 +1,5 @@
+import { AST_NODE_TYPES } from "@typescript-eslint/types";
+
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "no-inline-type-import";
@@ -26,10 +28,16 @@ export default createEslintRule<Options, MessageIds>({
       ImportDeclaration: (node) => {
         const specifiers = node.specifiers;
         const typeSpecifiers = specifiers.filter(
-          (s) => s.type === "ImportSpecifier" && s.importKind === "type"
+          (s) =>
+            s.type === AST_NODE_TYPES.ImportSpecifier && s.importKind === "type"
         );
         const valueSpecifiers = specifiers.filter(
-          (s) => s.type === "ImportSpecifier" && s.importKind === "value"
+          (s) =>
+            s.type === AST_NODE_TYPES.ImportSpecifier &&
+            s.importKind === "value"
+        );
+        const defaultImportSpecifier = specifiers.find(
+          (s) => s.type === AST_NODE_TYPES.ImportDefaultSpecifier
         );
         if (typeSpecifiers.length > 0 && valueSpecifiers.length > 0) {
           context.report({
@@ -42,10 +50,18 @@ export default createEslintRule<Options, MessageIds>({
               const valueSpecifiersText = valueSpecifiers
                 .map((s) => sourceCode.getText(s))
                 .join(", ");
-              yield fixer.replaceText(
-                node,
-                `import type { ${typeSpecifiersText} } from "${node.source.value}";\nimport { ${valueSpecifiersText} } from "${node.source.value}";`
+              const defaultImportSpecifierText = sourceCode.getText(
+                defaultImportSpecifier
               );
+              const valueSpecifiersTextWithDefaultImport =
+                defaultImportSpecifier
+                  ? `import ${defaultImportSpecifierText}, { ${valueSpecifiersText} } from "${node.source.value}";`
+                  : `import { ${valueSpecifiersText} } from "${node.source.value}";`;
+              const texts = [
+                `import type { ${typeSpecifiersText} } from "${node.source.value}";`,
+                valueSpecifiersTextWithDefaultImport,
+              ];
+              yield fixer.replaceText(node, texts.join("\n"));
             },
           });
         } else if (typeSpecifiers.length > 0) {
