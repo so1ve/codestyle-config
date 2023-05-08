@@ -11,7 +11,7 @@ export default createEslintRule<Options, MessageIds>({
   meta: {
     type: "problem",
     docs: {
-      description: "Disallow negated eqeqeq.",
+      description: "Disallow negated equal sign.",
       recommended: "error",
     },
     fixable: "code",
