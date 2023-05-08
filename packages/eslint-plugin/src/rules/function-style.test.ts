@@ -27,14 +27,9 @@ const valid = [
 ];
 const invalid: InvalidCase<MessageIds>[] = [
   {
-    code: "function a() { return 1; }",
-    output: "const a = () => { return 1; };",
-    errors: [{ messageId: "arrow" }],
-  },
-  {
     code: "const a = () => { return 1; };",
     output: "const a = () => 1;",
-    errors: [{ messageId: "arrowShorthand" }],
+    errors: [{ messageId: "arrow" }],
   },
   {
     code: "const a = () => { stuff; return 1; };",
@@ -42,19 +37,24 @@ const invalid: InvalidCase<MessageIds>[] = [
     errors: [{ messageId: "declaration" }],
   },
   {
-    code: "async function a() { return 1; }",
-    output: "const a = async () => { return 1; };",
-    errors: [{ messageId: "arrow" }],
-  },
-  {
     code: "const a = async () => { return 1; };",
     output: "const a = async () => 1;",
-    errors: [{ messageId: "arrowShorthand" }],
+    errors: [{ messageId: "arrow" }],
   },
   {
     code: "const a = async () => { stuff; return 1; };",
     output: "async function a() { stuff; return 1; }",
     errors: [{ messageId: "declaration" }],
+  },
+  {
+    code: "const a = async (): Promise<1> => { stuff; return 1; };",
+    output: "async function a(): Promise<1> { stuff; return 1; }",
+    errors: [{ messageId: "declaration" }],
+  },
+  {
+    code: "const a: Some = async (): Type => { return 1; };",
+    output: "const a: Some = async (): Type => 1;",
+    errors: [{ messageId: "arrow" }],
   },
 ];
 

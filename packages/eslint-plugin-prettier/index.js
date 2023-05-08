@@ -44,7 +44,7 @@ function reportDifference(context, difference) {
   const { operation, offset, deleteText = "", insertText = "" } = difference;
   const range = [offset, offset + deleteText.length];
   const [start, end] = range.map((index) =>
-    context.getSourceCode().getLocFromIndex(index)
+    context.getSourceCode().getLocFromIndex(index),
   );
 
   context.report({
@@ -148,7 +148,7 @@ module.exports = {
                 ignorePath: ".prettierignore",
                 plugins: prettierRcOptions ? prettierRcOptions.plugins : null,
                 ...eslintFileInfoOptions,
-              }
+              },
             );
 
             // Skip if file is ignored using a .prettierignore file

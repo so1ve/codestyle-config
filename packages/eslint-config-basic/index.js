@@ -341,6 +341,10 @@ module.exports = defineConfig({
     "wrap-regex": "off",
     "yield-star-spacing": "off",
     "quote-props": ["error", "consistent-as-needed"],
+    "padding-line-between-statements": [
+      "error",
+      { blankLine: "always", prev: "*", next: "return" },
+    ],
 
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [

@@ -14,6 +14,7 @@ const plugins = [
 
 module.exports = {
   quoteProps: "preserve",
+  trailingComma: "all",
   overrides: [
     {
       files: "*.html",

@@ -4,7 +4,7 @@ import type { TSESTree } from "@typescript-eslint/types";
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "function-style";
-export type MessageIds = "arrow" | "arrowShorthand" | "declaration";
+export type MessageIds = "arrow" | "declaration";
 export type Options = [];
 
 const START_RETURN = /^return /;
@@ -17,6 +17,7 @@ function getBeforeNode(node: TSESTree.Node) {
   if (!body) return;
   const index = body.indexOf(node);
   if (index === 0) return;
+
   return body[index - 1];
 }
 
@@ -31,8 +32,7 @@ export default createEslintRule<Options, MessageIds>({
     fixable: "code",
     schema: [],
     messages: {
-      arrow: "Expected an arrow function.",
-      arrowShorthand: "Expected an arrow function shorthand.",
+      arrow: "Expected an arrow function shorthand.",
       declaration: "Expected a function declaration.",
     },
   },
@@ -48,7 +48,7 @@ export default createEslintRule<Options, MessageIds>({
         .replace(END_SEMICOLON, "");
 
     function getLoneReturnStatement(
-      node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression
+      node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
     ) {
       const { body } = node;
       if (body.type === AST_NODE_TYPES.BlockStatement) {
@@ -63,22 +63,38 @@ export default createEslintRule<Options, MessageIds>({
     }
 
     function generateFunction(
+      type: "arrow",
+      node: TSESTree.FunctionDeclaration,
+      rawStatement: string,
+    ): string;
+    function generateFunction(
+      type: "declaration",
+      node: TSESTree.ArrowFunctionExpression,
+    ): string;
+    function generateFunction(
+      type: "arrow" | "declaration",
       node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
-      type: "arrow" | "declaration"
+      rawStatement?: string,
     ) {
       const async = node.async ? "async " : "";
-      const params = node.params
-        .map((param) => sourceCode.getText(param))
-        .join(", ");
       const generics = node.typeParameters
         ? sourceCode.getText(node.typeParameters)
         : "";
+      const params = node.params
+        .map((param) => sourceCode.getText(param))
+        .join(", ");
+      const returnType = node.returnType
+        ? sourceCode.getText(node.returnType)
+        : "";
       const body = sourceCode.getText(node.body);
+
       return type === "arrow"
-        ? `const ${node.id!.name} = ${async}${generics}(${params}) => ${body};`
+        ? `const ${
+            node.id!.name
+          } = ${async}${generics}(${params})${returnType} => ${rawStatement!};`
         : `${async}function ${
             (node.parent as any).id.name
-          }${generics}(${params}) ${body}`;
+          }${generics}(${params})${returnType} ${body}`;
     }
 
     return {
@@ -96,15 +112,32 @@ export default createEslintRule<Options, MessageIds>({
           messageId: "arrow",
           fix: (fixer) => {
             const [start, end] = node.range;
+
             return fixer.replaceTextRange(
               [start, end],
-              generateFunction(node, "arrow")
+              generateFunction("arrow", node, getStatementRaw(statement)),
             );
           },
         });
       },
       ArrowFunctionExpression(node) {
         const { body, parent } = node;
+
+        const statement = getLoneReturnStatement(node);
+        if (statement)
+          context.report({
+            node,
+            messageId: "arrow",
+            fix: (fixer) => {
+              const [start, end] = node.body.range;
+
+              return fixer.replaceTextRange(
+                [start, end],
+                getStatementRaw(statement),
+              );
+            },
+          });
+
         if ((parent as any)?.id?.typeAnnotation) return;
         if (body.type === AST_NODE_TYPES.BlockStatement) {
           const { body: blockBody } = body;
@@ -118,27 +151,15 @@ export default createEslintRule<Options, MessageIds>({
               messageId: "declaration",
               fix: (fixer) => {
                 const [start, end] = parent.range;
+
                 return fixer.replaceTextRange(
                   [start, end],
-                  generateFunction(node, "declaration")
+                  generateFunction("declaration", node),
                 );
               },
             });
           }
         }
-        const statement = getLoneReturnStatement(node);
-        if (statement)
-          context.report({
-            node,
-            messageId: "arrowShorthand",
-            fix: (fixer) => {
-              const [start, end] = node.body.range;
-              return fixer.replaceTextRange(
-                [start, end],
-                getStatementRaw(statement)
-              );
-            },
-          });
       },
     };
   },
