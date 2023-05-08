@@ -1,5 +1,5 @@
-import { AST_NODE_TYPES } from "@typescript-eslint/types";
 import type { TSESTree } from "@typescript-eslint/types";
+import { AST_NODE_TYPES } from "@typescript-eslint/types";
 
 import { createEslintRule } from "../utils";
 
@@ -9,17 +9,6 @@ export type Options = [];
 
 const START_RETURN = /^return /;
 const END_SEMICOLON = /;$/;
-
-function getBeforeNode(node: TSESTree.Node) {
-  const { parent } = node;
-  if (!parent) return;
-  const { body } = parent as any;
-  if (!body) return;
-  const index = body.indexOf(node);
-  if (index === 0) return;
-
-  return body[index - 1];
-}
 
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
@@ -64,16 +53,25 @@ export default createEslintRule<Options, MessageIds>({
 
     function generateFunction(
       type: "arrow",
-      node: TSESTree.FunctionDeclaration,
+      name: string,
+      node: TSESTree.FunctionDeclaration | TSESTree.FunctionExpression,
       rawStatement: string,
     ): string;
     function generateFunction(
       type: "declaration",
-      node: TSESTree.ArrowFunctionExpression,
+      name: string,
+      node:
+        | TSESTree.FunctionDeclaration
+        | TSESTree.FunctionExpression
+        | TSESTree.ArrowFunctionExpression,
     ): string;
     function generateFunction(
       type: "arrow" | "declaration",
-      node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
+      name: string,
+      node:
+        | TSESTree.FunctionDeclaration
+        | TSESTree.FunctionExpression
+        | TSESTree.ArrowFunctionExpression,
       rawStatement?: string,
     ) {
       const async = node.async ? "async " : "";
@@ -89,35 +87,46 @@ export default createEslintRule<Options, MessageIds>({
       const body = sourceCode.getText(node.body);
 
       return type === "arrow"
-        ? `const ${
-            node.id!.name
-          } = ${async}${generics}(${params})${returnType} => ${rawStatement!};`
-        : `${async}function ${
-            (node.parent as any).id.name
-          }${generics}(${params})${returnType} ${body}`;
+        ? `const ${name} = ${async}${generics}(${params})${returnType} => ${rawStatement!};`
+        : `${async}function ${name}${generics}(${params})${returnType} ${body}`;
     }
 
     return {
-      FunctionDeclaration(node) {
-        if (!node.id?.name) return;
-        const statement = getLoneReturnStatement(node);
+      FunctionExpression(node) {
         if (
-          !statement ||
-          node.generator ||
-          getBeforeNode(node)?.type === AST_NODE_TYPES.TSDeclareFunction
+          (node.parent as any)?.id?.typeAnnotation ||
+          node.parent?.type !== AST_NODE_TYPES.VariableDeclarator
         )
           return;
+        const name = (node.parent.id as any).name as string;
+        context.report({
+          node,
+          messageId: "declaration",
+          fix: (fixer) =>
+            fixer.replaceTextRange(
+              node.parent!.parent!.range,
+              generateFunction("declaration", name, node),
+            ),
+        });
+      },
+      "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)"(
+        node: TSESTree.FunctionDeclaration,
+      ) {
+        const statement = getLoneReturnStatement(node);
+        if (!statement || !node.id?.name || node.generator) return;
         context.report({
           node,
           messageId: "arrow",
-          fix: (fixer) => {
-            const [start, end] = node.range;
-
-            return fixer.replaceTextRange(
-              [start, end],
-              generateFunction("arrow", node, getStatementRaw(statement)),
-            );
-          },
+          fix: (fixer) =>
+            fixer.replaceTextRange(
+              node.range,
+              generateFunction(
+                "arrow",
+                node.id!.name,
+                node,
+                getStatementRaw(statement),
+              ),
+            ),
         });
       },
       ArrowFunctionExpression(node) {
@@ -128,14 +137,11 @@ export default createEslintRule<Options, MessageIds>({
           context.report({
             node,
             messageId: "arrow",
-            fix: (fixer) => {
-              const [start, end] = node.body.range;
-
-              return fixer.replaceTextRange(
-                [start, end],
+            fix: (fixer) =>
+              fixer.replaceTextRange(
+                node.body.range,
                 getStatementRaw(statement),
-              );
-            },
+              ),
           });
 
         if ((parent as any)?.id?.typeAnnotation) return;
@@ -154,7 +160,11 @@ export default createEslintRule<Options, MessageIds>({
 
                 return fixer.replaceTextRange(
                   [start, end],
-                  generateFunction("declaration", node),
+                  generateFunction(
+                    "declaration",
+                    (node.parent as any).id.name,
+                    node,
+                  ),
                 );
               },
             });

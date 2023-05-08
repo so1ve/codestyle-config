@@ -24,6 +24,8 @@ const valid = [
   "function* a() {}",
   "const a = () => {}",
   "function a() {}",
+  // This is fucking ugly but cannot be fixed
+  "const a: Type = async function foo(): Returns {}",
 ];
 const invalid: InvalidCase<MessageIds>[] = [
   {
@@ -55,6 +57,16 @@ const invalid: InvalidCase<MessageIds>[] = [
     code: "const a: Some = async (): Type => { return 1; };",
     output: "const a: Some = async (): Type => 1;",
     errors: [{ messageId: "arrow" }],
+  },
+  {
+    code: "async function a(): Type { return 1; }",
+    output: "const a = async (): Type => 1;",
+    errors: [{ messageId: "arrow" }],
+  },
+  {
+    code: "const a = async function foo(): Returns {}",
+    output: "async function a(): Returns {}",
+    errors: [{ messageId: "declaration" }],
   },
 ];
 
