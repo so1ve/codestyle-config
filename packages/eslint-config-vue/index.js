@@ -154,6 +154,9 @@ module.exports = defineConfig({
     ],
     "vue/html-comment-indent": ["error", 2],
     "vue/no-useless-concat": "error",
+    // off
     "vue/no-multiple-template-root": "off",
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/html-self-closing": "off",
   },
 });
