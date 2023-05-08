@@ -1,6 +1,6 @@
 // @ts-check
-const { defineConfig } = require("eslint-define-config");
 const prettierConfig = require("@so1ve/prettier-config");
+const { defineConfig } = require("eslint-define-config");
 
 module.exports = defineConfig({
   env: {
@@ -250,6 +250,7 @@ module.exports = defineConfig({
       {
         "newlines-between": "always",
         "warnOnUnassignedImports": true,
+        "alphabetize": { order: "asc", caseInsensitive: true },
       },
     ],
     "import/first": "error",
@@ -495,6 +496,7 @@ module.exports = defineConfig({
     // so1ve
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-useless-template-string": "error",
+    "@so1ve/no-negated-equal": "error",
     "@so1ve/function-style": "error",
 
     "@so1ve/prettier/prettier": ["error", prettierConfig],
