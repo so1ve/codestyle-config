@@ -27,7 +27,7 @@ const valid = [
   // This is fucking ugly but cannot be fixed
   "const a: Type = async function foo(): Returns {}",
   "const a = () => { a = this; return 1; }",
-  'function a() { return this; }'
+  "function a() { return this; }",
 ];
 const invalid: InvalidCase<MessageIds>[] = [
   {
