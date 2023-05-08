@@ -96,8 +96,9 @@ export default createEslintRule<Options, MessageIds>({
         if (
           (node.parent as any)?.id?.typeAnnotation ||
           node.parent?.type !== AST_NODE_TYPES.VariableDeclarator
-        )
+        ) {
           return;
+        }
         const name = (node.parent.id as any).name as string;
         context.report({
           node,
@@ -113,7 +114,9 @@ export default createEslintRule<Options, MessageIds>({
         node: TSESTree.FunctionDeclaration,
       ) {
         const statement = getLoneReturnStatement(node);
-        if (!statement || !node.id?.name || node.generator) return;
+        if (!statement || !node.id?.name || node.generator) {
+          return;
+        }
         context.report({
           node,
           messageId: "arrow",
@@ -133,7 +136,7 @@ export default createEslintRule<Options, MessageIds>({
         const { body, parent } = node;
 
         const statement = getLoneReturnStatement(node);
-        if (statement)
+        if (statement) {
           context.report({
             node,
             messageId: "arrow",
@@ -143,8 +146,11 @@ export default createEslintRule<Options, MessageIds>({
                 getStatementRaw(statement),
               ),
           });
+        }
 
-        if ((parent as any)?.id?.typeAnnotation) return;
+        if ((parent as any)?.id?.typeAnnotation) {
+          return;
+        }
         if (body.type === AST_NODE_TYPES.BlockStatement) {
           const { body: blockBody } = body;
           if (
