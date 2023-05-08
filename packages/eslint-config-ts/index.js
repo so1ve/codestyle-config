@@ -2,8 +2,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { defineConfig } = require("eslint-define-config");
 const basic = require("@so1ve/eslint-config-basic");
+const { defineConfig } = require("eslint-define-config");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
 
