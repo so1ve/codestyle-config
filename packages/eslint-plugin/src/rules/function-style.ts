@@ -31,10 +31,10 @@ export default createEslintRule<Options, MessageIds>({
     const text = sourceCode.getText();
 
     const getStatementRaw = (statement: TSESTree.Statement) =>
-      text
+      `(${text
         .slice(statement.range[0], statement.range[1])
         .replace(START_RETURN, "")
-        .replace(END_SEMICOLON, "");
+        .replace(END_SEMICOLON, "")})`;
 
     function getLoneReturnStatement(
       node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
@@ -56,6 +56,7 @@ export default createEslintRule<Options, MessageIds>({
       name: string,
       node: TSESTree.FunctionDeclaration | TSESTree.FunctionExpression,
       rawStatement: string,
+      asVariable?: boolean,
     ): string;
     function generateFunction(
       type: "declaration",
@@ -73,6 +74,7 @@ export default createEslintRule<Options, MessageIds>({
         | TSESTree.FunctionExpression
         | TSESTree.ArrowFunctionExpression,
       rawStatement?: string,
+      asVariable = true,
     ) {
       const async = node.async ? "async " : "";
       const generics = node.typeParameters
@@ -85,9 +87,10 @@ export default createEslintRule<Options, MessageIds>({
         ? sourceCode.getText(node.returnType)
         : "";
       const body = sourceCode.getText(node.body);
+      const variableDeclaration = asVariable ? `const ${name} = ` : "";
 
       return type === "arrow"
-        ? `const ${name} = ${async}${generics}(${params})${returnType} => ${rawStatement!};`
+        ? `${variableDeclaration}${async}${generics}(${params})${returnType} => ${rawStatement!};`
         : `${async}function ${name}${generics}(${params})${returnType} ${body}`;
     }
 
@@ -117,6 +120,8 @@ export default createEslintRule<Options, MessageIds>({
         if (!statement || !node.id?.name || node.generator) {
           return;
         }
+        const asVariable =
+          node.parent?.type !== AST_NODE_TYPES.ExportDefaultDeclaration;
         context.report({
           node,
           messageId: "arrow",
@@ -128,6 +133,7 @@ export default createEslintRule<Options, MessageIds>({
                 node.id!.name,
                 node,
                 getStatementRaw(statement),
+                asVariable,
               ),
             ),
         });

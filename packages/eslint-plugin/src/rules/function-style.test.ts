@@ -30,7 +30,7 @@ const valid = [
 const invalid: InvalidCase<MessageIds>[] = [
   {
     code: "const a = () => { return 1; };",
-    output: "const a = () => 1;",
+    output: "const a = () => (1);",
     errors: [{ messageId: "arrow" }],
   },
   {
@@ -40,7 +40,7 @@ const invalid: InvalidCase<MessageIds>[] = [
   },
   {
     code: "const a = async () => { return 1; };",
-    output: "const a = async () => 1;",
+    output: "const a = async () => (1);",
     errors: [{ messageId: "arrow" }],
   },
   {
@@ -55,18 +55,36 @@ const invalid: InvalidCase<MessageIds>[] = [
   },
   {
     code: "const a: Some = async (): Type => { return 1; };",
-    output: "const a: Some = async (): Type => 1;",
+    output: "const a: Some = async (): Type => (1);",
     errors: [{ messageId: "arrow" }],
   },
   {
     code: "async function a(): Type { return 1; }",
-    output: "const a = async (): Type => 1;",
+    output: "const a = async (): Type => (1);",
     errors: [{ messageId: "arrow" }],
   },
   {
     code: "const a = async function foo(): Returns {}",
     output: "async function a(): Returns {}",
     errors: [{ messageId: "declaration" }],
+  },
+  {
+    code: `const a = () => {
+      return {
+        a: 1,
+      };
+    };`,
+    output: `const a = () => ({
+        a: 1,
+      });`,
+    errors: [{ messageId: "arrow" }],
+  },
+  {
+    code: `export default function a() {
+  return {};
+}`,
+    output: "export default () => ({});",
+    errors: [{ messageId: "arrow" }],
   },
 ];
 
