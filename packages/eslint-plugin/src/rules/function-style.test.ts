@@ -39,6 +39,11 @@ const invalid: InvalidCase<MessageIds>[] = [
     errors: [{ messageId: "declaration" }],
   },
   {
+    code: "const a = () => { stuff; };",
+    output: "function a() { stuff; }",
+    errors: [{ messageId: "declaration" }],
+  },
+  {
     code: "const a = async () => { return 1; };",
     output: "const a = async () => (1);",
     errors: [{ messageId: "arrow" }],

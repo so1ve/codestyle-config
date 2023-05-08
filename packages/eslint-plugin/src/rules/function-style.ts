@@ -152,6 +152,8 @@ export default createEslintRule<Options, MessageIds>({
                 getStatementRaw(statement),
               ),
           });
+
+          return;
         }
 
         if ((parent as any)?.id?.typeAnnotation) {
@@ -160,7 +162,7 @@ export default createEslintRule<Options, MessageIds>({
         if (body.type === AST_NODE_TYPES.BlockStatement) {
           const { body: blockBody } = body;
           if (
-            blockBody.length > 1 &&
+            blockBody.length > 0 &&
             node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
           ) {
             const { parent } = node.parent;
