@@ -115,6 +115,8 @@ export default createEslintRule<Options, MessageIds>({
           node.parent?.type !== AST_NODE_TYPES.VariableDeclarator ||
           haveThisAccess
         ) {
+          clearThisAccess();
+
           return;
         }
         const name = (node.parent.id as any).name as string;
@@ -140,6 +142,8 @@ export default createEslintRule<Options, MessageIds>({
         }
         const statement = getLoneReturnStatement(node);
         if (!statement || !node.id?.name || node.generator) {
+          clearThisAccess();
+
           return;
         }
         const asVariable =
@@ -182,10 +186,14 @@ export default createEslintRule<Options, MessageIds>({
               ),
           });
 
+          clearThisAccess();
+
           return;
         }
 
         if ((parent as any)?.id?.typeAnnotation) {
+          clearThisAccess();
+
           return;
         }
         if (body.type === AST_NODE_TYPES.BlockStatement) {
