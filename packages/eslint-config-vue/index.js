@@ -157,6 +157,7 @@ module.exports = defineConfig({
     // off
     "vue/no-multiple-template-root": "off",
     "vue/multiline-html-element-content-newline": "off",
+    "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": "off",
   },
 });
