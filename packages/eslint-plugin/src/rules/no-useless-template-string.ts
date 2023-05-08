@@ -1,3 +1,5 @@
+import type { TSESTree } from "@typescript-eslint/types";
+
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "no-useless-template-string";
@@ -20,7 +22,9 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: [],
   create: (context) => ({
-    TemplateLiteral(node) {
+    "TemplateLiteral:not(TaggedTemplateExpression > TemplateLiteral)"(
+      node: TSESTree.TemplateLiteral,
+    ) {
       const hasNewline = node.quasis.some((n) => n.value.raw.includes("\n"));
       if (node.expressions.length === 0 && !hasNewline) {
         context.report({
