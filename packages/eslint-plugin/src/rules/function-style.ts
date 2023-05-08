@@ -1,5 +1,6 @@
 import type { TSESTree } from "@typescript-eslint/types";
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import type { Scope } from "@typescript-eslint/utils/dist/ts-eslint";
 
 import { createEslintRule } from "../utils";
 
@@ -94,11 +95,25 @@ export default createEslintRule<Options, MessageIds>({
         : `${async}function ${name}${generics}(${params})${returnType} ${body}`;
     }
 
+    let currentScope: Scope.Scope | null = null;
+    let haveThisAccess = false;
+    function setupScope() {
+      currentScope = context.getScope();
+    }
+    function clearThisAccess() {
+      currentScope = null;
+      haveThisAccess = false;
+    }
+
     return {
-      FunctionExpression(node) {
+      FunctionExpression() {
+        setupScope();
+      },
+      "FunctionExpression:exit"(node: TSESTree.FunctionExpression) {
         if (
           (node.parent as any)?.id?.typeAnnotation ||
-          node.parent?.type !== AST_NODE_TYPES.VariableDeclarator
+          node.parent?.type !== AST_NODE_TYPES.VariableDeclarator ||
+          haveThisAccess
         ) {
           return;
         }
@@ -112,10 +127,17 @@ export default createEslintRule<Options, MessageIds>({
               generateFunction("declaration", name, node),
             ),
         });
+        clearThisAccess();
       },
-      "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)"(
+      "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)"() {
+        setupScope();
+      },
+      "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration):exit"(
         node: TSESTree.FunctionDeclaration,
       ) {
+        if (haveThisAccess) {
+          return;
+        }
         const statement = getLoneReturnStatement(node);
         if (!statement || !node.id?.name || node.generator) {
           return;
@@ -137,8 +159,15 @@ export default createEslintRule<Options, MessageIds>({
               ),
             ),
         });
+        clearThisAccess();
       },
-      ArrowFunctionExpression(node) {
+      ArrowFunctionExpression() {
+        setupScope();
+      },
+      "ArrowFunctionExpression:exit"(node: TSESTree.ArrowFunctionExpression) {
+        if (haveThisAccess) {
+          return;
+        }
         const { body, parent } = node;
 
         const statement = getLoneReturnStatement(node);
@@ -184,6 +213,10 @@ export default createEslintRule<Options, MessageIds>({
             });
           }
         }
+        clearThisAccess();
+      },
+      ThisExpression() {
+        haveThisAccess = currentScope === context.getScope();
       },
     };
   },
