@@ -23,13 +23,13 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => ({
     BinaryExpression(node) {
-      const { parent, left, right } = node;
+      const { parent, left, right,operator } = node;
       if (!parent) {
         return;
       }
       if (
-        ["==", "==="].includes(node.operator) &&
-        parent.type === AST_NODE_TYPES.UnaryExpression &&
+        ["==", "==="].includes(node. operator) &&
+        parent.type === AST_NODE_TYPES.UnaryExpression &&//Is this necessary?
         parent.operator === "!"
       ) {
         context.report({
@@ -37,7 +37,7 @@ export default createEslintRule<Options, MessageIds>({
           messageId: "noNegatedEqual",
           *fix(fixer) {
             const operatorRange = [left.range[1], right.range[0]] as const;
-            const fixedOperator = node.operator === "==" ? "!=" : "!==";
+            const fixedOperator = operator === "==" ? "!=" : "!==";
             yield fixer.replaceTextRange(operatorRange, fixedOperator);
             yield fixer.removeRange([parent.range[0], parent.range[0] + 1]);
           },
