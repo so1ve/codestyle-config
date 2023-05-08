@@ -31,11 +31,8 @@ export default createEslintRule<Options, MessageIds>({
           node,
           messageId: "noUselessTemplateString",
           fix(fixer) {
-            const s = node.range[0];
-            const e = node.range[1];
-
             return fixer.replaceTextRange(
-              [s, e],
+              node.range,
               `"${node.quasis[0].value.raw}"`,
             );
           },
