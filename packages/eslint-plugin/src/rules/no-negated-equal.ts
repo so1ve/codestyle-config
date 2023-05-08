@@ -23,13 +23,13 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => ({
     BinaryExpression(node) {
-      const { parent, left, right,operator } = node;
+      const { parent, left, right, operator } = node;
       if (!parent) {
         return;
       }
       if (
-        ["==", "==="].includes(node. operator) &&
-        parent.type === AST_NODE_TYPES.UnaryExpression &&//Is this necessary?
+        ["==", "==="].includes(node.operator) &&
+        parent.type === AST_NODE_TYPES.UnaryExpression && // Is this necessary?
         parent.operator === "!"
       ) {
         context.report({
