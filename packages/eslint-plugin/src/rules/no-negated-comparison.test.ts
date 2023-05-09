@@ -1,12 +1,18 @@
 import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
 import { it } from "vitest";
 
-import rule, { RULE_NAME } from "./no-negated-equal";
+import rule, { RULE_NAME } from "./no-negated-comparison";
 
 const valid = ["a != b", "a !== b"];
 const invalid = [
   ["!(a == b)", "(a!=b)"],
   ["!(a === b)", "(a!==b)"],
+  ["!(a != b)", "(a==b)"],
+  ["!(a !== b)", "(a===b)"],
+  ["!(a < b)", "(a>=b)"],
+  ["!(a <= b)", "(a>b)"],
+  ["!(a > b)", "(a<=b)"],
+  ["!(a >= b)", "(a<b)"],
 ];
 
 it("runs", () => {
@@ -19,7 +25,7 @@ it("runs", () => {
     invalid: invalid.map((i) => ({
       code: i[0],
       output: i[1],
-      errors: [{ messageId: "noNegatedEqual" }],
+      errors: [{ messageId: "noNegatedComparison" }],
     })),
   });
 });

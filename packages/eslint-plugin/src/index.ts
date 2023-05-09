@@ -1,7 +1,7 @@
 import functionStyle from "./rules/function-style";
 import importDedupe from "./rules/import-dedupe";
 import noInlineTypeImport from "./rules/no-inline-type-import";
-import noNegatedEqual from "./rules/no-negated-equal";
+import noNegatedComparison from "./rules/no-negated-comparison";
 import noUselessTemplateString from "./rules/no-useless-template-string";
 
 export default {
@@ -10,6 +10,6 @@ export default {
     "import-dedupe": importDedupe,
     "no-inline-type-import": noInlineTypeImport,
     "no-useless-template-string": noUselessTemplateString,
-    "no-negated-equal": noNegatedEqual,
+    "no-negated-comparison": noNegatedComparison,
   },
 };
