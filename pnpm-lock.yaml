@@ -102,8 +102,8 @@ importers:
         specifier: ^0.18.0
         version: 0.18.0
       '@html-eslint/parser':
-        specifier: ^0.18.0
-        version: 0.18.0
+        specifier: ^0.19.0
+        version: 0.19.0
       '@so1ve/eslint-plugin':
         specifier: workspace:*
         version: link:../eslint-plugin
@@ -789,8 +789,8 @@ packages:
     engines: {node: '>=8.10.0'}
     dev: false
 
-  /@html-eslint/parser@0.18.0:
-    resolution: {integrity: sha512-VgwWK2VnwojgAF1w38dc69XRUvcXAmpTaC8LebYkURgczThZF769KrTjefEH6vTima7fIgoVkwV9Emzd6fvjkw==}
+  /@html-eslint/parser@0.19.0:
+    resolution: {integrity: sha512-BkBt6bShQ9vzvK6++mQ4W4qcMCAZ4RawcxOe8K0kR4VARebqMfcco645enajlyyTrr+F9jEXRMXEoHcsWkHjvA==}
     engines: {node: '>=8.10.0'}
     dependencies:
       es-html-parser: 0.0.8
