@@ -1,7 +1,6 @@
+import type { InvalidTestCase } from "@typescript-eslint/utils/dist/ts-eslint";
 import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
 import { it } from "vitest";
-
-import type { InvalidCase } from "../test-types";
 
 import type { MessageIds } from "./function-style";
 import rule, { RULE_NAME } from "./function-style";
@@ -29,7 +28,7 @@ const valid = [
   "const a = () => { a = this; return 1; }",
   "function a() { return this; }",
 ];
-const invalid: InvalidCase<MessageIds>[] = [
+const invalid: InvalidTestCase<MessageIds, []>[] = [
   {
     code: "const a = () => { return 1; };",
     output: "const a = () => (1);",
