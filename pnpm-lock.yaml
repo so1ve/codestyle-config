@@ -99,8 +99,8 @@ importers:
   packages/eslint-config-basic:
     dependencies:
       '@html-eslint/eslint-plugin':
-        specifier: ^0.18.0
-        version: 0.18.0
+        specifier: ^0.19.0
+        version: 0.19.0
       '@html-eslint/parser':
         specifier: ^0.18.0
         version: 0.18.0
@@ -784,8 +784,8 @@ packages:
     resolution: {integrity: sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /@html-eslint/eslint-plugin@0.18.0:
-    resolution: {integrity: sha512-41O4n2MOUry4hdeS5L+RII59ZcAFRzfuZIX0dVbp0xStHsv4OY7S+89FKqeVmrY8HEyAD3EEk5NXZdlMdAV0Zw==}
+  /@html-eslint/eslint-plugin@0.19.0:
+    resolution: {integrity: sha512-4B22mEGaUUJYJQYK8cSpo/And0bHVdZ5t0ph1NCGYmyGwz7SU3nfNFtv9j22IQSYJ0gAf0PEiDyXKpBRygtCcg==}
     engines: {node: '>=8.10.0'}
     dev: false
 
