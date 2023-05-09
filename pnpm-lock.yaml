@@ -77,8 +77,8 @@ importers:
         specifier: ^47.0.0
         version: 47.0.0(eslint@8.40.0)
       eslint-plugin-vue:
-        specifier: ^9.11.0
-        version: 9.11.0(eslint@8.40.0)
+        specifier: ^9.11.1
+        version: 9.11.1(eslint@8.40.0)
       eslint-plugin-yml:
         specifier: ^1.5.0
         version: 1.5.0(eslint@8.40.0)
@@ -2607,27 +2607,6 @@ packages:
     dependencies:
       eslint: 8.40.0
       eslint-rule-composer: 0.3.0
-    dev: false
-
-  /eslint-plugin-vue@9.11.0(eslint@8.40.0):
-    resolution: {integrity: sha512-bBCJAZnkBV7ATH4Z1E7CvN3nmtS4H7QUU3UBxPdo8WohRU+yHjnQRALpTbxMVcz0e4Mx3IyxIdP5HYODMxK9cQ==}
-    engines: {node: ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-    peerDependenciesMeta:
-      eslint:
-        optional: true
-    dependencies:
-      '@eslint-community/eslint-utils': 4.4.0(eslint@8.40.0)
-      eslint: 8.40.0
-      natural-compare: 1.4.0
-      nth-check: 2.1.1
-      postcss-selector-parser: 6.0.12
-      semver: 7.5.0
-      vue-eslint-parser: 9.2.1(eslint@8.40.0)
-      xml-name-validator: 4.0.0
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /eslint-plugin-vue@9.11.1(eslint@8.40.0):
