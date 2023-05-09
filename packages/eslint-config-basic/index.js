@@ -257,7 +257,6 @@ module.exports = defineConfig({
     ],
     "import/first": "error",
     "import/no-mutable-exports": "error",
-    "import/newline-after-import": ["error", { considerComments: true }],
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
