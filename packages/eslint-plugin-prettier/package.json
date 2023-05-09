@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-plugin-prettier",
-  "version": "0.79.1",
+  "version": "0.80.0",
   "author": "Teddy Katz",
   "contributors": [
     "JounQin (https://github.com/JounQin) <admin@1stg.me>"
