@@ -498,6 +498,7 @@ module.exports = defineConfig({
     "@so1ve/import-dedupe": "error",
     "@so1ve/no-useless-template-string": "error",
     "@so1ve/no-negated-comparison": "error",
+    "@so1ve/pad-after-last-import": "error",
     "@so1ve/function-style": "error",
 
     "@so1ve/prettier/prettier": ["error", prettierConfig],
