@@ -32,13 +32,17 @@ export default createEslintRule<Options, MessageIds>({
       "Program:exit"() {
         if (lastImportNode) {
           const nextToken = sourceCode.getTokenAfter(lastImportNode);
+          const firstCommentAfterTokenStartLine =
+            sourceCode.getCommentsAfter(lastImportNode)[0]?.loc.start.line;
+          const expectedLine = lastImportNode.loc.end.line + 1;
+          const nextTokenStartLine = nextToken?.loc.start.line;
 
           if (
             nextToken &&
             // Workaround: Vue
             nextToken.value !== "</script>" &&
-            (lastImportNode.loc.end.line + 1 === nextToken.loc.start.line ||
-              sourceCode.commentsExistBetween(lastImportNode, nextToken))
+            (expectedLine === nextTokenStartLine ||
+              expectedLine === firstCommentAfterTokenStartLine)
           ) {
             context.report({
               node: lastImportNode,
