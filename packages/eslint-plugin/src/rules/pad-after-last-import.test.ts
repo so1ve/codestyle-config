@@ -9,6 +9,10 @@ const invalids = [
     'import a from "foo";\nconst b = 1;',
     'import a from "foo";\n\nconst b = 1;',
   ],
+  [
+    'import a from "foo";\n// comment\nconst b = 1;',
+    'import a from "foo";\n\n// comment\nconst b = 1;',
+  ],
 ];
 
 it("runs", () => {

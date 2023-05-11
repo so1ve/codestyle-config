@@ -32,11 +32,13 @@ export default createEslintRule<Options, MessageIds>({
       "Program:exit"() {
         if (lastImportNode) {
           const nextToken = sourceCode.getTokenAfter(lastImportNode);
+
           if (
             nextToken &&
             // Workaround: Vue
             nextToken.value !== "</script>" &&
-            lastImportNode.loc.end.line + 1 === nextToken.loc.start.line
+            (lastImportNode.loc.end.line + 1 === nextToken.loc.start.line ||
+              sourceCode.commentsExistBetween(lastImportNode, nextToken))
           ) {
             context.report({
               node: lastImportNode,
