@@ -125,7 +125,7 @@ module.exports = defineConfig({
     ],
     "object-curly-spacing": "off",
     "space-before-blocks": "off",
-    "@typescript-eslint/space-before-blocks": ["error", "always"],
+    "@typescript-eslint/space-before-blocks": "off",
     "space-before-function-paren": "off",
     "no-dupe-class-members": "off",
     "@typescript-eslint/no-dupe-class-members": "error",
