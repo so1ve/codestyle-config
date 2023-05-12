@@ -78,7 +78,7 @@ module.exports = defineConfig({
         "@html-eslint/quotes": "off",
         "@so1ve/prettier/prettier": [
           "error",
-          { parser: "angular", tabWidth: 4 },
+          { parser: "angular", },
         ],
       },
     },
