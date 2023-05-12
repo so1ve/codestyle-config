@@ -27,6 +27,8 @@ const valid = [
   "const a: Type = async function foo(): Returns {}",
   "const a = () => { a = this; return 1; }",
   "function a() { return this; }",
+  "function a() { return () => this }",
+  "const a = () => { foo; function a() { this; } }",
 ];
 const invalid: InvalidTestCase<MessageIds, []>[] = [
   {
