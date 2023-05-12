@@ -21,7 +21,7 @@ module.exports = {
       files: "*.html",
       options: {
         parser: "angular",
-        tabWidth: 4,
+       
       },
     },
   ],
