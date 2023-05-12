@@ -4,7 +4,12 @@
 
 > Forked from [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
+## Features
+
+Strongly opinionated to satisfy the author([@so1ve](https://github.com/so1ve))'s need. It aims to make every part of code to have the same looking - anyone who writes code will be formatted in the same style. It also tries to unify the code logic, for example, it will change negated comparison(`!(a == 1)`) to a not-negated version(`a != 1` and change functions with a lone return statement to an arrow function sorthand, and the rest will be converted to function declaration.
+
 - Double quotes, semi
+- 2 spaces for indent
 - Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))
 - TypeScript, Vue, React, Svelte out-of-box
 - Lint also for json, yaml, markdown
