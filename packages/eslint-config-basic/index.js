@@ -12,11 +12,11 @@ module.exports = defineConfig({
   plugins: [
     "@so1ve",
     "@html-eslint",
+    "@so1ve/prettier",
     "jsdoc",
     "unicorn",
     "unused-imports",
     "no-only-tests",
-    "@so1ve/prettier",
   ],
   extends: [
     "./standard",
@@ -25,6 +25,8 @@ module.exports = defineConfig({
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
+    "plugin:json-schema-validator/recommended",
+    "plugin:toml/standard",
     "plugin:array-func/all",
   ],
   ignorePatterns: [
@@ -114,6 +116,16 @@ module.exports = defineConfig({
       parser: "yaml-eslint-parser",
       rules: {
         "spaced-comment": "off",
+      },
+    },
+    {
+      files: ["*.toml"],
+      parser: "toml-eslint-parser",
+      rules: {
+        "@so1ve/prettier/prettier": [
+          "error",
+          { ...prettierConfig, parser: "toml" },
+        ],
       },
     },
     {
@@ -437,6 +449,7 @@ module.exports = defineConfig({
     "unicorn/no-new-buffer": "error",
     "unicorn/no-unsafe-regex": "off",
     "unicorn/number-literal-case": "error",
+    "unicorn/numeric-separators-style": "error",
     "unicorn/prefer-includes": "error",
     "unicorn/prefer-string-starts-ends-with": "error",
     "unicorn/prefer-text-content": "error",
