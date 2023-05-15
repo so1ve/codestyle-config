@@ -61,6 +61,7 @@ export default createEslintRule<Options, MessageIds>({
                 `import type { ${typeSpecifiersText} } from "${node.source.value}";`,
                 defaultAndvalueSpecifiersText,
               ];
+
               return fixer.replaceText(node, texts.join("\n"));
             },
           });
@@ -72,6 +73,7 @@ export default createEslintRule<Options, MessageIds>({
               const typeSpecifiersText = typeSpecifiers
                 .map((s) => sourceCode.getText(s).replace("type ", ""))
                 .join(", ");
+
               return fixer.replaceText(
                 node,
                 `import type { ${typeSpecifiersText} } from "${node.source.value}";`,
