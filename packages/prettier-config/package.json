@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@prettier/plugin-xml": "^2.2.0",
-    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-astro": "^0.8.1",
     "prettier-plugin-autocorrect": "^0.3.0",
     "prettier-plugin-jsdoc": "^0.4.2",
     "prettier-plugin-properties": "^0.2.0",
