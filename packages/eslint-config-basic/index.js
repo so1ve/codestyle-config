@@ -185,7 +185,7 @@ module.exports = defineConfig({
             ],
           },
           {
-            pathPattern: "^scripts$",
+            pathPattern: "^(scripts|exports)$",
             order: { type: "asc" },
           },
           {
