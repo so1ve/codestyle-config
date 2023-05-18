@@ -14,6 +14,7 @@ module.exports = defineConfig({
     "@html-eslint",
     "@so1ve/prettier",
     "jsdoc",
+    "vitest",
     "unicorn",
     "unused-imports",
     "no-only-tests",
@@ -25,6 +26,8 @@ module.exports = defineConfig({
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
+    "plugin:vitest/recommended",
+    "plugin:regexp/recommended",
     "plugin:json-schema-validator/recommended",
     "plugin:toml/standard",
     "plugin:array-func/all",
@@ -91,10 +94,7 @@ module.exports = defineConfig({
         "jsonc/comma-dangle": ["warn", "never"],
         "jsonc/comma-style": ["warn", "last"],
         "jsonc/indent": ["warn", 2],
-        "jsonc/key-spacing": [
-          "warn",
-          { beforeColon: false, afterColon: true },
-        ],
+        "jsonc/key-spacing": ["warn", { beforeColon: false, afterColon: true }],
         "jsonc/no-octal-escape": "warn",
         "jsonc/object-curly-newline": [
           "warn",
@@ -273,6 +273,24 @@ module.exports = defineConfig({
     // array-func
     "array-func/prefer-array-from": "off",
 
+    // Vitest
+
+    "vitest/expect-expect": "off",
+    "vitest/no-alias-methods": "warn",
+    "vitest/no-interpolation-in-snapshots": "warn",
+    "vitest/no-test-prefixes": "warn",
+    "vitest/prefer-expect-resolves": "warn",
+    "vitest/prefer-comparison-matcher": "warn",
+    "vitest/prefer-lowercase-title": "warn",
+    "vitest/prefer-mock-promise-shorthand": "warn",
+    "vitest/prefer-spy-on": "warn",
+    "vitest/prefer-to-be-falsy": "warn",
+    "vitest/prefer-to-be-object": "warn",
+    "vitest/prefer-to-be-truthy": "warn",
+    "vitest/prefer-to-contain": "warn",
+    "vitest/prefer-to-have-length": "warn",
+    "vitest/prefer-todo": "warn",
+
     // Common
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
@@ -373,7 +391,7 @@ module.exports = defineConfig({
     "no-sparse-arrays": "warn",
     "no-constant-condition": "warn",
     "no-debugger": "warn",
-    "no-console": ["warn", { allow: ["warn", "warn", "table", "time"] }],
+    "no-console": ["warn", { allow: ["error", "warn", "table", "time"] }],
     "no-cond-assign": ["warn", "always"],
     "no-restricted-syntax": [
       "warn",

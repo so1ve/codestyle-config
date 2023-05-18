@@ -93,10 +93,7 @@ module.exports = defineConfig({
       "WithStatement",
     ],
     "vue/no-sparse-arrays": "warn",
-    "vue/object-curly-newline": [
-      "warn",
-      { multiline: true, consistent: true },
-    ],
+    "vue/object-curly-newline": ["warn", { multiline: true, consistent: true }],
     "vue/object-property-newline": [
       "warn",
       { allowMultiplePropertiesPerLine: true },
