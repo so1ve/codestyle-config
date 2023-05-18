@@ -17,7 +17,7 @@ export default createEslintRule<Options, MessageIds>({
     type: "problem",
     docs: {
       description: "Enforce function style.",
-      recommended: "error",
+      recommended: "warn",
     },
     fixable: "code",
     schema: [],

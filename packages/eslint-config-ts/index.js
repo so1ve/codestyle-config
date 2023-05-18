@@ -20,17 +20,17 @@ const typescriptOverride = {
   // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
   rules: {
     "no-throw-literal": "off",
-    "@typescript-eslint/no-throw-literal": "error",
+    "@typescript-eslint/no-throw-literal": "warn",
     "no-implied-eval": "off",
-    "@typescript-eslint/no-implied-eval": "error",
+    "@typescript-eslint/no-implied-eval": "warn",
     "dot-notation": "off",
-    "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
-    "no-void": ["error", { allowAsStatement: true }],
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/no-for-in-array": "error",
-    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/dot-notation": ["warn", { allowKeywords: true }],
+    "no-void": ["warn", { allowAsStatement: true }],
+    "@typescript-eslint/await-thenable": "warn",
+    "@typescript-eslint/no-for-in-array": "warn",
+    "@typescript-eslint/no-unnecessary-type-assertion": "warn",
     "@typescript-eslint/restrict-template-expressions": [
-      "error",
+      "warn",
       {
         allowAny: true,
         allowNumber: true,
@@ -38,15 +38,15 @@ const typescriptOverride = {
       },
     ],
     "@typescript-eslint/array-type": [
-      "error",
+      "warn",
       { default: "array", readonly: "array" },
     ],
-    "@typescript-eslint/consistent-generic-constructors": "error",
-    "@typescript-eslint/consistent-type-exports": "error",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/no-unnecessary-type-arguments": "error",
-    "@typescript-eslint/non-nullable-type-assertion-style": "error",
+    "@typescript-eslint/consistent-generic-constructors": "warn",
+    "@typescript-eslint/consistent-type-exports": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/prefer-optional-chain": "warn",
+    "@typescript-eslint/no-unnecessary-type-arguments": "warn",
+    "@typescript-eslint/non-nullable-type-assertion-style": "warn",
   },
 };
 
@@ -57,7 +57,7 @@ const jestOverride = {
   plugins: ["jest"],
   rules: {
     // you should turn the original rule off *only* for test files
-    "jest/unbound-method": "error",
+    "jest/unbound-method": "warn",
   },
 };
 
@@ -98,29 +98,29 @@ module.exports = defineConfig({
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/type-annotation-spacing": "off",
     "@typescript-eslint/ban-ts-comment": [
-      "error",
+      "warn",
       {
         minimumDescriptionLength: 0,
       },
     ],
     "@typescript-eslint/consistent-type-imports": [
-      "error",
+      "warn",
       { prefer: "type-imports", disallowTypeAnnotations: false },
     ],
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-    "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
-    "@typescript-eslint/prefer-ts-expect-error": "error",
-    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
+    "@typescript-eslint/consistent-indexed-object-style": ["warn", "record"],
+    "@typescript-eslint/prefer-ts-expect-error": "warn",
+    "@typescript-eslint/no-require-imports": "warn",
 
     // Override JS
     "no-useless-constructor": "off",
     "no-invalid-this": "off",
-    "@typescript-eslint/no-invalid-this": "error",
+    "@typescript-eslint/no-invalid-this": "warn",
     "no-redeclare": "off",
-    "@typescript-eslint/no-redeclare": "error",
+    "@typescript-eslint/no-redeclare": "warn",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": [
-      "error",
+      "warn",
       { functions: false, classes: false, variables: true },
     ],
     "object-curly-spacing": "off",
@@ -128,18 +128,18 @@ module.exports = defineConfig({
     "@typescript-eslint/space-before-blocks": "off",
     "space-before-function-paren": "off",
     "no-dupe-class-members": "off",
-    "@typescript-eslint/no-dupe-class-members": "error",
+    "@typescript-eslint/no-dupe-class-members": "warn",
     "no-loss-of-precision": "off",
-    "@typescript-eslint/no-loss-of-precision": "error",
+    "@typescript-eslint/no-loss-of-precision": "warn",
     "lines-between-class-members": "off",
     "@typescript-eslint/lines-between-class-members": [
-      "error",
+      "warn",
       "always",
       { exceptAfterSingleLine: true },
     ],
 
     // so1ve
-    "@so1ve/no-inline-type-import": "error",
+    "@so1ve/no-inline-type-import": "warn",
 
     // off
     "@typescript-eslint/camelcase": "off",
@@ -154,9 +154,9 @@ module.exports = defineConfig({
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/triple-slash-reference": "off",
-    "@typescript-eslint/prefer-for-of": "error",
-    "@typescript-eslint/no-duplicate-enum-values": "error",
-    "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-for-of": "warn",
+    "@typescript-eslint/no-duplicate-enum-values": "warn",
+    "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "warn",
     // handled by unused-imports/no-unused-imports
     "@typescript-eslint/no-unused-vars": "off",
   },

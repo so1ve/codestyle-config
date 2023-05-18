@@ -25,7 +25,7 @@ export default createEslintRule<Options, MessageIds>({
     type: "problem",
     docs: {
       description: "Disallow negated comparison.",
-      recommended: "error",
+      recommended: "warn",
     },
     fixable: "code",
     schema: [],

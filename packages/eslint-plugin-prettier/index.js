@@ -70,7 +70,7 @@ module.exports = {
       extends: ["prettier"],
       plugins: ["prettier"],
       rules: {
-        "@so1ve/prettier/prettier": "error",
+        "@so1ve/prettier/prettier": "warn",
         "arrow-body-style": "off",
         "prefer-arrow-callback": "off",
       },

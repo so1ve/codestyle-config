@@ -12,7 +12,7 @@ export default createEslintRule<Options, MessageIds>({
     type: "layout",
     docs: {
       description: "Disallow inline type import.",
-      recommended: "error",
+      recommended: "warn",
     },
     fixable: "code",
     schema: [],

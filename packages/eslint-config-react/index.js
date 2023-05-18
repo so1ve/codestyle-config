@@ -35,14 +35,14 @@ module.exports = defineConfig({
     "react/jsx-space-before-closing": "off",
     "react/jsx-tag-spacing": "off",
     "react/jsx-wrap-multilines": "off",
-    "jsx-quotes": ["error", "prefer-double"],
+    "jsx-quotes": ["warn", "prefer-double"],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-boolean-value": ["error", "never"],
-    "react/jsx-no-comment-textnodes": ["error"],
-    "react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
-    "react/jsx-pascal-case": ["error"],
+    "react/jsx-boolean-value": ["warn", "never"],
+    "react/jsx-no-comment-textnodes": ["warn"],
+    "react/jsx-no-useless-fragment": ["warn", { allowExpressions: true }],
+    "react/jsx-pascal-case": ["warn"],
     "react/jsx-sort-props": [
-      "error",
+      "warn",
       {
         callbacksLast: true,
         shorthandFirst: true,
@@ -54,13 +54,13 @@ module.exports = defineConfig({
       },
     ],
     "react/self-closing-comp": [
-      "error",
+      "warn",
       {
         component: true,
         html: true,
       },
     ],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn",
   },
 });
