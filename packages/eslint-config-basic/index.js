@@ -85,7 +85,7 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ["*.json", "*.json5"],
+      files: ["*.json", "*.json5", "*.jsonc"],
       parser: "jsonc-eslint-parser",
       rules: {
         "jsonc/quotes": ["error", "double"],
