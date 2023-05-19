@@ -3,6 +3,7 @@ import importDedupe from "./rules/import-dedupe";
 import noInlineTypeImport from "./rules/no-inline-type-import";
 import noNegatedComparison from "./rules/no-negated-comparison";
 import noUselessTemplateString from "./rules/no-useless-template-string";
+import noImportPromisesAs from "./rules/no-import-promises-as";
 import padAfterLastImport from "./rules/pad-after-last-import";
 
 export default {
@@ -10,8 +11,9 @@ export default {
     "function-style": functionStyle,
     "import-dedupe": importDedupe,
     "no-inline-type-import": noInlineTypeImport,
-    "no-useless-template-string": noUselessTemplateString,
     "no-negated-comparison": noNegatedComparison,
+    "no-useless-template-string": noUselessTemplateString,
+    "no-import-promises-as": noImportPromisesAs,
     "pad-after-last-import": padAfterLastImport,
   },
 };
