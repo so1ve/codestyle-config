@@ -15,6 +15,7 @@ module.exports = defineConfig({
     "@so1ve/prettier",
     "jsdoc",
     "vitest",
+    "json-schema-validator",
     "unicorn",
     "unused-imports",
     "no-only-tests",
@@ -28,7 +29,6 @@ module.exports = defineConfig({
     "plugin:markdown/recommended",
     "plugin:vitest/recommended",
     "plugin:regexp/recommended",
-    "plugin:json-schema-validator/recommended",
     "plugin:toml/standard",
     "plugin:array-func/all",
   ],
@@ -276,8 +276,7 @@ module.exports = defineConfig({
     // array-func
     "array-func/prefer-array-from": "off",
 
-    // Vitest
-
+    // vitest
     "vitest/expect-expect": "off",
     "vitest/no-alias-methods": "warn",
     "vitest/no-interpolation-in-snapshots": "warn",
@@ -293,6 +292,9 @@ module.exports = defineConfig({
     "vitest/prefer-to-contain": "warn",
     "vitest/prefer-to-have-length": "warn",
     "vitest/prefer-todo": "warn",
+
+    // json-schema-validator
+    "json-schema-validator/no-invalid": "error",
 
     // Common
     "array-bracket-newline": "off",
