@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: ["vue"],
   rules: {
-    "vue/comment-directive": "warn",
-    "vue/jsx-uses-vars": "warn",
+    "vue/comment-directive": "error",
+    "vue/jsx-uses-vars": "error",
   },
 };
