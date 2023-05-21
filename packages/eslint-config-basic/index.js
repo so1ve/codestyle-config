@@ -296,7 +296,7 @@ module.exports = defineConfig({
     "vitest/prefer-todo": "error",
 
     // json-schema-validator
-    "json-schema-validator/no-invalid": "error",
+    "json-schema-validator/no-invalid": "warn",
 
     // Common
     "array-bracket-newline": "off",
@@ -376,7 +376,7 @@ module.exports = defineConfig({
     "wrap-iife": "off",
     "wrap-regex": "off",
     "yield-star-spacing": "off",
-    "quote-props": ["error", "consistent-as-needed"],
+    "quote-props": ["warn", "consistent-as-needed"],
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: "*", next: "return" },
