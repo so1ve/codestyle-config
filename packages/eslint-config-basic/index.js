@@ -376,7 +376,7 @@ module.exports = defineConfig({
     "wrap-iife": "off",
     "wrap-regex": "off",
     "yield-star-spacing": "off",
-    "quote-props": ["warn", "consistent-as-needed"],
+    "quote-props": ["error", "consistent-as-needed"],
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: "*", next: "return" },
