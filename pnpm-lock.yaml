@@ -128,6 +128,9 @@ importers:
       eslint-plugin-import:
         specifier: npm:eslint-plugin-i@2.27.5-1
         version: /eslint-plugin-i@2.27.5-1(@typescript-eslint/parser@5.59.6)(eslint@8.40.0)
+      eslint-plugin-jest-formatting:
+        specifier: ^3.1.0
+        version: 3.1.0
       eslint-plugin-jsdoc:
         specifier: ^44.2.4
         version: 44.2.4
@@ -2401,6 +2404,16 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: false
+
+  /eslint-plugin-jest-formatting@3.1.0:
+    resolution: {integrity: sha512-XyysraZ1JSgGbLSDxjj5HzKKh0glgWf+7CkqxbTqb7zEhW7X2WHo5SBQ8cGhnszKN+2Lj3/oevBlHNbHezoc/A==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: '>=0.8.0'
+    peerDependenciesMeta:
+      eslint:
+        optional: true
     dev: false
 
   /eslint-plugin-jest@27.2.1(@typescript-eslint/eslint-plugin@5.59.6)(eslint@8.40.0)(typescript@5.0.4):
