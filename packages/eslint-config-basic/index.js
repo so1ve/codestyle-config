@@ -298,6 +298,9 @@ module.exports = defineConfig({
     // json-schema-validator
     "json-schema-validator/no-invalid": "warn",
 
+   //regexp
+ "regexp/no-unused-capturing-group":"warn",
+    
     // Common
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
