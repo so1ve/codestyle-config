@@ -47,6 +47,7 @@ const typescriptOverride = {
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/no-unnecessary-type-arguments": "error",
     "@typescript-eslint/non-nullable-type-assertion-style": "error",
+    "@typescript-eslint/require-array-sort-compare": "error",
   },
 };
 
