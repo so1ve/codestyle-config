@@ -285,7 +285,6 @@ module.exports = defineConfig({
     "vitest/no-test-prefixes": "error",
     "vitest/prefer-expect-resolves": "error",
     "vitest/prefer-comparison-matcher": "error",
-    "vitest/prefer-lowercase-title": "error",
     "vitest/prefer-mock-promise-shorthand": "error",
     "vitest/prefer-spy-on": "error",
     "vitest/prefer-to-be-falsy": "error",
