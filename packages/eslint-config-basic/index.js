@@ -2,6 +2,11 @@
 const prettierConfig = require("@so1ve/prettier-config");
 const { defineConfig } = require("eslint-define-config");
 
+const makePrettierConfig = (inlineConfig) => ({
+  ...prettierConfig,
+  ...inlineConfig,
+});
+
 module.exports = defineConfig({
   env: {
     es6: true,
@@ -82,7 +87,40 @@ module.exports = defineConfig({
         "@html-eslint/require-closing-tags": "off",
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
-        "@so1ve/prettier/prettier": ["error", { parser: "angular" }],
+        "@so1ve/prettier/prettier": [
+          "error",
+          makePrettierConfig({ parser: "angular" }),
+        ],
+      },
+    },
+    {
+      files: ["*.sql"],
+      parser: "eslint-parser-plain",
+      rules: {
+        "@so1ve/prettier/prettier": [
+          "error",
+          makePrettierConfig({ parser: "sql" }),
+        ],
+      },
+    },
+    {
+      files: ["*.sh"],
+      parser: "eslint-parser-plain",
+      rules: {
+        "@so1ve/prettier/prettier": [
+          "error",
+          makePrettierConfig({ parser: "sh" }),
+        ],
+      },
+    },
+    {
+      files: ["*.rust"],
+      parser: "eslint-parser-plain",
+      rules: {
+        "@so1ve/prettier/prettier": [
+          "error",
+          makePrettierConfig({ parser: "rust" }),
+        ],
       },
     },
     {
@@ -111,7 +149,7 @@ module.exports = defineConfig({
         "eol-last": "error",
         "@so1ve/prettier/prettier": [
           "error",
-          { ...prettierConfig, trailingComma: "none" },
+          makePrettierConfig({ trailingComma: "none" }),
         ],
       },
     },
@@ -128,7 +166,7 @@ module.exports = defineConfig({
       rules: {
         "@so1ve/prettier/prettier": [
           "error",
-          { ...prettierConfig, parser: "toml" },
+          makePrettierConfig({ parser: "toml" }),
         ],
       },
     },

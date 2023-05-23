@@ -36,6 +36,7 @@
     "prettier-plugin-jsdoc": "^0.4.2",
     "prettier-plugin-properties": "^0.2.0",
     "prettier-plugin-rust": "^0.1.8",
+    "prettier-plugin-sh": "^0.12.8",
     "prettier-plugin-sql": "^0.14.0",
     "prettier-plugin-svelte": "^2.10.0",
     "prettier-plugin-toml": "^0.3.1"

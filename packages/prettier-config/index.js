@@ -7,6 +7,7 @@ const plugins = [
   "prettier-plugin-properties",
   "prettier-plugin-rust",
   "prettier-plugin-sql",
+  "prettier-plugin-sh",
   "prettier-plugin-svelte",
   "prettier-plugin-toml",
   "prettier-plugin-jsdoc",

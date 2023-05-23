@@ -43,6 +43,7 @@
     "@so1ve/eslint-plugin-prettier": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
     "eslint-define-config": "^1.20.0",
+    "eslint-parser-plain": "^0.1.0",
     "eslint-plugin-array-func": "^3.1.8",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-1",
