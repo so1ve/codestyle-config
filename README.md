@@ -50,7 +50,7 @@ For example:
 ### Config VS Code auto fix
 
 Create `.vscode/settings.json`
-        
+
 ```json
 {
   "prettier.enable": false,
