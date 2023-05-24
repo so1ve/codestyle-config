@@ -6,6 +6,14 @@ const makePrettierConfig = (inlineConfig) => ({
   ...prettierConfig,
   ...inlineConfig,
 });
+/** @returns {import("eslint-define-config").Override} */
+const makePlainOverride = (extension, parser) => ({
+  files: [`*.${extension}`],
+  parser: "eslint-parser-plain",
+  rules: {
+    "@so1ve/prettier/prettier": ["error", makePrettierConfig({ parser })],
+  },
+});
 
 module.exports = defineConfig({
   env: {
@@ -93,36 +101,9 @@ module.exports = defineConfig({
         ],
       },
     },
-    {
-      files: ["*.sql"],
-      parser: "eslint-parser-plain",
-      rules: {
-        "@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig({ parser: "sql" }),
-        ],
-      },
-    },
-    {
-      files: ["*.sh"],
-      parser: "eslint-parser-plain",
-      rules: {
-        "@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig({ parser: "sh" }),
-        ],
-      },
-    },
-    {
-      files: ["*.rust"],
-      parser: "eslint-parser-plain",
-      rules: {
-        "@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig({ parser: "rust" }),
-        ],
-      },
-    },
+    makePlainOverride("sql", "sql"),
+    makePlainOverride("sh", "sh"),
+    makePlainOverride("rs", "jinx-rust"),
     {
       files: ["*.json", "*.json5", "*.jsonc"],
       parser: "jsonc-eslint-parser",
