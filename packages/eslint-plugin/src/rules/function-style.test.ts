@@ -29,6 +29,11 @@ const valid = [
   "function a() { return this; }",
   "function a() { return () => this }",
   "const a = () => { foo; function a() { this; } }",
+  `export function last(array: readonly []): undefined;
+  export function last<T>(array: readonly T[]): T;
+  export function last<T>(array: readonly T[]): T | undefined {
+    return at(array, -1);
+  }`,
 ];
 const invalid: InvalidTestCase<MessageIds, []>[] = [
   {

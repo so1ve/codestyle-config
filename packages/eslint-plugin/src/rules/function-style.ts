@@ -2,7 +2,7 @@ import type { TSESTree } from "@typescript-eslint/types";
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
 import type { Scope } from "@typescript-eslint/utils/dist/ts-eslint";
 
-import { createEslintRule } from "../utils";
+import { createEslintRule, getPreviousNode } from "../utils";
 
 export const RULE_NAME = "function-style";
 export type MessageIds = "arrow" | "declaration";
@@ -138,6 +138,13 @@ export default createEslintRule<Options, MessageIds>({
         node: TSESTree.FunctionDeclaration,
       ) {
         if (haveThisAccess) {
+          return;
+        }
+        const previousNode = getPreviousNode(node.parent) as any;
+        if (
+          previousNode?.type === AST_NODE_TYPES.ExportNamedDeclaration &&
+          previousNode.declaration.type === AST_NODE_TYPES.TSDeclareFunction
+        ) {
           return;
         }
         const statement = getLoneReturnStatement(node);
