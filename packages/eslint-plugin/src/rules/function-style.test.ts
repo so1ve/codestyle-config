@@ -34,6 +34,12 @@ const valid = [
   export function last<T>(array: readonly T[]): T | undefined {
     return at(array, -1);
   }`,
+  `export default function () {
+  return
+}`,
+  `function a() {
+  return
+}`,
 ];
 const invalid: InvalidTestCase<MessageIds, []>[] = [
   {

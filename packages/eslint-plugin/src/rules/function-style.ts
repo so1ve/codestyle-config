@@ -9,6 +9,7 @@ export type MessageIds = "arrow" | "declaration";
 export type Options = [];
 
 const START_RETURN = /^return /;
+const RETURN_ONLY = /^return\s*(?:;\s*)?$/;
 const END_SEMICOLON = /;$/;
 
 export default createEslintRule<Options, MessageIds>({
@@ -31,7 +32,7 @@ export default createEslintRule<Options, MessageIds>({
     const sourceCode = context.getSourceCode();
     const text = sourceCode.getText();
 
-    const getStatementRaw = (statement: TSESTree.Statement) =>
+    const getRawStatement = (statement: TSESTree.Statement) =>
       `(${text
         .slice(statement.range[0], statement.range[1])
         .replace(START_RETURN, "")
@@ -159,6 +160,13 @@ export default createEslintRule<Options, MessageIds>({
 
           return;
         }
+        const rawStatement = getRawStatement(statement);
+        const statementWithoutBrackets = rawStatement.slice(1, -1);
+        if (RETURN_ONLY.test(statementWithoutBrackets)) {
+          clearThisAccess();
+
+          return;
+        }
         context.report({
           node,
           messageId: "arrow",
@@ -169,7 +177,7 @@ export default createEslintRule<Options, MessageIds>({
                 "arrow",
                 node.id?.name ?? null,
                 node,
-                getStatementRaw(statement),
+                getRawStatement(statement),
                 !isExportDefault,
               ),
             ),
@@ -193,7 +201,7 @@ export default createEslintRule<Options, MessageIds>({
             fix: (fixer) =>
               fixer.replaceTextRange(
                 node.body.range,
-                getStatementRaw(statement),
+                getRawStatement(statement),
               ),
           });
 
