@@ -99,6 +99,13 @@ const invalid: InvalidTestCase<MessageIds, []>[] = [
     output: "export default () => ({});",
     errors: [{ messageId: "arrow" }],
   },
+  {
+    code: `export default function() {
+  return {};
+}`,
+    output: "export default () => ({});",
+    errors: [{ messageId: "arrow" }],
+  },
 ];
 
 it("runs", () => {

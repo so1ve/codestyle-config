@@ -54,7 +54,7 @@ export default createEslintRule<Options, MessageIds>({
 
     function generateFunction(
       type: "arrow",
-      name: string,
+      name: string | null,
       node: TSESTree.FunctionDeclaration | TSESTree.FunctionExpression,
       rawStatement: string,
       asVariable?: boolean,
@@ -69,7 +69,7 @@ export default createEslintRule<Options, MessageIds>({
     ): string;
     function generateFunction(
       type: "arrow" | "declaration",
-      name: string,
+      name: string | null,
       node:
         | TSESTree.FunctionDeclaration
         | TSESTree.FunctionExpression
@@ -88,11 +88,11 @@ export default createEslintRule<Options, MessageIds>({
         ? sourceCode.getText(node.returnType)
         : "";
       const body = sourceCode.getText(node.body);
-      const variableDeclaration = asVariable ? `const ${name} = ` : "";
+      const variableDeclaration = asVariable && name ? `const ${name} = ` : "";
 
       return type === "arrow"
         ? `${variableDeclaration}${async}${generics}(${params})${returnType} => ${rawStatement!};`
-        : `${async}function ${name}${generics}(${params})${returnType} ${body}`;
+        : `${async}function ${name!}${generics}(${params})${returnType} ${body}`;
     }
 
     let currentScope: Scope.Scope | null = null;
@@ -148,13 +148,17 @@ export default createEslintRule<Options, MessageIds>({
           return;
         }
         const statement = getLoneReturnStatement(node);
-        if (!statement || !node.id?.name || node.generator) {
+        const isExportDefault =
+          node.parent?.type === AST_NODE_TYPES.ExportDefaultDeclaration;
+        if (
+          !statement ||
+          (!node.id?.name && !isExportDefault) ||
+          node.generator
+        ) {
           clearThisAccess();
 
           return;
         }
-        const asVariable =
-          node.parent?.type !== AST_NODE_TYPES.ExportDefaultDeclaration;
         context.report({
           node,
           messageId: "arrow",
@@ -163,10 +167,10 @@ export default createEslintRule<Options, MessageIds>({
               node.range,
               generateFunction(
                 "arrow",
-                node.id!.name,
+                node.id?.name ?? null,
                 node,
                 getStatementRaw(statement),
-                asVariable,
+                !isExportDefault,
               ),
             ),
         });
