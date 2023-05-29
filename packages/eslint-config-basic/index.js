@@ -314,7 +314,7 @@ module.exports = defineConfig({
     "vitest/prefer-todo": "error",
     "vitest/prefer-lowercase-title": [
       "error",
-      // @ts-ignore
+      // @ts-expect-error
       { lowercaseFirstCharacterOnly: false },
     ],
     "vitest/valid-title": ["error", { allowArguments: true }],
