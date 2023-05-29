@@ -40,6 +40,7 @@ const valid = [
   `function a() {
   return
 }`,
+    `const a = () => { const b = () => { this; }; this; };
 ];
 const invalid: InvalidTestCase<MessageIds, []>[] = [
   {
