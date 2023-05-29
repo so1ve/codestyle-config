@@ -313,11 +313,12 @@ module.exports = defineConfig({
     "vitest/prefer-to-contain": "error",
     "vitest/prefer-to-have-length": "error",
     "vitest/prefer-todo": "error",
-    "vitest/prefer-lowercase-title": [
-      "error",
-      // @ts-expect-error
-      { lowercaseFirstCharacterOnly: false },
-    ],
+    "vitest/prefer-lowercase-title": 
+     
+      "off"
+     
+  
+    ,
     "vitest/valid-title": ["error", { allowArguments: true }],
 
     // json-schema-validator
