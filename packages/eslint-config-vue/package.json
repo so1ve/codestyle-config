@@ -33,6 +33,6 @@
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
     "eslint-define-config": "^1.20.0",
-    "eslint-plugin-vue": "^9.13.0"
+    "eslint-plugin-vue": "^9.14.1"
   }
 }
