@@ -149,6 +149,7 @@ module.exports = defineConfig({
           "error",
           makePrettierConfig({ parser: "toml" }),
         ],
+        "spaced-comment": "off",
       },
     },
     {
