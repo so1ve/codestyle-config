@@ -96,13 +96,13 @@ export default createEslintRule<Options, MessageIds>({
         : `${async}function ${name!}${generics}(${params})${returnType} ${body}`;
     }
 
-    let currentScope: Scope.Scope | null = null;
+    const scopeStack: Scope.Scope[] = [];
     let haveThisAccess = false;
     function setupScope() {
-      currentScope = context.getScope();
+      scopeStack.push(context.getScope());
     }
     function clearThisAccess() {
-      currentScope = null;
+      scopeStack.pop();
       haveThisAccess = false;
     }
 
@@ -243,7 +243,7 @@ export default createEslintRule<Options, MessageIds>({
         clearThisAccess();
       },
       ThisExpression() {
-        haveThisAccess = currentScope === context.getScope();
+        haveThisAccess = scopeStack.includes(context.getScope());
       },
     };
   },
