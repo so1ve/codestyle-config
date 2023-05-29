@@ -299,6 +299,7 @@ module.exports = defineConfig({
 
     // vitest
     "vitest/expect-expect": "off",
+    "vitest/valid-describe-callback": "off",
     "vitest/no-alias-methods": "error",
     "vitest/no-interpolation-in-snapshots": "error",
     "vitest/no-test-prefixes": "error",
