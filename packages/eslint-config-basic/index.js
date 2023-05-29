@@ -105,7 +105,7 @@ module.exports = defineConfig({
     makePlainOverride("sh", "sh"),
     makePlainOverride("rs", "jinx-rust"),
     {
-      files: ["*.json", "*.json5", "*.jsonc"],
+      files: ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
       parser: "jsonc-eslint-parser",
       rules: {
         "jsonc/quotes": ["error", "double"],
