@@ -149,6 +149,7 @@ module.exports = defineConfig({
           "error",
           makePrettierConfig({ parser: "toml" }),
         ],
+        "toml/padding-line-between-pairs": "off",
         "spaced-comment": "off",
       },
     },
