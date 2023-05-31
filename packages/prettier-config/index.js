@@ -11,7 +11,7 @@ const plugins = [
   "prettier-plugin-svelte",
   "prettier-plugin-toml",
   "prettier-plugin-jsdoc",
-  ];
+];
 
 module.exports = {
   quoteProps: "preserve",
@@ -31,6 +31,4 @@ module.exports = {
   // JSDoc
   jsdocPreferCodeFences: true,
   tsdoc: true,
-
-
 };
