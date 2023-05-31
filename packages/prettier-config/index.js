@@ -11,6 +11,7 @@ const plugins = [
   "prettier-plugin-svelte",
   "prettier-plugin-toml",
   "prettier-plugin-jsdoc",
+  "prettier-plugin-organize-class-members",
 ];
 
 module.exports = {
@@ -31,4 +32,13 @@ module.exports = {
   // JSDoc
   jsdocPreferCodeFences: true,
   tsdoc: true,
+
+  // Organize Class Members
+  classSectionOrder: [
+    "staticProperties",
+    "properties",
+    "constructor",
+    "staticMethods",
+    "methods",
+  ],
 };
