@@ -27,11 +27,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "eslint": ">=7.4.0",
-    "prettier": ">=2.0.0",
-    "typescript": ">=3.9"
-  },
   "dependencies": {
     "@so1ve/eslint-config-basic": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
@@ -44,5 +39,10 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.16"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "prettier": ">=2.0.0",
+    "typescript": ">=3.9"
   }
 }

@@ -28,11 +28,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "prettier-linter-helpers": "^1.0.0"
+  },
   "peerDependencies": {
     "eslint": ">=7.28.0",
     "prettier": ">=2.0.0"
-  },
-  "dependencies": {
-    "prettier-linter-helpers": "^1.0.0"
   }
 }
