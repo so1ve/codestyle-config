@@ -14,6 +14,7 @@ const makePlainOverride = (extension, parser) => ({
     "@so1ve/prettier/prettier": ["error", makePrettierConfig({ parser })],
   },
 });
+const PLAIN_OVERRIDES=['sql','sh','css','scss','less'].map(lang=>makePlainOverride(lang,lang))
 
 module.exports = defineConfig({
   env: {
@@ -101,10 +102,8 @@ module.exports = defineConfig({
         ],
       },
     },
-    makePlainOverride("sql", "sql"),
-    makePlainOverride("sh", "sh"),
-    makePlainOverride("rs", "jinx-rust"),
-    makePlainOverride("css", "css"),
+    ...PLAIN_OVERRIDES,
+    makePlainOverride('rs','jinx-rust'),
     {
       files: ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
       parser: "jsonc-eslint-parser",
