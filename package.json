@@ -28,12 +28,12 @@
     "@so1ve/eslint-plugin-prettier": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
     "@types/node": "^18.16.16",
-    "bumpp": "^9.1.0",
-    "eslint": "^8.41.0",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.42.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.3",
     "unbuild": "^1.2.1",
-    "vitest": "^0.31.1"
+    "vitest": "^0.32.0"
   },
   "pnpm": {
     "peerDependencyRules": {
