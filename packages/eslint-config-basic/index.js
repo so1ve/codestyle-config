@@ -104,7 +104,7 @@ module.exports = defineConfig({
     makePlainOverride("sql", "sql"),
     makePlainOverride("sh", "sh"),
     makePlainOverride("rs", "jinx-rust"),
-    makePlainOverride('css','css'),
+    makePlainOverride("css", "css"),
     {
       files: ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
       parser: "jsonc-eslint-parser",
