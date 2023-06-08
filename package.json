@@ -1,7 +1,7 @@
 {
   "name": "@so1ve/eslint-config-monorepo",
   "private": true,
-  "packageManager": "pnpm@8.5.1",
+  "packageManager": "pnpm@8.6.1",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "description": "Monorepo for Ray's eslint config.",
   "homepage": "https://github.com/so1ve/eslint-config#readme",
@@ -27,13 +27,13 @@
     "@so1ve/eslint-plugin": "workspace:*",
     "@so1ve/eslint-plugin-prettier": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
-    "@types/node": "^18.16.10",
-    "bumpp": "^9.1.0",
-    "eslint": "^8.40.0",
+    "@types/node": "^18.16.16",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.42.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.3",
     "unbuild": "^1.2.1",
-    "vitest": "^0.31.0"
+    "vitest": "^0.32.0"
   },
   "pnpm": {
     "peerDependencyRules": {

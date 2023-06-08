@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-vue",
-  "version": "0.93.4",
+  "version": "0.94.0",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "description": "Ray's eslint config for vue.",
   "keywords": [
@@ -33,6 +33,6 @@
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
     "eslint-define-config": "^1.20.0",
-    "eslint-plugin-vue": "^9.13.0"
+    "eslint-plugin-vue": "^9.14.1"
   }
 }

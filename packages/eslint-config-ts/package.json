@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-ts",
-  "version": "0.93.4",
+  "version": "0.94.0",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "description": "Ray's eslint config for typescript.",
   "keywords": [
@@ -35,14 +35,14 @@
   "dependencies": {
     "@so1ve/eslint-config-basic": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.59.6",
-    "@typescript-eslint/parser": "^5.59.6",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
     "eslint-define-config": "^1.20.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-etc": "^2.0.3",
     "eslint-plugin-jest": "^27.2.1"
   },
   "devDependencies": {
-    "@types/node": "^18.16.10"
+    "@types/node": "^18.16.16"
   }
 }

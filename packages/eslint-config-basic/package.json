@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-basic",
-  "version": "0.93.4",
+  "version": "0.94.0",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "description": "Ray's basic eslint config.",
   "keywords": [
@@ -43,7 +43,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-1",
     "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsdoc": "^44.2.4",
+    "eslint-plugin-jsdoc": "^46.2.6",
     "eslint-plugin-json-schema-validator": "^4.5.0",
     "eslint-plugin-jsonc": "^2.8.0",
     "eslint-plugin-markdown": "^3.0.0",
@@ -54,7 +54,7 @@
     "eslint-plugin-toml": "^0.5.0",
     "eslint-plugin-unicorn": "^47.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "eslint-plugin-vitest": "^0.2.2",
+    "eslint-plugin-vitest": "^0.2.5",
     "eslint-plugin-yml": "^1.7.0",
     "jsonc-eslint-parser": "^2.3.0",
     "yaml-eslint-parser": "^1.2.2"
