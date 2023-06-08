@@ -14,8 +14,12 @@ const makePlainOverride = (extension, parser) => ({
     "@so1ve/prettier/prettier": ["error", makePrettierConfig({ parser })],
   },
 });
-const PLAIN_OVERRIDES=[...['sql','sh','css','scss','less'].map(lang=>makePlainOverride(lang,lang)),
-                 makePlainOverride   ('rs','jinx-rust'),  ]
+const PLAIN_OVERRIDES = [
+  ...["sql", "sh", "css", "scss", "less"].map((lang) =>
+    makePlainOverride(lang, lang),
+  ),
+  makePlainOverride("rs", "jinx-rust"),
+];
 
 module.exports = defineConfig({
   env: {
