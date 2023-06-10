@@ -83,7 +83,6 @@ module.exports = defineConfig({
     "vue/keyword-spacing": ["error", { before: true, after: true }],
     "vue/no-constant-condition": "error",
     "vue/no-empty-pattern": "error",
-    "vue/no-extra-parens": "error",
     "vue/no-irregular-whitespace": "error",
     "vue/no-loss-of-precision": "error",
     "vue/no-restricted-syntax": [
@@ -159,5 +158,6 @@ module.exports = defineConfig({
     "vue/multiline-html-element-content-newline": "off",
     "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": "off",
+    "vue/no-extra-parens": "off",
   },
 });
