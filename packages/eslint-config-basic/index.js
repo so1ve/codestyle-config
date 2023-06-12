@@ -292,6 +292,7 @@ module.exports = defineConfig({
       {
         "newlines-between": "always",
         "warnOnUnassignedImports": true,
+        "alphabetize": { order: "asc", caseInsensitive: true },
       },
     ],
     "import/first": "error",

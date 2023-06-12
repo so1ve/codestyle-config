@@ -1,9 +1,9 @@
 import functionStyle from "./rules/function-style";
 import importDedupe from "./rules/import-dedupe";
+import noImportPromisesAs from "./rules/no-import-promises-as";
 import noInlineTypeImport from "./rules/no-inline-type-import";
 import noNegatedComparison from "./rules/no-negated-comparison";
 import noUselessTemplateString from "./rules/no-useless-template-string";
-import noImportPromisesAs from "./rules/no-import-promises-as";
 import padAfterLastImport from "./rules/pad-after-last-import";
 
 export default {
