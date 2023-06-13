@@ -70,7 +70,6 @@ module.exports = defineConfig({
     "yarn.lock",
     "__snapshots__",
     // ignore for in lint-staged
-    "*.css",
     "*.png",
     "*.ico",
     "*.patch",
