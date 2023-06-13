@@ -41,6 +41,7 @@ module.exports = defineConfig({
   ],
   extends: [
     "./standard",
+    "@unocss",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
