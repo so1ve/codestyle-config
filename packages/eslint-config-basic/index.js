@@ -341,7 +341,7 @@ module.exports = defineConfig({
     "comma-spacing": "off",
     "comma-style": "off",
     "computed-property-spacing": "off",
-    "curly": ["error", "all"],
+    "curly": "off",
     "dot-location": "off",
     "eol-last": "off",
     "func-call-spacing": "off",

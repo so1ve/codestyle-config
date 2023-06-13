@@ -2,15 +2,17 @@
 
 const plugins = [
   "@prettier/plugin-xml",
-  "prettier-plugin-astro",
-  "prettier-plugin-autocorrect",
-  "prettier-plugin-properties",
-  "prettier-plugin-rust",
-  "prettier-plugin-sql",
-  "prettier-plugin-sh",
-  "prettier-plugin-svelte",
-  "prettier-plugin-toml",
-  "prettier-plugin-jsdoc",
+  ...[
+    "astro",
+    "properties",
+    "rust",
+    "sql",
+    "sh",
+    "svelte",
+    "toml",
+    "jsdoc",
+    "curly",
+  ].map((p) => `prettier-plugin-${p}`),
 ];
 
 module.exports = {
