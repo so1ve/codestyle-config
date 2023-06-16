@@ -63,8 +63,8 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       eslint-plugin-import:
-        specifier: npm:eslint-plugin-i@2.27.5-1
-        version: /eslint-plugin-i@2.27.5-1(@typescript-eslint/parser@5.59.11)(eslint@8.42.0)
+        specifier: npm:eslint-plugin-i@2.27.5-2
+        version: /eslint-plugin-i@2.27.5-2(@typescript-eslint/parser@5.59.11)(eslint@8.42.0)
       eslint-plugin-jsonc:
         specifier: ^2.9.0
         version: 2.9.0(eslint@8.42.0)
@@ -133,8 +133,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(eslint@8.42.0)
       eslint-plugin-import:
-        specifier: npm:eslint-plugin-i@2.27.5-1
-        version: /eslint-plugin-i@2.27.5-1(eslint@8.42.0)
+        specifier: npm:eslint-plugin-i@2.27.5-2
+        version: /eslint-plugin-i@2.27.5-2(eslint@8.42.0)
       eslint-plugin-jest-formatting:
         specifier: ^3.1.0
         version: 3.1.0(eslint@8.42.0)
@@ -2392,8 +2392,8 @@ packages:
       htmlparser2: 8.0.2
     dev: false
 
-  /eslint-plugin-i@2.27.5-1(@typescript-eslint/parser@5.59.11)(eslint@8.42.0):
-    resolution: {integrity: sha512-BbtCbC2/cnfyCVSWAXArrgKyM7cnAvdMWlh1qqENI7JPUy3rjiPztMScZNKJfEGH7l6izlnkkTvXITS30o9z4A==}
+  /eslint-plugin-i@2.27.5-2(@typescript-eslint/parser@5.59.11)(eslint@8.42.0):
+    resolution: {integrity: sha512-Sltj1X2B6Qd9wqWEpmgMlpFHl2695gkuF9Ywz7Kqaw1Gg7Fl6M81dgNWWKAdfwTLIzF5LJ9IsO2T6GPrq97O9g==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
@@ -2414,7 +2414,7 @@ packages:
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 6.3.0
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
@@ -2423,8 +2423,8 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-i@2.27.5-1(eslint@8.42.0):
-    resolution: {integrity: sha512-BbtCbC2/cnfyCVSWAXArrgKyM7cnAvdMWlh1qqENI7JPUy3rjiPztMScZNKJfEGH7l6izlnkkTvXITS30o9z4A==}
+  /eslint-plugin-i@2.27.5-2(eslint@8.42.0):
+    resolution: {integrity: sha512-Sltj1X2B6Qd9wqWEpmgMlpFHl2695gkuF9Ywz7Kqaw1Gg7Fl6M81dgNWWKAdfwTLIzF5LJ9IsO2T6GPrq97O9g==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
@@ -2445,7 +2445,7 @@ packages:
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: 1.1.6
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 6.3.0
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
@@ -4763,6 +4763,15 @@ packages:
       is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
+
+  /resolve@1.22.3:
+    resolution: {integrity: sha512-P8ur/gp/AmbEzjr729bZnLjXK5Z+4P0zhIJgBgzqRih7hL7BOukHGtSTA3ACMY467GRFz3duQsi0bDZdR7DKdw==}
+    hasBin: true
+    dependencies:
+      is-core-module: 2.12.1
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
+    dev: false
 
   /resolve@2.0.0-next.4:
     resolution: {integrity: sha512-iMDbmAWtfU+MHpxt/I5iWI7cY6YVEZUQ3MBgPQ++XD1PELuJHIl82xBmObyP2KyQmkNB2dsqF7seoQQiAn5yDQ==}
