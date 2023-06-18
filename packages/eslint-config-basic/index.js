@@ -23,8 +23,10 @@ const PLAIN_OVERRIDES = [
   makePlainOverride("rs", "jinx-rust"),
 ];
 
-const cwd=process.cwd()
-const hasUnoConfig=fs.existsSync(path.join(cwd, "uno.config.ts"))||fs.existsSync(path.join(cwd, "unocss.config.ts"))
+const cwd = process.cwd();
+const hasUnoConfig =
+  fs.existsSync(path.join(cwd, "uno.config.ts")) ||
+  fs.existsSync(path.join(cwd, "unocss.config.ts"));
 
 module.exports = defineConfig({
   env: {
