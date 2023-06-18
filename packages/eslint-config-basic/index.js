@@ -33,6 +33,7 @@ module.exports = defineConfig({
     "@so1ve/prettier",
     "@so1ve/sort-imports",
     "@html-eslint",
+    "@unocss",
     "jsdoc",
     "vitest",
     "json-schema-validator",
@@ -42,7 +43,6 @@ module.exports = defineConfig({
   ],
   extends: [
     "./standard",
-    "@unocss",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
@@ -549,6 +549,10 @@ module.exports = defineConfig({
     // yml
     "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
     "yml/no-empty-document": "off",
+
+    // Unocss
+    "@unocss/order": "error",
+    "@unocss/order-attributify": "error",
 
     // so1ve
     "@so1ve/import-dedupe": "error",
