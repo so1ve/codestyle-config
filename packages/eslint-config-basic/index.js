@@ -1,4 +1,5 @@
 // @ts-check
+const fs=require("fs")
 const prettierConfig = require("@so1ve/prettier-config");
 const { defineConfig } = require("eslint-define-config");
 
@@ -551,8 +552,8 @@ module.exports = defineConfig({
     "yml/no-empty-document": "off",
 
     // Unocss
-    "@unocss/order": "error",
-    "@unocss/order-attributify": "error",
+   ... (fs.existsSync(path.join(process.cwd(), "uno.config.ts"))?{ "@unocss/order": "error",
+    "@unocss/order-attributify": "error",}:{}),
 
     // so1ve
     "@so1ve/import-dedupe": "error",
