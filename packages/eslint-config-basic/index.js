@@ -23,6 +23,9 @@ const PLAIN_OVERRIDES = [
   makePlainOverride("rs", "jinx-rust"),
 ];
 
+const cwd=process.cwd()
+const hasUnoConfig=fs.existsSync(path.join(cwd, "uno.config.ts"))||fs.existsSync(path.join(cwd, "unocss.config.ts"))
+
 module.exports = defineConfig({
   env: {
     es6: true,
@@ -553,7 +556,7 @@ module.exports = defineConfig({
     "yml/no-empty-document": "off",
 
     // Unocss
-    ...(fs.existsSync(path.join(process.cwd(), "uno.config.ts"))
+    ...(hasUnoConfig
       ? { "@unocss/order": "error", "@unocss/order-attributify": "error" }
       : {}),
 
