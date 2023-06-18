@@ -30,15 +30,15 @@ module.exports = defineConfig({
   reportUnusedDisableDirectives: true,
   plugins: [
     "@so1ve",
-    "@html-eslint",
     "@so1ve/prettier",
+    "@so1ve/sort-imports",
+    "@html-eslint",
     "jsdoc",
     "vitest",
     "json-schema-validator",
     "unicorn",
     "unused-imports",
     "no-only-tests",
-    "simple-import-sort",
   ],
   extends: [
     "./standard",
@@ -294,13 +294,13 @@ module.exports = defineConfig({
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
 
-    "simple-import-sort/imports": [
+    "@so1ve/sort-imports/imports": [
       "error",
       {
         groups: [["^node:"], ["^@?\\w"], ["^"], ["^\\u0000"], ["^\\."]],
       },
     ],
-    "simple-import-sort/exports": "error",
+    "@so1ve/sort-imports/exports": "error",
 
     // array-func
     "array-func/prefer-array-from": "off",

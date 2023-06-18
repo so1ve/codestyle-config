@@ -32,7 +32,7 @@
     "eslint-plugin-vue": "^9.14.1"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0",
+    "eslint": ">=8.40.0",
     "prettier": ">=2.0.0"
   }
 }

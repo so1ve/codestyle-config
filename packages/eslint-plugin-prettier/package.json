@@ -3,7 +3,8 @@
   "version": "0.103.2",
   "author": "Teddy Katz",
   "contributors": [
-    "JounQin (https://github.com/JounQin) <admin@1stg.me>"
+    "JounQin (https://github.com/JounQin) <admin@1stg.me>",
+    "Ray (https://github.com/so1ve) <i@mk1.io>"
   ],
   "description": "Runs prettier as an eslint rule",
   "keywords": [
@@ -32,7 +33,7 @@
     "prettier-linter-helpers": "^1.0.0"
   },
   "peerDependencies": {
-    "eslint": ">=7.28.0",
+    "eslint": ">=8.40.0",
     "prettier": ">=2.0.0"
   }
 }
