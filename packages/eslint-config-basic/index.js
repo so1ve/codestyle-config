@@ -1,5 +1,6 @@
 // @ts-check
 const fs=require("fs")
+const path=require('path')
 const prettierConfig = require("@so1ve/prettier-config");
 const { defineConfig } = require("eslint-define-config");
 
