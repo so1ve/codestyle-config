@@ -38,7 +38,6 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
-    "import",
     "simple-import-sort",
   ],
   extends: [
@@ -546,17 +545,6 @@ module.exports = defineConfig({
     "eslint-comments/disable-enable-pair": "off",
     "import/no-named-as-default-member": "off",
     "n/no-callback-literal": "off",
-
-    "sort-imports": [
-      "error",
-      {
-        ignoreCase: false,
-        ignoreDeclarationSort: true,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-        allowSeparatedGroups: false,
-      },
-    ],
 
     // yml
     "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
