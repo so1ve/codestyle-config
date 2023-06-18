@@ -111,7 +111,19 @@ module.exports = defineConfig({
         },
       },
     ],
+    "vue/require-macro-variable-name": [
+      "error",
+      {
+        defineProps: "props",
+        defineEmits: "emit",
+        defineSlots: "slots",
+        useSlots: "slots",
+        useAttrs: "attrs",
+      },
+    ],
+    "vue/require-typed-ref": "error",
     "vue/no-static-inline-styles": ["error", { allowBinding: true }],
+    "vue/no-console": ["error", { allow: ["error", "warn", "table", "time"] }],
     "vue/camelcase": "error",
     "vue/v-for-delimiter-style": ["error", "in"],
     "vue/attributes-order": [
