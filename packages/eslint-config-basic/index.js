@@ -38,6 +38,7 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
+    "simple-import-sort",
   ],
   extends: [
     "./standard",
@@ -287,19 +288,19 @@ module.exports = defineConfig({
   ],
   rules: {
     // import
-    "import/order": [
-      "error",
-      {
-        "newlines-between": "always",
-        "warnOnUnassignedImports": true,
-        "alphabetize": { order: "asc", caseInsensitive: true },
-      },
-    ],
     "import/first": "error",
     "import/no-mutable-exports": "error",
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
+
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [["^node:"], ["^@?\\w"], ["^"], ["^\\u0000"], ["^\\."]],
+      },
+    ],
+    "simple-import-sort/exports": "error",
 
     // array-func
     "array-func/prefer-array-from": "off",
