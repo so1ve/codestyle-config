@@ -44,7 +44,15 @@ function parseWhitespace(whitespace) {
   );
 }
 
-const compare = natsort.default();
+const naturalSort = natsort.default();
+function compare(path1, path2) {
+  const path1Depth = path1.split("-").filter((p) => p === "__").length;
+  const path2Depth = path2.split("-").filter((p) => p === "__").length;
+
+  return path1Depth === path2Depth
+    ? naturalSort(path1, path2)
+    : path2Depth - path1Depth;
+}
 
 const isIdentifier = (node) => node.type === "Identifier";
 
