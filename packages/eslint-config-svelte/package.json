@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config-svelte",
-  "version": "0.104.3",
+  "version": "0.105.0",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "description": "Ray's eslint config for svelte.",
   "keywords": [
