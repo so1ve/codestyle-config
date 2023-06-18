@@ -38,6 +38,7 @@ module.exports = defineConfig({
     "unicorn",
     "unused-imports",
     "no-only-tests",
+    "import",
     "simple-import-sort",
   ],
   extends: [
