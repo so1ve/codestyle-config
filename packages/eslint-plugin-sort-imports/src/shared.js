@@ -62,6 +62,7 @@ function compare(path1, path2) {
     ? naturalSort(path1, path2)
     : path2Depth - path1Depth;
 }
+
 const isIdentifier = (node) => node.type === "Identifier";
 
 const isKeyword = (node) => node.type === "Keyword";
