@@ -25,11 +25,12 @@ export default createEslintRule<Options, MessageIds>({
     "TemplateLiteral:not(TaggedTemplateExpression > TemplateLiteral)"(
       node: TSESTree.TemplateLiteral,
     ) {
-      const hasNewline = node.quasis.some((n) => n.value.raw.includes("\n"));
-      const hasQuote = node.quasis.some(
-        (n) => n.value.raw.includes('"') || n.value.raw.includes("'"),
+      const { quasis } = node;
+      const isSafe = !quasis.some(
+        ({ value: { raw } }) =>
+          raw.includes('"') || raw.includes("'") || raw.includes("\n"),
       );
-      if (node.expressions.length === 0 && !hasNewline && !hasQuote) {
+      if (node.expressions.length === 0 && isSafe) {
         context.report({
           node,
           messageId: "noUselessTemplateString",
