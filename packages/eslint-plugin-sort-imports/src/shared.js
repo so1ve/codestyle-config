@@ -48,12 +48,20 @@ const naturalSort = natsort.default();
 function compare(path1, path2) {
   const path1Depth = path1.split("-").filter((p) => p === "__").length;
   const path2Depth = path2.split("-").filter((p) => p === "__").length;
+  const path1IsDot = path1 === "_-,";
+  const path2IsDot = path2 === "_-,";
+
+  if (path1IsDot && !path2IsDot) {
+    return 1;
+  }
+  if (path2IsDot && !path1IsDot) {
+    return -1;
+  }
 
   return path1Depth === path2Depth
     ? naturalSort(path1, path2)
     : path2Depth - path1Depth;
 }
-
 const isIdentifier = (node) => node.type === "Identifier";
 
 const isKeyword = (node) => node.type === "Keyword";
