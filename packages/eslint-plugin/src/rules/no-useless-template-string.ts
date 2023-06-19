@@ -26,7 +26,10 @@ export default createEslintRule<Options, MessageIds>({
       node: TSESTree.TemplateLiteral,
     ) {
       const hasNewline = node.quasis.some((n) => n.value.raw.includes("\n"));
-      if (node.expressions.length === 0 && !hasNewline) {
+      const hasQuote = node.quasis.some(
+        (n) => n.value.raw.includes('"') || n.value.raw.includes("'"),
+      );
+      if (node.expressions.length === 0 && !hasNewline && !hasQuote) {
         context.report({
           node,
           messageId: "noUselessTemplateString",
