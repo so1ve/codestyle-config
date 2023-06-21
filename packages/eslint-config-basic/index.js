@@ -51,7 +51,7 @@ module.exports = defineConfig({
   extends: [
     "./standard",
     "plugin:import/recommended",
-    "plugin:eslint-comments/recommended",
+    "plugin:@eslint-community/eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
@@ -494,6 +494,10 @@ module.exports = defineConfig({
     // best-practice
     "array-callback-return": "error",
     "block-scoped-var": "error",
+    "no-use-before-define": [
+      "error",
+      { functions: false, classes: false, variables: true },
+    ],
     "consistent-return": "off",
     "complexity": ["off", 11],
     "eqeqeq": ["error", "smart"],
@@ -546,11 +550,7 @@ module.exports = defineConfig({
     "unicorn/prefer-array-flat": "error",
     "unicorn/prefer-array-find": "error",
 
-    "no-use-before-define": [
-      "error",
-      { functions: false, classes: false, variables: true },
-    ],
-    "eslint-comments/disable-enable-pair": "off",
+    "@eslint-community/eslint-comments/disable-enable-pair": "off",
     "import/no-named-as-default-member": "off",
     "n/no-callback-literal": "off",
 
