@@ -35,7 +35,8 @@
     "eslint-define-config": "^1.20.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-etc": "^2.0.3",
-    "eslint-plugin-jest": "^27.2.1"
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-no-explicit-type-exports": "^0.12.1"
   },
   "devDependencies": {
     "@types/node": "^18.16.18"

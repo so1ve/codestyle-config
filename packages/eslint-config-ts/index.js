@@ -72,6 +72,7 @@ module.exports = defineConfig({
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
   ],
+  plugins: ["no-explicit-type-exports"],
   settings: {
     "import/resolver": {
       node: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
@@ -138,6 +139,8 @@ module.exports = defineConfig({
       "always",
       { exceptAfterSingleLine: true },
     ],
+
+    "no-explicit-type-exports/no-explicit-type-exports": "error",
 
     // so1ve
     "@so1ve/no-inline-type-import": "error",
