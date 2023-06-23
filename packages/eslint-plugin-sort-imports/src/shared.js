@@ -46,6 +46,7 @@ function parseWhitespace(whitespace) {
 
 const naturalSort = natsort.default();
 function compare(path1, path2) {
+  console.log({path1,path2})
   const path1Depth = path1.split("-").filter((p) => p === "__").length;
   const path2Depth = path2.split("-").filter((p) => p === "__").length;
   const path1IsDot = path1 === "_-,";
