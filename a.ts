@@ -1,5 +1,3 @@
-import {} from "vue"
+import {} from "vue";
 
-import a from './AAA.vue'
-
-import './c.css'
+import "./c.css";
