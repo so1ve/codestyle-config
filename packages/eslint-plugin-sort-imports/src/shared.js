@@ -1,6 +1,6 @@
 "use strict";
 
-const natsort = require("natsort");
+const natsort = require("natsort").default;
 
 const NEWLINE = /(\r?\n)/;
 
@@ -44,7 +44,7 @@ function parseWhitespace(whitespace) {
   );
 }
 
-const naturalSort = natsort.default();
+const naturalSort = natsort();
 function compare(path1, path2) {
   const path1Depth = path1.split("-").filter((p) => p === "__").length;
   const path2Depth = path2.split("-").filter((p) => p === "__").length;
