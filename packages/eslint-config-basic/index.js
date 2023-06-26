@@ -302,12 +302,7 @@ module.exports = defineConfig({
     "import/no-absolute-path": "off",
     "import/namespace": "off", // Disable this for better performance
 
-    "@so1ve/sort-imports/imports": [
-      "error",
-      {
-        groups: [["^node:"], ["^@?\\w"], ["^"], ["^\\u0000"], ["^\\."]],
-      },
-    ],
+    "@so1ve/sort-imports/imports": ["error"],
     "@so1ve/sort-imports/exports": "error",
 
     // array-func
