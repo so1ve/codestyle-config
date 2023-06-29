@@ -140,7 +140,6 @@ module.exports = defineConfig({
           "error",
           { allowMultiplePropertiesPerLine: true },
         ],
-        "eol-last": "error",
         "@so1ve/prettier/prettier": [
           "error",
           makePrettierConfig({ trailingComma: "none" }),
