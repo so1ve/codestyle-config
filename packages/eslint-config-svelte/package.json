@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-define-config": "^1.20.0",
-    "eslint-plugin-svelte": "^2.30.0"
+    "eslint-define-config": "^1.21.0",
+    "eslint-plugin-svelte": "^2.31.1"
   },
   "peerDependencies": {
     "eslint": ">=8.40.0",

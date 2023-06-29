@@ -28,11 +28,11 @@
     "@so1ve/eslint-plugin-prettier": "workspace:*",
     "@so1ve/eslint-plugin-sort-imports": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
-    "@types/node": "^18.16.18",
+    "@types/node": "^20.3.2",
     "bumpp": "^9.1.1",
     "eslint": "^8.43.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.1.3",
+    "typescript": "^5.1.5",
     "unbuild": "^1.2.1",
     "vitest": "^0.32.2"
   },
