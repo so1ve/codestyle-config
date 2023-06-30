@@ -8,12 +8,16 @@ const makePrettierConfig = (inlineConfig) => ({
   ...prettierConfig,
   ...inlineConfig,
 });
+const makePrettierRule=(inlineConfig)=>({"@so1ve/prettier/prettier": [
+          "error",
+          makePrettierConfig(inlineConfig),
+        ]})
 /** @returns {import("eslint-define-config").Override} */
 const makePlainOverride = (extension, parser) => ({
   files: [`*.${extension}`],
   parser: "eslint-parser-plain",
   rules: {
-    "@so1ve/prettier/prettier": ["error", makePrettierConfig({ parser })],
+    ... makePrettierRule({ parser }),
   },
 });
 const PLAIN_OVERRIDES = [
@@ -110,10 +114,8 @@ module.exports = defineConfig({
         "@html-eslint/require-closing-tags": "off",
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
-        "@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig({ parser: "angular" }),
-        ],
+        ... makePrettierRule({ parser: "angular" }),
+        
       },
     },
     ...PLAIN_OVERRIDES,
@@ -140,10 +142,8 @@ module.exports = defineConfig({
           "error",
           { allowMultiplePropertiesPerLine: true },
         ],
-        "@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig({ trailingComma: "none" }),
-        ],
+        ...makePrettierRule({ trailingComma: "none" }),
+        
       },
     },
     {
@@ -157,11 +157,8 @@ module.exports = defineConfig({
       files: ["*.toml"],
       parser: "toml-eslint-parser",
       rules: {
-        "@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig({ parser: "toml" }),
-        ],
-        "toml/padding-line-between-pairs": "off",
+        ...makePrettierRule({ parser: "toml" }),
+               "toml/padding-line-between-pairs": "off",
         "spaced-comment": "off",
       },
     },
@@ -184,7 +181,7 @@ module.exports = defineConfig({
             order: ["types", "require", "import"],
           },
         ],
-        ...makePrettierConfig(),
+        ...makePrettierRule(),
       },
     },
     {
@@ -515,6 +512,6 @@ module.exports = defineConfig({
     "@so1ve/pad-after-last-import": "error",
     "@so1ve/function-style": "error",
 
-    "@so1ve/prettier/prettier": ["error", prettierConfig],
+    ...makePrettierRule()
   },
 });
