@@ -184,6 +184,7 @@ module.exports = defineConfig({
             order: ["types", "require", "import"],
           },
         ],
+        ...makePrettierConfig(),
       },
     },
     {
