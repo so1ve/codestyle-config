@@ -8,16 +8,15 @@ const makePrettierConfig = (inlineConfig) => ({
   ...prettierConfig,
   ...inlineConfig,
 });
-const makePrettierRule=(inlineConfig)=>({"@so1ve/prettier/prettier": [
-          "error",
-          makePrettierConfig(inlineConfig),
-        ]})
+const makePrettierRule = (inlineConfig) => ({
+  "@so1ve/prettier/prettier": ["error", makePrettierConfig(inlineConfig)],
+});
 /** @returns {import("eslint-define-config").Override} */
 const makePlainOverride = (extension, parser) => ({
   files: [`*.${extension}`],
   parser: "eslint-parser-plain",
   rules: {
-    ... makePrettierRule({ parser }),
+    ...makePrettierRule({ parser }),
   },
 });
 const PLAIN_OVERRIDES = [
@@ -114,8 +113,7 @@ module.exports = defineConfig({
         "@html-eslint/require-closing-tags": "off",
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
-        ... makePrettierRule({ parser: "angular" }),
-        
+        ...makePrettierRule({ parser: "angular" }),
       },
     },
     ...PLAIN_OVERRIDES,
@@ -143,7 +141,6 @@ module.exports = defineConfig({
           { allowMultiplePropertiesPerLine: true },
         ],
         ...makePrettierRule({ trailingComma: "none" }),
-        
       },
     },
     {
@@ -158,7 +155,7 @@ module.exports = defineConfig({
       parser: "toml-eslint-parser",
       rules: {
         ...makePrettierRule({ parser: "toml" }),
-               "toml/padding-line-between-pairs": "off",
+        "toml/padding-line-between-pairs": "off",
         "spaced-comment": "off",
       },
     },
@@ -512,6 +509,6 @@ module.exports = defineConfig({
     "@so1ve/pad-after-last-import": "error",
     "@so1ve/function-style": "error",
 
-    ...makePrettierRule()
+    ...makePrettierRule(),
   },
 });
