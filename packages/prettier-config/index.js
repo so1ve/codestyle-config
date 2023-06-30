@@ -12,6 +12,7 @@ const plugins = [
     "toml",
     "jsdoc",
     "curly",
+    "pkgsort",
   ].map((p) => `prettier-plugin-${p}`),
 ];
 

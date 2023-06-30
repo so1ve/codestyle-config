@@ -6,10 +6,10 @@
   "keywords": [
     "eslint",
     "eslint-config",
-    "eslint-typescript",
     "eslint-ts",
-    "typescript",
-    "ts"
+    "eslint-typescript",
+    "ts",
+    "typescript"
   ],
   "homepage": "https://github.com/so1ve/eslint-config#readme",
   "repository": {

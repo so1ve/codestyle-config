@@ -3,7 +3,7 @@
   "version": "0.106.2",
   "author": "Simon Lydell",
   "contributors": [
-    "Ray (https://github.com/so1ve) <i@mk1.io>"
+    "Ray <i@mk1.io> (https://github.com/so1ve)"
   ],
   "description": "Easy autofixable import sorting",
   "keywords": [

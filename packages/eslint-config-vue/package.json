@@ -20,7 +20,6 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.js",
     "eslint-plugin-vue"
   ],
   "publishConfig": {

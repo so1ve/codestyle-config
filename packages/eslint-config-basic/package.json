@@ -18,7 +18,6 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.js",
     "standard.js"
   ],
   "publishConfig": {
