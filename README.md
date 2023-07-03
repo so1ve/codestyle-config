@@ -43,7 +43,7 @@ For example:
 {
   "scripts": {
     "lint": "eslint .",
-"lint:fix":"eslint . --fix&
+"lint:fix":"eslint . --fix"
   }
 }
 ```
