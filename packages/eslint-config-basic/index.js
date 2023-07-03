@@ -4,6 +4,9 @@ const path = require("node:path");
 const prettierConfig = require("@so1ve/prettier-config");
 const { defineConfig } = require("eslint-define-config");
 
+/**
+ * @returns {Record<string, import("eslint-define-config/src/rules/rule-config").RuleConfig>}
+ */
 const makePrettierRule = (inlineConfig) => ({
   "@so1ve/prettier/prettier": ["error", { ...prettierConfig, ...inlineConfig }],
 });
