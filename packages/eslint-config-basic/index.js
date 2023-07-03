@@ -77,6 +77,9 @@ module.exports = defineConfig({
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
+    // Volar virtual files
+    "*.vue.js",
+    "*.vue.ts",
     // ignore for in lint-staged
     "*.png",
     "*.ico",
