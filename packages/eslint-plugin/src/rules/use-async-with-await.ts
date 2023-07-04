@@ -1,5 +1,4 @@
 import type { TSESTree } from "@typescript-eslint/types";
-import type { Scope } from "@typescript-eslint/utils/dist/ts-eslint";
 
 import { createEslintRule } from "../utils";
 
@@ -28,12 +27,12 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: [],
   create: (context) => {
-    const functionNodeScopeStack: FunctionNode[]=[]
-        function setupNode(node: FunctionNode) {
-      functionNodeScopeStack.push(node)
+    const functionNodeScopeStack: FunctionNode[] = [];
+    function setupNode(node: FunctionNode) {
+      functionNodeScopeStack.push(node);
     }
     function cleanupNode() {
-      functionNodeScopeStack .pop();
+      functionNodeScopeStack.pop();
     }
 
     return {
@@ -44,15 +43,15 @@ export default createEslintRule<Options, MessageIds>({
       "ArrowFunctionExpression": setupNode,
       "ArrowFunctionExpression:exit": cleanupNode,
       AwaitExpression() {
-        const closestFunctionNode=functionNodeScopeStack[functionNodeScopeStack.length-1]
-        if (! closestFunctionNode|| closestFunctionNode.async) {
+        const closestFunctionNode =
+          functionNodeScopeStack[functionNodeScopeStack.length - 1];
+        if (!closestFunctionNode || closestFunctionNode.async) {
           return;
         }
         context.report({
           node: closestFunctionNode,
           messageId: "useAsyncWithAwait",
-          fix: (fixer) =>
-            fixer.insertTextBefore(closestFunctionNode!, "async "),
+          fix: (fixer) => fixer.insertTextBefore(closestFunctionNode, "async "),
         });
       },
     };
