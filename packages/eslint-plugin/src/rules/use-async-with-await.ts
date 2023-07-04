@@ -7,6 +7,9 @@ export const RULE_NAME = "use-async-with-await";
 export type MessageIds = "useAsyncWithAwait";
 export type Options = [];
 
+type FunctionNode=TSESTree.FunctionExpression|TSESTree.FunctionDeclaration
+    |TSESTree.ArrowFunctionExpression
+
 export default createEslintRule<Options, MessageIds>({
   name: RULE_NAME,
   meta: {
@@ -23,61 +26,29 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: [],
   create: (context) => {
-    const scopeStack: Scope.Scope[] = [];
-    let haveAwaitExpression = false;
-    function setupScope() {
-      scopeStack.push(context.getScope());
+    let closestFunctionNode:FunctionNode|null=null
+
+    function setupNode(node:FunctionNode){
+      closestFunctionNode=node
     }
-    function clearAwaitExpression() {
-      scopeStack.pop();
-      haveAwaitExpression = false;
+    function cleanupNode(){
+      closestFunctionNode=null
     }
 
     return {
-      "FunctionExpression[async=false]": setupScope,
-      "FunctionExpression[async=false]:exit"(
-        node: TSESTree.FunctionExpression,
-      ) {
-        if (!haveAwaitExpression) {
-          return;
-        }
-        context.report({
-          node,
-          messageId: "useAsyncWithAwait",
-          fix: (fixer) => fixer.insertTextBefore(node, "async "),
-        });
-        clearAwaitExpression();
-      },
+      "FunctionExpression[async=false]": setupNode,
+      "FunctionExpression[async=false]:exit":cleanupNode,
       "FunctionDeclaration[async=false]": setupScope,
-      "FunctionDeclaration[async=false]:exit"(
-        node: TSESTree.FunctionDeclaration,
-      ) {
-        if (!haveAwaitExpression) {
-          return;
-        }
-        context.report({
-          node,
-          messageId: "useAsyncWithAwait",
-          fix: (fixer) => fixer.insertTextBefore(node, "async "),
-        });
-        clearAwaitExpression();
-      },
+      "FunctionDeclaration[async=false]:exit":cleanupNode,
       "ArrowFunctionExpression[async=false]": setupScope,
-      "ArrowFunctionExpression[async=false]:exit"(
-        node: TSESTree.ArrayExpression,
-      ) {
-        if (!haveAwaitExpression) {
-          return;
-        }
-        context.report({
-          node,
-          messageId: "useAsyncWithAwait",
-          fix: (fixer) => fixer.insertTextBefore(node, "async "),
-        });
-        clearAwaitExpression();
-      },
+      "ArrowFunctionExpression[async=false]:exit"
+        :cleanupNode,
       AwaitExpression() {
-        haveAwaitExpression = scopeStack.includes(context.getScope());
+        if(!closestFunctionNode||closestFunctionNode.async)return
+        context.report({
+          node,messageId:'useAsyncWithAwait',
+          fix:fixer=>fixer.insertTextBefore(closestFunctionNode,'async ')
+        })
       },
     };
   },
