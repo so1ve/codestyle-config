@@ -14,6 +14,7 @@ Strongly opinionated to satisfy the author([@so1ve](https://github.com/so1ve))'s
 - TypeScript, Vue, React, Svelte, Solid out-of-box!
 - Lint also for json, yaml, markdown, html
 - Sorted imports, dangling commas for cleaner commit diff
+- Autofix for syntax errors, e.g. automatically add `async` keyword when using `await` in a non-async function
 - Focused on consistent code style, with custom rules to enforce style
 - Reasonable defaults, best practices, only one-line of config
 
