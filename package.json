@@ -28,7 +28,7 @@
     "@so1ve/eslint-plugin-prettier": "workspace:*",
     "@so1ve/eslint-plugin-sort-imports": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
-    "@types/node": "^18.3.2",
+    "@types/node": "^20.3.2",
     "bumpp": "^9.1.1",
     "eslint": "^8.43.0",
     "prettier": "^2.8.8",
