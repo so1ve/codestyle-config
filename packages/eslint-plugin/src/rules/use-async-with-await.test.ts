@@ -12,10 +12,7 @@ const invalid = [
     "() => { function a() { await 1; } }",
     "() => { async function a() { await 1; } }",
   ],
-  [
-    "() => { () => {}; await 1; }",
-    "async () => { () => {}; await 1; }",
-  ]
+  ["() => { () => {}; await 1; }", "async () => { () => {}; await 1; }"],
 ];
 
 it("runs", () => {
