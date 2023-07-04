@@ -8,7 +8,10 @@ const valid = ["async () => { await 1; }", "async function a() { await 1; }"];
 const invalid = [
   ["() => { await 1; }", "async () => { await 1; }"],
   ["function a() { await 1; }", "async function a() { await 1; }"],
-  ["() => { function a() { await 1; } }", "() => { async function a() { await 1; } }"]
+  [
+    "() => { function a() { await 1; } }",
+    "() => { async function a() { await 1; } }",
+  ],
 ];
 
 it("runs", () => {
