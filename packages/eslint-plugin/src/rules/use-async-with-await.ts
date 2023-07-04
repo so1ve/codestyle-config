@@ -49,7 +49,8 @@ export default createEslintRule<Options, MessageIds>({
         context.report({
           node: closestFunctionNode,
           messageId: "useAsyncWithAwait",
-          fix: (fixer) => fixer.insertTextBefore(closestFunctionNode!, "async "),
+          fix: (fixer) =>
+            fixer.insertTextBefore(closestFunctionNode!, "async "),
         });
       },
     };
