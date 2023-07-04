@@ -27,7 +27,6 @@ export default createEslintRule<Options, MessageIds>({
   defaultOptions: [],
   create: (context) => {
     let closestFunctionNode:FunctionNode|null=null
-
     function setupNode(node:FunctionNode){
       closestFunctionNode=node
     }
@@ -36,12 +35,12 @@ export default createEslintRule<Options, MessageIds>({
     }
 
     return {
-      "FunctionExpression[async=false]": setupNode,
-      "FunctionExpression[async=false]:exit":cleanupNode,
-      "FunctionDeclaration[async=false]": setupScope,
-      "FunctionDeclaration[async=false]:exit":cleanupNode,
-      "ArrowFunctionExpression[async=false]": setupScope,
-      "ArrowFunctionExpression[async=false]:exit"
+      "FunctionExpression": setupNode,
+      "FunctionExpression:exit":cleanupNode,
+      "FunctionDeclaration": setupScope,
+      "FunctionDeclaration:exit":cleanupNode,
+      "ArrowFunctionExpression": setupScope,
+      "ArrowFunctionExpression:exit"
         :cleanupNode,
       AwaitExpression() {
         if(!closestFunctionNode||closestFunctionNode.async)return
