@@ -510,6 +510,7 @@ module.exports = defineConfig({
     "@so1ve/no-import-promises-as": "error",
     "@so1ve/pad-after-last-import": "error",
     "@so1ve/function-style": "error",
+    "@so1ve/use-async-with-await": "error",
 
     ...makePrettierRule(),
   },
