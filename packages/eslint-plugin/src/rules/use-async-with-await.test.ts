@@ -14,7 +14,7 @@ const invalid = [
   ],
   [
     "() => { () => {}; await 1; }",
-    "async () => { () => {}; await 1; }
+    "async () => { () => {}; await 1; }",
   ]
 ];
 
