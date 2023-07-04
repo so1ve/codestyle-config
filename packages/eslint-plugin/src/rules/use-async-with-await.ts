@@ -1,4 +1,5 @@
 import type { TSESTree } from "@typescript-eslint/types";
+import type { Scope } from "@typescript-eslint/utils/dist/ts-eslint";
 
 import { createEslintRule } from "../utils";
 
@@ -27,12 +28,12 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: [],
   create: (context) => {
-    let closestFunctionNode: FunctionNode | null = null;
-    function setupNode(node: FunctionNode) {
-      closestFunctionNode = node;
+    const functionNodeScopeStack: FunctionNode[]=[]
+        function setupNode(node: FunctionNode) {
+      functionNodeScopeStack.push(node)
     }
     function cleanupNode() {
-      closestFunctionNode = null;
+      functionNodeScopeStack .pop();
     }
 
     return {
@@ -43,7 +44,8 @@ export default createEslintRule<Options, MessageIds>({
       "ArrowFunctionExpression": setupNode,
       "ArrowFunctionExpression:exit": cleanupNode,
       AwaitExpression() {
-        if (!closestFunctionNode || closestFunctionNode.async) {
+        const closestFunctionNode=functionNodeScopeStack[functionNodeScopeStack.length-1]
+        if (! closestFunctionNode|| closestFunctionNode.async) {
           return;
         }
         context.report({
