@@ -107,9 +107,7 @@ export default createEslintRule<Options, MessageIds>({
     }
 
     return {
-      FunctionExpression() {
-        setupScope();
-      },
+      "FunctionExpression": setupScope,
       "FunctionExpression:exit"(node: TSESTree.FunctionExpression) {
         if (
           (node.parent as any)?.id?.typeAnnotation ||
@@ -132,9 +130,8 @@ export default createEslintRule<Options, MessageIds>({
         });
         clearThisAccess();
       },
-      "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)"() {
-        setupScope();
-      },
+      "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)":
+        setupScope,
       "FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration):exit"(
         node: TSESTree.FunctionDeclaration,
       ) {
@@ -184,9 +181,7 @@ export default createEslintRule<Options, MessageIds>({
         });
         clearThisAccess();
       },
-      ArrowFunctionExpression() {
-        setupScope();
-      },
+      "ArrowFunctionExpression": setupScope,
       "ArrowFunctionExpression:exit"(node: TSESTree.ArrowFunctionExpression) {
         if (haveThisAccess) {
           return;
