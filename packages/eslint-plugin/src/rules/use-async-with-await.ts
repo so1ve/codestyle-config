@@ -37,9 +37,9 @@ export default createEslintRule<Options, MessageIds>({
     return {
       "FunctionExpression": setupNode,
       "FunctionExpression:exit":cleanupNode,
-      "FunctionDeclaration": setupScope,
+      "FunctionDeclaration": setupNode,
       "FunctionDeclaration:exit":cleanupNode,
-      "ArrowFunctionExpression": setupScope,
+      "ArrowFunctionExpression": setupNode,
       "ArrowFunctionExpression:exit"
         :cleanupNode,
       AwaitExpression() {
