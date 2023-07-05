@@ -151,12 +151,23 @@ module.exports = defineConfig({
       { singleline: "ignore", multiline: "always" },
     ],
     "vue/html-comment-indent": ["error", 2],
+    "vue/html-self-closing": [
+      "error",
+      {
+        html: {
+          void: "always",
+          normal: "always",
+          component: "always",
+        },
+        svg: "always",
+        math: "always",
+      },
+    ],
     "vue/no-useless-concat": "error",
     // off
     "vue/no-multiple-template-root": "off",
     "vue/multiline-html-element-content-newline": "off",
     "vue/singleline-html-element-content-newline": "off",
-    "vue/html-self-closing": "off",
     "vue/no-extra-parens": "off",
     "vue/array-bracket-spacing": "off",
     "vue/arrow-spacing": "off",
