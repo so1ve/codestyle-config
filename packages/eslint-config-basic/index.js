@@ -470,7 +470,6 @@ module.exports = defineConfig({
     "unicorn/prefer-set-size": "error",
     "unicorn/prefer-string-slice": "error",
     "unicorn/relative-url-style": ["error", "always"],
-    "unicorn/empty-brace-spaces": "error",
     "unicorn/explicit-length-check": "error",
     "unicorn/new-for-builtins": "error",
     "unicorn/no-array-for-each": "error",
