@@ -31,17 +31,17 @@ export default createEslintRule<Options, MessageIds>({
     function setupNode(node: FunctionNode) {
       functionNodeScopeStack.push(node);
     }
-    function cleanupNode() {
+    function clearNode() {
       functionNodeScopeStack.pop();
     }
 
     return {
       "FunctionExpression": setupNode,
-      "FunctionExpression:exit": cleanupNode,
+      "FunctionExpression:exit": clearNode,
       "FunctionDeclaration": setupNode,
-      "FunctionDeclaration:exit": cleanupNode,
+      "FunctionDeclaration:exit": clearNode,
       "ArrowFunctionExpression": setupNode,
-      "ArrowFunctionExpression:exit": cleanupNode,
+      "ArrowFunctionExpression:exit": clearNode,
       AwaitExpression() {
         const closestFunctionNode =
           functionNodeScopeStack[functionNodeScopeStack.length - 1];
