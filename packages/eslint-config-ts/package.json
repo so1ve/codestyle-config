@@ -1,49 +1,49 @@
 {
-	"name": "@so1ve/eslint-config-ts",
-	"version": "0.110.0",
-	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-	"description": "Ray's eslint config for typescript.",
-	"keywords": [
-		"eslint",
-		"eslint-config",
-		"eslint-ts",
-		"eslint-typescript",
-		"ts",
-		"typescript"
-	],
-	"homepage": "https://github.com/so1ve/eslint-config#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/so1ve/eslint-config.git"
-	},
-	"bugs": {
-		"url": "https://github.com/so1ve/eslint-config/issues"
-	},
-	"license": "MIT",
-	"main": "index.js",
-	"files": [
-		"index.js"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"dependencies": {
-		"@so1ve/eslint-config-basic": "workspace:*",
-		"@so1ve/eslint-plugin": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "^5.60.1",
-		"@typescript-eslint/parser": "^5.60.1",
-		"eslint-define-config": "^1.21.0",
-		"eslint-import-resolver-typescript": "^3.5.5",
-		"eslint-plugin-etc": "^2.0.3",
-		"eslint-plugin-jest": "^27.2.2",
-		"eslint-plugin-no-explicit-type-exports": "^0.12.1"
-	},
-	"devDependencies": {
-		"@types/node": "^20.3.2"
-	},
-	"peerDependencies": {
-		"eslint": ">=8.40.0",
-		"prettier": ">=2.0.0",
-		"typescript": ">=3.9"
-	}
+  "name": "@so1ve/eslint-config-ts",
+  "version": "0.110.0",
+  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+  "description": "Ray's eslint config for typescript.",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-ts",
+    "eslint-typescript",
+    "ts",
+    "typescript"
+  ],
+  "homepage": "https://github.com/so1ve/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/eslint-config/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@so1ve/eslint-config-basic": "workspace:*",
+    "@so1ve/eslint-plugin": "workspace:*",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint-define-config": "^1.21.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-etc": "^2.0.3",
+    "eslint-plugin-jest": "^27.2.2",
+    "eslint-plugin-no-explicit-type-exports": "^0.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.40.0",
+    "prettier": ">=2.0.0",
+    "typescript": ">=3.9"
+  }
 }

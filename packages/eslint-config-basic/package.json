@@ -1,63 +1,63 @@
 {
-	"name": "@so1ve/eslint-config-basic",
-	"version": "0.110.0",
-	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-	"description": "Ray's basic eslint config.",
-	"keywords": [
-		"eslint",
-		"eslint-config"
-	],
-	"homepage": "https://github.com/so1ve/eslint-config#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/so1ve/eslint-config.git"
-	},
-	"bugs": {
-		"url": "https://github.com/so1ve/eslint-config/issues"
-	},
-	"license": "MIT",
-	"main": "index.js",
-	"files": [
-		"standard.js"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"lint": "eslint . --config=index.js"
-	},
-	"dependencies": {
-		"@eslint-community/eslint-plugin-eslint-comments": "^3.2.1",
-		"@html-eslint/eslint-plugin": "^0.19.0",
-		"@html-eslint/parser": "^0.19.0",
-		"@so1ve/eslint-plugin": "workspace:*",
-		"@so1ve/eslint-plugin-prettier": "workspace:*",
-		"@so1ve/eslint-plugin-sort-imports": "workspace:^",
-		"@so1ve/prettier-config": "workspace:*",
-		"@unocss/eslint-config": "^0.53.4",
-		"eslint-define-config": "^1.21.0",
-		"eslint-parser-plain": "^0.1.0",
-		"eslint-plugin-array-func": "^3.1.8",
-		"eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
-		"eslint-plugin-jest-formatting": "^3.1.0",
-		"eslint-plugin-jsdoc": "^46.4.0",
-		"eslint-plugin-json-schema-validator": "^4.5.0",
-		"eslint-plugin-jsonc": "^2.9.0",
-		"eslint-plugin-markdown": "^3.0.0",
-		"eslint-plugin-n": "^16.0.1",
-		"eslint-plugin-no-only-tests": "^3.1.0",
-		"eslint-plugin-promise": "^6.1.1",
-		"eslint-plugin-regexp": "^1.15.0",
-		"eslint-plugin-toml": "^0.5.0",
-		"eslint-plugin-unicorn": "^47.0.0",
-		"eslint-plugin-unused-imports": "^2.0.0",
-		"eslint-plugin-vitest": "^0.2.6",
-		"eslint-plugin-yml": "^1.8.0",
-		"jsonc-eslint-parser": "^2.3.0",
-		"yaml-eslint-parser": "^1.2.2"
-	},
-	"peerDependencies": {
-		"eslint": ">=8.40.0",
-		"prettier": ">=2.0.0"
-	}
+  "name": "@so1ve/eslint-config-basic",
+  "version": "0.110.0",
+  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+  "description": "Ray's basic eslint config.",
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "homepage": "https://github.com/so1ve/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/eslint-config/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "standard.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  },
+  "dependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^3.2.1",
+    "@html-eslint/eslint-plugin": "^0.19.0",
+    "@html-eslint/parser": "^0.19.0",
+    "@so1ve/eslint-plugin": "workspace:*",
+    "@so1ve/eslint-plugin-prettier": "workspace:*",
+    "@so1ve/eslint-plugin-sort-imports": "workspace:^",
+    "@so1ve/prettier-config": "workspace:*",
+    "@unocss/eslint-config": "^0.53.4",
+    "eslint-define-config": "^1.21.0",
+    "eslint-parser-plain": "^0.1.0",
+    "eslint-plugin-array-func": "^3.1.8",
+    "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-jsdoc": "^46.4.0",
+    "eslint-plugin-json-schema-validator": "^4.5.0",
+    "eslint-plugin-jsonc": "^2.9.0",
+    "eslint-plugin-markdown": "^3.0.0",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-regexp": "^1.15.0",
+    "eslint-plugin-toml": "^0.5.0",
+    "eslint-plugin-unicorn": "^47.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "eslint-plugin-vitest": "^0.2.6",
+    "eslint-plugin-yml": "^1.8.0",
+    "jsonc-eslint-parser": "^2.3.0",
+    "yaml-eslint-parser": "^1.2.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.40.0",
+    "prettier": ">=2.0.0"
+  }
 }
