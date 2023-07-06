@@ -32,14 +32,6 @@ module.exports = defineConfig({
         order: ["script", "template", "style"],
       },
     ],
-    "vue/block-tag-newline": [
-      "error",
-      {
-        singleline: "always",
-        multiline: "always",
-        maxEmptyLines: 0,
-      },
-    ],
     "vue/component-api-style": ["error", ["script-setup", "composition"]],
     "vue/component-name-in-template-casing": [
       "error",
@@ -51,7 +43,7 @@ module.exports = defineConfig({
     "vue/define-macros-order": [
       "error",
       {
-        order: ["defineProps", "defineEmits"],
+        order: ["defineOptions", "defineEmits", "defineProps", "defineSlots"],
       },
     ],
     "vue/html-comment-content-spacing": [
