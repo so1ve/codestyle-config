@@ -65,7 +65,6 @@ module.exports = defineConfig({
   ],
   ignorePatterns: [
     "*.min.*",
-    "*.d.ts",
     "CHANGELOG.md",
     "dist*",
     "release",
@@ -82,7 +81,9 @@ module.exports = defineConfig({
     "__snapshots__",
     // Volar virtual files
     "*.vue.js",
+    "*.vue.jsx",
     "*.vue.ts",
+    "*.vue.tsx",
     // ignore for in lint-staged
     "*.png",
     "*.ico",
