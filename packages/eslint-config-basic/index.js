@@ -19,10 +19,9 @@ const makePlainOverride = (extension, parser) => ({
   },
 });
 const PLAIN_OVERRIDES = [
-  ...["sql", "sh", "css", "scss", "less"].map((lang) =>
-    makePlainOverride(lang, lang),
+  ...["sql", "sh", "css", "scss", "less", ['rs','jinx-rust']].map((langOrArray) =>
+    {const [lang,parser]=Array.isArray(langOrArray)?langOrArray:[langOrArray,langOrArray];return makePlainOverride(lang, parser)},
   ),
-  makePlainOverride("rs", "jinx-rust"),
 ];
 
 const cwd = process.cwd();
