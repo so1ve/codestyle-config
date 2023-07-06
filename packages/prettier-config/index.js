@@ -17,7 +17,7 @@ const plugins = [
 ];
 
 module.exports = {
-	useTabs: true,
+	useTabs: false,
 	quoteProps: "preserve",
 	trailingComma: "all",
 	htmlWhitespaceSensitivity: "ignore",

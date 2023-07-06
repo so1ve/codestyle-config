@@ -149,7 +149,7 @@ module.exports = defineConfig({
 			"error",
 			{ singleline: "ignore", multiline: "always" },
 		],
-		"vue/html-comment-indent": ["error", "tab"],
+		"vue/html-comment-indent": ["error", 2],
 		"vue/html-self-closing": [
 			"error",
 			{
