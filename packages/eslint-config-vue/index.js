@@ -59,7 +59,6 @@ module.exports = defineConfig({
 			"always",
 			{ exceptions: ["-"] },
 		],
-		"vue/html-quotes": ["error", "double"],
 		"vue/no-restricted-v-bind": ["error", "/^v-/"],
 		"vue/no-useless-v-bind": ["error", { ignoreIncludesComment: true }],
 		"vue/no-unused-refs": "error",
@@ -150,7 +149,7 @@ module.exports = defineConfig({
 			"error",
 			{ singleline: "ignore", multiline: "always" },
 		],
-		"vue/html-comment-indent": ["error", 2],
+		"vue/html-comment-indent": ["error", "tab"],
 		"vue/html-self-closing": [
 			"error",
 			{
@@ -180,5 +179,7 @@ module.exports = defineConfig({
 		"vue/template-curly-spacing": "off",
 		"vue/key-spacing": "off",
 		"vue/keyword-spacing": "off",
+		"vue/html-quotes": "off",
+		"vue/html-indent": "off",
 	},
 });
