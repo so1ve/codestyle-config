@@ -1,50 +1,50 @@
 {
-  "name": "@so1ve/eslint-config",
-  "version": "0.108.3",
-  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-  "description": "Ray's eslint config.",
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
-  "homepage": "https://github.com/so1ve/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/eslint-config/issues"
-  },
-  "license": "MIT",
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@eslint-community/eslint-plugin-eslint-comments": "^3.2.1",
-    "@so1ve/eslint-config-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
-    "eslint-define-config": "^1.21.0",
-    "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
-    "eslint-plugin-jsonc": "^2.9.0",
-    "eslint-plugin-n": "^16.0.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-unicorn": "^47.0.0",
-    "eslint-plugin-vue": "^9.15.1",
-    "eslint-plugin-yml": "^1.8.0",
-    "jsonc-eslint-parser": "^2.3.0",
-    "yaml-eslint-parser": "^1.2.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.43.0"
-  },
-  "peerDependencies": {
-    "eslint": ">=8.40.0",
-    "prettier": ">=2.0.0"
-  }
+	"name": "@so1ve/eslint-config",
+	"version": "0.108.3",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"description": "Ray's eslint config.",
+	"keywords": [
+		"eslint",
+		"eslint-config"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@eslint-community/eslint-plugin-eslint-comments": "^3.2.1",
+		"@so1ve/eslint-config-vue": "workspace:*",
+		"@typescript-eslint/eslint-plugin": "^5.60.1",
+		"@typescript-eslint/parser": "^5.60.1",
+		"eslint-define-config": "^1.21.0",
+		"eslint-plugin-html": "^7.1.0",
+		"eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
+		"eslint-plugin-jsonc": "^2.9.0",
+		"eslint-plugin-n": "^16.0.1",
+		"eslint-plugin-promise": "^6.1.1",
+		"eslint-plugin-unicorn": "^47.0.0",
+		"eslint-plugin-vue": "^9.15.1",
+		"eslint-plugin-yml": "^1.8.0",
+		"jsonc-eslint-parser": "^2.3.0",
+		"yaml-eslint-parser": "^1.2.2"
+	},
+	"devDependencies": {
+		"eslint": "^8.43.0"
+	},
+	"peerDependencies": {
+		"eslint": ">=8.40.0",
+		"prettier": ">=2.0.0"
+	}
 }

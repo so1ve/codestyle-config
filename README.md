@@ -30,7 +30,7 @@ pnpm add -D eslint @so1ve/eslint-config
 
 ```json
 {
-  "extends": "@so1ve"
+	"extends": "@so1ve"
 }
 ```
 
@@ -42,10 +42,10 @@ For example:
 
 ```json
 {
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  }
+	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
+	}
 }
 ```
 
@@ -55,10 +55,10 @@ Create `.vscode/settings.json`
 
 ```json
 {
-  "prettier.enable": false, // We use eslint-plugin-prettier
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+	"prettier.enable": false, // We use eslint-plugin-prettier
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
 }
 ```
 

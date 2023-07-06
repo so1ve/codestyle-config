@@ -1,50 +1,50 @@
 {
-  "name": "@so1ve/eslint-config-monorepo",
-  "private": true,
-  "packageManager": "pnpm@8.6.6",
-  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-  "description": "Monorepo for Ray's eslint config.",
-  "homepage": "https://github.com/so1ve/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/eslint-config/issues"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "pnpm run -r --filter=./packages/* build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
-    "stub": "pnpm run -r --filter=./packages/* stub",
-    "test": "pnpm run -r --filter=./packages/* test",
-    "typecheck": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@so1ve/eslint-config": "workspace:*",
-    "@so1ve/eslint-plugin": "workspace:*",
-    "@so1ve/eslint-plugin-prettier": "workspace:*",
-    "@so1ve/eslint-plugin-sort-imports": "workspace:*",
-    "@so1ve/prettier-config": "workspace:*",
-    "@types/node": "^20.3.2",
-    "bumpp": "^9.1.1",
-    "eslint": "^8.43.0",
-    "prettier": "^2.8.8",
-    "typescript": "^5.1.5",
-    "unbuild": "^1.2.1",
-    "vitest": "^0.32.2"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "typescript",
-        "svelte",
-        "eslint-plugin-import",
-        "eslint",
-        "prettier"
-      ]
-    }
-  }
+	"name": "@so1ve/eslint-config-monorepo",
+	"private": true,
+	"packageManager": "pnpm@8.6.6",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"description": "Monorepo for Ray's eslint config.",
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "pnpm run -r --filter=./packages/* build",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
+		"stub": "pnpm run -r --filter=./packages/* stub",
+		"test": "pnpm run -r --filter=./packages/* test",
+		"typecheck": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@so1ve/eslint-config": "workspace:*",
+		"@so1ve/eslint-plugin": "workspace:*",
+		"@so1ve/eslint-plugin-prettier": "workspace:*",
+		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
+		"@so1ve/prettier-config": "workspace:*",
+		"@types/node": "^20.3.2",
+		"bumpp": "^9.1.1",
+		"eslint": "^8.43.0",
+		"prettier": "^2.8.8",
+		"typescript": "^5.1.5",
+		"unbuild": "^1.2.1",
+		"vitest": "^0.32.2"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"typescript",
+				"svelte",
+				"eslint-plugin-import",
+				"eslint",
+				"prettier"
+			]
+		}
+	}
 }

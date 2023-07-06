@@ -1,37 +1,37 @@
 {
-  "name": "@so1ve/eslint-config-vue",
-  "version": "0.108.3",
-  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-  "description": "Ray's eslint config for vue.",
-  "keywords": [
-    "eslint",
-    "eslint-config",
-    "eslint-vue",
-    "vue"
-  ],
-  "homepage": "https://github.com/so1ve/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/eslint-config/issues"
-  },
-  "license": "MIT",
-  "main": "index.js",
-  "files": [
-    "eslint-plugin-vue"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@so1ve/eslint-config-ts": "workspace:*",
-    "eslint-define-config": "^1.21.0",
-    "eslint-plugin-vue": "^9.15.1"
-  },
-  "peerDependencies": {
-    "eslint": ">=8.40.0",
-    "prettier": ">=2.0.0"
-  }
+	"name": "@so1ve/eslint-config-vue",
+	"version": "0.108.3",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"description": "Ray's eslint config for vue.",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"eslint-vue",
+		"vue"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"eslint-plugin-vue"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@so1ve/eslint-config-ts": "workspace:*",
+		"eslint-define-config": "^1.21.0",
+		"eslint-plugin-vue": "^9.15.1"
+	},
+	"peerDependencies": {
+		"eslint": ">=8.40.0",
+		"prettier": ">=2.0.0"
+	}
 }
