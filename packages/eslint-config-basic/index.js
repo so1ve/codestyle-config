@@ -19,11 +19,19 @@ const makePlainOverride = (extension, parser) => ({
   },
 });
 const PLAIN_OVERRIDES = [
-  ...["sql", "sh", "css", "scss", "less", ['rs','jinx-rust']].map((langOrArray) =>
-    {const [lang,parser]=Array.isArray(langOrArray)?langOrArray:[langOrArray,langOrArray];return makePlainOverride(lang, parser)},
-  ),
-];
+  "sql",
+  "sh",
+  "css",
+  "scss",
+  "less",
+  ["rs", "jinx-rust"],
+].map((langOrArray) => {
+  const [lang, parser] = Array.isArray(langOrArray)
+    ? langOrArray
+    : [langOrArray, langOrArray];
 
+  return makePlainOverride(lang, parser);
+});
 const cwd = process.cwd();
 const hasUnoConfig =
   fs.existsSync(path.join(cwd, "uno.config.ts")) ||
