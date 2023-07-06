@@ -494,6 +494,7 @@ module.exports = defineConfig({
 
     // yml
     "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
+    "yml/indent": "off",
     "yml/no-empty-document": "off",
 
     // Unocss
