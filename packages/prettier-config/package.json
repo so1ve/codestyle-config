@@ -34,7 +34,7 @@
     "prettier-plugin-pkgsort": "^0.1.1",
     "prettier-plugin-properties": "^0.2.0",
     "prettier-plugin-rust": "^0.1.9",
-    "prettier-plugin-sh": "^0.12.8",
+    "prettier-plugin-sh": "^0.13.0",
     "prettier-plugin-sql": "^0.14.0",
     "prettier-plugin-svelte": "^2.10.1",
     "prettier-plugin-toml": "^0.3.1"
