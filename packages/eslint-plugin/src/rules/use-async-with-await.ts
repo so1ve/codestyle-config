@@ -1,4 +1,4 @@
-import type { TSESTree } from "@typescript-eslint/types";
+import { TSESTree } from "@typescript-eslint/types";
 
 import { createEslintRule } from "../utils";
 
@@ -48,10 +48,21 @@ export default createEslintRule<Options, MessageIds>({
         if (!closestFunctionNode || closestFunctionNode.async) {
           return;
         }
+        const node =
+          closestFunctionNode.type ===
+            TSESTree.AST_NODE_TYPES.FunctionExpression &&
+          closestFunctionNode.parent?.type ===
+            TSESTree.AST_NODE_TYPES.MethodDefinition
+            ? closestFunctionNode.parent
+            : closestFunctionNode;
+        const fixRange =
+          node.type === TSESTree.AST_NODE_TYPES.MethodDefinition
+            ? node.key.range
+            : node.range;
         context.report({
-          node: closestFunctionNode,
+          node,
           messageId: "useAsyncWithAwait",
-          fix: (fixer) => fixer.insertTextBefore(closestFunctionNode, "async "),
+          fix: (fixer) => fixer.insertTextBeforeRange(fixRange, "async "),
         });
       },
     };
