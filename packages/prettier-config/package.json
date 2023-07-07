@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/prettier-config",
-  "version": "0.110.3",
+  "version": "0.110.4",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "description": "Ray's prettier config.",
   "keywords": [
@@ -31,7 +31,7 @@
     "prettier-plugin-astro": "^0.10.0",
     "prettier-plugin-curly": "^0.1.1",
     "prettier-plugin-jsdoc": "^0.4.2",
-    "prettier-plugin-pkgsort": "^0.1.1",
+    "prettier-plugin-pkgsort": "^0.1.2",
     "prettier-plugin-properties": "^0.2.0",
     "prettier-plugin-rust": "^0.1.9",
     "prettier-plugin-sh": "^0.12.8",
