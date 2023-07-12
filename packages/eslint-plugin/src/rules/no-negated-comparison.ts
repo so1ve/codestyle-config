@@ -35,7 +35,8 @@ export default createEslintRule<Options, MessageIds>({
   },
   defaultOptions: [],
   create: (context) => ({
-    BinaryExpression({ parent, left, right, operator }) {
+    BinaryExpression(node) {
+      const { parent, left, right, operator } = node;
       if (!parent) {
         return;
       }
