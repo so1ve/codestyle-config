@@ -1,4 +1,4 @@
-import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
+import { RuleTester } from "@typescript-eslint/utils/ts-eslint";
 import { it } from "vitest";
 
 import rule, { RULE_NAME } from "./no-useless-template-string";

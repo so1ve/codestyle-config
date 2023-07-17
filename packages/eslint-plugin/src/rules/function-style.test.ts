@@ -1,5 +1,5 @@
-import type { InvalidTestCase } from "@typescript-eslint/utils/dist/ts-eslint";
-import { RuleTester } from "@typescript-eslint/utils/dist/ts-eslint";
+import type { InvalidTestCase } from "@typescript-eslint/utils/ts-eslint";
+import { RuleTester } from "@typescript-eslint/utils/ts-eslint";
 import { it } from "vitest";
 
 import type { MessageIds } from "./function-style";

@@ -16,7 +16,7 @@ export default createEslintRule<Options, MessageIds>({
     type: "problem",
     docs: {
       description: "Disallow import promises as.",
-      recommended: "error",
+      recommended: "stylistic",
     },
     fixable: "code",
     schema: [],

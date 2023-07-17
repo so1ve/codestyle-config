@@ -17,7 +17,7 @@ export default createEslintRule<Options, MessageIds>({
     type: "problem",
     docs: {
       description: "Enforce using async keyword with await.",
-      recommended: "error",
+      recommended: "recommended",
     },
     fixable: "code",
     schema: [],

@@ -1,8 +1,19 @@
 // @ts-check
 
-const plugins = ["astro", "svelte", "toml", "jsdoc", "curly", "pkgsort"].map(
-  (p) => `prettier-plugin-${p}`,
+const SLASH_RE = /\\/g;
+
+const plugins = [
+  "astro",
+  "svelte",
+  "toml",
+  // "jsdoc"
+  "curly",
+  "pkgsort",
+].map(
+  (p) =>
+    `file://${require.resolve(`prettier-plugin-${p}`).replace(SLASH_RE, "/")}`,
 );
+
 module.exports = {
   useTabs: false,
   quoteProps: "preserve",
@@ -16,7 +27,7 @@ module.exports = {
       },
     },
   ],
-  plugins: plugins.map((p) => require.resolve(p)),
+  plugins,
 
   // Plugin Options
   // JSDoc

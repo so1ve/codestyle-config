@@ -39,11 +39,11 @@
     "eslint-plugin-no-explicit-type-exports": "^0.12.1"
   },
   "devDependencies": {
-    "@types/node": "^20.4.2"
+    "@types/node": "^18.16.6"
   },
   "peerDependencies": {
     "eslint": ">=8.40.0",
-    "prettier": ">=2.0.0",
+    "prettier": "^3.0.0",
     "typescript": ">=3.9"
   }
 }

@@ -1,6 +1,6 @@
 import type { TSESTree } from "@typescript-eslint/types";
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
-import type { Scope } from "@typescript-eslint/utils/dist/ts-eslint";
+import type { Scope } from "@typescript-eslint/utils/ts-eslint";
 
 import { createEslintRule, getPreviousNode } from "../utils";
 
@@ -18,7 +18,7 @@ export default createEslintRule<Options, MessageIds>({
     type: "problem",
     docs: {
       description: "Enforce function style.",
-      recommended: "error",
+      recommended: "stylistic",
     },
     fixable: "code",
     schema: [],
@@ -124,7 +124,7 @@ export default createEslintRule<Options, MessageIds>({
           messageId: "declaration",
           fix: (fixer) =>
             fixer.replaceTextRange(
-              node.parent!.parent!.range,
+              node.parent.parent!.range,
               generateFunction("declaration", name, node),
             ),
         });
@@ -138,10 +138,10 @@ export default createEslintRule<Options, MessageIds>({
         if (haveThisAccess) {
           return;
         }
-        const previousNode = getPreviousNode(node.parent) as any;
+        const previousNode = getPreviousNode(node.parent);
         if (
           previousNode?.type === AST_NODE_TYPES.ExportNamedDeclaration &&
-          previousNode.declaration.type === AST_NODE_TYPES.TSDeclareFunction
+          previousNode.declaration?.type === AST_NODE_TYPES.TSDeclareFunction
         ) {
           return;
         }
