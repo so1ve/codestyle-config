@@ -3,7 +3,7 @@
 const plugins = [
   "@prettier/plugin-xml",
   ...[
-    "astro",
+    // "astro",
     "properties",
     "rust",
     "sql",
