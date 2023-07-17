@@ -24,7 +24,7 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.js"
+    "worker.js"
   ],
   "publishConfig": {
     "access": "public"
