@@ -19,12 +19,12 @@ const makePlainOverride = (extension, parser) => ({
   },
 });
 const PLAIN_OVERRIDES = [
-  "sql",
-  "sh",
+  // "sql",
+  // "sh",
   "css",
   "scss",
   "less",
-  ["rs", "jinx-rust"],
+  // ["rs", "jinx-rust"],
 ].map((langOrArray) => {
   const [lang, parser] = Array.isArray(langOrArray)
     ? langOrArray

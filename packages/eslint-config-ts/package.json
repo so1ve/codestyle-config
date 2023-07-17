@@ -30,16 +30,16 @@
   "dependencies": {
     "@so1ve/eslint-config-basic": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "eslint-define-config": "^1.21.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-etc": "^2.0.3",
-    "eslint-plugin-jest": "^27.2.2",
+    "eslint-plugin-jest": "^27.2.3",
     "eslint-plugin-no-explicit-type-exports": "^0.12.1"
   },
   "devDependencies": {
-    "@types/node": "^20.3.2"
+    "@types/node": "^20.4.2"
   },
   "peerDependencies": {
     "eslint": ">=8.40.0",

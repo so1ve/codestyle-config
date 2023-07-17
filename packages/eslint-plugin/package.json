@@ -32,11 +32,11 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.60.1",
+    "@typescript-eslint/utils": "^6.0.0",
     "@vue/reactivity": "^3.3.4"
   },
   "devDependencies": {
-    "@types/node": "^20.3.2",
-    "@typescript-eslint/types": "^5.60.1"
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/types": "^6.0.0"
   }
 }
