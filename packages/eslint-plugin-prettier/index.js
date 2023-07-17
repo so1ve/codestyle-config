@@ -145,7 +145,7 @@ const eslintPluginPrettier = {
             if (!prettierFormat) {
               // Prettier is expensive to load, so only load it if needed.
               prettierFormat = require("synckit").createSyncFn(
-                require.resolve("./worker"),
+                require.resolve("./worker.js"),
               );
             }
 
