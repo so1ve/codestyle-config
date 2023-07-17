@@ -47,7 +47,17 @@ const typescriptOverride = {
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/no-unnecessary-type-arguments": "error",
     "@typescript-eslint/non-nullable-type-assertion-style": "error",
-    "@typescript-eslint/require-array-sort-compare": "error",
+    "@typescript-eslint/require-array-sort-compare": "error","@typescript-eslint/strict-boolean-expressions": ["error",{
+      allowString: true,
+      allowNumber: true,
+      allowAny: true,
+      allowNullableObject: true,
+      allowNullableBoolean: true,
+      allowNullableString: false,
+      allowNullableNumber: false,
+      allowNullableEnum: false,
+      allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
+    }, ],
   },
 };
 
@@ -115,17 +125,6 @@ module.exports = defineConfig({
       "error",
       { assertionStyle: "as", objectLiteralTypeAssertions: "allow" },
     ],
-    "@typescript-eslint/strict-boolean-expressions": ["error",{
-      allowString: true,
-      allowNumber: true,
-      allowAny: true,
-      allowNullableObject: true,
-      allowNullableBoolean: true,
-      allowNullableString: false,
-      allowNullableNumber: false,
-      allowNullableEnum: false,
-      allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
-    }, ],
     "@typescript-eslint/prefer-ts-expect-error": "error",
     "@typescript-eslint/no-require-imports": "error",
 
