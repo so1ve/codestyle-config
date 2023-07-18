@@ -132,9 +132,6 @@ importers:
       eslint-define-config:
         specifier: ^1.21.0
         version: 1.21.0
-      eslint-parser-plain:
-        specifier: ^0.1.0
-        version: 0.1.0
       eslint-plugin-array-func:
         specifier: ^3.1.8
         version: 3.1.8(eslint@8.43.0)
@@ -2842,10 +2839,6 @@ packages:
       eslint-import-resolver-node: 0.3.7
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /eslint-parser-plain@0.1.0:
-    resolution: {integrity: sha512-oOeA6FWU0UJT/Rxc3XF5Cq0nbIZbylm7j8+plqq0CZoE6m4u32OXJrR+9iy4srGMmF6v6pmgvP1zPxSRIGh3sg==}
     dev: false
 
   /eslint-plugin-array-func@3.1.8(eslint@8.43.0):
