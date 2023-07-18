@@ -35,7 +35,6 @@
     "@so1ve/prettier-config": "workspace:*",
     "@unocss/eslint-config": "^0.53.5",
     "eslint-define-config": "^1.21.0",
-    "eslint-parser-plain": "^0.1.0",
     "eslint-plugin-array-func": "^3.1.8",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
     "eslint-plugin-jest-formatting": "^3.1.0",
