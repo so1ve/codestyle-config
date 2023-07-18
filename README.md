@@ -35,8 +35,9 @@ pnpm add -D eslint prettier @so1ve/eslint-config @so1ve/prettier-config
 ```
 
 ```js
-module.exports = require("@so1ve/prettier-config")
+module.exports = require("@so1ve/prettier-config");
 ```
+
 > You don't need `.eslintignore` normally as it has been provided by the preset.
 
 ### Add script for package.json
