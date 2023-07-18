@@ -1,7 +1,5 @@
 // @ts-check
 
-const SLASH_RE = /\\/g;
-
 const plugins = [
   "astro",
   "svelte",
@@ -9,10 +7,7 @@ const plugins = [
   // "jsdoc"
   "curly",
   "pkgsort",
-].map(
-  (p) =>
-    `file://${require.resolve(`prettier-plugin-${p}`).replace(SLASH_RE, "/")}`,
-);
+].map((p) => require.resolve(`prettier-plugin-${p}`));
 
 module.exports = {
   useTabs: false,
@@ -26,11 +21,17 @@ module.exports = {
         parser: "angular",
       },
     },
+    {
+      files: ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
+      options: {
+        trailingComma: "none",
+      },
+    },
   ],
   plugins,
 
   // Plugin Options
   // JSDoc
-  jsdocPreferCodeFences: true,
-  tsdoc: true,
+  // jsdocPreferCodeFences: true,
+  // tsdoc: true,
 };

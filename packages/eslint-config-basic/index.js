@@ -1,37 +1,8 @@
 // @ts-check
 const fs = require("node:fs");
 const path = require("node:path");
-const prettierConfig = require("@so1ve/prettier-config");
 const { defineConfig } = require("eslint-define-config");
 
-/**
- * @returns {Record<string, import("eslint-define-config/src/rules/rule-config").RuleConfig>}
- */
-const makePrettierRule = (inlineConfig) => ({
-  "@so1ve/prettier/prettier": ["error", { ...prettierConfig, ...inlineConfig }],
-});
-/** @returns {import("eslint-define-config").Override} */
-const makePlainOverride = (extension, parser) => ({
-  files: [`*.${extension}`],
-  parser: "eslint-parser-plain",
-  rules: {
-    ...makePrettierRule({ parser }),
-  },
-});
-const PLAIN_OVERRIDES = [
-  // "sql",
-  // "sh",
-  "css",
-  "scss",
-  "less",
-  // ["rs", "jinx-rust"],
-].map((langOrArray) => {
-  const [lang, parser] = Array.isArray(langOrArray)
-    ? langOrArray
-    : [langOrArray, langOrArray];
-
-  return makePlainOverride(lang, parser);
-});
 const cwd = process.cwd();
 const hasUnoConfig =
   fs.existsSync(path.join(cwd, "uno.config.ts")) ||
@@ -46,7 +17,6 @@ module.exports = defineConfig({
   reportUnusedDisableDirectives: true,
   plugins: [
     "@so1ve",
-    "@so1ve/prettier",
     "@so1ve/sort-imports",
     "@html-eslint",
     "@unocss",
@@ -125,10 +95,8 @@ module.exports = defineConfig({
         "@html-eslint/require-closing-tags": "off",
         "@html-eslint/no-extra-spacing-attrs": "off",
         "@html-eslint/quotes": "off",
-        ...makePrettierRule({ parser: "angular" }),
       },
     },
-    ...PLAIN_OVERRIDES,
     {
       files: ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
       parser: "jsonc-eslint-parser",
@@ -151,7 +119,6 @@ module.exports = defineConfig({
           "error",
           { allowMultiplePropertiesPerLine: true },
         ],
-        ...makePrettierRule({ trailingComma: "none" }),
       },
     },
     {
@@ -165,7 +132,6 @@ module.exports = defineConfig({
       files: ["*.toml"],
       parser: "toml-eslint-parser",
       rules: {
-        ...makePrettierRule({ parser: "toml" }),
         "toml/padding-line-between-pairs": "off",
         "spaced-comment": "off",
       },
@@ -189,7 +155,6 @@ module.exports = defineConfig({
             order: ["types", "require", "import"],
           },
         ],
-        ...makePrettierRule(),
       },
     },
     {
@@ -520,7 +485,5 @@ module.exports = defineConfig({
     "@so1ve/pad-after-last-import": "error",
     "@so1ve/function-style": "error",
     "@so1ve/use-async-with-await": "error",
-
-    ...makePrettierRule(),
   },
 });

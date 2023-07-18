@@ -14,9 +14,6 @@ importers:
       '@so1ve/eslint-plugin':
         specifier: workspace:*
         version: link:packages/eslint-plugin
-      '@so1ve/eslint-plugin-prettier':
-        specifier: workspace:*
-        version: link:packages/eslint-plugin-prettier
       '@so1ve/eslint-plugin-sort-imports':
         specifier: workspace:*
         version: link:packages/eslint-plugin-sort-imports
@@ -120,9 +117,6 @@ importers:
       '@so1ve/eslint-plugin':
         specifier: workspace:*
         version: link:../eslint-plugin
-      '@so1ve/eslint-plugin-prettier':
-        specifier: workspace:*
-        version: link:../eslint-plugin-prettier
       '@so1ve/eslint-plugin-sort-imports':
         specifier: workspace:^
         version: link:../eslint-plugin-sort-imports

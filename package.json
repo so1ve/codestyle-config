@@ -15,8 +15,8 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm run -r --filter=./packages/* build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . && prettier . --check",
+    "lint:fix": "eslint . --fix && prettier . --write",
     "release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
     "stub": "pnpm run -r --filter=./packages/* stub",
     "test": "pnpm run -r --filter=./packages/* test",
@@ -25,7 +25,6 @@
   "devDependencies": {
     "@so1ve/eslint-config": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@so1ve/eslint-plugin-prettier": "workspace:*",
     "@so1ve/eslint-plugin-sort-imports": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
     "@types/node": "^18.16.6",
