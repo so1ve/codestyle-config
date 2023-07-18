@@ -101,6 +101,8 @@ module.exports = defineConfig({
       parser: "jsonc-eslint-parser",
       rules: {
         "jsonc/no-octal-escape": "error",
+        "jsonc/quotes": "off",
+        "jsonc/quotes-props": "off",
       },
     },
     {
