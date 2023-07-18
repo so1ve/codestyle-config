@@ -23,10 +23,10 @@ Strongly opinionated to satisfy the author([@so1ve](https://github.com/so1ve))'s
 ### Install
 
 ```bash
-pnpm add -D eslint @so1ve/eslint-config
+pnpm add -D eslint prettier @so1ve/eslint-config @so1ve/prettier-config
 ```
 
-### Config `.eslintrc`
+### Config `.eslintrc` and `.prettierrc.cjs`
 
 ```json
 {
@@ -34,6 +34,9 @@ pnpm add -D eslint @so1ve/eslint-config
 }
 ```
 
+```js
+module.exports = require("@so1ve/prettier-config")
+```
 > You don't need `.eslintignore` normally as it has been provided by the preset.
 
 ### Add script for package.json
@@ -43,8 +46,8 @@ For example:
 ```json
 {
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . && prettier . --check",
+    "lint:fix": "eslint . -- fix && prettier . --write"
   }
 }
 ```
@@ -55,6 +58,8 @@ Create `.vscode/settings.json`
 
 ```json
 {
+  "editor.defaultFormatter": "esbenp.vscode-prettier",
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
