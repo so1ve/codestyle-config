@@ -89,7 +89,6 @@ module.exports = defineConfig({
       parser: "@html-eslint/parser",
       extends: ["plugin:@html-eslint/recommended"],
       rules: {
-        "@html-eslint/no-multiple-empty-lines": ["error", { max: 1 }],
         "@html-eslint/indent": "off",
         "@html-eslint/no-trailing-spaces": "off",
         "@html-eslint/require-closing-tags": "off",
@@ -209,7 +208,6 @@ module.exports = defineConfig({
         "no-undef": "off",
         "no-unused-expressions": "off",
         "no-unused-vars": "off",
-        "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }],
       },
     },
   ],
