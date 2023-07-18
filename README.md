@@ -1,4 +1,4 @@
-# @so1ve/eslint-config
+# @so1ve/eslint-config and @so1ve/prettier-config
 
 [![npm](https://img.shields.io/npm/v/@so1ve/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@so1ve/eslint-config)
 
@@ -55,7 +55,6 @@ Create `.vscode/settings.json`
 
 ```json
 {
-  "prettier.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
