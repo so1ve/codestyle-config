@@ -100,24 +100,7 @@ module.exports = defineConfig({
       files: ["*.json", "*.json5", "*.jsonc", ".eslintrc"],
       parser: "jsonc-eslint-parser",
       rules: {
-        "jsonc/quotes": ["error", "double"],
-        "jsonc/quote-props": ["error", "always"],
-        "jsonc/array-bracket-spacing": ["error", "never"],
-        "jsonc/comma-dangle": ["error", "never"],
-        "jsonc/comma-style": ["error", "last"],
-        "jsonc/key-spacing": [
-          "error",
-          { beforeColon: false, afterColon: true },
-        ],
         "jsonc/no-octal-escape": "error",
-        "jsonc/object-curly-newline": [
-          "error",
-          { multiline: true, consistent: true },
-        ],
-        "jsonc/object-property-newline": [
-          "error",
-          { allowMultiplePropertiesPerLine: true },
-        ],
       },
     },
     {
