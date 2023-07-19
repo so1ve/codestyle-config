@@ -37,6 +37,7 @@ module.exports = defineConfig({
     "plugin:vitest/recommended",
     "plugin:eslint-plugin-jest-formatting/strict",
     "plugin:regexp/recommended",
+    "plugin:case-police/recommended",
     "plugin:toml/standard",
     "plugin:array-func/all",
   ],
