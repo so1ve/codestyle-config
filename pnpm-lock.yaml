@@ -135,6 +135,9 @@ importers:
       eslint-plugin-array-func:
         specifier: ^3.1.8
         version: 3.1.8(eslint@8.43.0)
+      eslint-plugin-case-police:
+        specifier: ^0.6.1
+        version: 0.6.1(eslint@8.43.0)(typescript@5.1.6)
       eslint-plugin-import:
         specifier: npm:eslint-plugin-i@2.27.5-4
         version: /eslint-plugin-i@2.27.5-4(eslint@8.43.0)
@@ -2171,6 +2174,11 @@ packages:
     resolution: {integrity: sha512-Wmec9pCBY8CWbmI4HsjBeQLqDTqV91nFVR83DnZpYyRnPI1wePDsTg0bGLPC5VU/3OIZV1fmxEea1b+tFKe86g==}
     dev: true
 
+  /case-police@0.6.1:
+    resolution: {integrity: sha512-tOgkG3HhtzNVHU+HVHqbpVJ3CICPDihtlgoM2C4dx0RLeo6qcNVeBgiYJN5Bln+stxKrnKrw89CFgqYQDqwZQg==}
+    hasBin: true
+    dev: false
+
   /chai@4.3.7:
     resolution: {integrity: sha512-HLnAzZ2iupm25PlN0xFreAlBA5zaBSv3og0DdeGA4Ar6h6rJ3A0rolRUKJhSF2V10GZKDgWF/VmAEsNWjCRB+A==}
     engines: {node: '>=4'}
@@ -2851,6 +2859,18 @@ packages:
         optional: true
     dependencies:
       eslint: 8.43.0
+    dev: false
+
+  /eslint-plugin-case-police@0.6.1(eslint@8.43.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-SNyZBjc39CwoNSOl3aiu5EsuHYXOIaPDraMsgLQmcH8CbEhllyOMkmV9kuSNHjjtM8iYRHsiBs1WEFw3/9qkoQ==}
+    dependencies:
+      '@typescript-eslint/utils': 5.62.0(eslint@8.43.0)(typescript@5.1.6)
+      case-police: 0.6.1
+      synckit: 0.8.5
+    transitivePeerDependencies:
+      - eslint
+      - supports-color
+      - typescript
     dev: false
 
   /eslint-plugin-es-x@7.1.0(eslint@8.43.0):

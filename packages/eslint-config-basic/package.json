@@ -36,6 +36,7 @@
     "@unocss/eslint-config": "^0.53.5",
     "eslint-define-config": "^1.21.0",
     "eslint-plugin-array-func": "^3.1.8",
+    "eslint-plugin-case-police": "^0.6.1",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
     "eslint-plugin-jest-formatting": "^3.1.0",
     "eslint-plugin-jsdoc": "^46.4.4",
