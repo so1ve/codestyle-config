@@ -352,8 +352,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1(prettier@3.0.0)
       prettier-plugin-jsdoc:
-        specifier: ^0.4.2
-        version: 0.4.2(prettier@3.0.0)
+        specifier: ^1.0.1
+        version: 1.0.1(prettier@3.0.0)
       prettier-plugin-pkgsort:
         specifier: ^0.2.0
         version: 0.2.0(prettier@3.0.0)
@@ -5210,11 +5210,11 @@ packages:
       - supports-color
     dev: false
 
-  /prettier-plugin-jsdoc@0.4.2(prettier@3.0.0):
-    resolution: {integrity: sha512-w2jnAQm3z0GAG0bhzVJeehzDtrhGMSxJjit5ApCc2oxWfc7+jmLAkbtdOXaSpfwZz3IWkk+PiQPeRrLNpbM+Mw==}
-    engines: {node: '>=12.0.0'}
+  /prettier-plugin-jsdoc@1.0.1(prettier@3.0.0):
+    resolution: {integrity: sha512-07q74MfX9m+xHK2+Lr4c+igiEzAKVDWhqkvlm65WoYJUlRiaV6STXcEtcZMhrPPYgNeQRgb9FJmgE/n+OI4MpQ==}
+    engines: {node: '>=14.13.1 || >=16.0.0'}
     peerDependencies:
-      prettier: '>=2.1.2'
+      prettier: ^3.0.0
     peerDependenciesMeta:
       prettier:
         optional: true

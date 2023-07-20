@@ -1,13 +1,8 @@
 // @ts-check
 
-const plugins = [
-  "astro",
-  "svelte",
-  "toml",
-  // "jsdoc"
-  "curly",
-  "pkgsort",
-].map((p) => require.resolve(`prettier-plugin-${p}`));
+const plugins = ["astro", "svelte", "toml", "jsdoc", "curly", "pkgsort"].map(
+  (p) => require.resolve(`prettier-plugin-${p}`),
+);
 
 module.exports = {
   useTabs: false,
@@ -32,6 +27,6 @@ module.exports = {
 
   // Plugin Options
   // JSDoc
-  // jsdocPreferCodeFences: true,
-  // tsdoc: true,
+  jsdocPreferCodeFences: true,
+  tsdoc: true,
 };
