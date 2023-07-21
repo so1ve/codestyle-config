@@ -31,6 +31,7 @@
     "bumpp": "^9.1.1",
     "eslint": "8.45.0",
     "execa": "^7.1.1",
+    "pkgroll": "^1.10.0",
     "prettier": "^3.0.0",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",

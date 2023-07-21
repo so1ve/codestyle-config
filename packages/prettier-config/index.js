@@ -1,6 +1,6 @@
 // @ts-check
 
-const plugins = ["astro", "svelte", "toml", "jsdoc", "curly", "pkgsort"].map(
+const plugins = ["astro", "svelte", "toml", "curly-and-jsdoc", "pkgsort"].map(
   (p) => require.resolve(`prettier-plugin-${p}`),
 );
 
