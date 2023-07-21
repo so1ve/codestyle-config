@@ -30,8 +30,8 @@ jobs:
       - name: Install
         run: nci
 
-      - name: Stub ESLint Plugin
-        run: nr stub
+      - name: Build
+        run: nr build
 
       - name: Lint
         run: nr lint
