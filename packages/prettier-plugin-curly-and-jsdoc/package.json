@@ -24,7 +24,8 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "build": "pkgroll"
+    "build": "pkgroll",
+    "test": "vitest"
   },
   "devDependencies": {
     "prettier-plugin-curly": "^0.1.2",
