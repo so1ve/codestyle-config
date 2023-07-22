@@ -35,7 +35,7 @@ module.exports = defineConfig({
     "react/jsx-space-before-closing": "off",
     "react/jsx-tag-spacing": "off",
     "react/jsx-wrap-multilines": "off",
-    "jsx-quotes": ["error", "prefer-double"],
+    "jsx-quotes": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-no-comment-textnodes": ["error"],
