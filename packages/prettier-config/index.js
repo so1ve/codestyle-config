@@ -9,7 +9,7 @@ const plugins = [
 ].map((p) => require.resolve(`prettier-plugin-${p}`));
 
 module.exports = {
-  useTabs: false,
+  useTabs: true,
   quoteProps: "preserve",
   trailingComma: "all",
   htmlWhitespaceSensitivity: "ignore",
