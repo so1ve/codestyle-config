@@ -41,6 +41,10 @@ const valid = [
   return
 }`,
 	"const a = () => { const b = () => { return this; }; return this; };",
+	`function a() {
+	// foo
+	return 1
+}`,
 ];
 
 const invalid: InvalidTestCase<MessageIds, []>[] = [

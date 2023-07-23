@@ -44,7 +44,8 @@ export default createEslintRule<Options, MessageIds>({
 			const { body } = node;
 			if (body.type === AST_NODE_TYPES.BlockStatement) {
 				const { body: blockBody } = body;
-				if (blockBody.length === 1) {
+				const comments = sourceCode.getCommentsInside(node);
+				if (blockBody.length === 1 && comments.length === 0) {
 					const [statement] = blockBody;
 					if (statement?.type === AST_NODE_TYPES.ReturnStatement) {
 						return statement;
