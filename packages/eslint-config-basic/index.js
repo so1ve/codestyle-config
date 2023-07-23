@@ -32,13 +32,14 @@ module.exports = defineConfig({
 		"plugin:import/recommended",
 		"plugin:@eslint-community/eslint-comments/recommended",
 		"plugin:jsonc/recommended-with-jsonc",
-		"plugin:yml/standard",
+		"plugin:yml/prettier",
+		"plugin:yml/recommended",
 		"plugin:markdown/recommended",
 		"plugin:vitest/recommended",
 		"plugin:eslint-plugin-jest-formatting/strict",
 		"plugin:regexp/recommended",
 		"plugin:case-police/recommended",
-		"plugin:toml/standard",
+		"plugin:toml/recommended",
 		"plugin:array-func/all",
 	],
 	ignorePatterns: [
@@ -117,7 +118,6 @@ module.exports = defineConfig({
 			files: ["*.toml"],
 			parser: "toml-eslint-parser",
 			rules: {
-				"toml/padding-line-between-pairs": "off",
 				"spaced-comment": "off",
 			},
 		},
@@ -452,8 +452,6 @@ module.exports = defineConfig({
 		"n/no-callback-literal": "off",
 
 		// yml
-		"yml/quotes": "off",
-		"yml/indent": "off",
 		"yml/no-empty-document": "off",
 
 		// Unocss
