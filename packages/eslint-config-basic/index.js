@@ -452,7 +452,7 @@ module.exports = defineConfig({
 		"n/no-callback-literal": "off",
 
 		// yml
-		"yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
+		"yml/quotes": "off",
 		"yml/indent": "off",
 		"yml/no-empty-document": "off",
 
