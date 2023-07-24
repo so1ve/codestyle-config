@@ -173,5 +173,6 @@ module.exports = defineConfig({
 		"vue/keyword-spacing": "off",
 		"vue/html-quotes": "off",
 		"vue/html-indent": "off",
+		"vue/no-multi-spaces": "off",
 	},
 });
