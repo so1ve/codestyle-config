@@ -344,6 +344,58 @@ module.exports = defineConfig({
 			"LabeledStatement",
 			"WithStatement",
 		],
+		"no-restricted-globals": [
+			"error",
+			{ name: "global", message: "Use `globalThis` instead." },
+			{ name: "self", message: "Use `globalThis` instead." },
+			{ name: "isNaN", message: "Use `Number.isNaN` instead" },
+			{ name: "isFinite", message: "Use `Number.isFinite` instead" },
+			{ name: "parseFloat", message: "Use `Number.parseFloat` instead" },
+			{ name: "parseInt", message: "Use `Number.parseInt` instead" },
+		],
+		"no-restricted-properties": [
+			"error",
+			{
+				object: "globalThis",
+				property: "isNaN",
+				message: "Use `Number.isNaN` instead",
+			},
+			{
+				object: "globalThis",
+				property: "isFinite",
+				message: "Use `Number.isFinite` instead",
+			},
+			{
+				object: "globalThis",
+				property: "parseFloat",
+				message: "Use `Number.parseFloat` instead",
+			},
+			{
+				object: "globalThis",
+				property: "parseInt",
+				message: "Use `Number.parseInt` instead",
+			},
+			{
+				object: "window",
+				property: "isNaN",
+				message: "Use `Number.isNaN` instead",
+			},
+			{
+				object: "window",
+				property: "isFinite",
+				message: "Use `Number.isFinite` instead",
+			},
+			{
+				object: "window",
+				property: "parseFloat",
+				message: "Use `Number.parseFloat` instead",
+			},
+			{
+				object: "window",
+				property: "parseInt",
+				message: "Use `Number.parseInt` instead",
+			},
+		],
 		"no-return-await": "off",
 
 		// es6
@@ -414,6 +466,7 @@ module.exports = defineConfig({
 		"unicorn/escape-case": "error",
 		"unicorn/no-instanceof-array": "error",
 		"unicorn/no-new-buffer": "error",
+		"unicorn/no-new-array": "error",
 		"unicorn/no-unsafe-regex": "off",
 		"unicorn/number-literal-case": "error",
 		"unicorn/numeric-separators-style": "error",
