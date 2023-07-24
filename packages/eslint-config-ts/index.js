@@ -104,6 +104,45 @@ module.exports = defineConfig({
 				minimumDescriptionLength: 0,
 			},
 		],
+		"@typescript-eslint/ban-types": [
+			"error",
+			{
+				extendDefaults: false,
+				types: {
+					String: {
+						message: "Use `string` instead.",
+						fixWith: "string",
+					},
+					Number: {
+						message: "Use `number` instead.",
+						fixWith: "number",
+					},
+					Boolean: {
+						message: "Use `boolean` instead.",
+						fixWith: "boolean",
+					},
+					Symbol: {
+						message: "Use `symbol` instead.",
+						fixWith: "symbol",
+					},
+					BigInt: {
+						message: "Use `bigint` instead.",
+						fixWith: "bigint",
+					},
+					Object: {
+						message:
+							"The `Object` type is mostly the same as `unknown`. You probably want `Record<string, unknown>` instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848",
+						fixWith: "Record<string, unknown>",
+					},
+					object: {
+						message:
+							"The `object` type is hard to use. Use `Record<string, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848",
+						fixWith: "Record<string, unknown>",
+					},
+					Function: "Use a specific function type instead, like `() => void`.",
+				},
+			},
+		],
 		"@typescript-eslint/consistent-type-imports": [
 			"error",
 			{ prefer: "type-imports", disallowTypeAnnotations: false },
@@ -159,7 +198,6 @@ module.exports = defineConfig({
 		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/no-non-null-assertion": "off",
 		"@typescript-eslint/explicit-module-boundary-types": "off",
-		"@typescript-eslint/ban-types": "off",
 		"@typescript-eslint/triple-slash-reference": "off",
 		"@typescript-eslint/prefer-for-of": "error",
 		"@typescript-eslint/no-duplicate-enum-values": "error",
