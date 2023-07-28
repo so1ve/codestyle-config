@@ -29,7 +29,7 @@
 		"@so1ve/prettier-config": "workspace:*",
 		"@types/node": "^18.16.6",
 		"bumpp": "^9.1.1",
-		"eslint": "8.45.0",
+		"eslint": "8.46.0",
 		"execa": "^7.1.1",
 		"pkgroll": "^1.10.0",
 		"prettier": "^3.0.0",
