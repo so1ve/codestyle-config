@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-only-error",
-	"version": "0.116.1",
+	"version": "0.117.0",
 	"author": "Bob Fanger",
 	"contributors": [
 		"Ray <i@mk1.io> (https://github.com/so1ve)"
