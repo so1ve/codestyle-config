@@ -133,10 +133,6 @@ module.exports = defineConfig({
 						order: { type: "asc" },
 					},
 					{
-						pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
-						order: { type: "asc" },
-					},
-					{
 						pathPattern: "^exports.*$",
 						order: ["types", "require", "import"],
 					},
