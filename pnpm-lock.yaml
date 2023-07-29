@@ -29,6 +29,9 @@ importers:
       eslint:
         specifier: 8.46.0
         version: 8.46.0
+      eslint-plugin-only-error:
+        specifier: workspace:*
+        version: link:packages/eslint-plugin-only-error
       execa:
         specifier: ^7.1.1
         version: 7.1.1
@@ -121,7 +124,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-plugin
       '@so1ve/eslint-plugin-sort-imports':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../eslint-plugin-sort-imports
       '@so1ve/prettier-config':
         specifier: workspace:*
@@ -165,6 +168,9 @@ importers:
       eslint-plugin-no-only-tests:
         specifier: ^3.1.0
         version: 3.1.0
+      eslint-plugin-only-error:
+        specifier: workspace:*
+        version: link:../eslint-plugin-only-error
       eslint-plugin-promise:
         specifier: ^6.1.1
         version: 6.1.1(eslint@8.45.0)
@@ -330,6 +336,12 @@ importers:
       '@typescript-eslint/utils':
         specifier: ^6.0.0
         version: 6.0.0(eslint@8.46.0)(typescript@5.1.6)
+
+  packages/eslint-plugin-only-error:
+    dependencies:
+      eslint:
+        specifier: '>=8.40.0'
+        version: 8.45.0
 
   packages/eslint-plugin-sort-imports:
     dependencies:

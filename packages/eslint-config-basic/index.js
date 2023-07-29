@@ -25,6 +25,7 @@ module.exports = defineConfig({
 		"json-schema-validator",
 		"unicorn",
 		"unused-imports",
+		"only-error",
 		"no-only-tests",
 	],
 	extends: [

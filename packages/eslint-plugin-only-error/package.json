@@ -1,0 +1,33 @@
+{
+	"name": "eslint-plugin-only-error",
+	"version": "0.116.1",
+	"author": "Bob Fanger",
+	"contributors": [
+		"Ray <i@mk1.io> (https://github.com/so1ve)"
+	],
+	"description": "Upgrade all warnings to errors",
+	"keywords": [
+		"eslint",
+		"eslint-plugin",
+		"eslintplugin"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "src/index.js",
+	"files": [
+		"src"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"eslint": ">=8.40.0"
+	}
+}
