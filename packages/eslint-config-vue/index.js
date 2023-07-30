@@ -174,5 +174,6 @@ module.exports = defineConfig({
 		"vue/html-quotes": "off",
 		"vue/html-indent": "off",
 		"vue/no-multi-spaces": "off",
+		"vue/max-attributes-per-line": "off",
 	},
 });
