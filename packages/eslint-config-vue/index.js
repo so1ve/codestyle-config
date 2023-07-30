@@ -175,5 +175,6 @@ module.exports = defineConfig({
 		"vue/html-indent": "off",
 		"vue/no-multi-spaces": "off",
 		"vue/max-attributes-per-line": "off",
+		"vue/html-closing-bracket-spacing": "off",
 	},
 });
