@@ -345,6 +345,9 @@ importers:
 
   packages/prettier-config:
     dependencies:
+      '@so1ve/prettier-plugin-toml':
+        specifier: workspace:*
+        version: link:../prettier-plugin-toml
       prettier:
         specifier: ^3.0.0
         version: 3.0.0
@@ -357,9 +360,6 @@ importers:
       prettier-plugin-pkgsort:
         specifier: ^0.2.0
         version: 0.2.0(prettier@3.0.0)
-      prettier-plugin-toml:
-        specifier: ^0.3.1
-        version: 0.3.1
 
   packages/prettier-plugin-curly-and-jsdoc:
     dependencies:
@@ -373,6 +373,16 @@ importers:
       prettier-plugin-jsdoc:
         specifier: ^1.0.1
         version: 1.0.1(prettier@3.0.0)
+
+  packages/prettier-plugin-toml:
+    dependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.0.0
+    devDependencies:
+      prettier-plugin-toml:
+        specifier: ^1.0.0
+        version: 1.0.0(prettier@3.0.0)
 
 packages:
 
@@ -589,6 +599,33 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@chevrotain/cst-dts-gen@11.0.1:
+    resolution: {integrity: sha512-WFnTsSc+scDotTzyy8iVV88+zovLzLtQUPnuSnv1x/p+IHkUGpINTcF+HNMPcvJL1cGk8Hb3cQnYx0sobltkFw==}
+    dependencies:
+      '@chevrotain/gast': 11.0.1
+      '@chevrotain/types': 11.0.1
+      lodash-es: 4.17.21
+    dev: true
+
+  /@chevrotain/gast@11.0.1:
+    resolution: {integrity: sha512-Q/LZgSdQvmZSAFT/zSRhsvwmmBU9zhKqW+2S65x8v3zNb4nFCzrNK/vCbU4HpbsM4fmBZkJZ/1FQYV+S9DcOeg==}
+    dependencies:
+      '@chevrotain/types': 11.0.1
+      lodash-es: 4.17.21
+    dev: true
+
+  /@chevrotain/regexp-to-ast@11.0.1:
+    resolution: {integrity: sha512-pA4aqqESsmsUr2kJUSUFUoOcVp5ltivHaib1mVtIJ7kPDSJ44JLQ8wXJdBV1/iAhLUaoqgy30ybQR6yAXHRt0A==}
+    dev: true
+
+  /@chevrotain/types@11.0.1:
+    resolution: {integrity: sha512-0s7LD/dcZThnm/SbG/Ts4KGEJzMhta51cTVUHck737TIzpRZXyQDYOgs16MlwqOnzNGtp1IDU/yX616LmUTLtw==}
+    dev: true
+
+  /@chevrotain/utils@11.0.1:
+    resolution: {integrity: sha512-abc+noz6Sd/ZzTiivdMKN18SKORsPtNRq5o+OZt8KOSqDBTJIrwV907KxsfmB+4AX+VZ3Hk2R/QpEJUb7SEi8A==}
     dev: true
 
   /@es-joy/jsdoccomment@0.39.4:
@@ -1365,18 +1402,18 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  /@toml-tools/lexer@0.3.1:
-    resolution: {integrity: sha512-CCKHQb5OWpgFu47MQ2rcql4AnE9GaehNk/c1oJOyOBovED6XmdzQPXsvPSu+NJ9lToqJNoX+nLXQsB8WyQGdzQ==}
+  /@toml-tools/lexer@1.0.0:
+    resolution: {integrity: sha512-rVoOC9FibF2CICwCBWQnYcjAEOmLCJExer178K2AsY0Nk9FjJNVoVJuR5UAtuq42BZOajvH+ainf6Gj2GpCnXQ==}
     dependencies:
-      chevrotain: 4.1.1
-    dev: false
+      chevrotain: 11.0.1
+    dev: true
 
-  /@toml-tools/parser@0.3.1:
-    resolution: {integrity: sha512-vadwVx5TkgByt19dbp/rfIUKPkDdn5werANYvziiGK9wHlqPA0BWnvOloQw/dPDxF31+Ag0+zarXJpPDdRsPPg==}
+  /@toml-tools/parser@1.0.0:
+    resolution: {integrity: sha512-j8cd3A3ccLHppGoWI69urbiVJslrpwI6sZ61ySDUPxM/FTkQWRx/JkkF8aipnl0Ds0feWXyjyvmWzn70mIohYg==}
     dependencies:
-      '@toml-tools/lexer': 0.3.1
-      chevrotain: 4.1.1
-    dev: false
+      '@toml-tools/lexer': 1.0.0
+      chevrotain: 11.0.1
+    dev: true
 
   /@types/chai-subset@1.3.3:
     resolution: {integrity: sha512-frBecisrNGz+F4T6bcc+NLeolfiojh5FxW2klu669+8BARtyQv2C/GkNW6FUodVe4BroGMP/wER/YDGc7rEllw==}
@@ -2123,11 +2160,16 @@ packages:
   /check-error@1.0.2:
     resolution: {integrity: sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==}
 
-  /chevrotain@4.1.1:
-    resolution: {integrity: sha512-NQky1HQyiAzxsxpq4Ppt47SYO2U3JLtmfs85QPf3kYSzGBjjp5AA8kqjH8hCjGFRpaQ781QOk1ragQIOkBgUTA==}
+  /chevrotain@11.0.1:
+    resolution: {integrity: sha512-aK0xr6GdoX6tSaACNIajrppj0iraJKXadQ97EiY+g46aheUwBDrBLF6AJYqtRbQO9S+DHcaSst4Xpcl+lqyeDg==}
     dependencies:
-      regexp-to-ast: 0.3.5
-    dev: false
+      '@chevrotain/cst-dts-gen': 11.0.1
+      '@chevrotain/gast': 11.0.1
+      '@chevrotain/regexp-to-ast': 11.0.1
+      '@chevrotain/types': 11.0.1
+      '@chevrotain/utils': 11.0.1
+      lodash-es: 4.17.21
+    dev: true
 
   /chokidar@3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
@@ -4023,6 +4065,10 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: true
+
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
@@ -4808,18 +4854,18 @@ packages:
       synckit: 0.8.5
     dev: false
 
-  /prettier-plugin-toml@0.3.1:
-    resolution: {integrity: sha512-j47DEO/dN/acU1nSL/B7q4A4Z2SYJhpWPCLPkcmfAXIQC6A5GD6Ao/bi9HRHZ8ueIDOauqjuAQbnvRxLXMjazA==}
+  /prettier-plugin-toml@1.0.0(prettier@3.0.0):
+    resolution: {integrity: sha512-YMn4Fqy/ANHommZh61s5qqtpfcgPB00Ty890bFPr73B0HAy77zgyH89SvAK+NyPPx3AdM56a4Yo66LH9GPnuZw==}
+    peerDependencies:
+      prettier: ^3.0.0
+    peerDependenciesMeta:
+      prettier:
+        optional: true
     dependencies:
-      '@toml-tools/parser': 0.3.1
-      prettier: 1.19.1
-    dev: false
-
-  /prettier@1.19.1:
-    resolution: {integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==}
-    engines: {node: '>=4'}
-    hasBin: true
-    dev: false
+      '@toml-tools/lexer': 1.0.0
+      '@toml-tools/parser': 1.0.0
+      prettier: 3.0.0
+    dev: true
 
   /prettier@3.0.0:
     resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
@@ -4923,10 +4969,6 @@ packages:
     dependencies:
       '@eslint-community/regexpp': 4.6.2
       refa: 0.11.0
-    dev: false
-
-  /regexp-to-ast@0.3.5:
-    resolution: {integrity: sha512-1CJygtdvsfNFwiyjaMLBWtg2tfEqx/jSZ8S6TV+GlNL8kiH8rb4cm5Pb7A/C2BpyM/fA8ZJEudlCwi/jvAY+Ow==}
     dev: false
 
   /regexp-tree@0.1.27:

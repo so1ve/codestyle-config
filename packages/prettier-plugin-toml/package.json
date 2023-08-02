@@ -1,0 +1,35 @@
+{
+	"name": "@so1ve/prettier-plugin-toml",
+	"version": "0.117.4",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve)",
+	"contributors": [
+		"Ray <i@mk1.io> (https://github.com/so1ve)"
+	],
+	"description": "CJS version of prettier-plugin-toml.",
+	"keywords": [
+		"prettier",
+		"prettier-plugin",
+		"prettierplugin",
+		"toml"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "pkgroll",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"prettier-plugin-toml": "^1.0.0"
+	},
+	"peerDependencies": {
+		"prettier": "^3.0.0"
+	}
+}

@@ -1,8 +1,11 @@
 // @ts-check
 
-const plugins = ["astro", "toml", "curly-and-jsdoc", "pkgsort"].map((p) =>
-	require.resolve(`prettier-plugin-${p}`),
-);
+const plugins = [
+	...["astro", "curly-and-jsdoc", "pkgsort"].map((p) =>
+		require.resolve(`prettier-plugin-${p}`),
+	),
+	require.resolve("@so1ve/prettier-plugin-toml"),
+];
 
 module.exports = {
 	useTabs: true,
