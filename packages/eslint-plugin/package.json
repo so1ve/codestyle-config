@@ -1,39 +1,39 @@
 {
-  "name": "@so1ve/eslint-plugin",
-  "version": "0.117.4",
-  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-  "keywords": [
-    "eslint",
-    "eslint-config",
-    "eslint-plugin"
-  ],
-  "homepage": "https://github.com/so1ve/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/eslint-config/issues"
-  },
-  "license": "MIT",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsx scripts/build.ts",
-    "build:real": "unbuild",
-    "prepublishOnly": "nr build",
-    "stub": "unbuild --stub",
-    "test": "vitest"
-  },
-  "dependencies": {
-    "@typescript-eslint/types": "^6.2.0",
-    "@typescript-eslint/utils": "^6.2.0"
-  }
+	"name": "@so1ve/eslint-plugin",
+	"version": "0.117.4",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"eslint-plugin"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsx scripts/build.ts",
+		"build:real": "unbuild",
+		"prepublishOnly": "nr build",
+		"stub": "unbuild --stub",
+		"test": "vitest"
+	},
+	"dependencies": {
+		"@typescript-eslint/types": "^6.2.0",
+		"@typescript-eslint/utils": "^6.2.0"
+	}
 }

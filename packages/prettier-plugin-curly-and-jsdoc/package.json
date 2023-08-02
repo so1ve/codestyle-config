@@ -1,37 +1,37 @@
 {
-  "name": "prettier-plugin-curly-and-jsdoc",
-  "version": "0.117.4",
-  "author": "Ray <i@mk1.io> (https://github.com/so1ve)",
-  "contributors": [
-    "Ray <i@mk1.io> (https://github.com/so1ve)"
-  ],
-  "description": "Make prettier-plugin-curly and prttier-plugin-jsdoc work together.",
-  "keywords": [
-    "curly",
-    "jsdoc",
-    "prettier",
-    "prettier-plugin",
-    "prettierplugin"
-  ],
-  "homepage": "https://github.com/so1ve/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/eslint-config/issues"
-  },
-  "license": "MIT",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "pkgroll",
-    "test": "vitest"
-  },
-  "devDependencies": {
-    "prettier-plugin-curly": "^0.1.2",
-    "prettier-plugin-jsdoc": "^1.0.1"
-  },
-  "peerDependencies": {
-    "prettier": "^3.0.0"
-  }
+	"name": "prettier-plugin-curly-and-jsdoc",
+	"version": "0.117.4",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve)",
+	"contributors": [
+		"Ray <i@mk1.io> (https://github.com/so1ve)"
+	],
+	"description": "Make prettier-plugin-curly and prttier-plugin-jsdoc work together.",
+	"keywords": [
+		"curly",
+		"jsdoc",
+		"prettier",
+		"prettier-plugin",
+		"prettierplugin"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "pkgroll",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"prettier-plugin-curly": "^0.1.2",
+		"prettier-plugin-jsdoc": "^1.0.1"
+	},
+	"peerDependencies": {
+		"prettier": "^3.0.0"
+	}
 }

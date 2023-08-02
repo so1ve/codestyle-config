@@ -1,38 +1,38 @@
 {
-  "name": "@so1ve/prettier-config",
-  "version": "0.117.4",
-  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-  "description": "Ray's prettier config.",
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
-  "homepage": "https://github.com/so1ve/eslint-config#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/eslint-config.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/eslint-config/issues"
-  },
-  "license": "MIT",
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "lint": "eslint . --config=index.js"
-  },
-  "dependencies": {
-    "prettier-plugin-astro": "^0.11.0",
-    "prettier-plugin-curly-and-jsdoc": "workspace:*",
-    "prettier-plugin-pkgsort": "^0.2.0",
-    "prettier-plugin-toml": "^0.3.1"
-  },
-  "peerDependencies": {
-    "prettier": "^3.0.0"
-  }
+	"name": "@so1ve/prettier-config",
+	"version": "0.117.4",
+	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"description": "Ray's prettier config.",
+	"keywords": [
+		"eslint",
+		"eslint-config"
+	],
+	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/eslint-config.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/eslint-config/issues"
+	},
+	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"lint": "eslint . --config=index.js"
+	},
+	"dependencies": {
+		"prettier-plugin-astro": "^0.11.0",
+		"prettier-plugin-curly-and-jsdoc": "workspace:*",
+		"prettier-plugin-pkgsort": "^0.2.0",
+		"prettier-plugin-toml": "^0.3.1"
+	},
+	"peerDependencies": {
+		"prettier": "^3.0.0"
+	}
 }

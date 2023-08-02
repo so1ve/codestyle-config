@@ -8,14 +8,14 @@ import padAfterLastImport from "./rules/pad-after-last-import";
 import useAsyncWithAwait from "./rules/use-async-with-await";
 
 export default {
-  rules: {
-    "function-style": functionStyle,
-    "import-dedupe": importDedupe,
-    "no-inline-type-import": noInlineTypeImport,
-    "no-negated-comparison": noNegatedComparison,
-    "no-useless-template-string": noUselessTemplateString,
-    "no-import-promises-as": noImportPromisesAs,
-    "pad-after-last-import": padAfterLastImport,
-    "use-async-with-await": useAsyncWithAwait,
-  },
+	rules: {
+		"function-style": functionStyle,
+		"import-dedupe": importDedupe,
+		"no-inline-type-import": noInlineTypeImport,
+		"no-negated-comparison": noNegatedComparison,
+		"no-useless-template-string": noUselessTemplateString,
+		"no-import-promises-as": noImportPromisesAs,
+		"pad-after-last-import": padAfterLastImport,
+		"use-async-with-await": useAsyncWithAwait,
+	},
 };
