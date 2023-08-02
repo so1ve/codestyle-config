@@ -22,6 +22,9 @@
 	},
 	"license": "MIT",
 	"main": "dist/index.js",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "pkgroll",
 		"test": "vitest"
