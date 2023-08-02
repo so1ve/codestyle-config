@@ -5,7 +5,7 @@ const plugins = ["astro", "toml", "curly-and-jsdoc", "pkgsort"].map((p) =>
 );
 
 module.exports = {
-	useTabs: true,
+	useTabs: false,
 	quoteProps: "preserve",
 	trailingComma: "all",
 	htmlWhitespaceSensitivity: "ignore",
