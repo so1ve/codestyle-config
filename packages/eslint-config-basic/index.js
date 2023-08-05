@@ -134,7 +134,7 @@ module.exports = defineConfig({
 					},
 					{
 						pathPattern: "^exports.*$",
-						order: ["types", "require", "import"],
+						order: ["types", "require", "import", "default"],
 					},
 				],
 			},
