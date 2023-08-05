@@ -24,7 +24,12 @@ module.exports = {
 			options: {
 				trailingComma: "none",
 			},
-		},
+		},{
+      files: 'pnpm-lock.yaml',
+      options: {
+        requirePragma: true, 
+      },
+    },
 	],
 	plugins,
 
