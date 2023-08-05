@@ -31,5 +31,6 @@ module.exports = {
 	// Plugin Options
 	// JSDoc
 	jsdocPreferCodeFences: true,
+	jsdocSingleLineComment: false,
 	tsdoc: true,
 };
