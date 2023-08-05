@@ -7,7 +7,9 @@ const { defineConfig } = require("eslint-define-config");
 
 const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
 
-/** @type {import("eslint-define-config").Override} */
+/**
+ * @type {import("eslint-define-config").Override}
+ */
 const typescriptOverride = {
 	parserOptions: {
 		tsconfigRootDir: process.cwd(),
@@ -50,7 +52,9 @@ const typescriptOverride = {
 	},
 };
 
-/** @type {import("eslint-define-config").Override} */
+/**
+ * @type {import("eslint-define-config").Override}
+ */
 const jestOverride = {
 	// https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
 	files: ["**/__tests__/**/*.ts", "**/*.spec.ts", "**/*.test.ts"],
