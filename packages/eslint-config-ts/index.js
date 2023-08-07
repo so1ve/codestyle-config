@@ -159,7 +159,7 @@ module.exports = defineConfig({
 		],
 		"@typescript-eslint/prefer-ts-expect-error": "error",
 		"@typescript-eslint/no-require-imports": "error",
-		
+
 		// Override JS
 		"no-useless-constructor": "off",
 		"no-invalid-this": "off",
