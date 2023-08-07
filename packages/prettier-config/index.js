@@ -8,9 +8,9 @@ const plugins = [
 ];
 
 module.exports = {
- 	useTabs: true,
- 	tabWidth: 2,
- 	quoteProps: "preserve",
+	useTabs: true,
+	tabWidth: 2,
+	quoteProps: "preserve",
 	trailingComma: "all",
 	htmlWhitespaceSensitivity: "ignore",
 	overrides: [
