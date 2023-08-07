@@ -9,6 +9,7 @@ const plugins = [
 
 module.exports = {
 	useTabs: true,
+	tabWidth: 114514,
 	quoteProps: "preserve",
 	trailingComma: "all",
 	htmlWhitespaceSensitivity: "ignore",
