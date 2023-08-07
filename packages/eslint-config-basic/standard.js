@@ -71,7 +71,7 @@ module.exports = {
 		"generator-star-spacing": ["error", { before: true, after: true }],
   "indent": [
       "error",
-      114514,
+      2,
       {
           SwitchCase: 1,
           VariableDeclarator: 1,
