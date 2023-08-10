@@ -61,6 +61,7 @@ module.exports = defineConfig({
 		"pnpm-lock.yaml",
 		"yarn.lock",
 		"__snapshots__",
+		"*.d.ts",
 		// Volar virtual files
 		"*.vue.js",
 		"*.vue.jsx",
