@@ -6,7 +6,7 @@ import rule, { RULE_NAME } from "./import-dedupe";
 const valid = ['import { a } from "foo";'];
 const invalid = [
 	[
-		'import { a, b, a, a, c, a } from "foo";',
+		'import { a, b, a, a, c, a , } from "foo";',
 		'import { a, b,   c,  } from "foo";',
 	],
 ];
