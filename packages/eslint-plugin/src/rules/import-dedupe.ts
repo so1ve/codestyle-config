@@ -39,7 +39,7 @@ export default createEslintRule<Options, MessageIds>({
 						fix(fixer) {
 							const start = n.range[0];
 							let end = n.range[1];
-							const nextToken = context.sourceCode.getTokenAfter(n);
+							const nextToken = context.getSourceCode().getTokenAfter(n);
 							if (nextToken && nextToken.value === ",") {
 								end = nextToken.range[1];
 							}
