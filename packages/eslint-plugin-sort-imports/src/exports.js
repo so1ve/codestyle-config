@@ -31,7 +31,7 @@ function isPartOfChunk(node, lastNode, sourceCode) {
 }
 
 function maybeReportChunkSorting(chunk, context) {
-	const{ sourceCode }= context
+	const { sourceCode } = context;
 	const items = shared.getImportExportItems(
 		chunk,
 		sourceCode,
