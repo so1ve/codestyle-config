@@ -31,7 +31,7 @@ function isPartOfChunk(node, lastNode, sourceCode) {
 }
 
 function maybeReportChunkSorting(chunk, context) {
-	const sourceCode = context.getSourceCode();
+	const{ sourceCode }= context
 	const items = shared.getImportExportItems(
 		chunk,
 		sourceCode,
@@ -48,7 +48,7 @@ function maybeReportChunkSorting(chunk, context) {
 function maybeReportExportSpecifierSorting(node, context) {
 	const sorted = shared.printWithSortedSpecifiers(
 		node,
-		context.getSourceCode(),
+		context.sourceCode,
 		getSpecifiers,
 	);
 	const [start, end] = node.range;
