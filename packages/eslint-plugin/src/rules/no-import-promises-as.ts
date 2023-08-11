@@ -26,7 +26,7 @@ export default createEslintRule<Options, MessageIds>({
 	},
 	defaultOptions: [],
 	create: (context) => {
-		const {sourceCode} = context;
+		const { sourceCode } = context;
 		const { text } = sourceCode;
 
 		return {
