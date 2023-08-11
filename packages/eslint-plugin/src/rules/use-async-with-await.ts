@@ -27,12 +27,12 @@ export default createEslintRule<Options, MessageIds>({
 	},
 	defaultOptions: [],
 	create: (context) => {
-		const functionNodeScopeStack: FunctionNode[] = [];
+		const functionNodeStack: FunctionNode[] = [];
 		function setupNode(node: FunctionNode) {
-			functionNodeScopeStack.push(node);
+			functionNodeStack.push(node);
 		}
 		function clearNode() {
-			functionNodeScopeStack.pop();
+			functionNodeStack.pop();
 		}
 
 		return {
@@ -44,7 +44,7 @@ export default createEslintRule<Options, MessageIds>({
 			"ArrowFunctionExpression:exit": clearNode,
 			AwaitExpression() {
 				const closestFunctionNode =
-					functionNodeScopeStack[functionNodeScopeStack.length - 1];
+					functionNodeStack[functionNodeStack.length - 1];
 				if (!closestFunctionNode || closestFunctionNode.async) {
 					return;
 				}
