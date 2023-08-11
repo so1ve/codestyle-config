@@ -37,13 +37,14 @@ export default createEslintRule<Options, MessageIds>({
 						},
 						messageId: "importDedupe",
 						fix(fixer) {
-							const s = n.range[0];
-							let e = n.range[1];
-							if (context.getSourceCode().text[e] === ",") {
-								e += 1;
+							const start = n.range[0];
+							let end = n.range[1];
+							const nextToken = sourceCode.getTokenAfter(n);
+							if (nextToken && nextToken.value === ",") {
+								end = nextToken.range[0];
 							}
 
-							return fixer.removeRange([s, e]);
+							return fixer.removeRange([start, end]);
 						},
 					});
 				}
