@@ -80,7 +80,7 @@ module.exports = defineConfig({
 		"!.vscode",
 		"!.eslintrc*",
 		// force exclude
-		".vitepress/cache",
+		"**/.vitepress/cache",
 	],
 	settings: {
 		"import/resolver": {
