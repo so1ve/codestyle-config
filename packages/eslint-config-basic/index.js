@@ -500,6 +500,7 @@ module.exports = defineConfig({
 		"unicorn/prefer-regexp-test": "error",
 
 		"@eslint-community/eslint-comments/disable-enable-pair": "off",
+		"@eslint-community/eslint-comments/no-unlimited-disable": "off",
 		"import/no-named-as-default-member": "off",
 		"n/no-callback-literal": "off",
 
