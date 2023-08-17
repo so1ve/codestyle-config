@@ -21,6 +21,9 @@ const typescriptOverride = {
 	files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
 	// https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
 	rules: {
+		// https://github.com/cartant/eslint-plugin-etc/issues/63
+		"etc/no-implicit-any-catch": "off",
+
 		"no-throw-literal": "off",
 		"@typescript-eslint/no-throw-literal": "error",
 		"no-implied-eval": "off",
