@@ -224,7 +224,7 @@ export default createEslintRule<Options, MessageIds>({
 							fix: (fixer) => {
 								
 								return fixer.replaceTextRange(
-									grandParent,
+									grandParent.range,
 									generateFunction(
 										"declaration",
 										(node.parent as any).id.name,
