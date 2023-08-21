@@ -217,15 +217,14 @@ export default createEslintRule<Options, MessageIds>({
 						blockBody.length > 0 &&
 						node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
 					) {
-						const { parent } = node.parent;
+						const { parent: grandParent } = node.parent;
 						context.report({
-							node: parent,
+							node: grandParent,
 							messageId: "declaration",
 							fix: (fixer) => {
-								const [start, end] = parent.range;
-
+								
 								return fixer.replaceTextRange(
-									[start, end],
+									grandParent,
 									generateFunction(
 										"declaration",
 										(node.parent as any).id.name,
