@@ -221,17 +221,15 @@ export default createEslintRule<Options, MessageIds>({
 						context.report({
 							node: grandParent,
 							messageId: "declaration",
-							fix: (fixer) => {
-								
-								return fixer.replaceTextRange(
+							fix: (fixer) =>
+								fixer.replaceTextRange(
 									grandParent.range,
 									generateFunction(
 										"declaration",
 										(node.parent as any).id.name,
 										node,
 									),
-								);
-							},
+								),
 						});
 					}
 				}
