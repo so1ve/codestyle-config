@@ -42,7 +42,7 @@ export default createEslintRule<Options, MessageIds>({
 				);
 				if (typeSpecifiers.length > 0 && valueSpecifiers.length > 0) {
 					context.report({
-						loc: node.loc,
+						node,
 						messageId: "noInlineTypeImport",
 						fix(fixer) {
 							const typeSpecifiersText = typeSpecifiers
@@ -67,7 +67,7 @@ export default createEslintRule<Options, MessageIds>({
 					});
 				} else if (typeSpecifiers.length > 0) {
 					context.report({
-						loc: node.loc,
+						node,
 						messageId: "noInlineTypeImport",
 						fix(fixer) {
 							const typeSpecifiersText = typeSpecifiers
