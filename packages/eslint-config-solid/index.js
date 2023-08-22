@@ -12,8 +12,9 @@ if (!TS) {
 
 module.exports = defineConfig({
 	extends: [
-		...(TS?["@so1ve/eslint-config-ts",
-		"plugin:solid/typescript"]:["@so1ve/eslint-config-basic"]),
+		...(TS
+			? ["@so1ve/eslint-config-ts", "plugin:solid/typescript"]
+			: ["@so1ve/eslint-config-basic"]),
 		"plugin:solid/recommended",
 	],
 });

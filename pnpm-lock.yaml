@@ -229,6 +229,9 @@ importers:
 
   packages/eslint-config-solid:
     dependencies:
+      '@so1ve/eslint-config-basic':
+        specifier: workspace:*
+        version: link:../eslint-config-basic
       '@so1ve/eslint-config-ts':
         specifier: workspace:*
         version: link:../eslint-config-ts
@@ -241,13 +244,12 @@ importers:
       eslint-plugin-solid:
         specifier: ^0.12.1
         version: 0.12.1(eslint@8.47.0)(typescript@5.1.6)
+      local-pkg:
+        specifier: ^0.4.2
+        version: 0.4.3
       prettier:
         specifier: ^3.0.0
         version: 3.0.0
-    devDependencies:
-      typescript:
-        specifier: ^5.1.6
-        version: 5.1.6
 
   packages/eslint-config-svelte:
     dependencies:
