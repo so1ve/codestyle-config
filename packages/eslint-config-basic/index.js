@@ -113,8 +113,8 @@ module.exports = defineConfig({
 			files: ["*.yaml", "*.yml"],
 			parser: "yaml-eslint-parser",
 			rules: {
-				"spaced-comment": "off","yml/no-empty-document": "off",
-
+				"spaced-comment": "off",
+				"yml/no-empty-document": "off",
 			},
 		},
 		{
@@ -310,7 +310,6 @@ module.exports = defineConfig({
 		"wrap-iife": "off",
 		"wrap-regex": "off",
 		"yield-star-spacing": "off",
-		
 
 		"unused-imports/no-unused-imports": "error",
 		"unused-imports/no-unused-vars": [
@@ -504,8 +503,6 @@ module.exports = defineConfig({
 		"import/no-named-as-default-member": "off",
 		"n/no-callback-literal": "off",
 
-		
-		
 		// Unocss
 		...(hasUnoConfig
 			? { "@unocss/order": "error", "@unocss/order-attributify": "error" }
