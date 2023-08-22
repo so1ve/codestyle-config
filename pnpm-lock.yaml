@@ -245,7 +245,7 @@ importers:
         specifier: ^0.12.1
         version: 0.12.1(eslint@8.47.0)(typescript@5.1.6)
       local-pkg:
-        specifier: ^0.4.2
+        specifier: ^0.4.3
         version: 0.4.3
       prettier:
         specifier: ^3.0.0
@@ -327,7 +327,7 @@ importers:
         specifier: ^9.16.0
         version: 9.16.0(eslint@8.47.0)
       local-pkg:
-        specifier: ^0.4.2
+        specifier: ^0.4.3
         version: 0.4.3
       prettier:
         specifier: ^3.0.0
