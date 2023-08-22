@@ -1,5 +1,11 @@
 // @ts-check
 const { defineConfig } = require("eslint-define-config");
+const { isPackageExists } = require('local-pkg')
+
+const TS = isPackageExists('typescript')
+
+if (!TS)
+  console.warn('[@so1ve/eslint-config] TypeScript is not installed, fallback to JS only.')
 
 module.exports = defineConfig({
 	overrides: [
@@ -16,7 +22,7 @@ module.exports = defineConfig({
 			},
 		},
 	],
-	extends: ["plugin:vue/recommended", "@so1ve/eslint-config-ts"],
+	extends: ["plugin:vue/recommended", TS?"@so1ve/eslint-config-ts":"@so1ve/eslint-config-basic"],
 	rules: {
 		"vue/no-v-html": "off",
 		"vue/require-prop-types": "off",
