@@ -60,7 +60,7 @@ const typescriptOverride = {
  */
 const jestOverride = {
 	// https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/unbound-method.md
-	files: ["**/__tests__/**/*.ts", "**/*.spec.ts", "**/*.test.ts"],
+	files: ["*.spec.ts", "*.test.ts"],
 	plugins: ["jest"],
 	rules: {
 		// you should turn the original rule off *only* for test files
