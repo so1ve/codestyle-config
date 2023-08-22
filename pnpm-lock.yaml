@@ -309,6 +309,9 @@ importers:
 
   packages/eslint-config-vue:
     dependencies:
+      '@so1ve/eslint-config-basic':
+        specifier: workspace:*
+        version: link:../eslint-config-basic
       '@so1ve/eslint-config-ts':
         specifier: workspace:*
         version: link:../eslint-config-ts
@@ -321,6 +324,9 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.16.0
         version: 9.16.0(eslint@8.47.0)
+      local-pkg:
+        specifier: ^0.4.2
+        version: 0.4.3
       prettier:
         specifier: ^3.0.0
         version: 3.0.0
