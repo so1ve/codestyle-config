@@ -149,6 +149,7 @@ module.exports = defineConfig({
 			},
 		],
 		"vue/prefer-true-attribute-shorthand": "error",
+		"vue/prefer-define-options": "error",
 		"vue/html-comment-content-newline": [
 			"error",
 			{ singleline: "ignore", multiline: "always" },
