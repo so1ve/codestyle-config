@@ -113,7 +113,8 @@ module.exports = defineConfig({
 			files: ["*.yaml", "*.yml"],
 			parser: "yaml-eslint-parser",
 			rules: {
-				"spaced-comment": "off",
+				"spaced-comment": "off","yml/no-empty-document": "off",
+
 			},
 		},
 		{
@@ -282,7 +283,6 @@ module.exports = defineConfig({
 		"object-curly-newline": "off",
 		"object-curly-spacing": "off",
 		"object-property-newline": "off",
-		"one-var": ["error", "never"],
 		"one-var-declaration-per-line": "off",
 		"operator-linebreak": "off",
 		"padded-blocks": "off",
@@ -310,11 +310,7 @@ module.exports = defineConfig({
 		"wrap-iife": "off",
 		"wrap-regex": "off",
 		"yield-star-spacing": "off",
-		"quote-props": ["error", "consistent-as-needed"],
-		"padding-line-between-statements": [
-			"error",
-			{ blankLine: "always", prev: "*", next: "return" },
-		],
+		
 
 		"unused-imports/no-unused-imports": "error",
 		"unused-imports/no-unused-vars": [
@@ -410,12 +406,18 @@ module.exports = defineConfig({
 				allowUnboundThis: true,
 			},
 		],
+		"one-var": ["error", "never"],
 		"object-shorthand": [
 			"error",
 			"always",
 			{
 				ignoreConstructors: false,
 			},
+		],
+		"quote-props": ["error", "consistent-as-needed"],
+		"padding-line-between-statements": [
+			"error",
+			{ blankLine: "always", prev: "*", next: "return" },
 		],
 		"prefer-exponentiation-operator": "error",
 		"prefer-rest-params": "error",
@@ -502,9 +504,8 @@ module.exports = defineConfig({
 		"import/no-named-as-default-member": "off",
 		"n/no-callback-literal": "off",
 
-		// yml
-		"yml/no-empty-document": "off",
-
+		
+		
 		// Unocss
 		...(hasUnoConfig
 			? { "@unocss/order": "error", "@unocss/order-attributify": "error" }
