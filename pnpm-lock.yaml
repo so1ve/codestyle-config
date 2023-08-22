@@ -352,8 +352,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       prettier-plugin-astro:
-        specifier: ^0.11.0
-        version: 0.11.0
+        specifier: ^0.12.0
+        version: 0.12.0
       prettier-plugin-curly-and-jsdoc:
         specifier: workspace:*
         version: link:../prettier-plugin-curly-and-jsdoc
@@ -4910,9 +4910,9 @@ packages:
       sort-order: 1.0.1
     dev: false
 
-  /prettier-plugin-astro@0.11.0:
-    resolution: {integrity: sha512-rl2hJ4Kty/aEfGjk3i4JS+bpng9MjgvwqLRNzeb9NqYhqKoWNwOR39cIJXFjU1vR3zYOPnwWNRMelKb0orunYA==}
-    engines: {node: ^14.15.0 || >=16.0.0, pnpm: '>=7.14.0'}
+  /prettier-plugin-astro@0.12.0:
+    resolution: {integrity: sha512-8E+9YQR6/5CPZJs8XsfBw579zrwZkc0Wb7x0fRVm/51JC8Iys4lBw4ecV8fHwpbQnzve86TUa4fJ08BJzqfWnA==}
+    engines: {node: ^14.15.0 || >=16.0.0}
     dependencies:
       '@astrojs/compiler': 1.8.2
       prettier: 3.0.0
