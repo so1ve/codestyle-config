@@ -76,7 +76,8 @@ module.exports = defineConfig({
 	extends: [
 		"@so1ve/eslint-config-basic",
 		"plugin:import/typescript",
-		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-type-checked",
+		"plugin:@typescript-eslint/stylistic-type-checked",
 	],
 	plugins: ["no-explicit-type-exports"],
 	settings: {
