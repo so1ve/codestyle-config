@@ -162,6 +162,7 @@ module.exports = defineConfig({
 		],
 		"@typescript-eslint/prefer-ts-expect-error": "error",
 		"@typescript-eslint/no-require-imports": "error",
+		'@typescript-eslint/method-signature-style':["error",`property`],
 
 		// Override JS
 		"no-useless-constructor": "off",
