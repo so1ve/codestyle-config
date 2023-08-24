@@ -15,7 +15,10 @@ const typescriptOverride = {
 		tsconfigRootDir: process.cwd(),
 		project: [tsconfig],
 	},
-	extends: ["plugin:etc/recommended"],
+	extends: ["plugin:etc/recommended","plugin:@typescript-eslint/recommended-type-checked",
+		"plugin:@typescript-eslint/stylistic-type-checked",
+
+					 ],
 	parser: "@typescript-eslint/parser",
 	excludedFiles: ["**/*.md/*.*"],
 	files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
@@ -76,8 +79,8 @@ module.exports = defineConfig({
 	extends: [
 		"@so1ve/eslint-config-basic",
 		"plugin:import/typescript",
-		"plugin:@typescript-eslint/recommended-type-checked",
-		"plugin:@typescript-eslint/stylistic-type-checked",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/stylistic",
 	],
 	plugins: ["no-explicit-type-exports"],
 	settings: {
