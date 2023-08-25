@@ -222,7 +222,7 @@ module.exports = defineConfig({
 		"import/namespace": "off", // Disable this for better performance
 "import/no-useless-path-segments": ["error", {
   noUselessIndex: true,
-}]
+}],
 		"@so1ve/sort-imports/imports": ["error"],
 		"@so1ve/sort-imports/exports": "error",
 
