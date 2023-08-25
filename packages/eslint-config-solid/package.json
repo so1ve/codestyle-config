@@ -32,7 +32,7 @@
 		"@so1ve/eslint-config-basic": "workspace:*",
 		"@so1ve/eslint-config-ts": "workspace:*",
 		"eslint-define-config": "^1.21.0",
-		"eslint-plugin-solid": "^0.12.1",
+		"eslint-plugin-solid": "^0.13.0",
 		"local-pkg": "^0.4.3"
 	},
 	"peerDependencies": {

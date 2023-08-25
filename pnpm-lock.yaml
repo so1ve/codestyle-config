@@ -242,8 +242,8 @@ importers:
         specifier: ^1.21.0
         version: 1.21.0
       eslint-plugin-solid:
-        specifier: ^0.12.1
-        version: 0.12.1(eslint@8.47.0)(typescript@5.1.6)
+        specifier: ^0.13.0
+        version: 0.13.0(eslint@8.47.0)(typescript@5.1.6)
       local-pkg:
         specifier: ^0.4.3
         version: 0.4.3
@@ -3151,8 +3151,8 @@ packages:
       scslre: 0.2.0
     dev: false
 
-  /eslint-plugin-solid@0.12.1(eslint@8.47.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-fM0sEg9PcS1mcNbWklwc+W/lOv1/XyEwXf53HmFFy4GOA8E3u41h8JW+hc+Vv1m3kh01umKoTalOTET08zKdAQ==}
+  /eslint-plugin-solid@0.13.0(eslint@8.47.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-Sutd+DxEGu9+Z9ITtHKXRAClxVe1a6C1XQZSuN8iBsMy0IAVEc6Tca1UYgc7tD2ZrRRjZKB9mohBOaZl5NJLgg==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -3160,7 +3160,7 @@ packages:
       eslint:
         optional: true
     dependencies:
-      '@typescript-eslint/utils': 5.62.0(eslint@8.47.0)(typescript@5.1.6)
+      '@typescript-eslint/utils': 6.4.0(eslint@8.47.0)(typescript@5.1.6)
       eslint: 8.47.0
       is-html: 2.0.0
       jsx-ast-utils: 3.3.5
