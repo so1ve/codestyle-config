@@ -6,7 +6,7 @@
 
 ## Features
  
-- Double quotes, with semi
+- Double quotes, with semicolons
 - Use tabs for indent
 - Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))
 - TypeScript, Vue, React, Svelte, Solid out-of-box!
