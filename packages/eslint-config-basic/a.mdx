@@ -1,3 +1,3 @@
 ```ts
-function b(){return 1}
+const b = () => 1;
 ```
