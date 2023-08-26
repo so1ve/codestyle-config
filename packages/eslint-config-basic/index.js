@@ -222,11 +222,7 @@ module.exports = defineConfig({
 		// import
 		"import/first": "error",
 		"import/no-mutable-exports": "error",
-		"import/no-useless-path-segments": [
-			"error",
-			{				noUselessIndex: true,
-			},
-		],
+		"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
 		"import/no-unresolved": "off",
 		"import/no-absolute-path": "off",
 		"import/namespace": "off", // Disable this for better performance
