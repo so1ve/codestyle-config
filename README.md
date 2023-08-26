@@ -5,7 +5,7 @@
 > Forked from [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
 ## Features
- 
+
 - Double quotes, with semicolons
 - Use tabs for indent ([Read more](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/))
 - Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))

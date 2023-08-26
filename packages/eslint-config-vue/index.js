@@ -35,8 +35,9 @@ module.exports = defineConfig({
 		"vue/require-default-prop": "off",
 		"vue/multi-word-component-names": "off",
 
-		'vue/no-ref-object-reactivity-loss': 'error',
-		"vue/no-setup-props-reactivity-loss": "error","vue/block-order": [
+		"vue/no-ref-object-reactivity-loss": "error",
+		"vue/no-setup-props-reactivity-loss": "error",
+		"vue/block-order": [
 			"error",
 			{
 				order: ["script", "template", "style"],
@@ -166,7 +167,7 @@ module.exports = defineConfig({
 			},
 		],
 		"vue/no-useless-concat": "error",
-	
+
 		// off
 		"vue/no-multiple-template-root": "off",
 		"vue/multiline-html-element-content-newline": "off",
