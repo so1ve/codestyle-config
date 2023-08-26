@@ -196,7 +196,7 @@ module.exports = defineConfig({
 		},
 		{
 			// Code blocks in markdown or mdx file
-			files: "**/*.{md,mdx}/**",
+			files: ["**/*.{md,mdx}/**"],
 			extends: "plugin:mdx/code-blocks",
 			rules: {
 				"@typescript-eslint/no-redeclare": "off",
