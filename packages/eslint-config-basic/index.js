@@ -35,7 +35,7 @@ module.exports = defineConfig({
 		"plugin:jsonc/recommended-with-jsonc",
 		"plugin:yml/prettier",
 		"plugin:yml/recommended",
-		"plugin:markdown/recommended",
+	//	"plugin:markdown/recommended",
 		"plugin:vitest/recommended",
 		"plugin:eslint-plugin-jest-formatting/strict",
 		"plugin:regexp/recommended",
