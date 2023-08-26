@@ -29,7 +29,7 @@
 		"@so1ve/eslint-config-basic": "workspace:*",
 		"@so1ve/eslint-config-ts": "workspace:*",
 		"eslint-define-config": "^1.21.0",
-		"eslint-plugin-vue": "^9.16.0",
+		"eslint-plugin-vue": "^9.17.0",
 		"local-pkg": "^0.4.3"
 	},
 	"peerDependencies": {
