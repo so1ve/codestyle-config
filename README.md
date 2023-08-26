@@ -7,15 +7,14 @@
 ## Features
  
 - Double quotes, with semicolons
-- Use tabs for indent
+- Use tabs for indent ([Read more](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/))
 - Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))
-- TypeScript, Vue, React, Svelte, Solid out-of-box!
-- Lint also for json, yaml, markdown, html
+- Supports TypeScript, Vue, React, Svelte, Solid, MDX, JSON, Yaml, Markdown, HTML out-of-box!
 - Sorted imports, dangling commas for cleaner commit diff
 - Autofix for syntax errors, e.g. automatically add `async` keyword when using `await` in a non-async function
 - Focused on consistent code style, with custom rules to enforce style
 - Reasonable defaults, best practices, only one-line of config
-- **Style principle**: Consistent for reading, stable for diff
+- **Style principle**: Consistent for reading, stable for diff. More automated style fixes is better.
 
 ## Usage
 
