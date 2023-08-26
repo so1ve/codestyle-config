@@ -54,7 +54,8 @@
 		"eslint-plugin-vitest": "^0.2.8",
 		"eslint-plugin-yml": "^1.8.0",
 		"jsonc-eslint-parser": "^2.3.0",
-		"yaml-eslint-parser": "^1.2.2"
+		"yaml-eslint-parser": "^1.2.2",
+		"eslint-plugin-mdx": "^2.2.0"
 	},
 	"peerDependencies": {
 		"eslint": ">=8.40.0",
