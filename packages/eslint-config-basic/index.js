@@ -224,8 +224,7 @@ module.exports = defineConfig({
 		"import/no-mutable-exports": "error",
 		"import/no-useless-path-segments": [
 			"error",
-			{
-				noUselessIndex: true,
+			{				noUselessIndex: true,
 			},
 		],
 		"import/no-unresolved": "off",
