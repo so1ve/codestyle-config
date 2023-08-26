@@ -35,10 +35,8 @@ module.exports = defineConfig({
 		"vue/require-default-prop": "off",
 		"vue/multi-word-component-names": "off",
 
-		// reactivity transform
-		"vue/no-setup-props-destructure": "off",
-
-		"vue/component-tags-order": [
+		
+		"vue/no-setup-props-reactivity-loss": "error","vue/block-order": [
 			"error",
 			{
 				order: ["script", "template", "style"],
