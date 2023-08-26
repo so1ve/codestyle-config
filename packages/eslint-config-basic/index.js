@@ -199,6 +199,7 @@ module.exports = defineConfig({
 			files: ["**/*.{md,mdx}/**"],
 			extends: "plugin:mdx/code-blocks",
 			rules: {
+				"@html-eslint/require-doctype": "off",
 				"@typescript-eslint/no-redeclare": "off",
 				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/no-use-before-define": "off",
