@@ -42,6 +42,9 @@ module.exports = defineConfig({
 		"plugin:case-police/recommended",
 		"plugin:toml/recommended",
 		"plugin:array-func/all",
+		"plugin:mdx/recommended",
+  
+  
 	],
 	ignorePatterns: [
 		"*.min.*",
@@ -85,7 +88,7 @@ module.exports = defineConfig({
 	settings: {
 		"import/resolver": {
 			node: { extensions: [".js", ".mjs"] },
-		},
+		},"mdx/code-blocks": true,
 	},
 	overrides: [
 		{
