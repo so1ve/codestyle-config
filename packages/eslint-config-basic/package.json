@@ -43,6 +43,7 @@
 		"eslint-plugin-json-schema-validator": "^4.6.0",
 		"eslint-plugin-jsonc": "^2.9.0",
 		"eslint-plugin-markdown": "^3.0.1",
+		"eslint-plugin-mdx": "^2.2.0",
 		"eslint-plugin-n": "^16.0.1",
 		"eslint-plugin-no-only-tests": "^3.1.0",
 		"eslint-plugin-only-error": "^1.0.2",

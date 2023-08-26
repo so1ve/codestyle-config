@@ -17,7 +17,7 @@ const typescriptOverride = {
 	},
 	extends: ["plugin:etc/recommended"],
 	parser: "@typescript-eslint/parser",
-	excludedFiles: ["**/*.md/*.*"],
+	excludedFiles: ["**/*.{md,mdx}/**"],
 	files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
 	// https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
 	rules: {

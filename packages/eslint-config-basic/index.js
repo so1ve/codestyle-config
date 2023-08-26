@@ -86,6 +86,7 @@ module.exports = defineConfig({
 		"import/resolver": {
 			node: { extensions: [".js", ".mjs"] },
 		},
+		"mdx/code-blocks": true,
 	},
 	overrides: [
 		{
@@ -190,8 +191,13 @@ module.exports = defineConfig({
 			},
 		},
 		{
-			// Code blocks in markdown file
-			files: ["**/*.md/*.*"],
+			files: ["*.mdx"],
+			extends: ["plugin:mdx/overrides", "plugin:mdx/base"],
+		},
+		{
+			// Code blocks in markdown or mdx file
+			files: ["**/*.{md,mdx}/**"],
+			extends: "plugin:mdx/code-blocks",
 			rules: {
 				"@typescript-eslint/no-redeclare": "off",
 				"@typescript-eslint/no-unused-vars": "off",
