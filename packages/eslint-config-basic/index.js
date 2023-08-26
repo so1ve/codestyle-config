@@ -35,14 +35,14 @@ module.exports = defineConfig({
 		"plugin:jsonc/recommended-with-jsonc",
 		"plugin:yml/prettier",
 		"plugin:yml/recommended",
-	//	"plugin:markdown/recommended",
+	"plugin:markdown/recommended",
 		"plugin:vitest/recommended",
 		"plugin:eslint-plugin-jest-formatting/strict",
 		"plugin:regexp/recommended",
 		"plugin:case-police/recommended",
 		"plugin:toml/recommended",
 		"plugin:array-func/all",
-		"plugin:mdx/recommended",
+		
   
   
 	],
@@ -192,7 +192,17 @@ module.exports = defineConfig({
 				"vitest/valid-title": ["error", { allowArguments: true }],
 			},
 		},
+		
+			{
+    files: [ '*.mdx'],
+    extends: ['plugin:mdx/overrides',"plugin:mdx/base"],
+			},
+  {
+    files: '**/*.{md,mdx}/**',
+    extends: 'plugin:mdx/code-blocks',
+  },
 		{
+		
 			// Code blocks in markdown file
 			files: ["**/*.md/*.*"],
 			rules: {
