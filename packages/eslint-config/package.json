@@ -24,7 +24,7 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@eslint-community/eslint-plugin-eslint-comments": "^3.2.1",
+		"@eslint-community/eslint-plugin-eslint-comments": "^4.0.0",
 		"@so1ve/eslint-config-vue": "workspace:*",
 		"@typescript-eslint/eslint-plugin": "^6.2.0",
 		"@typescript-eslint/parser": "^6.2.0",

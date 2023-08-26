@@ -27,7 +27,7 @@
 		"lint": "eslint . --config=index.js"
 	},
 	"dependencies": {
-		"@eslint-community/eslint-plugin-eslint-comments": "^3.2.1",
+		"@eslint-community/eslint-plugin-eslint-comments": "^4.0.0",
 		"@html-eslint/eslint-plugin": "^0.19.1",
 		"@html-eslint/parser": "^0.19.1",
 		"@so1ve/eslint-plugin": "workspace:*",
