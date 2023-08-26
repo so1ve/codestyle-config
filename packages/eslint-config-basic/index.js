@@ -190,19 +190,14 @@ module.exports = defineConfig({
 				"vitest/valid-title": ["error", { allowArguments: true }],
 			},
 		},
-
 		{
 			files: ["*.mdx"],
 			extends: ["plugin:mdx/overrides", "plugin:mdx/base"],
 		},
 		{
+			// Code blocks in markdown or mdx file
 			files: "**/*.{md,mdx}/**",
-			extends: "plugin:mdx/code-blocks",
-		},
-		{
-			// Code blocks in markdown file
-			files: ["**/*.md/*.*"],
-			rules: {
+			extends: "plugin:mdx/code-blocks",rules: {
 				"@typescript-eslint/no-redeclare": "off",
 				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/no-use-before-define": "off",
@@ -221,6 +216,7 @@ module.exports = defineConfig({
 				"no-unused-vars": "off",
 			},
 		},
+		
 	],
 	rules: {
 		// import
