@@ -25,7 +25,7 @@ module.exports = {
 				trailingComma: "none",
 			},
 		},
-		["package-lock.json", "pnpm-lock.yaml"].map((filename) => ({
+		...["package-lock.json", "pnpm-lock.yaml"].map((filename) => ({
 			files: [filename],
 			options: {
 				requirePragma: true,
