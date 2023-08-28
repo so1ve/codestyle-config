@@ -25,12 +25,12 @@ module.exports = {
 				trailingComma: "none",
 			},
 		},
-		{
-			files: "pnpm-lock.yaml",
+		["package-lock.json", "pnpm-lock.yaml"].map((filename) => ({
+			files: [filename],
 			options: {
 				requirePragma: true,
 			},
-		},
+		})),
 	],
 	plugins,
 
