@@ -170,10 +170,9 @@ module.exports = defineConfig({
 		{
 			files: [
 				"*.test.ts",
-				"*.test.js",
+				"*.test.js","*.test-d.ts",
 				"*.spec.ts",
-				"*.spec.js",
-				"*.test-d.ts",
+				"*.spec.js",				
 				"*.spec-d.ts",
 			],
 			rules: {
