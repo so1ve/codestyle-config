@@ -168,7 +168,8 @@ module.exports = defineConfig({
 			},
 		},
 		{
-			files: ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
+			files: ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js","*.test-d.ts",  "*.spec-d.ts", 
+		],
 			rules: {
 				"no-unused-expressions": "off",
 				"no-only-tests/no-only-tests": "error",
