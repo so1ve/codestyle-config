@@ -141,6 +141,9 @@ importers:
       eslint-plugin-case-police:
         specifier: ^0.6.1
         version: 0.6.1(eslint@8.48.0)(typescript@5.2.2)
+      eslint-plugin-html:
+        specifier: ^7.1.0
+        version: 7.1.0
       eslint-plugin-import:
         specifier: npm:eslint-plugin-i@2.27.5
         version: /eslint-plugin-i@2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.48.0)

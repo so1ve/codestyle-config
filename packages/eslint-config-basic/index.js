@@ -20,6 +20,7 @@ module.exports = defineConfig({
 		"@so1ve/sort-imports",
 		"@html-eslint",
 		"@unocss",
+		"html",
 		"jsdoc",
 		"vitest",
 		"json-schema-validator",
@@ -87,6 +88,7 @@ module.exports = defineConfig({
 			node: { extensions: [".js", ".mjs"] },
 		},
 		"mdx/code-blocks": true,
+		"html/report-bad-indent": "off",
 	},
 	overrides: [
 		{
