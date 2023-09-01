@@ -47,7 +47,10 @@ const typescriptOverride = {
 			{ default: "array", readonly: "array" },
 		],
 		"@typescript-eslint/consistent-generic-constructors": "error",
-		"@typescript-eslint/consistent-type-exports": "error",
+		"@typescript-eslint/consistent-type-exports": "error","@typescript-eslint/consistent-type-assertions": [
+			"error",
+			{ assertionStyle: "as", objectLiteralTypeAssertions: "allow" },
+		],
 		"@typescript-eslint/prefer-nullish-coalescing": "error",
 		"@typescript-eslint/prefer-optional-chain": "error",
 		"@typescript-eslint/no-unnecessary-type-arguments": "error",
@@ -156,11 +159,7 @@ module.exports = defineConfig({
 		],
 		"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
 		"@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
-		"@typescript-eslint/consistent-type-assertions": [
-			"error",
-			{ assertionStyle: "as", objectLiteralTypeAssertions: "allow" },
-		],
-		"@typescript-eslint/prefer-ts-expect-error": "error",
+			"@typescript-eslint/prefer-ts-expect-error": "error",
 		"@typescript-eslint/no-require-imports": "error",
 		"@typescript-eslint/method-signature-style": ["error", "property"],
 
