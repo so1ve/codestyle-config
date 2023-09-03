@@ -53,54 +53,15 @@ importers:
 
   packages/eslint-config:
     dependencies:
-      '@eslint-community/eslint-plugin-eslint-comments':
-        specifier: ^4.0.0
-        version: 4.1.0(eslint@8.48.0)
       '@so1ve/eslint-config-vue':
         specifier: workspace:*
         version: link:../eslint-config-vue
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.2.0
-        version: 6.4.1(@typescript-eslint/parser@6.4.1)(eslint@8.48.0)(typescript@5.2.2)
-      '@typescript-eslint/parser':
-        specifier: ^6.2.0
-        version: 6.4.1(eslint@8.48.0)(typescript@5.2.2)
       eslint-define-config:
         specifier: ^1.21.0
         version: 1.23.0
-      eslint-plugin-html:
-        specifier: ^7.1.0
-        version: 7.1.0
-      eslint-plugin-import:
-        specifier: npm:eslint-plugin-i@2.27.5
-        version: /eslint-plugin-i@2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.48.0)
-      eslint-plugin-jsonc:
-        specifier: ^2.9.0
-        version: 2.9.0(eslint@8.48.0)
-      eslint-plugin-n:
-        specifier: ^16.0.1
-        version: 16.0.2(eslint@8.48.0)
-      eslint-plugin-promise:
-        specifier: ^6.1.1
-        version: 6.1.1(eslint@8.48.0)
-      eslint-plugin-unicorn:
-        specifier: ^48.0.1
-        version: 48.0.1(eslint@8.48.0)
-      eslint-plugin-vue:
-        specifier: ^9.17.0
-        version: 9.17.0(eslint@8.48.0)
-      eslint-plugin-yml:
-        specifier: ^1.8.0
-        version: 1.8.0(eslint@8.48.0)
-      jsonc-eslint-parser:
-        specifier: ^2.3.0
-        version: 2.3.0
       prettier:
         specifier: ^3.0.0
         version: 3.0.2
-      yaml-eslint-parser:
-        specifier: ^1.2.2
-        version: 1.2.2
     devDependencies:
       eslint:
         specifier: ^8.46.0
@@ -146,7 +107,7 @@ importers:
         version: 7.1.0
       eslint-plugin-import:
         specifier: npm:eslint-plugin-i@2.27.5
-        version: /eslint-plugin-i@2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.48.0)
+        version: /eslint-plugin-i@2.27.5(eslint@8.48.0)
       eslint-plugin-jest-formatting:
         specifier: ^3.1.0
         version: 3.1.0(eslint@8.48.0)
@@ -3241,7 +3202,7 @@ packages:
       htmlparser2: 8.0.2
     dev: false
 
-  /eslint-plugin-i@2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.48.0):
+  /eslint-plugin-i@2.27.5(eslint@8.48.0):
     resolution: {integrity: sha512-isYH4Ma7kIZtEVHAd0cMeLW7lrpaYuU/XLz6a88HGH7048idEy5TWu9Lu0s8YbJ8D5SxsFZiszg9U//kQTLESw==}
     engines: {node: '>=4'}
     peerDependencies:
