@@ -24,21 +24,8 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@eslint-community/eslint-plugin-eslint-comments": "^4.0.0",
-		"@so1ve/eslint-config-vue": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "^6.2.0",
-		"@typescript-eslint/parser": "^6.2.0",
-		"eslint-define-config": "^1.21.0",
-		"eslint-plugin-html": "^7.1.0",
-		"eslint-plugin-import": "npm:eslint-plugin-i@2.27.5",
-		"eslint-plugin-jsonc": "^2.9.0",
-		"eslint-plugin-n": "^16.0.1",
-		"eslint-plugin-promise": "^6.1.1",
-		"eslint-plugin-unicorn": "^48.0.1",
-		"eslint-plugin-vue": "^9.17.0",
-		"eslint-plugin-yml": "^1.8.0",
-		"jsonc-eslint-parser": "^2.3.0",
-		"yaml-eslint-parser": "^1.2.2"
+			"@so1ve/eslint-config-vue": "workspace:*",
+		"eslint-define-config": "^1.21.0"
 	},
 	"devDependencies": {
 		"eslint": "^8.46.0"
