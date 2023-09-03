@@ -156,15 +156,9 @@ importers:
       eslint-plugin-yml:
         specifier: ^1.8.0
         version: 1.8.0(eslint@8.48.0)
-      jsonc-eslint-parser:
-        specifier: ^2.3.0
-        version: 2.3.0
       prettier:
         specifier: ^3.0.0
         version: 3.0.2
-      yaml-eslint-parser:
-        specifier: ^1.2.2
-        version: 1.2.2
 
   packages/eslint-config-react:
     dependencies:
