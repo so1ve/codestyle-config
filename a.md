@@ -1,5 +1,3 @@
 ```ts
-function a() {
-  return 1;
-}
+const a = () => 1;
 ```

@@ -159,9 +159,6 @@ importers:
       eslint-plugin-jsonc:
         specifier: ^2.9.0
         version: 2.9.0(eslint@8.48.0)
-      eslint-plugin-markdown:
-        specifier: ^3.0.1
-        version: 3.0.1(eslint@8.48.0)
       eslint-plugin-mdx:
         specifier: ^2.2.0
         version: 2.2.0(eslint@8.48.0)
