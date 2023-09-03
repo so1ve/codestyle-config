@@ -199,7 +199,7 @@ module.exports = defineConfig({
 			},
 		},
 		{
-			files: ["*.mdx"],
+			files: ["*.md", "*.mdx"],
 			extends: ["plugin:mdx/overrides", "plugin:mdx/base"],
 		},
 		{
