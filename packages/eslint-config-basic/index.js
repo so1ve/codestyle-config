@@ -335,17 +335,6 @@ module.exports = defineConfig({
 		"no-lone-blocks": "error",
 		"no-loss-of-precision": "error",
 		"no-misleading-character-class": "error",
-		"no-mixed-operators": [
-			"error",
-			{
-				groups: [
-					["==", "!=", "===", "!==", ">", ">=", "<", "<="],
-					["&&", "||", "?:"],
-					["in", "instanceof"],
-				],
-				allowSamePrecedence: true,
-			},
-		],
 		"no-new-func": "error",
 		"no-new-object": "error",
 		"no-new-symbol": "error",
