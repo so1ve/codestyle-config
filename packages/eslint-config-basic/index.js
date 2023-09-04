@@ -11,8 +11,21 @@ const hasUnoConfig =
 module.exports = defineConfig({
 	env: {
 		es6: true,
+		es2021: true,
 		browser: true,
 		node: true,
+	},
+	parserOptions: {
+		ecmaVersion: 2022,
+		ecmaFeatures: {
+			jsx: true,
+		},
+		sourceType: "module",
+	},
+	globals: {
+		document: "readonly",
+		navigator: "readonly",
+		window: "readonly",
 	},
 	reportUnusedDisableDirectives: true,
 	plugins: [
@@ -28,6 +41,9 @@ module.exports = defineConfig({
 		"unused-imports",
 		"only-error",
 		"no-only-tests",
+		"import",
+		"n",
+		"promise",
 	],
 	extends: [
 		"./standard",
@@ -228,104 +244,34 @@ module.exports = defineConfig({
 		},
 	],
 	rules: {
-		// import
-		"import/first": "error",
-		"import/no-mutable-exports": "error",
-		"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
-		"import/no-unresolved": "off",
-		"import/no-absolute-path": "off",
-		"import/namespace": "off", // Disable this for better performance
-
-		"@so1ve/sort-imports/imports": ["error"],
-		"@so1ve/sort-imports/exports": "error",
-
-		// array-func
-		"array-func/prefer-array-from": "off",
-
-		// json-schema-validator
-		"json-schema-validator/no-invalid": "warn",
-
-		// regexp
-		"regexp/no-unused-capturing-group": "warn",
-
 		// Common
 		"array-bracket-newline": "off",
-		"array-bracket-spacing": "off",
 		"array-element-newline": "off",
 		"arrow-body-style": "off",
 		"arrow-parens": "off",
-		"arrow-spacing": "off",
-		"block-spacing": "off",
-		"brace-style": "off",
-		"comma-dangle": "off",
-		"comma-spacing": "off",
-		"comma-style": "off",
-		"computed-property-spacing": "off",
-		"curly": "off",
-		"dot-location": "off",
-		"eol-last": "off",
-		"func-call-spacing": "off",
+		"dot-notation": ["error", { allowKeywords: true }],
 		"function-call-argument-newline": "off",
 		"function-paren-newline": "off",
 		"generator-star": "off",
-		"generator-star-spacing": "off",
 		"implicit-arrow-linebreak": "off",
 		"indent": "off",
 		"indent-legacy": "off",
 		"jsx-quotes": "off",
-		"key-spacing": "off",
-		"keyword-spacing": "off",
 		"linebreak-style": "off",
-		"max-len": "off",
-		"multiline-ternary": "off",
-		"new-parens": "off",
 		"newline-per-chained-call": "off",
 		"no-arrow-condition": "off",
 		"no-comma-dangle": "off",
 		"no-confusing-arrow": "off",
 		"no-extra-semi": "off",
-		"no-floating-decimal": "off",
-		"no-mixed-spaces-and-tabs": "off",
-		"no-multi-spaces": "off",
-		"no-multiple-empty-lines": "off",
 		"no-reserved-keys": "off",
 		"no-spaced-func": "off",
 		"no-space-before-semi": "off",
-		"no-tabs": "off",
-		"no-trailing-spaces": "off",
-		"no-whitespace-before-property": "off",
 		"no-wrap-func": "off",
 		"nonblock-statement-body-position": "off",
-		"object-curly-newline": "off",
-		"object-curly-spacing": "off",
-		"object-property-newline": "off",
 		"one-var-declaration-per-line": "off",
-		"operator-linebreak": "off",
-		"padded-blocks": "off",
-		"quotes": "off",
-		"rest-spread-spacing": "off",
-		"semi": "off",
-		"semi-spacing": "off",
-		"semi-style": "off",
-		"space-after-function-name": "off",
-		"space-after-keywords": "off",
-		"space-before-blocks": "off",
-		"space-before-function-paren": "off",
-		"space-before-function-parentheses": "off",
-		"space-before-keywords": "off",
-		"space-in-brackets": "off",
-		"space-in-parens": "off",
-		"space-infix-ops": "off",
-		"space-return-throw-case": "off",
-		"space-unary-ops": "off",
-		"space-unary-word-ops": "off",
 		"switch-colon-spacing": "off",
-		"template-curly-spacing": "off",
-		"template-tag-spacing": "off",
-		"unicode-bom": "off",
-		"wrap-iife": "off",
+		"symbol-description": "off",
 		"wrap-regex": "off",
-		"yield-star-spacing": "off",
 
 		"unused-imports/no-unused-imports": "error",
 		"unused-imports/no-unused-vars": [
@@ -338,9 +284,76 @@ module.exports = defineConfig({
 			},
 		],
 
+		"accessor-pairs": [
+			"error",
+			{ setWithoutGet: true, enforceForClassMembers: true },
+		],
+		"constructor-super": "error",
+		"default-case-last": "error",
+		"lines-between-class-members": [
+			"error",
+			"always",
+			{ exceptAfterSingleLine: true },
+		],
+		"new-cap": ["error", { newIsCap: true, capIsNew: false, properties: true }],
+		"no-array-constructor": "error",
+		"no-async-promise-executor": "error",
+		"no-caller": "error",
+		"no-class-assign": "error",
+		"no-compare-neg-zero": "error",
+		"no-const-assign": "error",
+		"no-control-regex": "error",
+		"no-delete-var": "error",
+		"no-dupe-args": "error",
+		"no-dupe-class-members": "error",
+		"no-dupe-keys": "error",
+		"no-duplicate-case": "error",
+		"no-useless-backreference": "error",
+		"no-useless-call": "error",
+		"no-useless-computed-key": "error",
+		"no-useless-constructor": "error",
+		"no-useless-rename": "error",
+		"no-useless-return": "error",
+		"no-void": "error",
+		"no-empty": ["error", { allowEmptyCatch: true }],
+		"no-empty-character-class": "error",
+		"no-empty-pattern": "error",
+		"no-eval": "error",
+		"no-ex-assign": "error",
+		"no-extend-native": "error",
+		"no-extra-bind": "error",
+		"no-extra-boolean-cast": "error",
+		"no-extra-parens": ["error", "functions"],
+		"no-fallthrough": "error",
+		"no-func-assign": "error",
+		"no-global-assign": "error",
+		"no-implied-eval": "error",
+		"no-import-assign": "error",
+		"no-invalid-regexp": "error",
+		"no-irregular-whitespace": "error",
+		"no-iterator": "error",
+		"no-labels": ["error", { allowLoop: true, allowSwitch: false }],
+		"no-lone-blocks": "error",
+		"no-loss-of-precision": "error",
+		"no-misleading-character-class": "error",
+		"no-mixed-operators": [
+			"error",
+			{
+				groups: [
+					["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+					["&&", "||", "?:"],
+					["in", "instanceof"],
+				],
+				allowSamePrecedence: true,
+			},
+		],
+		"no-new-func": "error",
+		"no-new-object": "error",
+		"no-new-symbol": "error",
+		"no-new-wrappers": "error",
+		"no-prototype-builtins": "error",
+		"no-useless-catch": "error",
 		"no-param-reassign": "off",
-		"camelcase": "off",
-		"no-sparse-arrays": "error",
 		"no-constant-condition": "error",
 		"no-debugger": "error",
 		"no-console": ["error", { allow: ["error", "warn", "table", "time"] }],
@@ -403,6 +416,28 @@ module.exports = defineConfig({
 				message: "Use `Number.parseInt` instead",
 			},
 		],
+		"no-obj-calls": "error",
+		"no-octal": "error",
+		"no-octal-escape": "error",
+		"no-proto": "error",
+		"no-redeclare": ["error", { builtinGlobals: false }],
+		"no-regex-spaces": "error",
+		"no-self-assign": ["error", { props: true }],
+		"no-self-compare": "error",
+		"no-sequences": "error",
+		"no-shadow-restricted-names": "error",
+		"no-template-curly-in-string": "error",
+		"no-this-before-super": "error",
+		"no-throw-literal": "error",
+		"no-undef": "error",
+		"no-undef-init": "error",
+		"no-unexpected-multiline": "error",
+		"no-unmodified-loop-condition": "error",
+		"no-unneeded-ternary": ["error", { defaultAssignment: false }],
+		"no-unreachable": "error",
+		"no-unreachable-loop": "error",
+		"no-unsafe-finally": "error",
+		"no-unsafe-negation": "error",
 		"no-return-await": "off",
 
 		// es6
@@ -410,7 +445,7 @@ module.exports = defineConfig({
 		"prefer-const": [
 			"error",
 			{
-				destructuring: "any",
+				destructuring: "all",
 				ignoreReadBeforeAssign: true,
 			},
 		],
@@ -438,6 +473,9 @@ module.exports = defineConfig({
 		"prefer-rest-params": "error",
 		"prefer-spread": "error",
 		"prefer-template": "error",
+		"prefer-promise-reject-errors": "error",
+		"prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
+		"yoda": ["error", "never"],
 		"spaced-comment": [
 			"error",
 			"always",
@@ -457,6 +495,23 @@ module.exports = defineConfig({
 		// best-practice
 		"array-callback-return": "error",
 		"block-scoped-var": "error",
+		"no-unused-expressions": [
+			"error",
+			{
+				allowShortCircuit: true,
+				allowTernary: true,
+				allowTaggedTemplates: true,
+			},
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				args: "none",
+				caughtErrors: "none",
+				ignoreRestSiblings: true,
+				vars: "all",
+			},
+		],
 		"no-use-before-define": [
 			"error",
 			{ functions: false, classes: false, variables: true },
@@ -468,11 +523,17 @@ module.exports = defineConfig({
 		"no-case-declarations": "error",
 		"no-multi-str": "error",
 		"no-with": "error",
-		"no-useless-escape": "off",
 		"no-invalid-this": "error",
 		"vars-on-top": "error",
 		"require-await": "off",
-		"no-return-assign": "off",
+		"use-isnan": [
+			"error",
+			{
+				enforceForSwitchCase: true,
+				enforceForIndexOf: true,
+			},
+		],
+		"valid-typeof": ["error", { requireStringLiterals: true }],
 
 		// unicorns
 		"unicorn/error-message": "error",
@@ -514,10 +575,47 @@ module.exports = defineConfig({
 		"unicorn/prefer-node-protocol": "error",
 		"unicorn/prefer-regexp-test": "error",
 
+		// import
+		"import/first": "error",
+		"import/no-mutable-exports": "error",
+		"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
+		"import/no-unresolved": "off",
+		"import/no-absolute-path": "off",
+		"import/namespace": "off", // Disable this for better performance
+		"import/export": "error",
+		"import/no-duplicates": "error",
+		"import/no-named-default": "error",
+		"import/no-webpack-loader-syntax": "error",
+		"import/no-named-as-default-member": "off",
+
+		// Sort imports
+		"@so1ve/sort-imports/imports": ["error"],
+		"@so1ve/sort-imports/exports": "error",
+
+		// array-func
+		"array-func/prefer-array-from": "off",
+
+		// json-schema-validator
+		"json-schema-validator/no-invalid": "warn",
+
+		// regexp
+		"regexp/no-unused-capturing-group": "warn",
+
+		// Eslint Comments
 		"@eslint-community/eslint-comments/disable-enable-pair": "off",
 		"@eslint-community/eslint-comments/no-unlimited-disable": "off",
-		"import/no-named-as-default-member": "off",
+
+		// Node
 		"n/no-callback-literal": "off",
+		"n/handle-callback-err": ["error", "^(err|error)$"],
+		"n/no-deprecated-api": "error",
+		"n/no-exports-assign": "error",
+		"n/no-new-require": "error",
+		"n/no-path-concat": "error",
+		"n/process-exit-as-throw": "error",
+
+		// Promise
+		"promise/param-names": "error",
 
 		// Unocss
 		...(hasUnoConfig
