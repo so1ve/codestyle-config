@@ -46,7 +46,6 @@ module.exports = defineConfig({
 		"promise",
 	],
 	extends: [
-		"./standard",
 		"plugin:import/recommended",
 		"plugin:@eslint-community/eslint-comments/recommended",
 		"plugin:jsonc/recommended-with-jsonc",
