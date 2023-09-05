@@ -334,8 +334,8 @@ importers:
         version: 3.0.3
     devDependencies:
       prettier-plugin-curly:
-        specifier: ^0.1.2
-        version: 0.1.2(prettier@3.0.3)
+        specifier: ^0.1.3
+        version: 0.1.3(prettier@3.0.3)
       prettier-plugin-jsdoc:
         specifier: ^1.0.1
         version: 1.0.1(prettier@3.0.3)
@@ -5356,8 +5356,8 @@ packages:
       sass-formatter: 0.7.7
     dev: false
 
-  /prettier-plugin-curly@0.1.2(prettier@3.0.3):
-    resolution: {integrity: sha512-DNc9cd7SI/p9hJ2/HanlRgdb5s2nFO9ZZXXe/HsdPFSF7fbs7zYKsh0lEncuWMhGTBePQbVJjv94jEcNXhlaTw==}
+  /prettier-plugin-curly@0.1.3(prettier@3.0.3):
+    resolution: {integrity: sha512-NYr2BPex/0fFwDbiZZr91kfgBko1tmaorLOrVAkT5rN91mIYYJRiWabRxWGFqzRSO7J0eoEcxakY9NWvJWAh4w==}
     engines: {node: '>=18'}
     peerDependencies:
       prettier: ^2 || ^3
