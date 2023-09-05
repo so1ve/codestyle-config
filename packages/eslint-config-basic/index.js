@@ -72,6 +72,7 @@ module.exports = defineConfig({
 		"temp",
 		".nuxt",
 		".nitro",
+		".yarn",
 		"package-lock.json",
 		"pnpm-lock.yaml",
 		"yarn.lock",
