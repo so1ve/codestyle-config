@@ -23,6 +23,9 @@
 	},
 	"license": "MIT",
 	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "pkgroll",
 		"test": "vitest"
