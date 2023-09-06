@@ -1,6 +1,6 @@
 {
 	"name": "@so1ve/eslint-config-solid",
-	"version": "0.120.4",
+	"version": "0.121.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"description": "Ray's eslint config for solid.",
 	"keywords": [
