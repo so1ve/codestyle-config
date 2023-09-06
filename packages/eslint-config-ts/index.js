@@ -150,7 +150,10 @@ module.exports = defineConfig({
 							"The `object` type is hard to use. Use `Record<string, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848",
 						fixWith: "Record<string, unknown>",
 					},
-					Function: "Use a specific function type instead, like `() => void`.",
+					Function: {
+						message: "Use a specific function type instead, like `() => void`.",
+						fixWith: "(...args: any[]) => any",
+					},
 				},
 			},
 		],
