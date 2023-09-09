@@ -54,12 +54,12 @@ export default createEslintRule<Options, MessageIds>({
 							const defaultImportSpecifierText = sourceCode.getText(
 								defaultImportSpecifier,
 							);
-							const defaultAndvalueSpecifiersText = defaultImportSpecifier
+							const defaultAndValueSpecifiersText = defaultImportSpecifier
 								? `import ${defaultImportSpecifierText}, { ${valueSpecifiersText} } from "${node.source.value}";`
 								: `import { ${valueSpecifiersText} } from "${node.source.value}";`;
 							const texts = [
 								`import type { ${typeSpecifiersText} } from "${node.source.value}";`,
-								defaultAndvalueSpecifiersText,
+								defaultAndValueSpecifiersText,
 							];
 
 							return fixer.replaceText(node, texts.join("\n"));
