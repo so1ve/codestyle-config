@@ -51,7 +51,6 @@ module.exports = defineConfig({
 		"plugin:jsonc/recommended-with-jsonc",
 		"plugin:yml/prettier",
 		"plugin:yml/recommended",
-		"plugin:vitest/recommended",
 		"plugin:eslint-plugin-jest-formatting/strict",
 		"plugin:regexp/recommended",
 		"plugin:case-police/recommended",
@@ -193,6 +192,7 @@ module.exports = defineConfig({
 				"*.spec.js",
 				"*.spec-d.ts",
 			],
+			extends: ["plugin:vitest/recommended"],
 			rules: {
 				"no-unused-expressions": "off",
 				"no-only-tests/no-only-tests": "error",
