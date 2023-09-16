@@ -552,6 +552,7 @@ module.exports = defineConfig({
 		"unicorn/prefer-type-error": "error",
 		"unicorn/prefer-node-protocol": "error",
 		"unicorn/prefer-regexp-test": "error",
+		"unicorn/prefer-optional-catch-binding": "error",
 
 		// import
 		"import/first": "error",
