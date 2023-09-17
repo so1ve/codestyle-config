@@ -16,7 +16,7 @@ module.exports = defineConfig({
 			files: ["*.vue"],
 			parser: "vue-eslint-parser",
 			parserOptions: {
-				parser: TS ? '@typescript-eslint/parser' : undefined,
+				parser: TS ? "@typescript-eslint/parser" : undefined,
 			},
 			rules: {
 				"no-unused-vars": "off",
