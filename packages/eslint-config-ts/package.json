@@ -28,7 +28,7 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@so1ve/eslint-config-basic": "workspace:*",
+		"@so1ve/eslint-config-js": "workspace:*",
 		"@so1ve/eslint-plugin": "workspace:*",
 		"@typescript-eslint/eslint-plugin": "^6.2.0",
 		"@typescript-eslint/parser": "^6.2.0",

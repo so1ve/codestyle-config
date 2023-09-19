@@ -1,8 +1,8 @@
 {
-	"name": "@so1ve/eslint-config-basic",
+	"name": "@so1ve/eslint-config-js",
 	"version": "0.122.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-	"description": "Ray's basic eslint config.",
+	"description": "Ray's eslint config for javascript.",
 	"keywords": [
 		"eslint",
 		"eslint-config"
@@ -29,7 +29,6 @@
 		"@html-eslint/parser": "^0.19.1",
 		"@so1ve/eslint-plugin": "workspace:*",
 		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
-		"@so1ve/prettier-config": "workspace:*",
 		"@unocss/eslint-config": "^0.55.0",
 		"eslint-define-config": "^1.21.0",
 		"eslint-plugin-array-func": "^3.1.8",

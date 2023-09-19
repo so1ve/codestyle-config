@@ -67,7 +67,25 @@ importers:
         specifier: ^8.46.0
         version: 8.49.0
 
-  packages/eslint-config-basic:
+  packages/eslint-config-base:
+    dependencies:
+      '@so1ve/eslint-config-js':
+        specifier: workspace:*
+        version: link:../eslint-config-js
+      '@so1ve/eslint-config-ts':
+        specifier: workspace:*
+        version: link:../eslint-config-ts
+      eslint:
+        specifier: '>=8.40.0'
+        version: 8.49.0
+      local-pkg:
+        specifier: ^0.4.3
+        version: 0.4.3
+      prettier:
+        specifier: ^3.0.0
+        version: 3.0.3
+
+  packages/eslint-config-js:
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments':
         specifier: ^4.0.0
@@ -84,9 +102,6 @@ importers:
       '@so1ve/eslint-plugin-sort-imports':
         specifier: workspace:*
         version: link:../eslint-plugin-sort-imports
-      '@so1ve/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier-config
       '@unocss/eslint-config':
         specifier: ^0.55.0
         version: 0.55.7(eslint@8.49.0)(typescript@5.2.2)
@@ -187,9 +202,9 @@ importers:
 
   packages/eslint-config-solid:
     dependencies:
-      '@so1ve/eslint-config-basic':
+      '@so1ve/eslint-config-base':
         specifier: workspace:*
-        version: link:../eslint-config-basic
+        version: link:../eslint-config-base
       '@so1ve/eslint-config-ts':
         specifier: workspace:*
         version: link:../eslint-config-ts
@@ -202,9 +217,6 @@ importers:
       eslint-plugin-solid:
         specifier: ^0.13.0
         version: 0.13.0(eslint@8.49.0)(typescript@5.2.2)
-      local-pkg:
-        specifier: ^0.4.3
-        version: 0.4.3
       prettier:
         specifier: ^3.0.0
         version: 3.0.3
@@ -226,9 +238,9 @@ importers:
 
   packages/eslint-config-ts:
     dependencies:
-      '@so1ve/eslint-config-basic':
+      '@so1ve/eslint-config-js':
         specifier: workspace:*
-        version: link:../eslint-config-basic
+        version: link:../eslint-config-js
       '@so1ve/eslint-plugin':
         specifier: workspace:*
         version: link:../eslint-plugin
@@ -269,12 +281,9 @@ importers:
 
   packages/eslint-config-vue:
     dependencies:
-      '@so1ve/eslint-config-basic':
+      '@so1ve/eslint-config-base':
         specifier: workspace:*
-        version: link:../eslint-config-basic
-      '@so1ve/eslint-config-ts':
-        specifier: workspace:*
-        version: link:../eslint-config-ts
+        version: link:../eslint-config-base
       eslint:
         specifier: '>=8.40.0'
         version: 8.49.0

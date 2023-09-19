@@ -1,5 +1,5 @@
 // @ts-check
-const basic = require("@so1ve/eslint-config-basic");
+const js = require("@so1ve/eslint-config-js");
 const { defineConfig } = require("eslint-define-config");
 
 /**
@@ -69,7 +69,7 @@ const jestOverride = {
 
 module.exports = defineConfig({
 	extends: [
-		"@so1ve/eslint-config-basic",
+		"@so1ve/js",
 		"plugin:import/typescript",
 		"plugin:@typescript-eslint/recommended",
 	],
@@ -82,7 +82,7 @@ module.exports = defineConfig({
 			},
 		},
 	},
-	overrides: [...(basic.overrides || []), typescriptOverride, jestOverride],
+	overrides: [...(js.overrides || []), typescriptOverride, jestOverride],
 	rules: {
 		"import/named": "off",
 

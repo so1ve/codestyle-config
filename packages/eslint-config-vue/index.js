@@ -25,10 +25,7 @@ module.exports = defineConfig({
 			},
 		},
 	],
-	extends: [
-		"plugin:vue/recommended",
-		TS ? "@so1ve/eslint-config-ts" : "@so1ve/eslint-config-basic",
-	],
+	extends: ["plugin:vue/recommended", "@so1ve/eslint-config-base"],
 	rules: {
 		"vue/no-v-html": "off",
 		"vue/require-prop-types": "off",
