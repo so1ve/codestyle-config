@@ -1,7 +1,4 @@
 // @ts-check
-const fs = require("node:fs");
-const path = require("node:path");
-
 const basic = require("@so1ve/eslint-config-basic");
 const { defineConfig } = require("eslint-define-config");
 
@@ -10,9 +7,7 @@ const { defineConfig } = require("eslint-define-config");
  */
 const typescriptOverride = {
 	parserOptions: {
-		tsconfigRootDir: process.cwd(),
 		EXPERIMENTAL_useProjectService: true,
-		project: true,
 	},
 	extends: ["plugin:etc/recommended"],
 	parser: "@typescript-eslint/parser",
@@ -71,10 +66,6 @@ const jestOverride = {
 	},
 };
 
-const overrides = fs.existsSync(path.join(process.cwd(), tsconfig))
-	? [typescriptOverride, jestOverride]
-	: [];
-
 module.exports = defineConfig({
 	extends: [
 		"@so1ve/eslint-config-basic",
@@ -90,7 +81,7 @@ module.exports = defineConfig({
 			},
 		},
 	},
-	overrides: [...(basic.overrides || []), ...overrides],
+	overrides: [...(basic.overrides || []), typescriptOverride, jestOverride],
 	rules: {
 		"import/named": "off",
 
