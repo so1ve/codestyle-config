@@ -5,15 +5,14 @@ const path = require("node:path");
 const basic = require("@so1ve/eslint-config-basic");
 const { defineConfig } = require("eslint-define-config");
 
-const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
-
 /**
  * @type {import("eslint-define-config").Override}
  */
 const typescriptOverride = {
 	parserOptions: {
 		tsconfigRootDir: process.cwd(),
-		project: [tsconfig],
+		EXPERIMENTAL_useProjectService: true,
+		project: true,
 	},
 	extends: ["plugin:etc/recommended"],
 	parser: "@typescript-eslint/parser",
