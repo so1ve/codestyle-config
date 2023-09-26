@@ -41,12 +41,12 @@ module.exports = defineConfig({
 		"unused-imports",
 		"only-error",
 		"no-only-tests",
-		"import",
+		"i",
 		"n",
 		"promise",
 	],
 	extends: [
-		"plugin:import/recommended",
+		"plugin:i/recommended",
 		"plugin:@eslint-community/eslint-comments/recommended",
 		"plugin:jsonc/recommended-with-jsonc",
 		"plugin:yml/prettier",
@@ -162,7 +162,7 @@ module.exports = defineConfig({
 		{
 			files: ["*.d.ts"],
 			rules: {
-				"import/no-duplicates": "off",
+				"i/no-duplicates": "off",
 			},
 		},
 		{
@@ -201,7 +201,7 @@ module.exports = defineConfig({
 				"@typescript-eslint/consistent-type-imports": "off",
 				"@typescript-eslint/no-namespace": "off",
 				"@typescript-eslint/no-require-imports": "off",
-				"import/no-unresolved": "off",
+				"i/no-unresolved": "off",
 				"unused-imports/no-unused-imports": "off",
 				"unused-imports/no-unused-vars": "off",
 				"no-alert": "off",
@@ -555,17 +555,17 @@ module.exports = defineConfig({
 		"unicorn/prefer-optional-catch-binding": "error",
 
 		// import
-		"import/first": "error",
-		"import/no-mutable-exports": "error",
-		"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
-		"import/no-unresolved": "off",
-		"import/no-absolute-path": "off",
-		"import/namespace": "off", // Disable this for better performance
-		"import/export": "error",
-		"import/no-duplicates": "error",
-		"import/no-named-default": "error",
-		"import/no-webpack-loader-syntax": "error",
-		"import/no-named-as-default-member": "off",
+		"i/first": "error",
+		"i/no-mutable-exports": "error",
+		"i/no-useless-path-segments": ["error", { noUselessIndex: true }],
+		"i/no-unresolved": "off",
+		"i/no-absolute-path": "off",
+		"i/namespace": "off", // Disable this for better performance
+		"i/export": "error",
+		"i/no-duplicates": "error",
+		"i/no-named-default": "error",
+		"i/no-webpack-loader-syntax": "error",
+		"i/no-named-as-default-member": "off",
 
 		// Sort imports
 		"@so1ve/sort-imports/imports": ["error"],

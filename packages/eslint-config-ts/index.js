@@ -70,7 +70,7 @@ const jestOverride = {
 module.exports = defineConfig({
 	extends: [
 		"@so1ve/js",
-		"plugin:import/typescript",
+		"plugin:i/typescript",
 		"plugin:@typescript-eslint/recommended",
 	],
 	plugins: ["no-explicit-type-exports"],
@@ -84,7 +84,7 @@ module.exports = defineConfig({
 	},
 	overrides: [...(js.overrides || []), typescriptOverride, jestOverride],
 	rules: {
-		"import/named": "off",
+		"i/named": "off",
 
 		// TS
 		"@typescript-eslint/comma-dangle": "off",
