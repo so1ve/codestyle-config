@@ -98,11 +98,17 @@ export function so1ve(
 				componentExts,
 				overrides: overrides.typescript,
 			}),
-			typescriptWithTypes({
-				componentExts,
-				overrides: overrides.typescriptWithTypes,
-			}),
 		);
+
+		if (typeof enableTypeScript !== "boolean") {
+			configs.push(
+				typescriptWithTypes({
+					...enableTypeScript,
+					componentExts,
+					overrides: overrides.typescriptWithTypes,
+				}),
+			);
+		}
 	}
 
 	if (options.test ?? true) {

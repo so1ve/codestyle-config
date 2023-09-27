@@ -8,6 +8,11 @@ export interface OptionsComponentExts {
 	componentExts?: string[];
 }
 
+export interface OptionsTypeScriptWithTypes {
+	tsconfigPath: string;
+	tsconfigRootDir?: string;
+}
+
 export interface OptionsHasTypeScript {
 	typescript?: boolean;
 }
@@ -34,7 +39,7 @@ export interface Options {
 	 *
 	 * @default auto-detect based on the dependencies
 	 */
-	typescript?: boolean;
+	typescript?: boolean | OptionsTypeScriptWithTypes;
 
 	/**
 	 * Enable test support.

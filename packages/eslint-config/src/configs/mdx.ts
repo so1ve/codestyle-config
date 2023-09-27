@@ -1,7 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
-import { parserMdx, pluginMdx } from "../plugins";
+import { GLOB_MARKDOWN } from "../globs";
+import { pluginMdx } from "../plugins";
 import type { OptionsComponentExts, OptionsOverrides } from "../types";
 
 export const mdx = ({
@@ -9,37 +9,20 @@ export const mdx = ({
 	overrides,
 }: OptionsComponentExts & OptionsOverrides = {}): FlatESLintConfigItem[] => [
 	{
-		plugins: {
-			mdx: pluginMdx,
-		},
+		...pluginMdx.flat,
+		processor: pluginMdx.createRemarkProcessor({
+			lintCodeBlocks: true,
+			languageMapper: {},
+		}),
 	},
 	{
-		languageOptions: {
-			parser: parserMdx,
-		},
-		settings: {
-			"mdx/code-blocks": true,
-		},
-		files: [GLOB_MARKDOWN],
-		processor: "mdx/remark",
-		rules: {
-			"mdx/remark": "warn",
-			"no-unused-expressions": "error",
-		},
-	},
-	{
+		...pluginMdx.flatCodeBlocks,
 		files: [
-			GLOB_MARKDOWN_CODE,
-			...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),
+			...pluginMdx.flatCodeBlocks.files,
+			...componentExts.map((ext) => `${GLOB_MARKDOWN}/*.${ext}`),
 		],
-		languageOptions: {
-			parserOptions: {
-				ecmaFeatures: {
-					impliedStrict: true,
-				},
-			},
-		},
 		rules: {
+			...pluginMdx.flatCodeBlocks.rules,
 			"html/require-doctype": "off",
 			"ts/no-redeclare": "off",
 			"ts/no-unused-vars": "off",
