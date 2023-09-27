@@ -13,7 +13,7 @@ export const typescript = ({
 		// Install the plugins without globs, so they can be configured separately.
 		plugins: {
 			import: pluginImport,
-			ts: pluginTs as any,
+			ts: pluginTs,
 		},
 	},
 	{
