@@ -18,7 +18,6 @@ export const jsdoc = (): FlatESLintConfigItem[] => [
 			"jsdoc/multiline-blocks": "error",
 			"jsdoc/no-defaults": "error",
 			"jsdoc/no-multi-asterisks": "error",
-			"jsdoc/no-types": "error",
 			"jsdoc/require-param-name": "error",
 			"jsdoc/require-property": "error",
 			"jsdoc/require-property-description": "error",
