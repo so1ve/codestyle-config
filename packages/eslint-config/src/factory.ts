@@ -72,7 +72,7 @@ export function so1ve(
 	configs.push(
 		ignores(),
 		javascript({
-			// overrides: overrides.javascript,
+			overrides: overrides.javascript,
 		}),
 		comments(),
 		node(),
@@ -95,20 +95,14 @@ export function so1ve(
 	if (enableTypeScript) {
 		configs.push(
 			typescript({
-				// componentExts,
-				// overrides: overrides.typescript,
+				componentExts,
+				overrides: overrides.typescript,
+			}),
+			typescriptWithTypes({
+				componentExts,
+				overrides: overrides.typescriptWithTypes,
 			}),
 		);
-
-		if (typeof enableTypeScript !== "boolean") {
-			configs.push(
-				typescriptWithTypes({
-					...enableTypeScript,
-					componentExts,
-					overrides: overrides.typescriptWithTypes,
-				}),
-			);
-		}
 	}
 
 	if (options.test ?? true) {
