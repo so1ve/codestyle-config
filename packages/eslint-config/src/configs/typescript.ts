@@ -2,11 +2,7 @@ import type { FlatESLintConfigItem } from "eslint-define-config";
 
 import { GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from "../globs";
 import { parserTs, pluginEtc, pluginImport, pluginTs } from "../plugins";
-import type {
-	OptionsComponentExts,
-	OptionsOverrides,
-	OptionsTypeScriptWithTypes,
-} from "../types";
+import type { OptionsComponentExts, OptionsOverrides } from "../types";
 import { renameRules } from "../utils";
 
 export const typescript = ({
@@ -191,12 +187,8 @@ export const typescript = ({
 
 export const typescriptWithTypes = ({
 	componentExts = [],
-	tsconfigPath,
-	tsconfigRootDir = process.cwd(),
 	overrides = {},
-}: OptionsTypeScriptWithTypes &
-	OptionsComponentExts &
-	OptionsOverrides): FlatESLintConfigItem[] => [
+}: OptionsComponentExts & OptionsOverrides): FlatESLintConfigItem[] => [
 	{
 		files: [
 			GLOB_TS,
@@ -210,8 +202,6 @@ export const typescriptWithTypes = ({
 		languageOptions: {
 			parser: parserTs,
 			parserOptions: {
-				project: [tsconfigPath],
-				tsconfigRootDir,
 				EXPERIMENTAL_useProjectService: true,
 			},
 		},
