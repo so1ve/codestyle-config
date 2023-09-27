@@ -1,7 +1,7 @@
 {
 	"name": "@so1ve/eslint-config-monorepo",
 	"private": true,
-	"packageManager": "pnpm@8.7.6",
+	"packageManager": "pnpm@8.8.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"type": "module",
 	"description": "Monorepo for Ray's eslint config.",
