@@ -11,7 +11,7 @@ export * as parserTs from "@typescript-eslint/parser";
 export * as parserMdx from "eslint-mdx";
 export * as pluginArrayFunc from "eslint-plugin-array-func";
 export * as pluginEtc from "eslint-plugin-etc";
-export * as pluginHtml from "eslint-plugin-html";
+export * as pluginHtml_ from "eslint-plugin-html";
 export * as pluginImport from "eslint-plugin-i";
 export * as pluginJestFormatting from "eslint-plugin-jest-formatting";
 export * as pluginJsdoc from "eslint-plugin-jsdoc";
