@@ -21,7 +21,8 @@
 		"release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
 		"stub": "pnpm run -p -r --filter=./packages/* stub",
 		"test": "pnpm run -r --filter=./packages/* test",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"watch": "pnpm run -r --filter=./packages/* watch"
 	},
 	"devDependencies": {
 		"@so1ve/eslint-config": "workspace:*",
