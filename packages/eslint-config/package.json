@@ -18,13 +18,11 @@
 	"license": "MIT",
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"types": "./dist/index.d.ts",
-			"require": "./dist/index.cjs"
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
 		}
 	},
 	"main": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
@@ -32,7 +30,8 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "pkgroll"
+		"build": "unbuild",
+		"stub": "unbuild --stub"
 	},
 	"dependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "^4.0.0",

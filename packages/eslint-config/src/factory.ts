@@ -1,13 +1,15 @@
-import process from "node:process";
 import fs from "node:fs";
+
+import gitignore from "eslint-config-flat-gitignore";
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { isPackageExists } from "local-pkg";
-import gitignore from "eslint-config-flat-gitignore";
+
 import {
 	comments,
 	ignores,
 	imports,
 	javascript,
+	jsdoc,
 	jsonc,
 	mdx,
 	node,
@@ -48,6 +50,7 @@ export function so1ve(
 ) {
 	const {
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
+		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
 		gitignore: enableGitignore = true,
 		overrides = {},
@@ -56,12 +59,12 @@ export function so1ve(
 	const configs: FlatESLintConfigItem[][] = [];
 
 	if (enableGitignore) {
-		if (typeof enableGitignore !== "boolean") {
-			configs.push([gitignore(enableGitignore)]);
-		} else {
+		if (typeof enableGitignore === "boolean") {
 			if (fs.existsSync(".gitignore")) {
 				configs.push([gitignore()]);
 			}
+		} else {
+			configs.push([gitignore(enableGitignore)]);
 		}
 	}
 
@@ -78,6 +81,7 @@ export function so1ve(
 		// jsdoc(),
 		sortImports(),
 		imports(),
+		jsdoc(),
 		unicorn(),
 	);
 
@@ -100,8 +104,8 @@ export function so1ve(
 			configs.push(
 				typescriptWithTypes({
 					...enableTypeScript,
-					// componentExts,
-					// overrides: overrides.typescriptWithTypes,
+					componentExts,
+					overrides: overrides.typescriptWithTypes,
 				}),
 			);
 		}
@@ -109,17 +113,25 @@ export function so1ve(
 
 	if (options.test ?? true) {
 		configs.push(
-			test(),
-			// {
-			// 	overrides: overrides.test,
-			// }
+			test({
+				overrides: overrides.test,
+			}),
 		);
 	}
 
 	if (enableVue) {
 		configs.push(
 			vue({
-				// overrides: overrides.vue,
+				overrides: overrides.vue,
+				typescript: !!enableTypeScript,
+			}),
+		);
+	}
+
+	if (enableSolid) {
+		configs.push(
+			solid({
+				overrides: overrides.solid,
 				typescript: !!enableTypeScript,
 			}),
 		);
@@ -131,29 +143,26 @@ export function so1ve(
 
 	if (options.toml ?? true) {
 		configs.push(
-			toml(),
-			// {
-			// 	overrides: overrides.toml,
-			// }
+			toml({
+				overrides: overrides.toml,
+			}),
 		);
 	}
 
 	if (options.yaml ?? true) {
 		configs.push(
-			yaml(),
-			// {
-			// 	overrides: overrides.yaml,
-			// }
+			yaml({
+				overrides: overrides.yaml,
+			}),
 		);
 	}
 
-	if (options.markdown ?? true) {
+	if (options.mdx ?? true) {
 		configs.push(
-			mdx(),
-			// {
-			// 	componentExts,
-			// 	overrides: overrides.markdown,
-			// }
+			mdx({
+				componentExts,
+				overrides: overrides.mdx,
+			}),
 		);
 	}
 
@@ -161,18 +170,17 @@ export function so1ve(
 	// We pick the known keys as ESLint would do schema validation
 	const fusedConfig = flatConfigProps.reduce((acc, key) => {
 		if (key in options) {
-			acc[key] = options[key];
+			acc[key] = options[key as keyof Options];
 		}
+
 		return acc;
 	}, {} as FlatESLintConfigItem);
-	if (Object.keys(fusedConfig).length) {
+
+	if (Object.keys(fusedConfig).length > 0) {
 		configs.push([fusedConfig]);
 	}
 
 	const merged = combine(...configs, ...userConfigs);
-
-	// recordRulesStateConfigs(merged)
-	// warnUnnecessaryOffRules()
 
 	return merged;
 }

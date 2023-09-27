@@ -1,6 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { pluginImport, pluginSortImports } from "../plugins";
-import { GLOB_DTS } from "../globs";
+
+import { pluginSortImports } from "../plugins";
 
 export const sortImports = (): FlatESLintConfigItem[] => [
 	{

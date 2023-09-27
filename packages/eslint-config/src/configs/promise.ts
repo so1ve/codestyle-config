@@ -1,17 +1,16 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { pluginNode, pluginPromise } from "../plugins";
 
-export function promise(): FlatESLintConfigItem[] {
-	return [
-		{
-			plugins: {
-				node: pluginPromise,
-			},
+import { pluginPromise } from "../plugins";
+
+export const promise = (): FlatESLintConfigItem[] => [
+	{
+		plugins: {
+			promise: pluginPromise,
 		},
-		{
-			rules: {
-				"promise/param-names": "error",
-			},
+	},
+	{
+		rules: {
+			"promise/param-names": "error",
 		},
-	];
-}
+	},
+];

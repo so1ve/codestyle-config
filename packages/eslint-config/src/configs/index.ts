@@ -3,6 +3,7 @@ export * from "./html";
 export * from "./ignores";
 export * from "./imports";
 export * from "./javascript";
+export * from "./jsdoc";
 export * from "./jsonc";
 export * from "./mdx";
 export * from "./node";

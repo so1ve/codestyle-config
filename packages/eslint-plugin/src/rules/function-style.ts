@@ -42,15 +42,21 @@ export default createEslintRule<Options, MessageIds>({
 			node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
 		) {
 			const { body } = node;
-			if (body.type === AST_NODE_TYPES.BlockStatement) {
-				const { body: blockBody } = body;
-				const comments = sourceCode.getCommentsInside(node);
-				if (blockBody.length === 1 && comments.length === 0) {
-					const [statement] = blockBody;
-					if (statement?.type === AST_NODE_TYPES.ReturnStatement) {
-						return statement;
-					}
-				}
+			if (body.type !== AST_NODE_TYPES.BlockStatement) {
+				return;
+			}
+			const { body: blockBody } = body;
+			const allComments = sourceCode.getCommentsInside(node);
+			if (blockBody.length !== 1) {
+				return;
+			}
+			const [statement] = blockBody;
+			const statementComments = sourceCode.getCommentsInside(statement);
+			if (allComments.length !== statementComments.length) {
+				return;
+			}
+			if (statement?.type === AST_NODE_TYPES.ReturnStatement) {
+				return statement;
 			}
 		}
 

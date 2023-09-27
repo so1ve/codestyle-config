@@ -1,27 +1,30 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { pluginNode, pluginSolid } from "../plugins";
-import { Options } from "../types";
 
-export function solid(options: Options = {}): FlatESLintConfigItem[] {
-	return [
-		{
-			plugins: {
-				solid: pluginSolid,
-			},
+import { pluginSolid } from "../plugins";
+import type { OptionsHasTypeScript, OptionsOverrides } from "../types";
+
+export const solid = ({
+	overrides,
+	typescript,
+}: OptionsHasTypeScript & OptionsOverrides = {}): FlatESLintConfigItem[] => [
+	{
+		plugins: {
+			solid: pluginSolid,
 		},
-		{
-			languageOptions: {
-				sourceType: "module",
-				parserOptions: {
-					ecmaFeatures: {
-						jsx: true,
-					},
+	},
+	{
+		languageOptions: {
+			sourceType: "module",
+			parserOptions: {
+				ecmaFeatures: {
+					jsx: true,
 				},
 			},
-			rules: {
-				...pluginSolid.configs.recommended.rules,
-				...(options.typescript ? pluginSolid.configs.typescript.rules : {}),
-			},
 		},
-	];
-}
+		rules: {
+			...pluginSolid.configs.recommended.rules,
+			...(typescript ? pluginSolid.configs.typescript.rules : {}),
+			...overrides,
+		},
+	},
+];

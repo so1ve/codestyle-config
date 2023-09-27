@@ -1,16 +1,20 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
+
+import { GLOB_TESTS } from "../globs";
 import {
+	pluginJestFormatting,
 	pluginNoOnlyTests,
 	pluginVitest,
-	pluginJestFormatting,
 } from "../plugins";
-import { GLOB_TESTS } from "../globs";
+import type { OptionsOverrides } from "../types";
 
-export const test = (): FlatESLintConfigItem[] => [
+export const test = ({
+	overrides,
+}: OptionsOverrides = {}): FlatESLintConfigItem[] => [
 	{
 		plugins: {
 			"no-only-tests": pluginNoOnlyTests,
-			vitest: pluginVitest,
+			"vitest": pluginVitest,
 			"jest-formatting": pluginJestFormatting,
 		},
 	},
@@ -36,6 +40,8 @@ export const test = (): FlatESLintConfigItem[] => [
 			"vitest/prefer-todo": "error",
 			"vitest/valid-title": ["error", { allowArguments: true }],
 			"jest-formatting/padding-around-all": "error",
+
+			...overrides,
 		},
 	},
 ];

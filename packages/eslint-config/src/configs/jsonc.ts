@@ -1,9 +1,10 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
+
 import {
+	GLOB_ESLINTRC,
 	GLOB_JSON,
 	GLOB_JSON5,
 	GLOB_JSONC,
-	GLOB_ESLINTRC,
 	GLOB_PACKAGEJSON,
 } from "../globs";
 import { parserJsonc, pluginJsonc } from "../plugins";

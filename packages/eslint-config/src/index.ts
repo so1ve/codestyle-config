@@ -1,9 +1,7 @@
-export { so1ve } from "./factory";
-
-export * from "./types";
-export * from "./factory";
 export * from "./configs";
-export * from "./plugins";
-export * from "./utils";
+export { so1ve } from "./factory";
+export * from "./factory";
 export * from "./globs";
-
+export * from "./plugins";
+export * from "./types";
+export * from "./utils";
