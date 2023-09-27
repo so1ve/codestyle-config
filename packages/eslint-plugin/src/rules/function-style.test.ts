@@ -118,6 +118,17 @@ const invalid: InvalidTestCase<MessageIds, []>[] = [
 		output: "export default () => ({});",
 		errors: [{ messageId: "arrow" }],
 	},
+	{
+		code: `function foo() {
+  return [
+    // foo
+  ];
+}`,
+		output: `const foo = () => ([
+    // foo
+  ]);`,
+		errors: [{ messageId: "arrow" }],
+	},
 ];
 
 it("runs", () => {

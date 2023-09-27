@@ -3,6 +3,7 @@
 	"private": true,
 	"packageManager": "pnpm@8.7.6",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"type": "module",
 	"description": "Monorepo for Ray's eslint config.",
 	"homepage": "https://github.com/so1ve/eslint-config#readme",
 	"repository": {
@@ -18,9 +19,10 @@
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
-		"stub": "pnpm run -r --filter=./packages/* stub",
+		"stub": "pnpm run -p -r --filter=./packages/* stub",
 		"test": "pnpm run -r --filter=./packages/* test",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"watch": "pnpm run -r --filter=./packages/* watch"
 	},
 	"devDependencies": {
 		"@so1ve/eslint-config": "workspace:*",
