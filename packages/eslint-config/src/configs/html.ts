@@ -1,13 +1,13 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
 import { GLOB_HTML } from "../globs";
-import { parserHtml, pluginHtml, pluginHtml_ } from "../plugins";
+import { parserHtml, pluginHtml, pluginHtmlJsSupport } from "../plugins";
 
 export const html = (): FlatESLintConfigItem[] => [
 	{
 		plugins: {
-			html: pluginHtml,
-			html_: pluginHtml_,
+			"html": pluginHtml,
+			"html-js-support": pluginHtmlJsSupport,
 		},
 	},
 	{
