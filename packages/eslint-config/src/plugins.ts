@@ -4,7 +4,7 @@
 export * as pluginComments from "@eslint-community/eslint-plugin-eslint-comments";
 export * as pluginHtml from "@html-eslint/eslint-plugin";
 export * as parserHtml from "@html-eslint/parser";
-export * as pluginSo1ve from "@so1ve/eslint-plugin";
+export { default as pluginSo1ve } from "@so1ve/eslint-plugin";
 export * as pluginSortImports from "@so1ve/eslint-plugin-sort-imports";
 export { default as pluginTs } from "@typescript-eslint/eslint-plugin";
 export * as parserTs from "@typescript-eslint/parser";
