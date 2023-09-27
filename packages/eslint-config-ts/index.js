@@ -16,41 +16,40 @@ const typescriptOverride = {
 	// https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
 	rules: {
 		// https://github.com/cartant/eslint-plugin-etc/issues/63
-		"etc/no-implicit-any-catch": "off",
-
-		"no-throw-literal": "off",
-		"@typescript-eslint/no-throw-literal": "error",
-		"no-implied-eval": "off",
-		"@typescript-eslint/no-implied-eval": "error",
-		"dot-notation": "off",
-		"@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
-		"no-void": ["error", { allowAsStatement: true }],
-		"@typescript-eslint/await-thenable": "error",
-		"@typescript-eslint/no-for-in-array": "error",
-		"@typescript-eslint/no-unnecessary-type-assertion": "error",
-		"@typescript-eslint/restrict-template-expressions": [
-			"error",
-			{
-				allowAny: true,
-				allowNumber: true,
-				allowBoolean: true,
-			},
-		],
-		"@typescript-eslint/array-type": [
-			"error",
-			{ default: "array", readonly: "array" },
-		],
-		"@typescript-eslint/consistent-generic-constructors": "error",
-		"@typescript-eslint/consistent-type-exports": "error",
-		"@typescript-eslint/consistent-type-assertions": [
-			"error",
-			{ assertionStyle: "as", objectLiteralTypeAssertions: "allow" },
-		],
-		"@typescript-eslint/prefer-nullish-coalescing": "error",
-		"@typescript-eslint/prefer-optional-chain": "error",
-		"@typescript-eslint/prefer-return-this-type": "error",
-		"@typescript-eslint/no-unnecessary-type-arguments": "error",
-		"@typescript-eslint/non-nullable-type-assertion-style": "error",
+		// "etc/no-implicit-any-catch": "off",
+		// "no-throw-literal": "off",
+		// "@typescript-eslint/no-throw-literal": "error",
+		// "no-implied-eval": "off",
+		// "@typescript-eslint/no-implied-eval": "error",
+		// "dot-notation": "off",
+		// "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
+		// "no-void": ["error", { allowAsStatement: true }],
+		// "@typescript-eslint/await-thenable": "error",
+		// "@typescript-eslint/no-for-in-array": "error",
+		// "@typescript-eslint/no-unnecessary-type-assertion": "error",
+		// "@typescript-eslint/restrict-template-expressions": [
+		// 	"error",
+		// 	{
+		// 		allowAny: true,
+		// 		allowNumber: true,
+		// 		allowBoolean: true,
+		// 	},
+		// ],
+		// "@typescript-eslint/array-type": [
+		// 	"error",
+		// 	{ default: "array", readonly: "array" },
+		// ],
+		// "@typescript-eslint/consistent-generic-constructors": "error",
+		// "@typescript-eslint/consistent-type-exports": "error",
+		// "@typescript-eslint/consistent-type-assertions": [
+		// 	"error",
+		// 	{ assertionStyle: "as", objectLiteralTypeAssertions: "allow" },
+		// ],
+		// "@typescript-eslint/prefer-nullish-coalescing": "error",
+		// "@typescript-eslint/prefer-optional-chain": "error",
+		// "@typescript-eslint/prefer-return-this-type": "error",
+		// "@typescript-eslint/no-unnecessary-type-arguments": "error",
+		// "@typescript-eslint/non-nullable-type-assertion-style": "error",
 	},
 };
 

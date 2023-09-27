@@ -6,15 +6,18 @@ import {
 } from "../plugins";
 import { GLOB_TESTS } from "../globs";
 
-export const test: FlatESLintConfigItem[] = [
+export const test = (): FlatESLintConfigItem[] => [
 	{
-		files: GLOB_TESTS,
 		plugins: {
 			"no-only-tests": pluginNoOnlyTests,
 			vitest: pluginVitest,
 			"jest-formatting": pluginJestFormatting,
 		},
+	},
+	{
+		files: GLOB_TESTS,
 		rules: {
+			...pluginVitest.configs.recommended.rules,
 			"no-only-tests/no-only-tests": "error",
 			"vitest/expect-expect": "off",
 			"vitest/valid-describe-callback": "off",

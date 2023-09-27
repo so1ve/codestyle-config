@@ -80,12 +80,18 @@ importers:
       '@unocss/eslint-config':
         specifier: ^0.55.0
         version: 0.55.7(eslint@8.50.0)(typescript@5.2.2)
+      eslint-config-flat-gitignore:
+        specifier: ^0.1.0
+        version: 0.1.0
       eslint-define-config:
         specifier: ^1.21.0
         version: 1.23.0
       eslint-import-resolver-typescript:
         specifier: ^3.5.5
         version: 3.6.1(@typescript-eslint/parser@6.7.2)(eslint@8.50.0)
+      eslint-mdx:
+        specifier: ^2.2.0
+        version: 2.2.0(eslint@8.50.0)
       eslint-plugin-array-func:
         specifier: ^3.1.8
         version: 3.1.8(eslint@8.50.0)
@@ -101,9 +107,6 @@ importers:
       eslint-plugin-i:
         specifier: 2.28.1
         version: 2.28.1(@typescript-eslint/parser@6.7.2)(eslint-import-resolver-typescript@3.6.1)(eslint@8.50.0)
-      eslint-plugin-jest:
-        specifier: ^27.2.3
-        version: 27.4.0(@typescript-eslint/eslint-plugin@6.7.2)(eslint@8.50.0)(typescript@5.2.2)
       eslint-plugin-jest-formatting:
         specifier: ^3.1.0
         version: 3.1.0(eslint@8.50.0)
@@ -137,6 +140,9 @@ importers:
       eslint-plugin-regexp:
         specifier: ^1.15.0
         version: 1.15.0(eslint@8.50.0)
+      eslint-plugin-solid:
+        specifier: ^0.13.0
+        version: 0.13.0(eslint@8.50.0)(typescript@5.2.2)
       eslint-plugin-toml:
         specifier: ^0.5.0
         version: 0.5.0(eslint@8.50.0)
@@ -158,9 +164,24 @@ importers:
       globals:
         specifier: ^13.22.0
         version: 13.22.0
+      jsonc-eslint-parser:
+        specifier: ^2.3.0
+        version: 2.3.0
+      local-pkg:
+        specifier: ^0.4.3
+        version: 0.4.3
       prettier:
         specifier: ^3.0.0
         version: 3.0.3
+      toml-eslint-parser:
+        specifier: ^0.6.0
+        version: 0.6.0
+      vue-eslint-parser:
+        specifier: ^9.3.1
+        version: 9.3.1(eslint@8.50.0)
+      yaml-eslint-parser:
+        specifier: ^1.2.2
+        version: 1.2.2
     devDependencies:
       eslint:
         specifier: ^8.46.0
@@ -2812,6 +2833,12 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
+  /eslint-config-flat-gitignore@0.1.0:
+    resolution: {integrity: sha512-5nQMQFRkkhCb+ejFhKSATn/41I7ot9oRcnEDzfqwMlBE9036qM9ioYBDtKLpwmlICXr/J7naMFfb39pa4v4sGA==}
+    dependencies:
+      parse-gitignore: 2.0.0
+    dev: false
+
   /eslint-define-config@1.23.0:
     resolution: {integrity: sha512-4mMyu0JuBkQHsCtR+42irIQdFLmLIW+pMAVcyOV/gZRL4O1R8iuH0eMG3oL3Cbi1eo9fDAfT5CIHVHgdyxcf6w==}
     engines: {node: ^16.13.0 || >=18.0.0, npm: '>=7.0.0', pnpm: '>= 8.6.0'}
@@ -5304,6 +5331,11 @@ packages:
       is-alphanumerical: 2.0.1
       is-decimal: 2.0.1
       is-hexadecimal: 2.0.1
+    dev: false
+
+  /parse-gitignore@2.0.0:
+    resolution: {integrity: sha512-RmVuCHWsfu0QPNW+mraxh/xjQVw/lhUCUru8Zni3Ctq3AoMhpDTq0OVdKS6iesd6Kqb7viCV3isAL43dciOSog==}
+    engines: {node: '>=14'}
     dev: false
 
   /parse-json@5.2.0:

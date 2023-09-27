@@ -1,14 +1,28 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import globals from "globals";
 import {
+	pluginArrayFunc,
+	pluginJsonSchemaValidator,
+	pluginRegexp,
 	pluginSo1ve,
 	pluginSortImports,
 	pluginUnusedImports,
 } from "../plugins";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
+import { Options } from "../types";
 
-export function javascript(options: any /* TODO */): FlatESLintConfigItem[] {
+export function javascript(options: Options = {}): FlatESLintConfigItem[] {
 	return [
+		{
+			plugins: {
+				"so1ve": pluginSo1ve,
+				"unused-imports": pluginUnusedImports,
+				"sort-imports": pluginSortImports,
+				"array-func": pluginArrayFunc,
+				"json-schema-validator": pluginJsonSchemaValidator,
+				regexp: pluginRegexp,
+			},
+		},
 		{
 			languageOptions: {
 				ecmaVersion: 2022,
@@ -28,10 +42,6 @@ export function javascript(options: any /* TODO */): FlatESLintConfigItem[] {
 					sourceType: "module",
 				},
 				sourceType: "module",
-			},
-			plugins: {
-				"so1ve": pluginSo1ve,
-				"unused-imports": pluginUnusedImports,
 			},
 			rules: {
 				// Common
@@ -325,6 +335,19 @@ export function javascript(options: any /* TODO */): FlatESLintConfigItem[] {
 				"so1ve/pad-after-last-import": "error",
 				"so1ve/function-style": "error",
 				"so1ve/use-async-with-await": "error",
+
+				//Sort Imports
+				"sort-imports/imports": ["error"],
+				"sort-imports/exports": "error",
+
+				// array-func
+				"array-func/prefer-array-from": "off",
+
+				// json-schema-validator
+				"json-schema-validator/no-invalid": "warn",
+
+				// regexp
+				"regexp/no-unused-capturing-group": "warn",
 			},
 		},
 		{
