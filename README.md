@@ -224,7 +224,7 @@ type foo = { bar: 2 }
 
 Certain rules would only be enabled in specific files, for example, `ts/*` rules would only be enabled in `.ts` files and `vue/*` rules would only be enabled in `.vue` files. If you want to override the rules, you need to specify the file extension:
 
-```ts
+```js
 // eslint.config.js
 import { so1ve } from "@so1ve/eslint-config";
 
