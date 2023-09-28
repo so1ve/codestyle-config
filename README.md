@@ -19,7 +19,7 @@
 - **Style principle**: Consistent for reading, stable for diff. More automated style fixes is better.
 
 > [!IMPORTANT]
-> The main branch is for v1.0-beta, which rewrites to ESLint Flat config, check [#250](https://github.com/antfu/eslint-config/pull/250) for more details.
+> The main branch is for v1.0 prerelease, which rewrites to ESLint Flat config.
 
 ## Usage
 
