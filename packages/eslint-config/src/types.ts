@@ -1,3 +1,4 @@
+import type { ParserOptions } from "@typescript-eslint/parser";
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
@@ -6,6 +7,13 @@ export interface OptionsComponentExts {
 	 * Additional extensions for components.
 	 */
 	componentExts?: string[];
+}
+
+export interface OptionsTypeScriptParserOptions {
+	/**
+	 * Additional parser options for TypeScript.
+	 */
+	parserOptions?: Partial<ParserOptions>;
 }
 
 export interface OptionsHasTypeScript {
@@ -91,7 +99,6 @@ export interface Options {
 	overrides?: {
 		javascript?: FlatESLintConfigItem["rules"];
 		typescript?: FlatESLintConfigItem["rules"];
-		typescriptWithTypes?: FlatESLintConfigItem["rules"];
 		test?: FlatESLintConfigItem["rules"];
 		vue?: FlatESLintConfigItem["rules"];
 		solid?: FlatESLintConfigItem["rules"];

@@ -97,10 +97,6 @@ export function so1ve(
 				componentExts,
 				overrides: overrides.typescript,
 			}),
-			// typescriptWithTypes({
-			// 	componentExts,
-			// 	overrides: overrides.typescriptWithTypes,
-			// }),
 		);
 	}
 

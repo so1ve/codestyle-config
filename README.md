@@ -224,7 +224,7 @@ type foo = { bar: 2 }
 
 Certain rules would only be enabled in specific files, for example, `ts/*` rules would only be enabled in `.ts` files and `vue/*` rules would only be enabled in `.vue` files. If you want to override the rules, you need to specify the file extension:
 
-```js
+```ts
 // eslint.config.js
 import { so1ve } from "@so1ve/eslint-config";
 
@@ -268,18 +268,7 @@ export default so1ve({
 
 ### Type Aware Rules
 
-You can optionally enable the [type aware rules](https://typescript-eslint.io/linting/typed-linting/) by passing the options object to the `typescript` config:
-
-```js
-// eslint.config.js
-import { so1ve } from "@so1ve/eslint-config";
-
-export default so1ve({
-	typescript: {
-		tsconfigPath: "tsconfig.json",
-	},
-});
-```
+[Type Aware Rules](https://typescript-eslint.io/linting/typed-linting/) are enabled by default.
 
 ## License
 
