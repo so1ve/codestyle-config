@@ -24,7 +24,7 @@ export interface OptionsOverrides {
 	overrides?: FlatESLintConfigItem["rules"];
 }
 
-export interface Options {
+export interface Options extends OptionsComponentExts {
 	/**
 	 * Enable gitignore support.
 	 *
