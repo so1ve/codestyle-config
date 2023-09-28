@@ -78,7 +78,6 @@ export function so1ve(
 		node(),
 		onlyError(),
 		promise(),
-		// jsdoc(),
 		sortImports(),
 		imports(),
 		jsdoc(),
