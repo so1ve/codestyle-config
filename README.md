@@ -38,6 +38,15 @@ import { so1ve } from "@so1ve/eslint-config";
 export default so1ve();
 ```
 
+Or using CJS:
+
+```js
+// eslint.config.js
+const { so1ve } = require("@so1ve/eslint-config");
+
+module.exports = so1ve();
+```
+
 ```js
 // .prettierrc.cjs
 module.exports = require("@so1ve/prettier-config");
