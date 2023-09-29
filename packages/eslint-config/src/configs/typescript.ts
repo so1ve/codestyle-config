@@ -1,6 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
-import { GLOB_MARKDOWN_CODE, GLOB_TS,GLOB_TSX } from "../globs";
+import { GLOB_MARKDOWN_CODE, GLOB_TS, GLOB_TSX } from "../globs";
 import { parserTs, pluginEtc, pluginImport, pluginTs } from "../plugins";
 import type {
 	OptionsComponentExts,
@@ -63,7 +63,7 @@ export function typescript({
 			},
 		},
 		{
-			files: [GLOB_TS,GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
+			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			languageOptions: {
 				parser: parserTs,
 				parserOptions: {
