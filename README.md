@@ -133,7 +133,7 @@ export default so1ve({
 });
 ```
 
-The `so1ve` factory function also accepts any number of arbitrary custom config overrides:
+The `so1ve` factory function also accepts arbitrary custom config overrides:
 
 ```js
 // eslint.config.js
@@ -144,15 +144,13 @@ export default so1ve(
 		// Configures for so1ve's config
 	},
 
-	// From the second arguments they are ESLint Flat Configs
-	// you can have multiple configs
-	{
+	[	{
 		files: ["**/*.ts"],
 		rules: {},
 	},
 	{
 		rules: {},
-	},
+	},]
 );
 ```
 
@@ -236,7 +234,7 @@ import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve(
 	{ vue: true, typescript: true },
-	{
+[	{
 		// Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
 		files: ["**/*.vue"],
 		rules: {
@@ -248,7 +246,7 @@ export default so1ve(
 		rules: {
 			"style/semi": ["error", "never"],
 		},
-	},
+	},]
 );
 ```
 
