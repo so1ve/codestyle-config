@@ -16,7 +16,7 @@ export const imports = (options: Options = {}): FlatESLintConfigItem[] => [
 				espree: [".js", ".cjs", ".mjs", ".jsx"],
 			},
 			"import/resolver": {
-				...(options.typescript
+				...(!options.typescript
 					? {
 							node: { extensions: [".js", ".mjs"] },
 					  }
