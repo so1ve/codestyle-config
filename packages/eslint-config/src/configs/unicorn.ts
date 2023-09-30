@@ -45,6 +45,7 @@ export const unicorn = (): FlatESLintConfigItem[] => [
 			"unicorn/prefer-text-content": "error",
 			"unicorn/prefer-type-error": "error",
 			"unicorn/prefer-node-protocol": "error",
+			"unicorn/prefer-negative-index": "error",
 			"unicorn/prefer-regexp-test": "error",
 			"unicorn/prefer-optional-catch-binding": "error",
 		},
