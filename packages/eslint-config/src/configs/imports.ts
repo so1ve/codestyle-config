@@ -16,17 +16,17 @@ export const imports = (options: Options = {}): FlatESLintConfigItem[] => [
 				espree: [".js", ".cjs", ".mjs", ".jsx"],
 			},
 			"import/resolver": {
-				...(!options.typescript
+				...(options.typescript
 					? {
-							node: { extensions: [".js", ".mjs"] },
-					  }
-					: {
 							node: {
 								extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
 							},
 							typescript: {
 								extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
 							},
+					  }
+					: {
+							node: { extensions: [".js", ".mjs"] },
 					  }),
 			},
 		},
