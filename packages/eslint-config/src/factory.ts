@@ -45,7 +45,7 @@ const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
  */
 export function so1ve(
 	options: Options = {},
-userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]=[]
+	userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[] = [],
 ) {
 	const {
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
