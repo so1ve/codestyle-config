@@ -144,13 +144,15 @@ export default so1ve(
 		// Configures for so1ve's config
 	},
 
-	[	{
-		files: ["**/*.ts"],
-		rules: {},
-	},
-	{
-		rules: {},
-	},]
+	[
+		{
+			files: ["**/*.ts"],
+			rules: {},
+		},
+		{
+			rules: {},
+		},
+	],
 );
 ```
 
@@ -232,9 +234,8 @@ Certain rules would only be enabled in specific files, for example, `ts/*` rules
 // eslint.config.js
 import { so1ve } from "@so1ve/eslint-config";
 
-export default so1ve(
-	{ vue: true, typescript: true },
-[	{
+export default so1ve({ vue: true, typescript: true }, [
+	{
 		// Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
 		files: ["**/*.vue"],
 		rules: {
@@ -246,8 +247,8 @@ export default so1ve(
 		rules: {
 			"style/semi": ["error", "never"],
 		},
-	},]
-);
+	},
+]);
 ```
 
 We also provided an `overrides` options to make it easier:
