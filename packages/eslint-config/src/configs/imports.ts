@@ -11,18 +11,25 @@ export const imports = (options: Options = {}): FlatESLintConfigItem[] => [
 		},
 	},
 	{
-		settings: options.typescript
-			? {
-					"import/resolver": {
-						node: { extensions: [".js", ".mjs"] },
-					},
-			  }
-			: {
-					node: { extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"] },
-					typescript: {
-						extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
-					},
-			  },
+		settings: {
+			"import/parser": {
+				espree: [".js", ".cjs", ".mjs", ".jsx"],
+			},
+			"import/resolver": {
+				...(!options.typescript
+					? {
+							node: { extensions: [".js", ".mjs"] },
+					  }
+					: {
+							node: {
+								extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
+							},
+							typescript: {
+								extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
+							},
+					  }),
+			},
+		},
 		rules: {
 			...pluginImport.configs.recommended.rules,
 			"import/first": "error",
