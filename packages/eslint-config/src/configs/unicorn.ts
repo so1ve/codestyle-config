@@ -47,6 +47,8 @@ export const unicorn = (): FlatESLintConfigItem[] => [
 			"unicorn/prefer-negative-index": "error",
 			"unicorn/prefer-regexp-test": "error",
 			"unicorn/prefer-optional-catch-binding": "error",
+			"unicorn/prefer-object-from-entries": "error",
+			"unicorn/prefer-prototype-methods": "error",
 		},
 	},
 ];
