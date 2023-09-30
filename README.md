@@ -101,7 +101,7 @@ Create `.vscode/settings.json`
 
 ## Customization
 
-Since v1.0, we migrated to [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), provides a much better organization and composition.
+Since v1.0, we migrated to [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new). It provides a much better organization and composition.
 
 Normally you only need to import the `so1ve` preset:
 
@@ -133,7 +133,7 @@ export default so1ve({
 });
 ```
 
-The `so1ve` factory functions also accepts arbitrary numbers of constom configs overrides:
+The `so1ve` factory function also accepts any number of arbitrary custom config overrides:
 
 ```js
 // eslint.config.js
@@ -156,7 +156,7 @@ export default so1ve(
 );
 ```
 
-Going more advanced, you can also import the very fine-grained configs and compose them as you wish:
+Going more advanced, you can also import fine-grained configs and compose them as you wish:
 
 ```js
 // eslint.config.js
@@ -218,7 +218,7 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 | `yaml/*`   | `yml/*`                | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)                        |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
 
-When you want to overrides rules, or disable them inline, you need to update to the new prefix:
+When you want to override rules, or disable them inline, you need to update to the new prefix:
 
 ```diff
 -// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
