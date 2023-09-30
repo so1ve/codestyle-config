@@ -12,7 +12,7 @@ export const imports = (options: Options = {}): FlatESLintConfigItem[] => [
 	},
 	{
 		settings: {
-			"import/parser": {
+			"import/parsers": {
 				espree: [".js", ".cjs", ".mjs", ".jsx"],
 			},
 			"import/resolver": {
