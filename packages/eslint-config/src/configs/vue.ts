@@ -47,7 +47,7 @@ export const vue = ({
 			"vue/block-order": [
 				"error",
 				{
-					order: ["script", "template", "style"],
+					order: ['script:not([setup])', 'script[setup]', "template", "style"],
 				},
 			],
 			"vue/component-api-style": ["error", ["script-setup", "composition"]],
