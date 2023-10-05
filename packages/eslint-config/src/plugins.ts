@@ -14,7 +14,6 @@ export { default as pluginEtc } from "eslint-plugin-etc";
 export { default as pluginHtmlJsSupport } from "eslint-plugin-html";
 export { default as pluginImport } from "eslint-plugin-i";
 export { default as pluginJestFormatting } from "eslint-plugin-jest-formatting";
-export { default as pluginJsdoc } from "eslint-plugin-jsdoc";
 export { default as pluginJsonSchemaValidator } from "eslint-plugin-json-schema-validator";
 export { default as pluginJsonc } from "eslint-plugin-jsonc";
 export { default as pluginMdx } from "eslint-plugin-mdx";

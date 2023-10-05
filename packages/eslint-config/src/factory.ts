@@ -9,7 +9,6 @@ import {
 	ignores,
 	imports,
 	javascript,
-	jsdoc,
 	jsonc,
 	mdx,
 	node,
@@ -80,7 +79,6 @@ export function so1ve(
 		promise(),
 		sortImports(),
 		imports(),
-		jsdoc(),
 		unicorn(),
 	);
 
