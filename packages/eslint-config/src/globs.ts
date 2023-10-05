@@ -25,6 +25,7 @@ export const GLOB_TOML = "**/*.toml";
 export const GLOB_HTML = "**/*.htm?(l)";
 
 export const GLOB_PACKAGEJSON = "**/package.json";
+export const GLOB_TSCONFIG = ["**/tsconfig.json", "**/tsconfig.*.json"];
 
 export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`;
 
