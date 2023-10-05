@@ -258,11 +258,6 @@ export const javascript = ({
 					ignoreConstructors: false,
 				},
 			],
-			"quote-props": ["error", "consistent-as-needed"],
-			"padding-line-between-statements": [
-				"error",
-				{ blankLine: "always", prev: "*", next: "return" },
-			],
 			"prefer-exponentiation-operator": "error",
 			"prefer-rest-params": "error",
 			"prefer-spread": "error",
@@ -331,11 +326,6 @@ export const javascript = ({
 
 			// so1ve
 			"so1ve/import-dedupe": "error",
-			"so1ve/no-useless-template-string": "error",
-			"so1ve/no-negated-comparison": "error",
-			"so1ve/no-import-promises-as": "error",
-			"so1ve/pad-after-last-import": "error",
-			"so1ve/function-style": "error",
 			"so1ve/use-async-with-await": "error",
 
 			// Sort Imports

@@ -39,7 +39,6 @@ export const test = ({
 			"vitest/prefer-to-have-length": "error",
 			"vitest/prefer-todo": "error",
 			"vitest/valid-title": ["error", { allowArguments: true }],
-			"jest-formatting/padding-around-all": "error",
 
 			...overrides,
 		},

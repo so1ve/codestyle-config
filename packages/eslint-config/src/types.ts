@@ -94,6 +94,13 @@ export interface Options extends OptionsComponentExts {
 	mdx?: boolean;
 
 	/**
+	 * Enable formatting rules.
+	 *
+	 * @default true
+	 */
+	formatting?: boolean;
+
+	/**
 	 * Provide overrides for rules for each integration.
 	 */
 	overrides?: {

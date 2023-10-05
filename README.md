@@ -162,6 +162,7 @@ Going more advanced, you can also import fine-grained configs and compose them a
 // eslint.config.js
 import {
 	comments,
+	formatting,
 	ignores,
 	imports,
 	javascript,
@@ -182,6 +183,7 @@ import {
 
 export default [
 	...comments(),
+	...formatting(),
 	...ignores(),
 	...imports(),
 	...javascript(),

@@ -6,6 +6,7 @@ import { isPackageExists } from "local-pkg";
 
 import {
 	comments,
+	formatting,
 	ignores,
 	imports,
 	javascript,
@@ -148,6 +149,10 @@ export function so1ve(
 				overrides: overrides.mdx,
 			}),
 		);
+	}
+
+	if (options.formatting ?? true) {
+		configs.push(formatting(options));
 	}
 
 	// User can optionally pass a flat config item to the first argument

@@ -1,4 +1,5 @@
 export * from "./comments";
+export * from "./formatting";
 export * from "./html";
 export * from "./ignores";
 export * from "./imports";
