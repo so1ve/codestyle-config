@@ -8,10 +8,6 @@ export const RULE_NAME = "function-style";
 export type MessageIds = "arrow" | "declaration";
 export type Options = [];
 
-const START_RETURN = /^return /;
-const RETURN_ONLY = /^return\s*(?:;\s*)?$/;
-const END_SEMICOLON = /;$/;
-
 export default createEslintRule<Options, MessageIds>({
 	name: RULE_NAME,
 	meta: {
@@ -30,13 +26,6 @@ export default createEslintRule<Options, MessageIds>({
 	defaultOptions: [],
 	create: (context) => {
 		const sourceCode = context.getSourceCode();
-		const text = sourceCode.getText();
-
-		const getRawStatement = (statement: TSESTree.Statement) =>
-			`(${text
-				.slice(statement.range[0], statement.range[1])
-				.replace(START_RETURN, "")
-				.replace(END_SEMICOLON, "")})`;
 
 		function getLoneReturnStatement(
 			node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
@@ -130,8 +119,8 @@ export default createEslintRule<Options, MessageIds>({
 					node,
 					messageId: "declaration",
 					fix: (fixer) =>
-						fixer.replaceTextRange(
-							node.parent.parent!.range,
+						fixer.replaceText(
+							node.parent.parent!,
 							generateFunction("declaration", name, node),
 						),
 				});
@@ -156,7 +145,7 @@ export default createEslintRule<Options, MessageIds>({
 				const isExportDefault =
 					node.parent?.type === AST_NODE_TYPES.ExportDefaultDeclaration;
 				if (
-					!statement ||
+					!statement?.argument ||
 					(!node.id?.name && !isExportDefault) ||
 					node.generator
 				) {
@@ -164,24 +153,18 @@ export default createEslintRule<Options, MessageIds>({
 
 					return;
 				}
-				const rawStatement = getRawStatement(statement);
-				const statementWithoutBrackets = rawStatement.slice(1, -1);
-				if (RETURN_ONLY.test(statementWithoutBrackets)) {
-					clearThisAccess();
-
-					return;
-				}
+				const returnVal = `(${sourceCode.getText(statement.argument)})`;
 				context.report({
 					node,
 					messageId: "arrow",
 					fix: (fixer) =>
-						fixer.replaceTextRange(
-							node.range,
+						fixer.replaceText(
+							node,
 							generateFunction(
 								"arrow",
 								node.id?.name ?? null,
 								node,
-								getRawStatement(statement),
+								returnVal,
 								!isExportDefault,
 							),
 						),
@@ -194,30 +177,18 @@ export default createEslintRule<Options, MessageIds>({
 					return;
 				}
 				const { body, parent } = node;
-
 				const statement = getLoneReturnStatement(node);
-				if (statement) {
+				if (statement?.argument) {
+					const returnVal = `(${sourceCode.getText(statement.argument)})`;
 					context.report({
 						node,
 						messageId: "arrow",
-						fix: (fixer) =>
-							fixer.replaceTextRange(
-								node.body.range,
-								getRawStatement(statement),
-							),
+						fix: (fixer) => fixer.replaceText(node.body, returnVal),
 					});
-
-					clearThisAccess();
-
-					return;
-				}
-
-				if ((parent as any)?.id?.typeAnnotation) {
-					clearThisAccess();
-
-					return;
-				}
-				if (body.type === AST_NODE_TYPES.BlockStatement) {
+				} else if (
+					body.type === AST_NODE_TYPES.BlockStatement &&
+					!(parent as any)?.id?.typeAnnotation
+				) {
 					const { body: blockBody } = body;
 					if (
 						blockBody.length > 0 &&
@@ -228,8 +199,8 @@ export default createEslintRule<Options, MessageIds>({
 							node: grandParent,
 							messageId: "declaration",
 							fix: (fixer) =>
-								fixer.replaceTextRange(
-									grandParent.range,
+								fixer.replaceText(
+									grandParent,
 									generateFunction(
 										"declaration",
 										(node.parent as any).id.name,

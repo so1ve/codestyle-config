@@ -46,7 +46,6 @@ const valid = [
 	return 1
 }`,
 ];
-
 const invalid: InvalidTestCase<MessageIds, []>[] = [
 	{
 		code: "const a = () => { return 1; };",
@@ -127,6 +126,11 @@ const invalid: InvalidTestCase<MessageIds, []>[] = [
 		output: `const foo = () => ([
     // foo
   ]);`,
+		errors: [{ messageId: "arrow" }],
+	},
+	{
+		code: "function foo() { return{} }",
+		output: "const foo = () => ({});",
 		errors: [{ messageId: "arrow" }],
 	},
 ];
