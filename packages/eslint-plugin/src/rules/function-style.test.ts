@@ -46,6 +46,7 @@ const valid = [
 	return 1
 }`,
 ];
+
 const invalid: InvalidTestCase<MessageIds, []>[] = [
 	{
 		code: "const a = () => { return 1; };",
