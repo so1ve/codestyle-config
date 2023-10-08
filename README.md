@@ -76,7 +76,7 @@ Create `.vscode/settings.json`
 	"editor.defaultFormatter": "esbenp.vscode-prettier",
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": "explicit"
 	},
 	// Enable flat config support
 	"eslint.experimental.useFlatConfig": true,
