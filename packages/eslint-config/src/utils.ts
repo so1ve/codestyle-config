@@ -1,8 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
-/**
- * Combine array and non-array configs into a single array.
- */
+/** Combine array and non-array configs into a single array. */
 export const combine = (
 	...configs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ): FlatESLintConfigItem[] =>
