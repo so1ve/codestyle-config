@@ -1,11 +1,4 @@
 {
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
-	},
-	"editor.quickSuggestions": {
-		"strings": true
-	},
-	"editor.tabSize": 2,
-	"editor.tabCompletion": "on",
-	"diffEditor.codeLens": true
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"eslint.experimental.useFlatConfig": true
 }
