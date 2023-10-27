@@ -166,6 +166,7 @@ export function typescript({
 				"ts/prefer-ts-expect-error": "error",
 				"ts/no-require-imports": "error",
 				"ts/method-signature-style": ["error", "property"],
+				"ts/explicit-member-accessibility": "error",
 
 				// Override JS
 				"no-useless-constructor": "off",
@@ -199,7 +200,6 @@ export function typescript({
 				// off
 				"ts/camelcase": "off",
 				"ts/explicit-function-return-type": "off",
-				"ts/explicit-member-accessibility": "off",
 				"ts/no-explicit-any": "off",
 				"ts/no-parameter-properties": "off",
 				"ts/no-empty-interface": "off",
