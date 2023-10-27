@@ -40,9 +40,7 @@ const flatConfigProps: (keyof FlatESLintConfigItem)[] = [
 
 const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
 
-/**
- * Construct an array of ESLint flat config items.
- */
+/** Construct an array of ESLint flat config items. */
 export function so1ve(
 	options: Options = {},
 	...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
