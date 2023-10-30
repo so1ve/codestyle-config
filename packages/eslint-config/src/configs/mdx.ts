@@ -1,13 +1,15 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_MARKDOWN } from "../globs";
 import { pluginMdx } from "../plugins";
-import type { OptionsComponentExts, OptionsOverrides } from "../types";
+import type {
+	ConfigItem,
+	OptionsComponentExts,
+	OptionsOverrides,
+} from "../types";
 
 export const mdx = ({
 	componentExts = [],
 	overrides,
-}: OptionsComponentExts & OptionsOverrides = {}): FlatESLintConfigItem[] => [
+}: OptionsComponentExts & OptionsOverrides = {}): ConfigItem[] => [
 	{
 		...pluginMdx.flat,
 		processor: pluginMdx.createRemarkProcessor({

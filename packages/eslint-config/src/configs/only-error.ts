@@ -1,8 +1,7 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { pluginOnlyError } from "../plugins";
+import type { ConfigItem } from "../types";
 
-export const onlyError = (): FlatESLintConfigItem[] => [
+export const onlyError = (): ConfigItem[] => [
 	{
 		plugins: {
 			"only-error": pluginOnlyError,

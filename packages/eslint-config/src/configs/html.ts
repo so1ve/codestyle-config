@@ -1,9 +1,8 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_HTML } from "../globs";
 import { parserHtml, pluginHtml, pluginHtmlJsSupport } from "../plugins";
+import type { ConfigItem } from "../types";
 
-export const html = (): FlatESLintConfigItem[] => [
+export const html = (): ConfigItem[] => [
 	{
 		plugins: {
 			"html": pluginHtml,

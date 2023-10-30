@@ -1,9 +1,11 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
+import type { ConfigItem } from "./types";
 
-/** Combine array and non-array configs into a single array. */
+/**
+ * Combine array and non-array configs into a single array.
+ */
 export const combine = (
-	...configs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
-): FlatESLintConfigItem[] =>
+	...configs: (ConfigItem | ConfigItem[])[]
+): ConfigItem[] =>
 	configs.flatMap((config) => (Array.isArray(config) ? config : [config]));
 
 export const renameRules = (
@@ -24,9 +26,7 @@ export const renameRules = (
 const rulesOn = new Set<string>();
 const rulesOff = new Set<string>();
 
-export function recordRulesStateConfigs(
-	configs: FlatESLintConfigItem[],
-): FlatESLintConfigItem[] {
+export function recordRulesStateConfigs(configs: ConfigItem[]): ConfigItem[] {
 	for (const config of configs) {
 		recordRulesState(config.rules ?? {});
 	}
@@ -35,8 +35,8 @@ export function recordRulesStateConfigs(
 }
 
 export function recordRulesState(
-	rules: FlatESLintConfigItem["rules"],
-): FlatESLintConfigItem["rules"] {
+	rules: ConfigItem["rules"],
+): ConfigItem["rules"] {
 	for (const [key, value] of Object.entries(rules ?? {})) {
 		const firstValue = Array.isArray(value) ? value[0] : value;
 		if (firstValue == null) {

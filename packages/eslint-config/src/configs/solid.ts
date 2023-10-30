@@ -1,12 +1,14 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { pluginSolid } from "../plugins";
-import type { OptionsHasTypeScript, OptionsOverrides } from "../types";
+import type {
+	ConfigItem,
+	OptionsHasTypeScript,
+	OptionsOverrides,
+} from "../types";
 
 export const solid = ({
 	overrides,
 	typescript,
-}: OptionsHasTypeScript & OptionsOverrides = {}): FlatESLintConfigItem[] => [
+}: OptionsHasTypeScript & OptionsOverrides = {}): ConfigItem[] => [
 	{
 		plugins: {
 			solid: pluginSolid,

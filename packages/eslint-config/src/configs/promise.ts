@@ -1,8 +1,7 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { pluginPromise } from "../plugins";
+import type { ConfigItem } from "../types";
 
-export const promise = (): FlatESLintConfigItem[] => [
+export const promise = (): ConfigItem[] => [
 	{
 		plugins: {
 			promise: pluginPromise,

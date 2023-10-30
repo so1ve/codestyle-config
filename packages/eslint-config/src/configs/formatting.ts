@@ -1,9 +1,7 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_PACKAGEJSON, GLOB_TESTS, GLOB_TSCONFIG } from "../globs";
-import type { Options } from "../types";
+import type { ConfigItem, Options } from "../types";
 
-export const formatting = (options: Options): FlatESLintConfigItem[] =>
+export const formatting = (options: Options): ConfigItem[] =>
 	[
 		{
 			rules: {

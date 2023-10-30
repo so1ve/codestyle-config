@@ -1,4 +1,3 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
 import globals from "globals";
 
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
@@ -10,11 +9,11 @@ import {
 	pluginSortImports,
 	pluginUnusedImports,
 } from "../plugins";
-import type { OptionsOverrides } from "../types";
+import type { ConfigItem, OptionsOverrides } from "../types";
 
 export const javascript = ({
 	overrides,
-}: OptionsOverrides = {}): FlatESLintConfigItem[] => [
+}: OptionsOverrides = {}): ConfigItem[] => [
 	{
 		plugins: {
 			"so1ve": pluginSo1ve,

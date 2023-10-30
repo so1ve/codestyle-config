@@ -1,12 +1,8 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_TOML } from "../globs";
 import { parserToml, pluginToml } from "../plugins";
-import type { OptionsOverrides } from "../types";
+import type { ConfigItem, OptionsOverrides } from "../types";
 
-export const toml = ({
-	overrides,
-}: OptionsOverrides = {}): FlatESLintConfigItem[] => [
+export const toml = ({ overrides }: OptionsOverrides = {}): ConfigItem[] => [
 	{
 		plugins: {
 			toml: pluginToml,

@@ -1,13 +1,9 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_YAML } from "../globs";
 import { parserYaml, pluginYaml } from "../plugins";
-import type { OptionsOverrides } from "../types";
+import type { ConfigItem, OptionsOverrides } from "../types";
 import { renameRules } from "../utils";
 
-export const yaml = ({
-	overrides,
-}: OptionsOverrides = {}): FlatESLintConfigItem[] => [
+export const yaml = ({ overrides }: OptionsOverrides = {}): ConfigItem[] => [
 	{
 		plugins: {
 			yaml: pluginYaml,

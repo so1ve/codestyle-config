@@ -1,16 +1,12 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_TESTS } from "../globs";
 import {
 	pluginJestFormatting,
 	pluginNoOnlyTests,
 	pluginVitest,
 } from "../plugins";
-import type { OptionsOverrides } from "../types";
+import type { ConfigItem, OptionsOverrides } from "../types";
 
-export const test = ({
-	overrides,
-}: OptionsOverrides = {}): FlatESLintConfigItem[] => [
+export const test = ({ overrides }: OptionsOverrides = {}): ConfigItem[] => [
 	{
 		plugins: {
 			"no-only-tests": pluginNoOnlyTests,

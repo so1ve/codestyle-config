@@ -1,10 +1,8 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_DTS } from "../globs";
 import { pluginImport } from "../plugins";
-import type { Options } from "../types";
+import type { ConfigItem, Options } from "../types";
 
-export const imports = (options: Options = {}): FlatESLintConfigItem[] => [
+export const imports = (options: Options = {}): ConfigItem[] => [
 	{
 		plugins: {
 			import: pluginImport,
