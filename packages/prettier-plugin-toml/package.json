@@ -26,7 +26,8 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "pkgroll"
+		"build": "pkgroll",
+		"prepublishOnly": "nr build"
 	},
 	"devDependencies": {
 		"prettier-plugin-toml": "^1.0.0"

@@ -33,6 +33,7 @@
 	},
 	"scripts": {
 		"build": "pkgroll",
+		"prepublishOnly": "nr build",
 		"watch": "pkgroll -w"
 	},
 	"dependencies": {
