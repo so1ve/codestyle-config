@@ -47,12 +47,11 @@ export function so1ve(
 	const {
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
 		solid: enableSolid = isPackageExists("solid-js"),
+		typescript: enableTypeScript = isPackageExists("typescript"),
 		gitignore: enableGitignore = true,
 		overrides = {},
 		componentExts = [],
 	} = options;
-	let { typescript: enableTypeScript = isPackageExists("typescript") } =
-		options;
 
 	const configs: ConfigItem[][] = [];
 
@@ -86,17 +85,10 @@ export function so1ve(
 	}
 
 	if (enableTypeScript) {
-		if (typeof enableTypeScript !== "object") {
-			enableTypeScript = {
-				tsconfigPath: "tsconfig.json",
-			};
-		}
-
 		configs.push(
 			typescript({
 				componentExts,
 				overrides: overrides.typescript,
-				...enableTypeScript,
 			}),
 		);
 	}
