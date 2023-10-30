@@ -8,9 +8,15 @@ export interface OptionsComponentExts {
 	componentExts?: string[];
 }
 
-export interface OptionsTypeScriptParserOptions {
+export interface OptionsTypeScript {
 	/** Additional parser options for TypeScript. */
 	parserOptions?: Partial<ParserOptions>;
+	/**
+	 * Path to `tsconfig.json`.
+	 *
+	 * @default "tsconfig.json"
+	 */
+	tsconfigPath?: string;
 }
 
 export interface OptionsHasTypeScript {
@@ -39,7 +45,7 @@ export interface Options extends OptionsComponentExts {
 	 *
 	 * @default auto-detect based on the dependencies
 	 */
-	typescript?: boolean;
+	typescript?: boolean | OptionsTypeScript;
 
 	/**
 	 * Enable test support.

@@ -4,7 +4,7 @@ import type {
 	ConfigItem,
 	OptionsComponentExts,
 	OptionsOverrides,
-	OptionsTypeScriptParserOptions,
+	OptionsTypeScript,
 	RenamedRules,
 } from "../types";
 import { renameRules } from "../utils";
@@ -13,7 +13,8 @@ export function typescript({
 	componentExts = [],
 	parserOptions,
 	overrides,
-}: OptionsTypeScriptParserOptions &
+	tsconfigPath,
+}: OptionsTypeScript &
 	OptionsComponentExts &
 	OptionsOverrides = {}): ConfigItem[] {
 	const typeAwareRules: RenamedRules = {
@@ -69,7 +70,14 @@ export function typescript({
 				parserOptions: {
 					sourceType: "module",
 					extraFileExtensions: componentExts.map((ext) => `.${ext}`),
-					EXPERIMENTAL_useProjectService: true,
+					// Disable this because it doesn't work well with vue
+					// EXPERIMENTAL_useProjectService: true,
+					...(tsconfigPath
+						? {
+								project: [tsconfigPath],
+								tsconfigRootDir: process.cwd(),
+						  }
+						: {}),
 					// eslint-disable-next-line ts/no-unnecessary-type-assertion
 					...(parserOptions as any),
 				},
@@ -223,7 +231,7 @@ export function typescript({
 				// handled by unused-imports/no-unused-imports
 				"ts/no-unused-vars": "off",
 
-				...typeAwareRules,
+				...(tsconfigPath ? typeAwareRules : {}),
 
 				...overrides,
 			},
