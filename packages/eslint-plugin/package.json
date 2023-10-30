@@ -28,7 +28,6 @@
 	"scripts": {
 		"build": "tsx scripts/build.ts",
 		"build:real": "unbuild",
-		
 		"stub": "unbuild --stub",
 		"test": "vitest"
 	},

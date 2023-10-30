@@ -33,7 +33,6 @@
 	},
 	"scripts": {
 		"build": "pkgroll",
-		
 		"watch": "pkgroll -w"
 	},
 	"dependencies": {
