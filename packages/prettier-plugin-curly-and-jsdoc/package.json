@@ -28,7 +28,6 @@
 	],
 	"scripts": {
 		"build": "pkgroll",
-		"prepublishOnly": "nr build",
 		"test": "vitest"
 	},
 	"devDependencies": {

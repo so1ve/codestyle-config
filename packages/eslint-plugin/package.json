@@ -28,7 +28,7 @@
 	"scripts": {
 		"build": "tsx scripts/build.ts",
 		"build:real": "unbuild",
-		"prepublishOnly": "nr build",
+		
 		"stub": "unbuild --stub",
 		"test": "vitest"
 	},

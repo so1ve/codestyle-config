@@ -18,7 +18,7 @@
 		"build": "pnpm run -r --filter=./packages/* build",
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
-		"release": "bumpp packages/*/package.json --commit --push --tag && pnpm publish -r --filter=./packages/* --no-git-checks",
+		"release": "bumpp packages/*/package.json --commit --push --tag && nr build && pnpm publish -r --filter=./packages/* --no-git-checks",
 		"stub": "pnpm run -p -r --filter=./packages/* stub",
 		"test": "pnpm run -r --filter=./packages/* test",
 		"typecheck": "tsc --noEmit",
