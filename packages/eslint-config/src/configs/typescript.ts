@@ -1,11 +1,11 @@
-import type { FlatESLintConfigItem } from "eslint-define-config";
-
 import { GLOB_MARKDOWN_CODE, GLOB_TS, GLOB_TSX } from "../globs";
 import { parserTs, pluginEtc, pluginImport, pluginTs } from "../plugins";
 import type {
+	ConfigItem,
 	OptionsComponentExts,
 	OptionsOverrides,
 	OptionsTypeScriptParserOptions,
+	RenamedRules,
 } from "../types";
 import { renameRules } from "../utils";
 
@@ -15,8 +15,8 @@ export function typescript({
 	overrides,
 }: OptionsTypeScriptParserOptions &
 	OptionsComponentExts &
-	OptionsOverrides = {}): FlatESLintConfigItem[] {
-	const typeAwareRules: FlatESLintConfigItem["rules"] = {
+	OptionsOverrides = {}): ConfigItem[] {
+	const typeAwareRules: RenamedRules = {
 		"etc/no-assign-mutated-array": "error",
 		"etc/no-deprecated": "warn",
 		"etc/no-internal": "error",
@@ -167,7 +167,15 @@ export function typescript({
 				"ts/prefer-ts-expect-error": "error",
 				"ts/no-require-imports": "error",
 				"ts/method-signature-style": ["error", "property"],
-				"ts/explicit-member-accessibility": "error",
+				"ts/explicit-member-accessibility": [
+					"error",
+					{
+						accessibility: "explicit",
+						overrides: {
+							constructors: "no-public",
+						},
+					},
+				],
 
 				// Override JS
 				"no-useless-constructor": "off",
