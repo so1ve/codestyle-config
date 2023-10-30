@@ -1,6 +1,6 @@
 {
 	"name": "@so1ve/eslint-config",
-	"version": "1.0.0-alpha.10",
+	"version": "1.0.0-alpha.11",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"description": "Ray's eslint config.",
 	"keywords": [
