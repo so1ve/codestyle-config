@@ -70,6 +70,7 @@ export function typescript({
 					sourceType: "module",
 					extraFileExtensions: componentExts.map((ext) => `.${ext}`),
 					EXPERIMENTAL_useProjectService: true,
+					// eslint-disable-next-line ts/no-unnecessary-type-assertion
 					...(parserOptions as any),
 				},
 			},
