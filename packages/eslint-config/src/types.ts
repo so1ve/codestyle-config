@@ -4,16 +4,12 @@ import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { FlatESLintConfigItem, Rules } from "eslint-define-config";
 
 export interface OptionsComponentExts {
-	/**
-	 * Additional extensions for components.
-	 */
+	/** Additional extensions for components. */
 	componentExts?: string[];
 }
 
 export interface OptionsTypeScriptParserOptions {
-	/**
-	 * Additional parser options for TypeScript.
-	 */
+	/** Additional parser options for TypeScript. */
 	parserOptions?: Partial<ParserOptions>;
 }
 
@@ -101,9 +97,7 @@ export interface Options extends OptionsComponentExts {
 	 */
 	formatting?: boolean;
 
-	/**
-	 * Provide overrides for rules for each integration.
-	 */
+	/** Provide overrides for rules for each integration. */
 	overrides?: {
 		javascript?: ConfigItem["rules"];
 		typescript?: ConfigItem["rules"];
