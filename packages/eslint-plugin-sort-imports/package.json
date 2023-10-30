@@ -1,6 +1,6 @@
 {
 	"name": "@so1ve/eslint-plugin-sort-imports",
-	"version": "1.0.0-alpha.13",
+	"version": "1.0.0-alpha.14",
 	"author": "Simon Lydell",
 	"contributors": [
 		"Ray <i@mk1.io> (https://github.com/so1ve)"
