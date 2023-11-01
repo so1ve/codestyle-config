@@ -1,6 +1,8 @@
 import type { ConfigItem } from "./types";
 
-/** Combine array and non-array configs into a single array. */
+/**
+ * Combine array and non-array configs into a single array.
+ */
 export const combine = (
 	...configs: (ConfigItem | ConfigItem[])[]
 ): ConfigItem[] =>
