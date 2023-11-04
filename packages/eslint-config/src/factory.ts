@@ -24,7 +24,6 @@ import {
 	yaml,
 } from "./configs";
 import type { ConfigItem, Options } from "./types";
-import { combine } from "./utils";
 
 const flatConfigProps: (keyof ConfigItem)[] = [
 	"files",
@@ -168,7 +167,7 @@ export function so1ve(
 		configs.push([fusedConfig]);
 	}
 
-	const merged = combine(...configs, ...userConfigs);
+	const merged = [...configs, ...userConfigs].flat();
 
 	return merged;
 }

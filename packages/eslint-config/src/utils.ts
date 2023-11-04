@@ -1,13 +1,5 @@
 import type { ConfigItem } from "./types";
 
-/**
- * Combine array and non-array configs into a single array.
- */
-export const combine = (
-	...configs: (ConfigItem | ConfigItem[])[]
-): ConfigItem[] =>
-	configs.flatMap((config) => (Array.isArray(config) ? config : [config]));
-
 export const renameRules = (
 	rules: Record<string, any>,
 	from: string,
