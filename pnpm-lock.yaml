@@ -119,6 +119,9 @@ importers:
       eslint-plugin-n:
         specifier: ^16.0.1
         version: 16.2.0(eslint@8.51.0)
+      eslint-plugin-no-await-in-promise:
+        specifier: ^1.1.5
+        version: 1.1.5(eslint@8.51.0)
       eslint-plugin-no-explicit-type-exports:
         specifier: ^0.12.1
         version: 0.12.1(@typescript-eslint/parser@6.7.5)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)(typescript@5.2.2)
@@ -2950,6 +2953,18 @@ packages:
       minimatch: 3.1.2
       resolve: 1.22.8
       semver: 7.5.4
+    dev: false
+
+  /eslint-plugin-no-await-in-promise@1.1.5(eslint@8.51.0):
+    resolution: {integrity: sha512-DsLzTfvOBvCX26Urnp5u/OI7lXDOPfoSmB0sxZbPMk+2va6QI2902CysNbSODN1lCW5VJMtMVmVu/V7HeMph5w==}
+    engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
+    peerDependencies:
+      eslint: '>=7'
+    peerDependenciesMeta:
+      eslint:
+        optional: true
+    dependencies:
+      eslint: 8.51.0
     dev: false
 
   /eslint-plugin-no-explicit-type-exports@0.12.1(@typescript-eslint/parser@6.7.5)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)(typescript@5.2.2):

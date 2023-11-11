@@ -18,6 +18,7 @@ export { default as pluginJsonSchemaValidator } from "eslint-plugin-json-schema-
 export { default as pluginJsonc } from "eslint-plugin-jsonc";
 export { default as pluginMdx } from "eslint-plugin-mdx";
 export { default as pluginNode } from "eslint-plugin-n";
+export * as pluginNoAwaitInPromise from "eslint-plugin-no-await-in-promise";
 export { default as pluginNoOnlyTests } from "eslint-plugin-no-only-tests";
 export { default as pluginOnlyError } from "eslint-plugin-only-error";
 export { default as pluginPromise } from "eslint-plugin-promise";

@@ -4,6 +4,7 @@ import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 import {
 	pluginArrayFunc,
 	pluginJsonSchemaValidator,
+	pluginNoAwaitInPromise,
 	pluginRegexp,
 	pluginSo1ve,
 	pluginSortImports,
@@ -22,6 +23,7 @@ export const javascript = ({
 			"array-func": pluginArrayFunc,
 			"json-schema-validator": pluginJsonSchemaValidator,
 			"regexp": pluginRegexp,
+			"no-await-in-promise": pluginNoAwaitInPromise,
 		},
 	},
 	{
@@ -339,6 +341,9 @@ export const javascript = ({
 
 			// regexp
 			"regexp/no-unused-capturing-group": "warn",
+
+			// no-await-in-promise
+			"no-await-in-promise/no-await-in-promise": "error",
 
 			...overrides,
 		},
