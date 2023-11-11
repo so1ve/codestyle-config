@@ -335,6 +335,11 @@ export const javascript = ({
 
 			// array-func
 			"array-func/prefer-array-from": "off",
+			"array-func/prefer-flat": "off", // Handled by unicorn
+			"array-func/from-map": "off", // Conflicts with unicorn/prefer-spread
+			"array-func/no-unnecessary-this-arg": "error",
+			"array-func/avoid-reverse": "error",
+			"array-func/prefer-flat-map": "error",
 
 			// json-schema-validator
 			"json-schema-validator/no-invalid": "warn",
