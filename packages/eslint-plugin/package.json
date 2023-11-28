@@ -1,6 +1,6 @@
 {
 	"name": "@so1ve/eslint-plugin",
-	"version": "1.0.0-alpha.18",
+	"version": "1.0.0-alpha.19",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"keywords": [
 		"eslint",
