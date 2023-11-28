@@ -81,7 +81,6 @@ export const formatting = (options: Options): ConfigItem[] =>
 								"moduleResolution",
 								"moduleSuffixes",
 								"noResolve",
-								"paths",
 								"resolveJsonModule",
 								"resolvePackageJsonExports",
 								"resolvePackageJsonImports",
@@ -148,6 +147,8 @@ export const formatting = (options: Options): ConfigItem[] =>
 								/* Completeness */
 								"skipDefaultLibCheck",
 								"skipLibCheck",
+								/* Alias */
+								"paths",
 							],
 							pathPattern: "^compilerOptions$",
 						},
