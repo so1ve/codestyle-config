@@ -163,6 +163,7 @@ Going more advanced, you can also import fine-grained configs and compose them a
 import {
 	comments,
 	formatting,
+	html,
 	ignores,
 	imports,
 	javascript,
@@ -184,6 +185,7 @@ import {
 export default [
 	...comments(),
 	...formatting(),
+	...html(),
 	...ignores(),
 	...imports(),
 	...javascript(),
@@ -217,6 +219,7 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 | `node/*`   | `n/*`                  | [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)                     |
 | `yaml/*`   | `yml/*`                | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)                        |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
+| `html/*`   | `@html-eslint/*`       | [@html-eslint/eslint-plugin](https://github.com/yeonjuan/html-eslint)                      |
 
 When you want to override rules, or disable them inline, you need to update to the new prefix:
 

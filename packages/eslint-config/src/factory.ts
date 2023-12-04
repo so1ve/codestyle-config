@@ -6,6 +6,7 @@ import { isPackageExists } from "local-pkg";
 import {
 	comments,
 	formatting,
+	html,
 	ignores,
 	imports,
 	javascript,
@@ -79,6 +80,7 @@ export function so1ve(
 		sortImports(),
 		imports(),
 		unicorn(),
+		html(),
 	);
 
 	if (enableVue) {
