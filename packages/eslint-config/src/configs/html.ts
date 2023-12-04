@@ -21,8 +21,8 @@ export const html = (): ConfigItem[] => [
 		rules: {
 			...renameRules(
 				pluginHtml.configs.recommended.rules,
-				"@html-eslint",
-				"html",
+				"@html-eslint/",
+				"html/",
 			),
 			"html/indent": "off",
 			"html/no-trailing-spaces": "off",
