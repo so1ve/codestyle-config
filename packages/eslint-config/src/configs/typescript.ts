@@ -69,8 +69,9 @@ export function typescript({
 				parserOptions: {
 					sourceType: "module",
 					extraFileExtensions: componentExts.map((ext) => `.${ext}`),
-					EXPERIMENTAL_useProjectService: true,
-					// eslint-disable-next-line ts/no-unnecessary-type-assertion
+					// EXPERIMENTAL_useProjectService: true,
+					project: true,
+					tsconfigRootDir: process.cwd(),
 					...(parserOptions as any),
 				},
 			},
