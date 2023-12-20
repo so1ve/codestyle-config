@@ -118,19 +118,22 @@ And that's it! Or you can configure each integration individually, for example:
 // eslint.config.js
 import { so1ve } from "@so1ve/eslint-config";
 
-export default so1ve({
-	typescript: true,
-	vue: true,
-	solid: false,
-	jsonc: false,
-	yaml: false,
-
-	// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
-	ignores: [
-		"./fixtures",
-		// ...globs
-	],
-});
+export default so1ve(
+	{
+		typescript: true,
+		vue: true,
+		solid: false,
+		jsonc: false,
+		yaml: false,
+	},
+	{
+		// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+		ignores: [
+			"./fixtures",
+			// ...globs
+		],
+	},
+);
 ```
 
 The `so1ve` factory function also accepts any number of arbitrary custom config overrides:
