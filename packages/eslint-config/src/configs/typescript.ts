@@ -69,9 +69,6 @@ export function typescript({
 				parserOptions: {
 					sourceType: "module",
 					extraFileExtensions: componentExts.map((ext) => `.${ext}`),
-					// EXPERIMENTAL_useProjectService: true,
-					project: true,
-					tsconfigRootDir: process.cwd(),
 					...(parserOptions as any),
 				},
 			},
@@ -224,23 +221,33 @@ export function typescript({
 				// handled by unused-imports/no-unused-imports
 				"ts/no-unused-vars": "off",
 
-				...typeAwareRules,
-
 				...overrides,
 			},
 		},
 		{
-			files: [GLOB_MARKDOWN_CODE],
+			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
+			ignores: [GLOB_MARKDOWN_CODE],
 			languageOptions: {
 				parser: parserTs,
 				parserOptions: {
 					sourceType: "module",
+					// EXPERIMENTAL_useProjectService: true,
+					project: true,
+					tsconfigRootDir: process.cwd(),
+				},
+			},
+			settings: {
+				"import/resolver": {
+					node: {
+						extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
+					},
+					typescript: {
+						extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
+					},
 				},
 			},
 			rules: {
-				...Object.fromEntries(
-					Object.keys(typeAwareRules).map((k) => [k, "off"]),
-				),
+				...typeAwareRules,
 			},
 		},
 		{
