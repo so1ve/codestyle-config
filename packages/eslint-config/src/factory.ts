@@ -51,7 +51,6 @@ export function so1ve(
 		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
 		gitignore: enableGitignore = true,
-		overrides = {},
 		componentExts = [],
 	} = options;
 
@@ -71,7 +70,7 @@ export function so1ve(
 	configs.push(
 		ignores(),
 		javascript({
-			overrides: overrides.javascript,
+			overrides: getOverrides(options, "javascript"),
 		}),
 		comments(),
 		node(),
@@ -91,7 +90,7 @@ export function so1ve(
 		configs.push(
 			typescript({
 				componentExts,
-				overrides: overrides.typescript,
+				overrides: getOverrides(options, "typescript"),
 			}),
 		);
 	}
@@ -99,7 +98,7 @@ export function so1ve(
 	if (options.test ?? true) {
 		configs.push(
 			test({
-				overrides: overrides.test,
+				overrides: getOverrides(options, "test"),
 			}),
 		);
 	}
@@ -107,7 +106,7 @@ export function so1ve(
 	if (enableVue) {
 		configs.push(
 			vue({
-				overrides: overrides.vue,
+				overrides: getOverrides(options, "vue"),
 				typescript: !!enableTypeScript,
 			}),
 		);
@@ -116,7 +115,7 @@ export function so1ve(
 	if (enableSolid) {
 		configs.push(
 			solid({
-				overrides: overrides.solid,
+				overrides: getOverrides(options, "solid"),
 				typescript: !!enableTypeScript,
 			}),
 		);
@@ -129,7 +128,7 @@ export function so1ve(
 	if (options.toml ?? true) {
 		configs.push(
 			toml({
-				overrides: overrides.toml,
+				overrides: getOverrides(options, "toml"),
 			}),
 		);
 	}
@@ -137,7 +136,7 @@ export function so1ve(
 	if (options.yaml ?? true) {
 		configs.push(
 			yaml({
-				overrides: overrides.yaml,
+				overrides: getOverrides(options, "yaml"),
 			}),
 		);
 	}
@@ -146,7 +145,7 @@ export function so1ve(
 		configs.push(
 			mdx({
 				componentExts,
-				overrides: overrides.mdx,
+				overrides: getOverrides(options, "mdx"),
 			}),
 		);
 	}
@@ -172,4 +171,25 @@ export function so1ve(
 	const merged = [...configs, ...userConfigs].flat();
 
 	return merged;
+}
+
+export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
+
+export const resolveSubOptions = <K extends keyof Options>(
+	options: Options,
+	key: K,
+): ResolvedOptions<Options[K]> =>
+	typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
+
+export function getOverrides<K extends keyof Options>(
+	options: Options,
+	key: K,
+) {
+	const sub = resolveSubOptions(options, key);
+
+	return {
+		// eslint-disable-next-line etc/no-deprecated
+		...(options.overrides as any)?.[key],
+		...("overrides" in sub ? sub.overrides : {}),
+	};
 }

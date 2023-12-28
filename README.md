@@ -258,22 +258,27 @@ export default so1ve(
 );
 ```
 
-We also provided an `overrides` options to make it easier:
+We also provided a `overrides` options in each integration to make it easier:
 
 ```js
 // eslint.config.js
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve({
-	overrides: {
-		vue: {
+	vue: {
+		overrides: {
 			"vue/operator-linebreak": ["error", "before"],
 		},
-		typescript: {
+	},
+	typescript: {
+		overrides: {
 			"ts/consistent-type-definitions": ["error", "interface"],
 		},
-		yaml: {},
-		// ...
+	},
+	yaml: {
+		overrides: {
+			// ...
+		},
 	},
 });
 ```

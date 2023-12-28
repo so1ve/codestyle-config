@@ -37,72 +37,79 @@ export interface Options extends OptionsComponentExts {
 	gitignore?: boolean | FlatGitignoreOptions;
 
 	/**
+	 * Core rules. Can't be disabled.
+	 */
+	javascript?: OptionsOverrides;
+
+	/**
 	 * Enable TypeScript support.
 	 *
 	 * Passing an object to enable TypeScript Language Server support.
 	 *
 	 * @default auto-detect based on the dependencies
 	 */
-	typescript?: boolean;
+	typescript?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable test support.
 	 *
 	 * @default true
 	 */
-	test?: boolean;
+	test?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable Vue support.
 	 *
 	 * @default auto-detect based on the dependencies
 	 */
-	vue?: boolean;
+	vue?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable Solid.js support.
 	 *
 	 * @default auto-detect based on the dependencies
 	 */
-	solid?: boolean;
+	solid?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable JSONC support.
 	 *
 	 * @default true
 	 */
-	jsonc?: boolean;
+	jsonc?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable YAML support.
 	 *
 	 * @default true
 	 */
-	yaml?: boolean;
+	yaml?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable TOML support.
 	 *
 	 * @default true
 	 */
-	toml?: boolean;
+	toml?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable markdown and mdx support.
 	 *
 	 * @default true
 	 */
-	mdx?: boolean;
+	mdx?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable formatting rules.
 	 *
 	 * @default true
 	 */
-	formatting?: boolean;
+	formatting?: boolean | OptionsOverrides;
 
 	/**
 	 * Provide overrides for rules for each integration.
+	 *
+	 * @deprecated Use `overrides` option in each integration key instead
 	 */
 	overrides?: {
 		javascript?: ConfigItem["rules"];
