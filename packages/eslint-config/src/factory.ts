@@ -176,7 +176,7 @@ export function so1ve(
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
 export const resolveSubOptions = <K extends keyof Options>(
-	options: Options,
+	options: Options & ConfigItem,
 	key: K,
 ): ResolvedOptions<Options[K]> =>
 	typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
