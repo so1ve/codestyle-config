@@ -57,8 +57,8 @@ importers:
         specifier: ^4.0.0
         version: 4.1.0(eslint@8.51.0)
       '@html-eslint/eslint-plugin':
-        specifier: ^0.19.1
-        version: 0.19.1
+        specifier: ^0.23.0
+        version: 0.23.0
       '@html-eslint/parser':
         specifier: ^0.19.1
         version: 0.19.1
@@ -925,9 +925,9 @@ packages:
     resolution: {integrity: sha512-mjZVbpaeMZludF2fsWLD0Z9gCref1Tk4i9+wddjRvpUNqqcndPkBD09N/Mapey0b3jaXbLm2kICwFv2E64QinA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  /@html-eslint/eslint-plugin@0.19.1:
-    resolution: {integrity: sha512-Tn+/GWLtNM6NiZFLbfM+vTK0d7gKaDgnw4Pp+DsZi09lFimi4bOPOgy8dSVnLeyFIfP6LkeuwVm4pfBZZM2qbA==}
-    engines: {node: '>=8.10.0'}
+  /@html-eslint/eslint-plugin@0.23.0:
+    resolution: {integrity: sha512-GGu3q/4mIQ6sjPEGFZoTVRIgQqN/et2nZKA/6dpTyW6TIePfWOyFw3k6oxnkX2ibPOsaWgftTJgksLAJn3Ps+Q==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
   /@html-eslint/parser@0.19.1:
