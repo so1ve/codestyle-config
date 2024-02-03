@@ -20,6 +20,7 @@ export const test = ({ overrides }: OptionsOverrides = {}): ConfigItem[] => [
 			...pluginVitest.configs.recommended.rules,
 			"no-only-tests/no-only-tests": "error",
 			"vitest/expect-expect": "off",
+			"vitest/valid-title": "off",
 			"vitest/valid-describe-callback": "off",
 			"vitest/no-alias-methods": "error",
 			"vitest/no-interpolation-in-snapshots": "error",
@@ -34,7 +35,6 @@ export const test = ({ overrides }: OptionsOverrides = {}): ConfigItem[] => [
 			"vitest/prefer-to-contain": "error",
 			"vitest/prefer-to-have-length": "error",
 			"vitest/prefer-todo": "error",
-			"vitest/valid-title": ["error", { allowArguments: true }],
 
 			...overrides,
 		},
