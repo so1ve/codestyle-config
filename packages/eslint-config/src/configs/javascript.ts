@@ -46,6 +46,9 @@ export const javascript = ({
 			},
 			sourceType: "module",
 		},
+		linterOptions: {
+			reportUnusedDisableDirectives: true,
+		},
 		rules: {
 			// Common
 			"array-bracket-newline": "off",
