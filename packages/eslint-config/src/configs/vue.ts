@@ -1,5 +1,7 @@
+import tseslint from "typescript-eslint";
+
 import { GLOB_VUE } from "../globs";
-import { parserTs, parserVue, pluginVue } from "../plugins";
+import { parserVue, pluginVue } from "../plugins";
 import type {
 	ConfigItem,
 	OptionsHasTypeScript,
@@ -24,7 +26,7 @@ export const vue = ({
 					jsx: true,
 				},
 				extraFileExtensions: [".vue"],
-				parser: typescript ? (parserTs as any) : null,
+				parser: typescript ? (tseslint.parser as any) : null,
 				sourceType: "module",
 			},
 		},
@@ -37,7 +39,7 @@ export const vue = ({
 
 			"no-unused-vars": "off",
 			"no-undef": "off",
-			"@typescript-eslint/no-unused-vars": "off",
+			"ts/no-unused-vars": "off",
 
 			"vue/no-v-html": "off",
 			"vue/require-prop-types": "off",

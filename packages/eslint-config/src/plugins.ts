@@ -7,8 +7,6 @@ export { default as parserHtml } from "@html-eslint/parser";
 export { default as pluginSo1ve } from "@so1ve/eslint-plugin";
 export { default as pluginSortImports } from "@so1ve/eslint-plugin-sort-imports";
 export { default as pluginStylistic } from "@stylistic/eslint-plugin";
-export { default as pluginTs } from "@typescript-eslint/eslint-plugin";
-export { default as parserTs } from "@typescript-eslint/parser";
 export { default as parserMdx } from "eslint-mdx";
 export { default as pluginArrayFunc } from "eslint-plugin-array-func";
 export { default as pluginEtc } from "eslint-plugin-etc";

@@ -1,5 +1,7 @@
+import tseslint from "typescript-eslint";
+
 import { GLOB_MARKDOWN_CODE, GLOB_TS, GLOB_TSX } from "../globs";
-import { parserTs, pluginEtc, pluginImport, pluginTs } from "../plugins";
+import { pluginEtc, pluginImport } from "../plugins";
 import type {
 	ConfigItem,
 	OptionsComponentExts,
@@ -58,14 +60,14 @@ export function typescript({
 			// Install the plugins without globs, so they can be configured separately.
 			plugins: {
 				import: pluginImport,
-				ts: pluginTs,
+				ts: tseslint.plugin,
 				etc: pluginEtc,
 			},
 		},
 		{
 			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			languageOptions: {
-				parser: parserTs,
+				parser: tseslint.parser,
 				parserOptions: {
 					sourceType: "module",
 					extraFileExtensions: componentExts.map((ext) => `.${ext}`),
@@ -82,12 +84,15 @@ export function typescript({
 			},
 			rules: {
 				...renameRules(
-					pluginTs.configs["eslint-recommended"].overrides![0].rules!,
+					tseslint.configs.eslintRecommended.rules!,
 					"@typescript-eslint/",
 					"ts/",
 				),
 				...renameRules(
-					pluginTs.configs.recommended.rules!,
+					tseslint.configs.recommended
+						.map((config) => config.rules)
+						.filter(Boolean)
+						.reduce((a, b) => ({ ...a, ...b }), {})!,
 					"@typescript-eslint/",
 					"ts/",
 				),
@@ -228,7 +233,7 @@ export function typescript({
 			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			ignores: [GLOB_MARKDOWN_CODE],
 			languageOptions: {
-				parser: parserTs,
+				parser: tseslint.parser,
 				parserOptions: {
 					sourceType: "module",
 					// EXPERIMENTAL_useProjectService: true,
