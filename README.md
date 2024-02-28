@@ -1,4 +1,4 @@
-# @so1ve/eslint-config and @so1ve/prettier-config
+# Ray's Codestyle Config
 
 [![npm](https://img.shields.io/npm/v/@so1ve/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@so1ve/eslint-config)
 
@@ -208,7 +208,7 @@ export default [
 ];
 ```
 
-Check out the [configs](https://github.com/so1ve/eslint-config/blob/main/packages/eslint-config/configs) and [factory](https://github.com/so1ve/eslint-config/blob/main/packages/eslint-config/factory.ts) for more details.
+Check out the [configs](https://github.com/so1ve/codestyle-config/blob/main/packages/codestyle-config/configs) and [factory](https://github.com/so1ve/codestyle-config/blob/main/packages/codestyle-config/factory.ts) for more details.
 
 > Thanks to [sxzz/eslint-config](https://github.com/sxzz/eslint-config) and [antfu/eslint-config](https://github.com/antfu/eslint-config) for the inspiration and reference.
 

@@ -17,13 +17,13 @@
 		"sorter",
 		"sorting"
 	],
-	"homepage": "https://github.com/so1ve/eslint-config#readme",
+	"homepage": "https://github.com/so1ve/codestyle-config#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/so1ve/eslint-config.git"
+		"url": "git+https://github.com/so1ve/codestyle-config.git"
 	},
 	"bugs": {
-		"url": "https://github.com/so1ve/eslint-config/issues"
+		"url": "https://github.com/so1ve/codestyle-config/issues"
 	},
 	"license": "MIT",
 	"main": "src/index.js",
