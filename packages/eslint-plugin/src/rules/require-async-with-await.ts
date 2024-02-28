@@ -2,8 +2,8 @@ import { TSESTree } from "@typescript-eslint/types";
 
 import { createEslintRule } from "../utils";
 
-export const RULE_NAME = "use-async-with-await";
-export type MessageIds = "useAsyncWithAwait";
+export const RULE_NAME = "require-async-with-await";
+export type MessageIds = "requireAsyncWithAwait";
 export type Options = [];
 
 type FunctionNode =
@@ -16,13 +16,13 @@ export default createEslintRule<Options, MessageIds>({
 	meta: {
 		type: "problem",
 		docs: {
-			description: "Enforce using async keyword with await.",
+			description: "Require using async keyword with await.",
 			recommended: "recommended",
 		},
 		fixable: "code",
 		schema: [],
 		messages: {
-			useAsyncWithAwait: "Expect using async keyword with await.",
+			requireAsyncWithAwait: "Expect using async keyword with await.",
 		},
 	},
 	defaultOptions: [],
@@ -61,7 +61,7 @@ export default createEslintRule<Options, MessageIds>({
 						: node.range;
 				context.report({
 					node,
-					messageId: "useAsyncWithAwait",
+					messageId: "requireAsyncWithAwait",
 					fix: (fixer) => fixer.insertTextBeforeRange(fixRange, "async "),
 				});
 			},

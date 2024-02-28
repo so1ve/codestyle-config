@@ -330,7 +330,7 @@ export const javascript = ({
 
 			// so1ve
 			"so1ve/import-dedupe": "error",
-			"so1ve/use-async-with-await": "error",
+			"so1ve/require-async-with-await": "error",
 
 			// Sort Imports
 			"sort-imports/imports": ["error"],

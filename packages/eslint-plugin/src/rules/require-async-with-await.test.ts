@@ -1,7 +1,7 @@
 import { RuleTester } from "@typescript-eslint/utils/ts-eslint";
 import { it } from "vitest";
 
-import rule, { RULE_NAME } from "./use-async-with-await";
+import rule, { RULE_NAME } from "./require-async-with-await";
 
 const valid = [
 	"async () => { await 1; }",
@@ -51,7 +51,7 @@ it("runs", () => {
 		invalid: invalid.map((i) => ({
 			code: i[0],
 			output: i[1],
-			errors: [{ messageId: "useAsyncWithAwait" }],
+			errors: [{ messageId: "requireAsyncWithAwait" }],
 		})),
 	});
 });

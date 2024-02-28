@@ -1,5 +1,5 @@
 import type so1vePlugin from "@so1ve/eslint-plugin";
-import type { ParserOptions } from "@typescript-eslint/parser";
+import type { ParserOptions } from "@typescript-eslint/utils/ts-eslint";
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { FlatESLintConfigItem, Rules } from "eslint-define-config";
 
