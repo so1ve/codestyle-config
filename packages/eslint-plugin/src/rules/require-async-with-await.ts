@@ -71,7 +71,7 @@ export default createEslintRule<Options, MessageIds>({
 					}
 				}
 
-				if (!fixRange) {
+				if (fixRange) {
 					context.report({
 						node,
 						messageId: "requireAsyncWithAwait",
