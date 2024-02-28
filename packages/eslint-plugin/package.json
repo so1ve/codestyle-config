@@ -26,13 +26,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsx scripts/build.ts",
-		"build:real": "unbuild",
+		"build": "unbuild",
 		"stub": "unbuild --stub",
 		"test": "vitest"
 	},
 	"dependencies": {
-		"@typescript-eslint/types": "^6.2.0",
-		"@typescript-eslint/utils": "^6.2.0"
+		"@typescript-eslint/types": "^7.1.0",
+		"@typescript-eslint/utils": "^7.1.0"
 	}
 }
