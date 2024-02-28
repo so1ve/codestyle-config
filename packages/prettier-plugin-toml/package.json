@@ -29,7 +29,7 @@
 		"build": "pkgroll"
 	},
 	"devDependencies": {
-		"prettier-plugin-toml": "^1.0.0"
+		"prettier-plugin-toml": "^1.0.1"
 	},
 	"peerDependencies": {
 		"prettier": "^3.0.0"

@@ -88,7 +88,7 @@ module.exports = {
 			"ExportAllDeclaration": addParent,
 
 			"Program:exit": () => {
-				const sourceCode = context.getSourceCode();
+				const sourceCode = context.sourceCode;
 				for (const parent of parents) {
 					for (const chunk of shared.extractChunks(parent, (node, lastNode) =>
 						isPartOfChunk(node, lastNode, sourceCode),

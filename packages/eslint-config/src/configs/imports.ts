@@ -22,10 +22,10 @@ export const imports = (options: Options = {}): ConfigItem[] => [
 							typescript: {
 								extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".d.ts"],
 							},
-					  }
+						}
 					: {
 							node: { extensions: [".js", ".mjs"] },
-					  }),
+						}),
 			},
 		},
 		rules: {

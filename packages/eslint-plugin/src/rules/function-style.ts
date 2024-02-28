@@ -25,7 +25,7 @@ export default createEslintRule<Options, MessageIds>({
 	},
 	defaultOptions: [],
 	create: (context) => {
-		const sourceCode = context.getSourceCode();
+		const sourceCode = context.sourceCode;
 
 		function getLoneReturnStatement(
 			node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
@@ -94,8 +94,8 @@ export default createEslintRule<Options, MessageIds>({
 
 		const scopeStack: Scope.Scope[] = [];
 		let haveThisAccess = false;
-		function setupScope() {
-			scopeStack.push(context.getScope());
+		function setupScope(node: TSESTree.Node) {
+			scopeStack.push(sourceCode.getScope(node));
 		}
 		function clearThisAccess() {
 			scopeStack.pop();
@@ -212,8 +212,8 @@ export default createEslintRule<Options, MessageIds>({
 				}
 				clearThisAccess();
 			},
-			ThisExpression() {
-				haveThisAccess = scopeStack.includes(context.getScope());
+			ThisExpression(node) {
+				haveThisAccess = scopeStack.includes(sourceCode.getScope(node));
 			},
 		};
 	},

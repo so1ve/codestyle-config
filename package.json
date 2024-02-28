@@ -1,7 +1,7 @@
 {
 	"name": "@so1ve/codestyle-config-monorepo",
 	"private": true,
-	"packageManager": "pnpm@8.9.0",
+	"packageManager": "pnpm@8.15.4",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"type": "module",
 	"description": "Monorepo for Ray's codestyle config.",
@@ -29,16 +29,16 @@
 		"@so1ve/eslint-plugin": "workspace:*",
 		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
 		"@so1ve/prettier-config": "workspace:*",
-		"@types/node": "^18.17.1",
-		"bumpp": "^9.1.1",
-		"eslint": "8.52.0",
-		"execa": "^8.0.0",
-		"pkgroll": "^1.10.0",
-		"prettier": "^3.0.0",
-		"tsx": "^3.12.7",
-		"typescript": "^5.1.6",
+		"@types/node": "^18.19.19",
+		"bumpp": "^9.3.0",
+		"eslint": "8.57.0",
+		"execa": "^8.0.1",
+		"pkgroll": "^2.0.1",
+		"prettier": "^3.2.5",
+		"tsx": "^4.7.1",
+		"typescript": "^5.3.3",
 		"unbuild": "^2.0.0",
-		"vitest": "^0.34.0"
+		"vitest": "^1.3.1"
 	},
 	"pnpm": {
 		"peerDependencyRules": {

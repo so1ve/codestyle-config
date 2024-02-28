@@ -250,21 +250,21 @@ const sortImportExportItems = (items) =>
 		itemA.isSideEffectImport && itemB.isSideEffectImport
 			? itemA.index - itemB.index
 			: // If one of the items is a side effect import, move it first.
-			itemA.isSideEffectImport
-			? -1
-			: itemB.isSideEffectImport
-			? 1
-			: // Compare the `from` part.
-			  compare(itemA.source.source, itemB.source.source) ||
-			  // The `.source` has been slightly tweaked. To stay fully deterministic,
-			  // also sort on the original value.
-			  compare(itemA.source.originalSource, itemB.source.originalSource) ||
-			  // Then put type imports/exports before regular ones.
-			  compare(itemA.source.kind, itemB.source.kind) ||
-			  // Keep the original order if the sources are the same. It’s not worth
-			  // trying to compare anything else, and you can use `import/no-duplicates`
-			  // to get rid of the problem anyway.
-			  itemA.index - itemB.index,
+				itemA.isSideEffectImport
+				? -1
+				: itemB.isSideEffectImport
+					? 1
+					: // Compare the `from` part.
+						compare(itemA.source.source, itemB.source.source) ||
+						// The `.source` has been slightly tweaked. To stay fully deterministic,
+						// also sort on the original value.
+						compare(itemA.source.originalSource, itemB.source.originalSource) ||
+						// Then put type imports/exports before regular ones.
+						compare(itemA.source.kind, itemB.source.kind) ||
+						// Keep the original order if the sources are the same. It’s not worth
+						// trying to compare anything else, and you can use `import/no-duplicates`
+						// to get rid of the problem anyway.
+						itemA.index - itemB.index,
 	);
 
 const sortSpecifierItems = (items) =>
@@ -345,7 +345,7 @@ function extractChunks(parentNode, isPartOfChunk) {
 }
 
 function maybeReportSorting(context, sorted, start, end) {
-	const sourceCode = context.getSourceCode();
+	const sourceCode = context.sourceCode;
 	const original = sourceCode.getText().slice(start, end);
 	if (original !== sorted) {
 		context.report({
@@ -385,7 +385,7 @@ function printSortedItems(sortedItems, originalItems, sourceCode) {
 						isBlockComment(token) &&
 						token.loc.end.line === lastOriginalItem.node.loc.end.line
 					),
-		  })
+			})
 		: undefined;
 	const maybeNewline =
 		nextToken != null &&
@@ -814,13 +814,13 @@ function getSpecifierItems(tokens) {
 				newlineIndex >= 0 && multilineBlockCommentIndex >= 0
 					? Math.min(newlineIndex, multilineBlockCommentIndex)
 					: newlineIndex >= 0
-					? newlineIndex
-					: multilineBlockCommentIndex >= 0
-					? multilineBlockCommentIndex
-					: // If there are no newlines, move the last whitespace into `result.after`.
-					endsWithSpaces(after)
-					? after.length - 1
-					: -1;
+						? newlineIndex
+						: multilineBlockCommentIndex >= 0
+							? multilineBlockCommentIndex
+							: // If there are no newlines, move the last whitespace into `result.after`.
+								endsWithSpaces(after)
+								? after.length - 1
+								: -1;
 
 			current.specifier = specifier;
 			current.after = sliceIndex === -1 ? after : after.slice(0, sliceIndex);

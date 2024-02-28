@@ -94,7 +94,7 @@ module.exports = {
 };
 
 function maybeReportChunkSorting(chunk, context, outerGroups) {
-	const sourceCode = context.getSourceCode();
+	const sourceCode = context.sourceCode;
 	const items = shared.getImportExportItems(
 		chunk,
 		sourceCode,
@@ -119,8 +119,8 @@ function makeSortedItems(items, outerGroups) {
 		const source = item.isSideEffectImport
 			? `\0${originalSource}`
 			: item.source.kind === "value"
-			? originalSource
-			: `${originalSource}\0`;
+				? originalSource
+				: `${originalSource}\0`;
 		const [matchedGroup] = shared
 			// eslint-disable-next-line unicorn/no-array-method-this-argument
 			.flatMap(itemGroups, (groups) =>

@@ -22,7 +22,7 @@ export default createEslintRule<Options, MessageIds>({
 	},
 	defaultOptions: [],
 	create: (context) => {
-		const sourceCode = context.getSourceCode();
+		const sourceCode = context.sourceCode;
 		let lastImportNode: TSESTree.ImportDeclaration | null = null;
 
 		return {

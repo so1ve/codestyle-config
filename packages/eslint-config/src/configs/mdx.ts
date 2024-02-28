@@ -11,16 +11,16 @@ export const mdx = ({
 	overrides,
 }: OptionsComponentExts & OptionsOverrides = {}): ConfigItem[] => [
 	{
-		...pluginMdx.flat,
+		...(pluginMdx.flat as ConfigItem),
 		processor: pluginMdx.createRemarkProcessor({
 			lintCodeBlocks: true,
 			languageMapper: {},
 		}),
 	},
 	{
-		...pluginMdx.flatCodeBlocks,
+		...(pluginMdx.flatCodeBlocks as ConfigItem),
 		files: [
-			...pluginMdx.flatCodeBlocks.files,
+			...(pluginMdx.flatCodeBlocks.files as string[]),
 			...componentExts.map((ext) => `${GLOB_MARKDOWN}/*.${ext}`),
 		],
 		rules: {

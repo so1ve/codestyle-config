@@ -158,7 +158,7 @@ export function so1ve(
 	// We pick the known keys as ESLint would do schema validation
 	const fusedConfig = flatConfigProps.reduce((acc, key) => {
 		if (key in options) {
-			acc[key] = options[key as keyof Options];
+			acc[key] = options[key as keyof Options] as any;
 		}
 
 		return acc;

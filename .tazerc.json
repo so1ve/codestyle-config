@@ -1,0 +1,3 @@
+{
+	"exclude": ["eslint-plugin-html", "prettier-plugin-curly"]
+}
