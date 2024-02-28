@@ -43,27 +43,41 @@ export default createEslintRule<Options, MessageIds>({
 			"ArrowFunctionExpression": setupNode,
 			"ArrowFunctionExpression:exit": clearNode,
 			AwaitExpression() {
-				const closestFunctionNode =
-					functionNodeStack[functionNodeStack.length - 1];
-				if (!closestFunctionNode || closestFunctionNode.async) {
+				const node = functionNodeStack[functionNodeStack.length - 1];
+
+				if (!node || node.async) {
 					return;
 				}
-				const node =
-					closestFunctionNode.type ===
-						TSESTree.AST_NODE_TYPES.FunctionExpression &&
-					closestFunctionNode.parent?.type ===
-						TSESTree.AST_NODE_TYPES.MethodDefinition
-						? closestFunctionNode.parent
-						: closestFunctionNode;
-				const fixRange =
-					node.type === TSESTree.AST_NODE_TYPES.MethodDefinition
-						? node.key.range
-						: node.range;
-				context.report({
-					node,
-					messageId: "requireAsyncWithAwait",
-					fix: (fixer) => fixer.insertTextBeforeRange(fixRange, "async "),
-				});
+
+				let fixRange: TSESTree.Range | undefined;
+
+				if (node.type === TSESTree.AST_NODE_TYPES.ArrowFunctionExpression) {
+					fixRange = node.range;
+				}
+
+				if (
+					node.type === TSESTree.AST_NODE_TYPES.FunctionDeclaration ||
+					node.type === TSESTree.AST_NODE_TYPES.FunctionExpression
+				) {
+					if (
+						node.parent.type === TSESTree.AST_NODE_TYPES.Property ||
+						node.parent.type === TSESTree.AST_NODE_TYPES.MethodDefinition
+					) {
+						if (node.parent.kind === "method" || node.parent.kind === "init") {
+							fixRange = node.parent.key.range;
+						}
+					} else {
+						fixRange = node.range;
+					}
+				}
+
+				if (!fixRange) {
+					context.report({
+						node,
+						messageId: "requireAsyncWithAwait",
+						fix: (fixer) => fixer.insertTextBeforeRange(fixRange!, "async "),
+					});
+				}
 			},
 		};
 	},

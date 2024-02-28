@@ -8,6 +8,9 @@ const valid = [
 	"async function a() { await 1; }",
 	"class a { async a() { await 1; } }",
 	"class a { static async a() { await 1; } }",
+	"class a { constructor() { await 1; } }", // We don't handle constructor
+	"class a { get a() { await 1; }; set a() { await 1; } }", // nor getters and setters
+	"const a = { get a() { await 1; }, set a() { await 1; } }", // and inside an object
 ];
 
 const invalid = [
@@ -39,6 +42,7 @@ const invalid = [
 		"class a { a = function a() { await 1; } }",
 		"class a { a = async function a() { await 1; } }",
 	],
+	["const a = { a() { await 1; } }", "const a = { async a() { await 1; } }"],
 ];
 
 it("runs", () => {
