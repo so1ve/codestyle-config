@@ -12,6 +12,7 @@ export const formatting = (options: Options): ConfigItem[] =>
 			},
 			{
 				rules: {
+					"curly": ["error", "all"],
 					"so1ve/no-useless-template-string": "error",
 					"so1ve/no-negated-comparison": "error",
 					"so1ve/no-import-promises-as": "error",

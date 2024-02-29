@@ -1,4 +1,3 @@
-const curly = require("prettier-plugin-curly");
 const jsdoc = require("prettier-plugin-jsdoc");
 
 exports.options = jsdoc.options;
@@ -9,7 +8,8 @@ exports.parsers = {
 		...jsdoc.parsers.babel,
 		preprocess: (code, options) =>
 			jsdoc.parsers.babel.preprocess(
-				curly.parsers.babel.preprocess(code, options),
+				// curly.parsers.babel.preprocess(code, options),
+				code,
 				options,
 			),
 	},
@@ -17,7 +17,8 @@ exports.parsers = {
 		...jsdoc.parsers.typescript,
 		preprocess: (code, options) =>
 			jsdoc.parsers.typescript.preprocess(
-				curly.parsers.typescript.preprocess(code, options),
+				// curly.parsers.typescript.preprocess(code, options),
+				code,
 				options,
 			),
 	},
