@@ -43,7 +43,7 @@ const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
  * Construct an array of ESLint flat config items.
  */
 export function so1ve(
-	options: Options = {},
+	options: Options & ConfigItem = {},
 	...userConfigs: (ConfigItem | ConfigItem[])[]
 ) {
 	const {
