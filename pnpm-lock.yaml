@@ -86,9 +86,6 @@ importers:
       eslint-mdx:
         specifier: ^2.3.4
         version: 2.3.4(eslint@8.57.0)
-      eslint-plugin-array-func:
-        specifier: ^5.0.1
-        version: 5.0.1(eslint@8.57.0)
       eslint-plugin-case-police:
         specifier: ^0.6.1
         version: 0.6.1(eslint@8.57.0)(typescript@5.3.3)
@@ -186,6 +183,9 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
+      eslint-plugin-array-func:
+        specifier: ^5.0.1
+        version: 5.0.1(eslint@8.57.0)
 
   packages/eslint-plugin:
     dependencies:
@@ -3065,7 +3065,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.57.0
-    dev: false
+    dev: true
 
   /eslint-plugin-case-police@0.6.1(eslint@8.57.0)(typescript@5.3.3):
     resolution: {integrity: sha512-SNyZBjc39CwoNSOl3aiu5EsuHYXOIaPDraMsgLQmcH8CbEhllyOMkmV9kuSNHjjtM8iYRHsiBs1WEFw3/9qkoQ==}
