@@ -2,6 +2,7 @@
 	"name": "@so1ve/eslint-config",
 	"version": "1.5.4",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"type": "module",
 	"description": "Ray's eslint config.",
 	"keywords": [
 		"eslint",
@@ -19,7 +20,6 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"require": "./dist/index.cjs",
 			"import": "./dist/index.mjs"
 		}
 	},
@@ -47,7 +47,7 @@
 		"eslint-define-config": "^1.21.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
 		"eslint-mdx": "^2.3.4",
-		"eslint-plugin-array-func": "4.0.0",
+		"eslint-plugin-array-func": "^5.0.1",
 		"eslint-plugin-case-police": "^0.6.1",
 		"eslint-plugin-etc": "^2.0.3",
 		"eslint-plugin-html": "^7.1.0",

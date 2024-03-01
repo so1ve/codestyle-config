@@ -1,8 +1,4 @@
 {
 	"extends": ["github>so1ve/renovate-config"],
-	"ignoreDeps": [
-		"eslint-plugin-html",
-		"prettier-plugin-curly",
-		"eslint-plugin-array-func"
-	]
+	"ignoreDeps": ["eslint-plugin-html", "prettier-plugin-curly"]
 }
