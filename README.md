@@ -62,7 +62,7 @@ For example:
 {
 	"scripts": {
 		"lint": "eslint . && prettier . --check",
-		"lint:fix": "eslint . -- fix && prettier . --write"
+		"lint:fix": "eslint . --fix && prettier . --write"
 	}
 }
 ```
