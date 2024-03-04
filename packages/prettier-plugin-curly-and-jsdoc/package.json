@@ -27,8 +27,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "pkgroll",
-		"test": "vitest"
+		"build": "pkgroll"
 	},
 	"devDependencies": {
 		"prettier-plugin-curly": "0.1.3",
