@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES2018",
+		"target": "ESNext",
 		"lib": ["ESNext"],
 		"module": "ESNext",
 		"moduleResolution": "Bundler",

@@ -1,0 +1,21 @@
+diff --git a/lib/utils/export-map.js b/lib/utils/export-map.js
+index 6a404ae146aad10205172d204bf7df3c463b40bb..7f143819074b371299f707ced3c495919608e819 100644
+--- a/lib/utils/export-map.js
++++ b/lib/utils/export-map.js
+@@ -703,7 +703,7 @@ let prevParserOptions = '';
+ let settingsHash = '';
+ let prevSettings = '';
+ function childContext(path, context) {
+-    const { settings, parserOptions, parserPath } = context;
++    const { settings, parserOptions, parserPath, languageOptions } = context;
+     if (JSON.stringify(settings) !== prevSettings) {
+         settingsHash = (0, hash_1.hashObject)({ settings }).digest('hex');
+         prevSettings = JSON.stringify(settings);
+@@ -714,6 +714,7 @@ function childContext(path, context) {
+     }
+     return {
+         cacheKey: String(parserPath) + parserOptionsHash + settingsHash + String(path),
++        languageOptions,
+         settings,
+         parserOptions,
+         parserPath,

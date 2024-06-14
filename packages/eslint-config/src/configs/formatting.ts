@@ -1,16 +1,22 @@
 import { GLOB_PACKAGEJSON, GLOB_TESTS, GLOB_TSCONFIG } from "../globs";
-import { pluginStylistic } from "../plugins";
 import type { ConfigItem, Options } from "../types";
+import { interopDefault } from "../utils";
 
-export const formatting = (options: Options): ConfigItem[] =>
-	(
+export async function formatting(options: Options): Promise<ConfigItem[]> {
+	const pluginStylistic = await interopDefault(
+		import("@stylistic/eslint-plugin"),
+	);
+
+	return (
 		[
 			{
+				name: "so1ve/formatting/setup",
 				plugins: {
 					style: pluginStylistic,
 				},
 			},
 			{
+				name: "so1ve/formatting/rules",
 				rules: {
 					"curly": ["error", "all"],
 					"so1ve/no-useless-template-string": "error",
@@ -27,6 +33,7 @@ export const formatting = (options: Options): ConfigItem[] =>
 			},
 			(options.jsonc ?? true) && [
 				{
+					name: "so1ve/formatting/rules/sort-package-json",
 					files: [GLOB_PACKAGEJSON],
 					rules: {
 						"jsonc/sort-keys": [
@@ -43,6 +50,7 @@ export const formatting = (options: Options): ConfigItem[] =>
 					},
 				},
 				{
+					name: "so1ve/formatting/rules/sort-tsconfig",
 					files: GLOB_TSCONFIG,
 					rules: {
 						"jsonc/sort-keys": [
@@ -165,6 +173,7 @@ export const formatting = (options: Options): ConfigItem[] =>
 				},
 			],
 			(options.test ?? true) && {
+				name: "so1ve/formatting/rules/test",
 				files: GLOB_TESTS,
 				rules: {
 					"jest-formatting/padding-around-all": "error",
@@ -174,3 +183,4 @@ export const formatting = (options: Options): ConfigItem[] =>
 	)
 		.flat()
 		.filter(Boolean) as any;
+}

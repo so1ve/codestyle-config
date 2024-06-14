@@ -1,7 +1,7 @@
 import tseslint from "typescript-eslint";
 
 import { GLOB_MARKDOWN_CODE, GLOB_TS, GLOB_TSX } from "../globs";
-import { pluginEtc, pluginImport } from "../plugins";
+import { pluginImport } from "../plugins";
 import type {
 	ConfigItem,
 	OptionsComponentExts,
@@ -11,18 +11,14 @@ import type {
 } from "../types";
 import { renameRules } from "../utils";
 
-export function typescript({
+export async function typescript({
 	componentExts = [],
 	parserOptions,
 	overrides,
 }: OptionsTypeScriptParserOptions &
 	OptionsComponentExts &
-	OptionsOverrides = {}): ConfigItem[] {
+	OptionsOverrides = {}): Promise<ConfigItem[]> {
 	const typeAwareRules: RenamedRules = {
-		"etc/no-assign-mutated-array": "error",
-		"etc/no-deprecated": "warn",
-		"etc/no-internal": "error",
-
 		"no-throw-literal": "off",
 		"ts/no-throw-literal": "error",
 		"no-implied-eval": "off",
@@ -57,14 +53,15 @@ export function typescript({
 
 	return [
 		{
+			name: "so1ve/typescript/setup",
 			// Install the plugins without globs, so they can be configured separately.
 			plugins: {
 				import: pluginImport,
 				ts: tseslint.plugin,
-				etc: pluginEtc,
 			},
 		},
 		{
+			name: "so1ve/typescript/rules",
 			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			languageOptions: {
 				parser: tseslint.parser,
@@ -83,18 +80,15 @@ export function typescript({
 				},
 			},
 			rules: {
-				...renameRules(
-					tseslint.configs.eslintRecommended.rules!,
-					"@typescript-eslint/",
-					"ts/",
-				),
+				...renameRules(tseslint.configs.eslintRecommended.rules!, {
+					"@typescript-eslint": "ts",
+				}),
 				...renameRules(
 					tseslint.configs.recommended
 						.map((config) => config.rules)
 						.filter(Boolean)
 						.reduce((a, b) => ({ ...a, ...b }), {})!,
-					"@typescript-eslint/",
-					"ts/",
+					{ "@typescript-eslint": "ts" },
 				),
 
 				"import/named": "off",
@@ -230,6 +224,7 @@ export function typescript({
 			},
 		},
 		{
+			name: "so1ve/typescript/rules/markdown-codeblocks",
 			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			ignores: [GLOB_MARKDOWN_CODE],
 			languageOptions: {
@@ -256,6 +251,7 @@ export function typescript({
 			},
 		},
 		{
+			name: "so1ve/typescript/rules/dts",
 			files: ["**/*.d.ts"],
 			rules: {
 				"eslint-comments/no-unlimited-disable": "off",
@@ -264,6 +260,7 @@ export function typescript({
 			},
 		},
 		{
+			name: "so1ve/typescript/rules/js",
 			files: ["**/*.js", "**/*.cjs"],
 			rules: {
 				"ts/no-require-imports": "off",

@@ -2,6 +2,7 @@
 	"name": "@so1ve/eslint-plugin",
 	"version": "2.0.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"type": "module",
 	"keywords": [
 		"eslint",
 		"eslint-config",
@@ -16,8 +17,14 @@
 		"url": "https://github.com/so1ve/codestyle-config/issues"
 	},
 	"license": "MIT",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.mjs",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
@@ -26,12 +33,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "unbuild",
-		"stub": "unbuild --stub",
-		"test": "vitest"
+		"build": "tsup",
+		"test": "vitest",
+		"watch": "tsup --watch"
 	},
 	"dependencies": {
-		"@typescript-eslint/types": "^7.1.0",
-		"@typescript-eslint/utils": "^7.1.0"
+		"@typescript-eslint/types": "^7.12.0",
+		"@typescript-eslint/utils": "^7.12.0"
 	}
 }

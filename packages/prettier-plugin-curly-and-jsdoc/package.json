@@ -5,6 +5,7 @@
 	"contributors": [
 		"Ray <i@mk1.io> (https://github.com/so1ve)"
 	],
+	"type": "module",
 	"description": "Make prettier-plugin-curly and prttier-plugin-jsdoc work together.",
 	"keywords": [
 		"curly",
@@ -22,15 +23,17 @@
 		"url": "https://github.com/so1ve/codestyle-config/issues"
 	},
 	"license": "MIT",
-	"main": "dist/index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
-		"build": "pkgroll"
+		"build": "tsup",
+		"watch": "tsup --watch"
 	},
 	"devDependencies": {
-		"prettier-plugin-curly": "0.1.3",
+		"prettier-plugin-curly": "0.2.1",
 		"prettier-plugin-jsdoc": "^1.3.0"
 	},
 	"peerDependencies": {

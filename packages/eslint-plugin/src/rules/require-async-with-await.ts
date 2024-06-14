@@ -75,7 +75,7 @@ export default createEslintRule<Options, MessageIds>({
 					context.report({
 						node,
 						messageId: "requireAsyncWithAwait",
-						fix: (fixer) => fixer.insertTextBeforeRange(fixRange!, "async "),
+						fix: (fixer) => fixer.insertTextBeforeRange(fixRange, "async "),
 					});
 				}
 			},

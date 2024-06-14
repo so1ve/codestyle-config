@@ -1,23 +1,32 @@
 import { GLOB_TOML } from "../globs";
-import { parserToml, pluginToml } from "../plugins";
 import type { ConfigItem, OptionsOverrides } from "../types";
+import { interopDefault } from "../utils";
 
-export const toml = ({ overrides }: OptionsOverrides = {}): ConfigItem[] => [
-	{
-		plugins: {
-			toml: pluginToml,
+export async function toml({ overrides }: OptionsOverrides = {}): Promise<
+	ConfigItem[]
+> {
+	const parserToml = await interopDefault(import("toml-eslint-parser"));
+	const pluginToml = await interopDefault(import("eslint-plugin-toml"));
+
+	return [
+		{
+			name: "so1ve/toml/setup",
+			plugins: {
+				toml: pluginToml,
+			},
 		},
-	},
-	{
-		languageOptions: {
-			parser: parserToml,
+		{
+			name: "so1ve/toml/rules",
+			languageOptions: {
+				parser: parserToml,
+			},
+			files: [GLOB_TOML],
+			rules: {
+				...(pluginToml.configs.recommended.rules as any),
+				"no-irregular-whitespace": "off",
+				"spaced-comment": "off",
+				...overrides,
+			},
 		},
-		files: [GLOB_TOML],
-		rules: {
-			...(pluginToml.configs.recommended.rules as any),
-			"no-irregular-whitespace": "off",
-			"spaced-comment": "off",
-			...overrides,
-		},
-	},
-];
+	];
+}

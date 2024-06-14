@@ -3,9 +3,14 @@ import type { ConfigItem } from "../types";
 
 export const unicorn = (): ConfigItem[] => [
 	{
+		name: "so1ve/unicorn/setup",
+
 		plugins: {
 			unicorn: pluginUnicorn,
 		},
+	},
+	{
+		name: "so1ve/unicorn/rules",
 		rules: {
 			"unicorn/throw-new-error": "error",
 			"unicorn/relative-url-style": ["error", "always"],

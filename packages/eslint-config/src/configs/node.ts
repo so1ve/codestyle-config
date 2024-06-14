@@ -3,11 +3,13 @@ import type { ConfigItem } from "../types";
 
 export const node = (): ConfigItem[] => [
 	{
+		name: "so1ve/node/setup",
 		plugins: {
 			node: pluginNode,
 		},
 	},
 	{
+		name: "so1ve/node/rules",
 		rules: {
 			"node/no-callback-literal": "off",
 			"node/handle-callback-err": ["error", "^(err|error)$"],

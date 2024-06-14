@@ -2,6 +2,7 @@
 	"name": "@so1ve/prettier-config",
 	"version": "2.0.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+	"type": "module",
 	"description": "Ray's prettier config.",
 	"keywords": [
 		"eslint",
@@ -16,19 +17,21 @@
 		"url": "https://github.com/so1ve/codestyle-config/issues"
 	},
 	"license": "MIT",
-	"main": "index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"files": [
-		"index.js"
+		"dist"
 	],
 	"publishConfig": {
 		"access": "public"
 	},
 	"scripts": {
-		"lint": "eslint . --config=index.js"
+		"build": "tsup",
+		"watch": "tsup --watch"
 	},
 	"dependencies": {
 		"@so1ve/prettier-plugin-toml": "workspace:*",
-		"prettier-plugin-astro": "^0.13.0",
+		"prettier-plugin-astro": "^0.14.0",
 		"prettier-plugin-curly-and-jsdoc": "workspace:*",
 		"prettier-plugin-pkgsort": "^0.2.1"
 	},

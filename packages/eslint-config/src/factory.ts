@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-import gitignore from "eslint-config-flat-gitignore";
+import { FlatConfigComposer } from "eslint-flat-config-utils";
 import { isPackageExists } from "local-pkg";
 
 import {
@@ -24,7 +24,8 @@ import {
 	vue,
 	yaml,
 } from "./configs";
-import type { ConfigItem, Options } from "./types";
+import type { Awaitable, ConfigItem, Options } from "./types";
+import { interopDefault } from "./utils";
 
 const flatConfigProps: (keyof ConfigItem)[] = [
 	"files",
@@ -38,6 +39,15 @@ const flatConfigProps: (keyof ConfigItem)[] = [
 ];
 
 const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
+
+export const defaultPluginRenaming = {
+	"@stylistic": "style",
+	"@typescript-eslint": "ts",
+	"@html-eslint": "html",
+	"import-x": "import",
+	"n": "node",
+	"yml": "yaml",
+};
 
 /**
  * Construct an array of ESLint flat config items.
@@ -54,15 +64,23 @@ export function so1ve(
 		componentExts = [],
 	} = options;
 
-	const configs: ConfigItem[][] = [];
+	const configs: Awaitable<ConfigItem[]>[] = [];
 
 	if (enableGitignore) {
 		if (typeof enableGitignore === "boolean") {
 			if (fs.existsSync(".gitignore")) {
-				configs.push([gitignore()]);
+				configs.push(
+					interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+						r(),
+					]),
+				);
 			}
 		} else {
-			configs.push([gitignore(enableGitignore)]);
+			configs.push(
+				interopDefault(import("eslint-config-flat-gitignore")).then((r) => [
+					r(enableGitignore),
+				]),
+			);
 		}
 	}
 
@@ -79,11 +97,14 @@ export function so1ve(
 		sortImports(),
 		imports(),
 		unicorn(),
-		html(),
 	);
 
 	if (enableVue) {
 		componentExts.push("vue");
+	}
+
+	if (options.html ?? true) {
+		configs.push(html());
 	}
 
 	if (enableTypeScript) {
@@ -168,9 +189,12 @@ export function so1ve(
 		configs.push([fusedConfig]);
 	}
 
-	const merged = [...configs, ...userConfigs].flat();
+	// TODO: types
+	const composer = new FlatConfigComposer<any, any>()
+		.append(...configs, ...(userConfigs as any))
+		.renamePlugins(defaultPluginRenaming);
 
-	return merged;
+	return composer;
 }
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
@@ -188,7 +212,6 @@ export function getOverrides<K extends keyof Options>(
 	const sub = resolveSubOptions(options, key);
 
 	return {
-		// eslint-disable-next-line etc/no-deprecated
 		...(options.overrides as any)?.[key],
 		...("overrides" in sub ? sub.overrides : {}),
 	};

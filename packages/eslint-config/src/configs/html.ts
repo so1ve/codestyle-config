@@ -1,34 +1,42 @@
 import { GLOB_HTML } from "../globs";
-import { parserHtml, pluginHtml, pluginHtmlJsSupport } from "../plugins";
 import type { ConfigItem } from "../types";
-import { renameRules } from "../utils";
+import { interopDefault, renameRules } from "../utils";
 
-export const html = (): ConfigItem[] => [
-	{
-		plugins: {
-			"html": pluginHtml,
-			"html-js-support": pluginHtmlJsSupport,
+export async function html(): Promise<ConfigItem[]> {
+	const parserHtml = await interopDefault(import("@html-eslint/parser"));
+	const pluginHtml = await interopDefault(import("@html-eslint/eslint-plugin"));
+	const pluginHtmlJsSupport = await interopDefault(
+		// @ts-expect-error No declaration
+		import("eslint-plugin-html"),
+	);
+
+	return [
+		{
+			name: "so1ve/html/setup",
+			plugins: {
+				"html": pluginHtml,
+				"html-js-support": pluginHtmlJsSupport,
+			},
 		},
-	},
-	{
-		languageOptions: {
-			parser: parserHtml,
+		{
+			name: "so1ve/html/rules",
+			languageOptions: {
+				parser: parserHtml,
+			},
+			settings: {
+				"html/report-bad-indent": "off",
+			},
+			files: [GLOB_HTML],
+			rules: {
+				...renameRules(pluginHtml.configs.recommended.rules, {
+					"@html-eslint": "html",
+				}),
+				"html/indent": "off",
+				"html/no-trailing-spaces": "off",
+				"html/require-closing-tags": "off",
+				"html/no-extra-spacing-attrs": "off",
+				"html/quotes": "off",
+			},
 		},
-		settings: {
-			"html/report-bad-indent": "off",
-		},
-		files: [GLOB_HTML],
-		rules: {
-			...renameRules(
-				pluginHtml.configs.recommended.rules,
-				"@html-eslint/",
-				"html/",
-			),
-			"html/indent": "off",
-			"html/no-trailing-spaces": "off",
-			"html/require-closing-tags": "off",
-			"html/no-extra-spacing-attrs": "off",
-			"html/quotes": "off",
-		},
-	},
-];
+	];
+}
