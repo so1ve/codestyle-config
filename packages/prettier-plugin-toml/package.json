@@ -5,6 +5,7 @@
 	"contributors": [
 		"Ray <i@mk1.io> (https://github.com/so1ve)"
 	],
+	"type": "module",
 	"description": "CJS version of prettier-plugin-toml.",
 	"keywords": [
 		"prettier",
@@ -21,12 +22,14 @@
 		"url": "https://github.com/so1ve/codestyle-config/issues"
 	},
 	"license": "MIT",
-	"main": "dist/index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"publishConfig": {
 		"access": "public"
 	},
 	"scripts": {
-		"build": "pkgroll"
+		"build": "tsup",
+		"watch": "tsup --watch"
 	},
 	"devDependencies": {
 		"prettier-plugin-toml": "^1.0.1"

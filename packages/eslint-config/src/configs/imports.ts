@@ -4,14 +4,23 @@ import type { ConfigItem, Options } from "../types";
 
 export const imports = (options: Options = {}): ConfigItem[] => [
 	{
+		name: "so1ve/imports/setup",
 		plugins: {
 			import: pluginImport,
 		},
 	},
 	{
+		name: "so1ve/imports/rules",
+		languageOptions: {
+			parserOptions: {
+				ecmaVersion: "latest",
+				sourceType: "module",
+			},
+		},
 		settings: {
 			"import/parsers": {
-				espree: [".js", ".cjs", ".mjs", ".jsx"],
+				"espree": [".js", ".cjs", ".mjs", ".jsx"],
+				"@typescript-eslint/parser": [".ts", ".mts", ".cts", ".tsx", ".d.ts"],
 			},
 			"import/resolver": {
 				...(options.typescript
@@ -29,14 +38,16 @@ export const imports = (options: Options = {}): ConfigItem[] => [
 			},
 		},
 		rules: {
-			...pluginImport.configs.recommended.rules,
+			"import/named": "error",
+			"import/default": "error",
+			"import/export": "error",
 			"import/first": "error",
+			"import/namespace": "off", // Disable this for better performance
 			"import/no-mutable-exports": "error",
 			"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
+			"import/no-named-as-default": "error",
 			"import/no-unresolved": "off",
 			"import/no-absolute-path": "off",
-			"import/namespace": "off", // Disable this for better performance
-			"import/export": "error",
 			"import/no-duplicates": "error",
 			"import/no-named-default": "error",
 			"import/no-webpack-loader-syntax": "error",
@@ -44,6 +55,7 @@ export const imports = (options: Options = {}): ConfigItem[] => [
 		},
 	},
 	{
+		name: "so1ve/imports/rules/dts",
 		files: [GLOB_DTS],
 		rules: {
 			"import/no-duplicates": "off",

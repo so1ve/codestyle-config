@@ -42,6 +42,11 @@ export interface Options extends OptionsComponentExts {
 	javascript?: OptionsOverrides;
 
 	/**
+	 * Enable HTML support.
+	 */
+	html?: boolean;
+
+	/**
 	 * Enable TypeScript support.
 	 *
 	 * Passing an object to enable TypeScript Language Server support.
@@ -151,7 +156,10 @@ export type RenamedRules = MergeIntersection<
 >;
 
 export type ConfigItem = Omit<FlatESLintConfigItem, "plugins" | "rules"> & {
+	name?: string;
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
 	plugins?: Record<string, any>;
 	rules?: RenamedRules | Record<string, any>;
 };
+
+export type Awaitable<T> = T | Promise<T>;

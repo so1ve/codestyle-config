@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`no-negated-comparison > invalid > !(a != b) 1`] = `"(a==b)"`;
+
+exports[`no-negated-comparison > invalid > !(a !== b) 1`] = `"(a===b)"`;
+
+exports[`no-negated-comparison > invalid > !(a < b) 1`] = `"(a>=b)"`;
+
+exports[`no-negated-comparison > invalid > !(a <= b) 1`] = `"(a>b)"`;
+
+exports[`no-negated-comparison > invalid > !(a == b) 1`] = `"(a!=b)"`;
+
+exports[`no-negated-comparison > invalid > !(a === b) 1`] = `"(a!==b)"`;
+
+exports[`no-negated-comparison > invalid > !(a > b) 1`] = `"(a<=b)"`;
+
+exports[`no-negated-comparison > invalid > !(a >= b) 1`] = `"(a<b)"`;

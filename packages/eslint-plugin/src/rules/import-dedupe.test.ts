@@ -1,31 +1,12 @@
-import { RuleTester } from "@typescript-eslint/utils/ts-eslint";
-import { it } from "vitest";
-
+import { run } from "./_test";
 import rule, { RULE_NAME } from "./import-dedupe";
 
 const valid = ['import { a } from "foo";'];
-const invalid = [
-	[
-		'import { a, b, a, a, c, a , } from "foo";',
-		'import { a, b,   c,  } from "foo";',
-	],
-];
+const invalid = ['import { a, b, a, a, c, a , } from "foo";'];
 
-it("runs", () => {
-	const ruleTester: RuleTester = new RuleTester({
-		parser: require.resolve("@typescript-eslint/parser"),
-	});
-
-	ruleTester.run(RULE_NAME, rule, {
-		valid,
-		invalid: invalid.map((i) => ({
-			code: i[0],
-			output: i[1],
-			errors: [
-				{ messageId: "importDedupe" },
-				{ messageId: "importDedupe" },
-				{ messageId: "importDedupe" },
-			],
-		})),
-	});
+run({
+	name: RULE_NAME,
+	rule,
+	valid,
+	invalid,
 });

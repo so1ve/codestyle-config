@@ -1,55 +1,45 @@
-import type { ConfigItem } from "./types";
+import type { Awaitable } from "./types";
 
+/**
+ * Rename plugin prefixes in a rule object. Accepts a map of prefixes to rename.
+ *
+ * @example
+ *
+ * ```ts
+ * import { renameRules } from "@antfu/eslint-config";
+ *
+ * export default [
+ * 	{
+ * 		rules: renameRules(
+ * 			{
+ * 				"@typescript-eslint/indent": "error",
+ * 			},
+ * 			{ "@typescript-eslint": "ts" },
+ * 		),
+ * 	},
+ * ];
+ * ```
+ */
 export const renameRules = (
 	rules: Record<string, any>,
-	from: string,
-	to: string,
+	map: Record<string, string>,
 ) =>
 	Object.fromEntries(
 		Object.entries(rules).map(([key, value]) => {
-			if (key.startsWith(from)) {
-				return [to + key.slice(from.length), value];
+			for (const [from, to] of Object.entries(map)) {
+				if (key.startsWith(`${from}/`)) {
+					return [to + key.slice(from.length), value];
+				}
 			}
 
 			return [key, value];
 		}),
 	);
 
-const rulesOn = new Set<string>();
-const rulesOff = new Set<string>();
+export async function interopDefault<T>(
+	m: Awaitable<T>,
+): Promise<T extends { default: infer U } ? U : T> {
+	const resolved = await m;
 
-export function recordRulesStateConfigs(configs: ConfigItem[]): ConfigItem[] {
-	for (const config of configs) {
-		recordRulesState(config.rules ?? {});
-	}
-
-	return configs;
-}
-
-export function recordRulesState(
-	rules: ConfigItem["rules"],
-): ConfigItem["rules"] {
-	for (const [key, value] of Object.entries(rules ?? {})) {
-		const firstValue = Array.isArray(value) ? value[0] : value;
-		if (firstValue == null) {
-			continue;
-		}
-		if (firstValue === "off" || firstValue === 0) {
-			rulesOff.add(key);
-		} else {
-			rulesOn.add(key);
-		}
-	}
-
-	return rules;
-}
-
-export function warnUnnecessaryOffRules() {
-	const unnecessaryOffRules = [...rulesOff].filter((key) => !rulesOn.has(key));
-
-	for (const off of unnecessaryOffRules) {
-		console.warn(
-			`[eslint] rule \`${off}\` is never turned on, you can remove the rule from your config`,
-		);
-	}
+	return (resolved as any).default || resolved;
 }

@@ -19,7 +19,7 @@
 - **Style principle**: Consistent for reading, stable for diff. More automated style fixes is better.
 
 > [!IMPORTANT]
-> The main branch is for v1.0 prerelease, which rewrites to ESLint Flat config.
+> The main branch is for v3.0, which rewrites to ESLint Flat config and requires ESLint v8.57.0 or v9.0.0+.
 
 ## Usage
 
@@ -78,8 +78,6 @@ Create `.vscode/settings.json`
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 	},
-	// Enable flat config support
-	"eslint.experimental.useFlatConfig": true,
 	"eslint.validate": [
 		"javascript",
 		"typescript",
@@ -218,9 +216,10 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 
 | New Prefix | Original Prefix        | Source Plugin                                                                              |
 | ---------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| `import/*` | `i/*`                  | [eslint-plugin-i](https://github.com/un-es/eslint-plugin-i)                                |
+| `import/*` | `import-x/*`           | [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)                  |
 | `node/*`   | `n/*`                  | [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)                     |
 | `yaml/*`   | `yml/*`                | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)                        |
+| `style/*`  | `@stylistic/*`         | [@stylistic/eslint-plugin](https://github.com/eslint-stylistic/eslint-stylistic)           |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
 | `html/*`   | `@html-eslint/*`       | [@html-eslint/eslint-plugin](https://github.com/yeonjuan/html-eslint)                      |
 
@@ -231,6 +230,8 @@ When you want to override rules, or disable them inline, you need to update to t
 +// eslint-disable-next-line ts/consistent-type-definitions
 type foo = { bar: 2 }
 ```
+
+Since v2.1.0, this preset will automatically rename the plugins also for your custom configs. You can use the original prefix to override the rules directly.
 
 ### Rules Overrides
 
@@ -281,6 +282,31 @@ export default so1ve({
 		},
 	},
 });
+```
+
+### Config Composer
+
+Since v2.1.0, the factory function `so1ve()` returns a [`FlatConfigComposer` object from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer) where you can chain the methods to compose the config even more flexibly.
+
+```js
+// eslint.config.js
+import { so1ve } from "@so1ve/eslint-config";
+
+export default so1ve()
+	// some configs before the main config
+	.prepend()
+	// overrides any named configs
+	.override("so1ve:imports", {
+		rules: {
+			"import/named": "off",
+		},
+	})
+	// rename plugin prefixes
+	.renamePlugins({
+		"old-prefix": "new-prefix",
+		// ...
+	});
+// ...
 ```
 
 ### Type Aware Rules

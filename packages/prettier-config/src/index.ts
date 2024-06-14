@@ -1,4 +1,8 @@
-// @ts-check
+import { createRequire } from "node:module";
+
+import type { Config } from "prettier";
+
+const require = createRequire(import.meta.url);
 
 const plugins = [
 	...["astro", "curly-and-jsdoc", "pkgsort"].map((p) =>
@@ -7,7 +11,7 @@ const plugins = [
 	require.resolve("@so1ve/prettier-plugin-toml"),
 ];
 
-module.exports = {
+export default {
 	useTabs: true,
 	endOfLine: "lf",
 	quoteProps: "preserve",
@@ -40,4 +44,4 @@ module.exports = {
 	jsdocPreferCodeFences: true,
 	jsdocCommentLineStrategy: "multiline",
 	tsdoc: true,
-};
+} satisfies Config & Record<string, unknown>;
