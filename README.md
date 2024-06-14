@@ -19,7 +19,7 @@
 - **Style principle**: Consistent for reading, stable for diff. More automated style fixes is better.
 
 > [!IMPORTANT]
-> The main branch is for v1.0 prerelease, which rewrites to ESLint Flat config.
+> The main branch is for v3.0, which rewrites to ESLint Flat config and requires ESLint v8.57.0 or v9.0.0+.
 
 ## Usage
 
@@ -78,8 +78,6 @@ Create `.vscode/settings.json`
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 	},
-	// Enable flat config support
-	"eslint.experimental.useFlatConfig": true,
 	"eslint.validate": [
 		"javascript",
 		"typescript",
@@ -300,7 +298,7 @@ export default so1ve()
 	// overrides any named configs
 	.override("so1ve:imports", {
 		rules: {
-			"import/order": ["error", { "newlines-between": "always" }],
+			"import/named": "off",
 		},
 	})
 	// rename plugin prefixes

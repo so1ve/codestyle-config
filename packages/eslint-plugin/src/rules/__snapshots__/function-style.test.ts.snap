@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`function-style > invalid > 	export default function a() {
+  return {};
+} 1`] = `"	export default () => ({});"`;
+
+exports[`function-style > invalid > 	export default function() {
+  return {};
+} 1`] = `"	export default () => ({});"`;
+
+exports[`function-style > invalid > 	function foo() {
+  return [
+    // foo
+  ];
+} 1`] = `
+"	const foo = () => ([
+    // foo
+  ]);"
+`;
+
+exports[`function-style > invalid > async function a(): Type { return 1; } 1`] = `"const a = async (): Type => (1);"`;
+
+exports[`function-style > invalid > const a = () => {
+     return {
+       a: 1,
+     };
+   }; 1`] = `
+"const a = () => ({
+       a: 1,
+     });"
+`;
+
+exports[`function-style > invalid > const a = () => { return 1; }; 1`] = `"const a = () => (1);"`;
+
+exports[`function-style > invalid > const a = () => { stuff; }; 1`] = `"function a() { stuff; }"`;
+
+exports[`function-style > invalid > const a = () => { stuff; return 1; }; 1`] = `"function a() { stuff; return 1; }"`;
+
+exports[`function-style > invalid > const a = async () => { return 1; }; 1`] = `"const a = async () => (1);"`;
+
+exports[`function-style > invalid > const a = async () => { stuff; return 1; }; 1`] = `"async function a() { stuff; return 1; }"`;
+
+exports[`function-style > invalid > const a = async (): Promise<1> => { stuff; return 1; }; 1`] = `"async function a(): Promise<1> { stuff; return 1; }"`;
+
+exports[`function-style > invalid > const a = async function foo(): Returns {} 1`] = `"async function a(): Returns {}"`;
+
+exports[`function-style > invalid > const a: Some = async (): Type => { return 1; }; 1`] = `"const a: Some = async (): Type => (1);"`;
+
+exports[`function-style > invalid > function foo() { return{} } 1`] = `"const foo = () => ({});"`;
