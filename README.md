@@ -29,27 +29,18 @@
 pnpm add -D eslint prettier @so1ve/eslint-config @so1ve/prettier-config
 ```
 
-### Config `eslint.config.js` and `.prettierrc.cjs`
+### Config `eslint.config.mjs` and `prettier.config.mjs`
 
 ```js
-// eslint.config.js
+// eslint.config.mjs
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve();
 ```
 
-Or using CJS:
-
 ```js
-// eslint.config.js
-const { so1ve } = require("@so1ve/eslint-config");
-
-module.exports = so1ve();
-```
-
-```js
-// .prettierrc.cjs
-module.exports = require("@so1ve/prettier-config");
+// prettier.config.mjs
+export { default } from "@so1ve/prettier-config";
 ```
 
 > Note that `.eslintignore` no longer works in Flat config, see [customization](#customization) for more details.
