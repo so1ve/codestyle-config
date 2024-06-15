@@ -43,7 +43,7 @@ const valid = [
 	  }
 	`,
 	$`
-	    export default function () {
+	  export default function () {
 	    return
 	  }
 	`,
@@ -54,7 +54,7 @@ const valid = [
 	`,
 	"const a = () => { const b = () => { return this; }; return this; };",
 	$`
-	    function a() {
+	  function a() {
 	    // foo
 	    return 1
 	  }
@@ -73,23 +73,23 @@ const invalid: InvalidTestCase[] = [
 	"const a = async function foo(): Returns {}",
 	$`
 	  const a = () => {
-	       return {
-	         a: 1,
-	       };
-	     };
+	    return {
+	      a: 1,
+	    };
+	  };
 	`,
 	$`
-	  	export default function a() {
+	  export default function a() {
 	    return {};
 	  }
 	`,
 	$`
-	  	export default function() {
+	  export default function() {
 	    return {};
 	  }
 	`,
 	$`
-	  	function foo() {
+	  function foo() {
 	    return [
 	      // foo
 	    ];
