@@ -7,7 +7,6 @@ export default so1ve().append({
 	plugins: {
 		antfu: pluginAntfu,
 	},
-
 	rules: {
 		"antfu/indent-unindent": "error",
 	},
