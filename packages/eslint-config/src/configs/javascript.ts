@@ -9,11 +9,11 @@ import {
 	pluginSortImports,
 	pluginUnusedImports,
 } from "../plugins";
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
 export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
-	ConfigItem[]
+	TypedFlatConfigItem[]
 > {
 	const regexpRecommended = pluginRegexp.configs["flat/recommended"];
 

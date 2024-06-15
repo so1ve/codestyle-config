@@ -24,10 +24,16 @@ import {
 	vue,
 	yaml,
 } from "./configs";
-import type { Awaitable, ConfigItem, Options } from "./types";
+import type { ConfigNames } from "./typegen";
+import type {
+	MaybeArray,
+	MaybePromise,
+	Options,
+	TypedFlatConfigItem,
+} from "./types";
 import { interopDefault } from "./utils";
 
-const flatConfigProps: (keyof ConfigItem)[] = [
+const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
 	"files",
 	"ignores",
 	"languageOptions",
@@ -53,8 +59,8 @@ export const defaultPluginRenaming = {
  * Construct an array of ESLint flat config items.
  */
 export function so1ve(
-	options: Options & ConfigItem = {},
-	...userConfigs: (ConfigItem | ConfigItem[])[]
+	options: Options & TypedFlatConfigItem = {},
+	...userConfigs: MaybeArray<TypedFlatConfigItem>[]
 ) {
 	const {
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
@@ -64,7 +70,7 @@ export function so1ve(
 		componentExts = [],
 	} = options;
 
-	const configs: Awaitable<ConfigItem[]>[] = [];
+	const configs: MaybePromise<TypedFlatConfigItem[]>[] = [];
 
 	if (enableGitignore) {
 		if (typeof enableGitignore === "boolean") {
@@ -183,15 +189,14 @@ export function so1ve(
 		}
 
 		return acc;
-	}, {} as ConfigItem);
+	}, {} as TypedFlatConfigItem);
 
 	if (Object.keys(fusedConfig).length > 0) {
 		configs.push([fusedConfig]);
 	}
 
-	// TODO: types
-	const composer = new FlatConfigComposer<any, any>()
-		.append(...configs, ...(userConfigs as any))
+	const composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>()
+		.append(...configs, ...userConfigs)
 		.renamePlugins(defaultPluginRenaming);
 
 	return composer;
@@ -200,7 +205,7 @@ export function so1ve(
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
 export const resolveSubOptions = <K extends keyof Options>(
-	options: Options & ConfigItem,
+	options: Options & TypedFlatConfigItem,
 	key: K,
 ): ResolvedOptions<Options[K]> =>
 	typeof options[key] === "boolean" ? ({} as any) : options[key] || {};

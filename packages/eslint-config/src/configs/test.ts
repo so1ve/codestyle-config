@@ -1,9 +1,9 @@
 import { GLOB_TESTS } from "../globs";
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
 export async function test({ overrides }: OptionsOverrides = {}): Promise<
-	ConfigItem[]
+	TypedFlatConfigItem[]
 > {
 	const pluginNoOnlyTests = await interopDefault(
 		// @ts-expect-error No declaration

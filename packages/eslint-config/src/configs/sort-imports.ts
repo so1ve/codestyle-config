@@ -1,7 +1,7 @@
 import { pluginSortImports } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const sortImports = (): ConfigItem[] => [
+export const sortImports = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/sort-imports/setup",
 		plugins: {

@@ -1,14 +1,17 @@
 import type {
-	ConfigItem,
 	OptionsHasTypeScript,
 	OptionsOverrides,
+	Rules,
+	TypedFlatConfigItem,
 } from "../types";
 import { interopDefault } from "../utils";
 
 export async function solid({
 	overrides,
 	typescript,
-}: OptionsHasTypeScript & OptionsOverrides = {}): Promise<ConfigItem[]> {
+}: OptionsHasTypeScript & OptionsOverrides = {}): Promise<
+	TypedFlatConfigItem[]
+> {
 	const pluginSolid = await interopDefault(import("eslint-plugin-solid"));
 
 	return [
@@ -29,8 +32,8 @@ export async function solid({
 				},
 			},
 			rules: {
-				...pluginSolid.configs.recommended.rules,
-				...(typescript ? pluginSolid.configs.typescript.rules : {}),
+				...(pluginSolid.configs.recommended.rules as Rules),
+				...(typescript ? (pluginSolid.configs.typescript.rules as Rules) : {}),
 				...overrides,
 			},
 		},

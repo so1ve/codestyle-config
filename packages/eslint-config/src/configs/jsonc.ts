@@ -1,8 +1,8 @@
 import { GLOB_ESLINTRC, GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
-export async function jsonc(): Promise<ConfigItem[]> {
+export async function jsonc(): Promise<TypedFlatConfigItem[]> {
 	const parserJsonc = await interopDefault(import("jsonc-eslint-parser"));
 	const pluginJsonc = await interopDefault(import("eslint-plugin-jsonc"));
 

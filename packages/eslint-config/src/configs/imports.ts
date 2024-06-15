@@ -1,8 +1,8 @@
 import { GLOB_DTS } from "../globs";
 import { pluginImport } from "../plugins";
-import type { ConfigItem, Options } from "../types";
+import type { Options, TypedFlatConfigItem } from "../types";
 
-export const imports = (options: Options = {}): ConfigItem[] => [
+export const imports = (options: Options = {}): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/imports/setup",
 		plugins: {

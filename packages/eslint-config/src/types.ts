@@ -1,7 +1,28 @@
-import type so1vePlugin from "@so1ve/eslint-plugin";
 import type { ParserOptions } from "@typescript-eslint/utils/ts-eslint";
+import type { Linter } from "eslint";
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
-import type { FlatESLintConfigItem, Rules } from "eslint-define-config";
+
+import type { RuleOptions } from "./typegen";
+
+export type MaybePromise<T> = T | Promise<T>;
+export type MaybeArray<T> = T | T[];
+
+export type Rules = RuleOptions;
+
+export type TypedFlatConfigItem = Omit<
+	Linter.FlatConfig<Linter.RulesRecord & Rules>,
+	"plugins"
+> & {
+	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
+	/**
+	 * An object containing a name-value mapping of plugin names to plugin
+	 * objects. When `files` is specified, these plugins are only available to the
+	 * matching files.
+	 *
+	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
+	 */
+	plugins?: Record<string, any>;
+};
 
 export interface OptionsComponentExts {
 	/**
@@ -22,7 +43,7 @@ export interface OptionsHasTypeScript {
 }
 
 export interface OptionsOverrides {
-	overrides?: ConfigItem["rules"];
+	overrides?: TypedFlatConfigItem["rules"];
 }
 
 export interface Options extends OptionsComponentExts {
@@ -117,49 +138,14 @@ export interface Options extends OptionsComponentExts {
 	 * @deprecated Use `overrides` option in each integration key instead
 	 */
 	overrides?: {
-		javascript?: ConfigItem["rules"];
-		typescript?: ConfigItem["rules"];
-		test?: ConfigItem["rules"];
-		vue?: ConfigItem["rules"];
-		solid?: ConfigItem["rules"];
-		jsonc?: ConfigItem["rules"];
-		mdx?: ConfigItem["rules"];
-		yaml?: ConfigItem["rules"];
-		toml?: ConfigItem["rules"];
+		javascript?: TypedFlatConfigItem["rules"];
+		typescript?: TypedFlatConfigItem["rules"];
+		test?: TypedFlatConfigItem["rules"];
+		vue?: TypedFlatConfigItem["rules"];
+		solid?: TypedFlatConfigItem["rules"];
+		jsonc?: TypedFlatConfigItem["rules"];
+		mdx?: TypedFlatConfigItem["rules"];
+		yaml?: TypedFlatConfigItem["rules"];
+		toml?: TypedFlatConfigItem["rules"];
 	};
 }
-
-type Unprefix<T extends Record<string, any>, Pre extends string> = {
-	[K in keyof T as K extends `${Pre}${infer U}` ? U : never]: T[K];
-};
-
-type Prefix<T extends Record<string, any>, Pre extends string> = {
-	[K in keyof T as `${Pre}${K & string}`]: T[K];
-};
-
-type RenamePrefix<
-	T extends Record<string, any>,
-	Old extends string,
-	New extends string,
-> = Prefix<Unprefix<T, Old>, New>;
-
-type MergeIntersection<T extends Record<any, any>> = {
-	[K in keyof T]: T[K];
-};
-
-export type RenamedRules = MergeIntersection<
-	Rules &
-		RenamePrefix<Rules, "@typescript-eslint/", "ts/"> &
-		RenamePrefix<Rules, "yml/", "yaml/"> &
-		RenamePrefix<Rules, "n/", "node/"> &
-		Prefix<Partial<(typeof so1vePlugin)["rules"]>, "so1ve/">
->;
-
-export type ConfigItem = Omit<FlatESLintConfigItem, "plugins" | "rules"> & {
-	name?: string;
-	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
-	plugins?: Record<string, any>;
-	rules?: RenamedRules | Record<string, any>;
-};
-
-export type Awaitable<T> = T | Promise<T>;

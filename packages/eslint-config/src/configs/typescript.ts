@@ -3,11 +3,11 @@ import tseslint from "typescript-eslint";
 import { GLOB_MARKDOWN_CODE, GLOB_TS, GLOB_TSX } from "../globs";
 import { pluginImport } from "../plugins";
 import type {
-	ConfigItem,
 	OptionsComponentExts,
 	OptionsOverrides,
 	OptionsTypeScriptParserOptions,
-	RenamedRules,
+	Rules,
+	TypedFlatConfigItem,
 } from "../types";
 import { renameRules } from "../utils";
 
@@ -17,8 +17,8 @@ export async function typescript({
 	overrides,
 }: OptionsTypeScriptParserOptions &
 	OptionsComponentExts &
-	OptionsOverrides = {}): Promise<ConfigItem[]> {
-	const typeAwareRules: RenamedRules = {
+	OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
+	const typeAwareRules: Rules = {
 		"no-throw-literal": "off",
 		"ts/no-throw-literal": "error",
 		"no-implied-eval": "off",
@@ -64,7 +64,7 @@ export async function typescript({
 			name: "so1ve/typescript/rules",
 			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			languageOptions: {
-				parser: tseslint.parser,
+				parser: tseslint.parser as any,
 				parserOptions: {
 					sourceType: "module",
 					extraFileExtensions: componentExts.map((ext) => `.${ext}`),
@@ -228,7 +228,7 @@ export async function typescript({
 			files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
 			ignores: [GLOB_MARKDOWN_CODE],
 			languageOptions: {
-				parser: tseslint.parser,
+				parser: tseslint.parser as any,
 				parserOptions: {
 					sourceType: "module",
 					// EXPERIMENTAL_useProjectService: true,

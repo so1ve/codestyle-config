@@ -1,4 +1,4 @@
-import type { Awaitable } from "./types";
+import type { MaybePromise } from "./types";
 
 /**
  * Rename plugin prefixes in a rule object. Accepts a map of prefixes to rename.
@@ -37,7 +37,7 @@ export const renameRules = (
 	);
 
 export async function interopDefault<T>(
-	m: Awaitable<T>,
+	m: MaybePromise<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
 	const resolved = await m;
 

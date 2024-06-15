@@ -1,7 +1,7 @@
 import { pluginPromise } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const promise = (): ConfigItem[] => [
+export const promise = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/promise/setup",
 		plugins: {

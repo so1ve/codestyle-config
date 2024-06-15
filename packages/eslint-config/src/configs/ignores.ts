@@ -1,6 +1,6 @@
 import { GLOB_EXCLUDE } from "../globs";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const ignores = (): ConfigItem[] => [
+export const ignores = (): TypedFlatConfigItem[] => [
 	{ name: "so1ve/ignores", ignores: GLOB_EXCLUDE },
 ];

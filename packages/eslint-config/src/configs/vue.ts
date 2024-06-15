@@ -2,16 +2,18 @@ import tseslint from "typescript-eslint";
 
 import { GLOB_VUE } from "../globs";
 import type {
-	ConfigItem,
 	OptionsHasTypeScript,
 	OptionsOverrides,
+	TypedFlatConfigItem,
 } from "../types";
 import { interopDefault } from "../utils";
 
 export async function vue({
 	overrides,
 	typescript,
-}: OptionsHasTypeScript & OptionsOverrides = {}): Promise<ConfigItem[]> {
+}: OptionsHasTypeScript & OptionsOverrides = {}): Promise<
+	TypedFlatConfigItem[]
+> {
 	const parserVue = await interopDefault(import("vue-eslint-parser"));
 	// @ts-expect-error No declaration
 	const pluginVue = await interopDefault(import("eslint-plugin-vue"));

@@ -1,7 +1,7 @@
 import { pluginOnlyError } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const onlyError = (): ConfigItem[] => [
+export const onlyError = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/only-error",
 		plugins: {

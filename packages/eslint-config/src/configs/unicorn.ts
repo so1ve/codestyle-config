@@ -1,7 +1,7 @@
 import { pluginUnicorn } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const unicorn = (): ConfigItem[] => [
+export const unicorn = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/unicorn/setup",
 

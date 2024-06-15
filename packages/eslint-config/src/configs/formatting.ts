@@ -1,8 +1,10 @@
 import { GLOB_PACKAGEJSON, GLOB_TESTS, GLOB_TSCONFIG } from "../globs";
-import type { ConfigItem, Options } from "../types";
+import type { MaybeArray, Options, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
-export async function formatting(options: Options): Promise<ConfigItem[]> {
+export async function formatting(
+	options?: Options,
+): Promise<TypedFlatConfigItem[]> {
 	const pluginStylistic = await interopDefault(
 		import("@stylistic/eslint-plugin"),
 	);
@@ -31,7 +33,7 @@ export async function formatting(options: Options): Promise<ConfigItem[]> {
 					],
 				},
 			},
-			(options.jsonc ?? true) && [
+			(options?.jsonc ?? true) && [
 				{
 					name: "so1ve/formatting/rules/sort-package-json",
 					files: [GLOB_PACKAGEJSON],
@@ -172,14 +174,14 @@ export async function formatting(options: Options): Promise<ConfigItem[]> {
 					},
 				},
 			],
-			(options.test ?? true) && {
+			(options?.test ?? true) && {
 				name: "so1ve/formatting/rules/test",
 				files: GLOB_TESTS,
 				rules: {
 					"jest-formatting/padding-around-all": "error",
 				},
 			},
-		] satisfies (ConfigItem | ConfigItem[] | boolean)[]
+		] satisfies (MaybeArray<TypedFlatConfigItem> | boolean)[]
 	)
 		.flat()
 		.filter(Boolean) as any;

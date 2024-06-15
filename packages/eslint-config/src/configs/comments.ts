@@ -1,7 +1,7 @@
 import { pluginComments } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const comments = (): ConfigItem[] => [
+export const comments = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/comments/setup",
 		plugins: {

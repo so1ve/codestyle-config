@@ -1,20 +1,22 @@
 import { GLOB_MARKDOWN } from "../globs";
 import type {
-	ConfigItem,
 	OptionsComponentExts,
 	OptionsOverrides,
+	TypedFlatConfigItem,
 } from "../types";
 import { interopDefault } from "../utils";
 
 export async function mdx({
 	componentExts = [],
 	overrides,
-}: OptionsComponentExts & OptionsOverrides = {}): Promise<ConfigItem[]> {
+}: OptionsComponentExts & OptionsOverrides = {}): Promise<
+	TypedFlatConfigItem[]
+> {
 	const pluginMdx = await interopDefault(import("eslint-plugin-mdx"));
 
 	return [
 		{
-			...(pluginMdx.flat as ConfigItem),
+			...(pluginMdx.flat as TypedFlatConfigItem),
 			name: "so1ve/mdx/setup",
 			processor: pluginMdx.createRemarkProcessor({
 				lintCodeBlocks: true,
@@ -22,7 +24,7 @@ export async function mdx({
 			}),
 		},
 		{
-			...(pluginMdx.flatCodeBlocks as ConfigItem),
+			...(pluginMdx.flatCodeBlocks as TypedFlatConfigItem),
 			name: "so1ve/mdx/rules",
 			files: [
 				...(pluginMdx.flatCodeBlocks.files as string[]),

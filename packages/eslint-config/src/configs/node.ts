@@ -1,7 +1,7 @@
 import { pluginNode } from "../plugins";
-import type { ConfigItem } from "../types";
+import type { TypedFlatConfigItem } from "../types";
 
-export const node = (): ConfigItem[] => [
+export const node = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/node/setup",
 		plugins: {

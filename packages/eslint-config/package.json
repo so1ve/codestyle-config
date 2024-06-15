@@ -32,7 +32,8 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "nr typegen && tsup",
+		"typegen": "tsx ./scripts/typegen.ts",
 		"watch": "tsup --watch"
 	},
 	"dependencies": {
@@ -44,7 +45,6 @@
 		"@stylistic/eslint-plugin": "^2.1.0",
 		"@unocss/eslint-config": "^0.60.4",
 		"eslint-config-flat-gitignore": "^0.1.5",
-		"eslint-define-config": "^1.21.0",
 		"eslint-flat-config-utils": "^0.2.5",
 		"eslint-import-resolver-typescript": "^3.6.1",
 		"eslint-mdx": "^2.3.4",
