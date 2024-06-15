@@ -287,7 +287,7 @@ export default so1ve()
 	// some configs before the main config
 	.prepend()
 	// overrides any named configs
-	.override("so1ve:imports", {
+	.override("so1ve/imports/rules", {
 		rules: {
 			"import/named": "off",
 		},
