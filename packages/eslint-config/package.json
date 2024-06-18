@@ -33,7 +33,7 @@
 	},
 	"scripts": {
 		"build": "nr typegen && tsup",
-		"typegen": "tsx ./scripts/typegen.ts && prettier ./src/typegen.d.ts --write",
+		"typegen": "tsx ./scripts/typegen.ts",
 		"watch": "tsup --watch"
 	},
 	"dependencies": {
