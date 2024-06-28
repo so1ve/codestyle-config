@@ -15,13 +15,13 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "pnpm run -r --filter=./packages/* build",
+		"build": "nr -r --filter=./packages/* build",
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag && nr build && pnpm publish -r --filter=./packages/* --no-git-checks",
-		"test": "pnpm run -r --filter=./packages/* test",
+		"test": "nr -r --filter=./packages/* test",
 		"typecheck": "tsc --noEmit",
-		"watch": "pnpm run -r --filter=./packages/* watch"
+		"watch": "nr -r --filter=./packages/* watch"
 	},
 	"devDependencies": {
 		"@antfu/ni": "^0.21.12",
