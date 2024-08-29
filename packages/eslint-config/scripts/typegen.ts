@@ -25,9 +25,7 @@ import {
 	yaml,
 } from "../src";
 
-async function combine(
-	...configs: MaybePromise<MaybeArray<TypedFlatConfigItem>>[]
-): Promise<any[]> {
+async function combine(...configs: MaybePromise[]): Promise {
 	const resolved = await Promise.all(configs);
 
 	return resolved.flat();

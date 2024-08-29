@@ -60,7 +60,7 @@ export const defaultPluginRenaming = {
  */
 export function so1ve(
 	options: Options & TypedFlatConfigItem = {},
-	...userConfigs: MaybeArray<TypedFlatConfigItem>[]
+	...userConfigs: MaybeArray[]
 ) {
 	const {
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
@@ -70,7 +70,7 @@ export function so1ve(
 		componentExts = [],
 	} = options;
 
-	const configs: MaybePromise<TypedFlatConfigItem[]>[] = [];
+	const configs: MaybePromise[] = [];
 
 	if (enableGitignore) {
 		if (typeof enableGitignore === "boolean") {
@@ -202,12 +202,12 @@ export function so1ve(
 	return composer;
 }
 
-export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
+export type ResolvedOptions<T> = T extends boolean ? never : NonNullable;
 
 export const resolveSubOptions = <K extends keyof Options>(
 	options: Options & TypedFlatConfigItem,
 	key: K,
-): ResolvedOptions<Options[K]> =>
+): ResolvedOptions =>
 	typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
 
 export function getOverrides<K extends keyof Options>(

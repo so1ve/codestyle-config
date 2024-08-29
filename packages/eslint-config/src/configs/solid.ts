@@ -9,9 +9,7 @@ import { interopDefault } from "../utils";
 export async function solid({
 	overrides,
 	typescript,
-}: OptionsHasTypeScript & OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
-> {
+}: OptionsHasTypeScript & OptionsOverrides = {}): Promise {
 	const pluginSolid = await interopDefault(import("eslint-plugin-solid"));
 
 	return [
