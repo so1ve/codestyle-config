@@ -39,7 +39,7 @@
 	"dependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
 		"@html-eslint/eslint-plugin": "^0.24.1",
-		"@html-eslint/parser": "^0.24.1",
+		"@html-eslint/parser": "^0.33.0",
 		"@so1ve/eslint-plugin": "workspace:*",
 		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
 		"@stylistic/eslint-plugin": "^2.1.0",
