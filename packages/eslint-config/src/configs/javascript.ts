@@ -12,9 +12,9 @@ import {
 import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
-export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
-> {
+export async function javascript({
+	overrides,
+}: OptionsOverrides = {}): Promise {
 	const regexpRecommended = pluginRegexp.configs["flat/recommended"];
 
 	return [

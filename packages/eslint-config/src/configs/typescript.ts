@@ -17,7 +17,7 @@ export async function typescript({
 	overrides,
 }: OptionsTypeScriptParserOptions &
 	OptionsComponentExts &
-	OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
+	OptionsOverrides = {}): Promise {
 	const typeAwareRules: Rules = {
 		"no-throw-literal": "off",
 		"ts/no-throw-literal": "error",

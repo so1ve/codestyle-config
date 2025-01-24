@@ -4,15 +4,12 @@ import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 
 import type { RuleOptions } from "./typegen";
 
-export type MaybePromise<T> = T | Promise<T>;
+export type MaybePromise<T> = T | Promise;
 export type MaybeArray<T> = T | T[];
 
 export type Rules = RuleOptions;
 
-export type TypedFlatConfigItem = Omit<
-	Linter.FlatConfig<Linter.RulesRecord & Rules>,
-	"plugins"
-> & {
+export type TypedFlatConfigItem = Omit & {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
 	/**
 	 * An object containing a name-value mapping of plugin names to plugin
@@ -21,7 +18,7 @@ export type TypedFlatConfigItem = Omit<
 	 *
 	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
 	 */
-	plugins?: Record<string, any>;
+	plugins?: Record;
 };
 
 export interface OptionsComponentExts {
@@ -35,7 +32,7 @@ export interface OptionsTypeScriptParserOptions {
 	/**
 	 * Additional parser options for TypeScript.
 	 */
-	parserOptions?: Partial<ParserOptions>;
+	parserOptions?: Partial;
 }
 
 export interface OptionsHasTypeScript {

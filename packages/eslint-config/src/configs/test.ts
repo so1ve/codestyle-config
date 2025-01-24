@@ -2,9 +2,7 @@ import { GLOB_TESTS } from "../globs";
 import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
-export async function test({ overrides }: OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
-> {
+export async function test({ overrides }: OptionsOverrides = {}): Promise {
 	const pluginNoOnlyTests = await interopDefault(
 		// @ts-expect-error No declaration
 		import("eslint-plugin-no-only-tests"),

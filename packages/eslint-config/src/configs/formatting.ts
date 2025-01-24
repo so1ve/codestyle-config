@@ -2,9 +2,7 @@ import { GLOB_PACKAGEJSON, GLOB_TESTS, GLOB_TSCONFIG } from "../globs";
 import type { MaybeArray, Options, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
-export async function formatting(
-	options?: Options,
-): Promise<TypedFlatConfigItem[]> {
+export async function formatting(options?: Options): Promise {
 	const pluginStylistic = await interopDefault(
 		import("@stylistic/eslint-plugin"),
 	);
@@ -181,7 +179,7 @@ export async function formatting(
 					"jest-formatting/padding-around-all": "error",
 				},
 			},
-		] satisfies (MaybeArray<TypedFlatConfigItem> | boolean)[]
+		] satisfies (MaybeArray | boolean)[]
 	)
 		.flat()
 		.filter(Boolean) as any;

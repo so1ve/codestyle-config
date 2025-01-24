@@ -2,7 +2,7 @@ import { GLOB_HTML } from "../globs";
 import type { TypedFlatConfigItem } from "../types";
 import { interopDefault, renameRules } from "../utils";
 
-export async function html(): Promise<TypedFlatConfigItem[]> {
+export async function html(): Promise {
 	const parserHtml = await interopDefault(import("@html-eslint/parser"));
 	const pluginHtml = await interopDefault(import("@html-eslint/eslint-plugin"));
 	const pluginHtmlJsSupport = await interopDefault(

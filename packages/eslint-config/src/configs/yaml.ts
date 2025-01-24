@@ -2,9 +2,7 @@ import { GLOB_YAML } from "../globs";
 import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
 import { interopDefault, renameRules } from "../utils";
 
-export async function yaml({ overrides }: OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
-> {
+export async function yaml({ overrides }: OptionsOverrides = {}): Promise {
 	const parserYaml = await interopDefault(import("yaml-eslint-parser"));
 	const pluginYaml = await interopDefault(import("eslint-plugin-yml"));
 

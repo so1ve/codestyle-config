@@ -20,10 +20,7 @@ import type { MaybePromise } from "./types";
  * ];
  * ```
  */
-export const renameRules = (
-	rules: Record<string, any>,
-	map: Record<string, string>,
-) =>
+export const renameRules = (rules: Record, map: Record) =>
 	Object.fromEntries(
 		Object.entries(rules).map(([key, value]) => {
 			for (const [from, to] of Object.entries(map)) {
@@ -36,9 +33,7 @@ export const renameRules = (
 		}),
 	);
 
-export async function interopDefault<T>(
-	m: MaybePromise<T>,
-): Promise<T extends { default: infer U } ? U : T> {
+export async function interopDefault<T>(m: MaybePromise): Promise {
 	const resolved = await m;
 
 	return (resolved as any).default || resolved;

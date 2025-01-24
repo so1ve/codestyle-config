@@ -9,9 +9,7 @@ import { interopDefault } from "../utils";
 export async function mdx({
 	componentExts = [],
 	overrides,
-}: OptionsComponentExts & OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
-> {
+}: OptionsComponentExts & OptionsOverrides = {}): Promise {
 	const pluginMdx = await interopDefault(import("eslint-plugin-mdx"));
 
 	return [

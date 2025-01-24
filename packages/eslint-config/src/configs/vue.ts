@@ -11,9 +11,7 @@ import { interopDefault } from "../utils";
 export async function vue({
 	overrides,
 	typescript,
-}: OptionsHasTypeScript & OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
-> {
+}: OptionsHasTypeScript & OptionsOverrides = {}): Promise {
 	const parserVue = await interopDefault(import("vue-eslint-parser"));
 	// @ts-expect-error No declaration
 	const pluginVue = await interopDefault(import("eslint-plugin-vue"));
