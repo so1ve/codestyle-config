@@ -2,9 +2,10 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"lib": ["ESNext"],
-		"module": "ESNext",
+		"module": "preserve",
 		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
 		"strict": true,
 		"strictNullChecks": true,
 		"noEmit": true,

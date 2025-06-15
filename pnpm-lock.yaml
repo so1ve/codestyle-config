@@ -65,6 +65,9 @@ importers:
       tsx:
         specifier: ^4.20.2
         version: 4.20.3
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
       vitest:
         specifier: ^3.2.3
         version: 3.2.3(@types/node@24.0.1)
