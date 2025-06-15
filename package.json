@@ -20,7 +20,7 @@
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag && nr build && pnpm publish -r --filter=./packages/* --no-git-checks",
 		"test": "nr -r --filter=./packages/* test",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "tsgo --noEmit",
 		"watch": "nr -r --filter=./packages/* watch"
 	},
 	"devDependencies": {
@@ -31,6 +31,7 @@
 		"@so1ve/prettier-config": "workspace:*",
 		"@types/node": "^24.0.1",
 		"@typescript-eslint/parser": "^8.34.0",
+		"@typescript/native-preview": "7.0.0-dev.20250614.1",
 		"bumpp": "^10.1.1",
 		"eslint": "^9.28.0",
 		"eslint-plugin-antfu": "^3.1.1",
@@ -42,7 +43,6 @@
 		"tsdown": "^0.12.7",
 		"tsup": "^8.5.0",
 		"tsx": "^4.20.2",
-		"typescript": "^5.8.3",
 		"vitest": "^3.2.3"
 	},
 	"pnpm": {

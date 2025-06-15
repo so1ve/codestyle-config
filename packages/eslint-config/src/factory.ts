@@ -208,7 +208,9 @@ export const resolveSubOptions = <K extends keyof Options>(
 	options: Options & TypedFlatConfigItem,
 	key: K,
 ): ResolvedOptions<Options[K]> =>
-	typeof options[key] === "boolean" ? ({} as any) : options[key] || {};
+	typeof options[key] === "boolean"
+		? ({} as any)
+		: ((options[key] as any) ?? {});
 
 export function getOverrides<K extends keyof Options>(
 	options: Options,
