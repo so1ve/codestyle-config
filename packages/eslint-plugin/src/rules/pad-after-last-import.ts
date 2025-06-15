@@ -12,7 +12,6 @@ export default createEslintRule<Options, MessageIds>({
 		type: "problem",
 		docs: {
 			description: "Pad after the last import.",
-			recommended: "stylistic",
 		},
 		fixable: "code",
 		schema: [],

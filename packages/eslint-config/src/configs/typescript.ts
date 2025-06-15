@@ -20,7 +20,7 @@ export async function typescript({
 	OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
 	const typeAwareRules: Rules = {
 		"no-throw-literal": "off",
-		"ts/no-throw-literal": "error",
+		"ts/only-throw-error": "error",
 		"no-implied-eval": "off",
 		"ts/no-implied-eval": "error",
 		"dot-notation": "off",
@@ -113,10 +113,9 @@ export async function typescript({
 						minimumDescriptionLength: 0,
 					},
 				],
-				"ts/ban-types": [
+				"ts/no-restricted-types": [
 					"error",
 					{
-						extendDefaults: false,
 						types: {
 							String: {
 								message: "Use `string` instead.",
@@ -155,6 +154,8 @@ export async function typescript({
 						},
 					},
 				],
+				"ts/no-unsafe-function-type": "error",
+				"ts/no-wrapper-object-types": "error",
 				"ts/consistent-type-imports": [
 					"error",
 					{ prefer: "type-imports", disallowTypeAnnotations: false },
@@ -196,12 +197,6 @@ export async function typescript({
 				"ts/no-dupe-class-members": "error",
 				"no-loss-of-precision": "off",
 				"ts/no-loss-of-precision": "error",
-				"lines-between-class-members": "off",
-				"ts/lines-between-class-members": [
-					"error",
-					"always",
-					{ exceptAfterSingleLine: true },
-				],
 
 				// so1ve
 				"so1ve/no-inline-type-import": "error",

@@ -28,11 +28,11 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
-		"watch": "tsup --watch"
+		"build": "tsdown",
+		"watch": "tsdown --watch"
 	},
 	"devDependencies": {
-		"prettier-plugin-toml": "^1.0.1"
+		"prettier-plugin-toml": "^2.0.5"
 	},
 	"peerDependencies": {
 		"prettier": "^3.0.0"

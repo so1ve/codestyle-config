@@ -33,12 +33,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "tsdown",
 		"test": "vitest",
-		"watch": "tsup --watch"
+		"watch": "tsdown --watch"
 	},
 	"dependencies": {
-		"@typescript-eslint/types": "^7.12.0",
-		"@typescript-eslint/utils": "^7.12.0"
+		"@typescript-eslint/types": "^8.34.0",
+		"@typescript-eslint/utils": "^8.34.0"
 	}
 }

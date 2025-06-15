@@ -25,7 +25,6 @@ export default createEslintRule<Options, MessageIds>({
 		type: "problem",
 		docs: {
 			description: "Disallow negated comparison.",
-			recommended: "stylistic",
 		},
 		fixable: "code",
 		schema: [],

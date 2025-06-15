@@ -15,7 +15,6 @@ export async function vue({
 	TypedFlatConfigItem[]
 > {
 	const parserVue = await interopDefault(import("vue-eslint-parser"));
-	// @ts-expect-error No declaration
 	const pluginVue = await interopDefault(import("eslint-plugin-vue"));
 
 	return [
@@ -42,9 +41,9 @@ export async function vue({
 			processor: pluginVue.processors[".vue"],
 			rules: {
 				...pluginVue.configs.base.rules,
-				...pluginVue.configs["vue3-essential"].rules,
-				...pluginVue.configs["vue3-strongly-recommended"].rules,
-				...pluginVue.configs["vue3-recommended"].rules,
+				...pluginVue.configs.essential.rules,
+				...pluginVue.configs["strongly-recommended"].rules,
+				...pluginVue.configs.recommended.rules,
 
 				"no-unused-vars": "off",
 				"no-undef": "off",

@@ -1,7 +1,7 @@
 {
 	"name": "@so1ve/codestyle-config-monorepo",
 	"private": true,
-	"packageManager": "pnpm@9.2.0",
+	"packageManager": "pnpm@10.12.1",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"type": "module",
 	"description": "Monorepo for Ray's codestyle config.",
@@ -24,25 +24,26 @@
 		"watch": "nr -r --filter=./packages/* watch"
 	},
 	"devDependencies": {
-		"@antfu/ni": "^0.21.12",
+		"@antfu/ni": "^25.0.0",
 		"@so1ve/eslint-config": "workspace:*",
 		"@so1ve/eslint-plugin": "workspace:*",
 		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
 		"@so1ve/prettier-config": "workspace:*",
-		"@types/node": "^20.14.2",
-		"@typescript-eslint/parser": "^7.13.0",
-		"bumpp": "^9.4.1",
-		"eslint": "npm:eslint-ts-patch@9.4.0-0",
-		"eslint-plugin-antfu": "^2.3.3",
+		"@types/node": "^24.0.1",
+		"@typescript-eslint/parser": "^8.34.0",
+		"bumpp": "^10.1.1",
+		"eslint": "^9.28.0",
+		"eslint-plugin-antfu": "^3.1.1",
 		"eslint-ts-patch": "9.4.0-0",
-		"eslint-typegen": "^0.2.4",
-		"eslint-vitest-rule-tester": "^0.3.2",
-		"execa": "^9.2.0",
-		"prettier": "^3.3.1",
-		"tsup": "^8.1.0",
-		"tsx": "^4.13.2",
-		"typescript": "^5.4.5",
-		"vitest": "^1.6.0"
+		"eslint-typegen": "^2.2.0",
+		"eslint-vitest-rule-tester": "^2.2.0",
+		"execa": "^9.6.0",
+		"prettier": "^3.5.3",
+		"tsdown": "^0.12.7",
+		"tsup": "^8.5.0",
+		"tsx": "^4.20.2",
+		"typescript": "^5.8.3",
+		"vitest": "^3.2.3"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
@@ -54,8 +55,9 @@
 				"prettier"
 			]
 		},
-		"patchedDependencies": {
-			"eslint-plugin-import-x@0.4.4": "patches/eslint-plugin-import-x@0.4.4.patch"
-		}
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"unrs-resolver"
+		]
 	}
 }

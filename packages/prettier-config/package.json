@@ -26,12 +26,12 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
-		"watch": "tsup --watch"
+		"build": "tsdown",
+		"watch": "tsdown --watch"
 	},
 	"dependencies": {
 		"@so1ve/prettier-plugin-toml": "workspace:*",
-		"prettier-plugin-astro": "^0.14.0",
+		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-curly-and-jsdoc": "workspace:*",
 		"prettier-plugin-pkgsort": "^0.2.1"
 	},

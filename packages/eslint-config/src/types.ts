@@ -10,7 +10,7 @@ export type MaybeArray<T> = T | T[];
 export type Rules = RuleOptions;
 
 export type TypedFlatConfigItem = Omit<
-	Linter.FlatConfig<Linter.RulesRecord & Rules>,
+	Linter.Config<Linter.RulesRecord & Rules>,
 	"plugins"
 > & {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.

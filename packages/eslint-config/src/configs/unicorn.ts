@@ -12,6 +12,10 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 	{
 		name: "so1ve/unicorn/rules",
 		rules: {
+			"unicorn/consistent-assert": "error",
+			"unicorn/consistent-empty-array-spread": "error",
+			"unicorn/consistent-existence-index-check": "error",
+			"unicorn/consistent-date-clone": "error",
 			"unicorn/throw-new-error": "error",
 			"unicorn/relative-url-style": ["error", "always"],
 			"unicorn/switch-case-braces": "error",
@@ -45,7 +49,7 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 			"unicorn/prefer-string-slice": "error",
 			"unicorn/prefer-includes": "error",
 			"unicorn/prefer-string-starts-ends-with": "error",
-			"unicorn/prefer-text-content": "error",
+			// "unicorn/prefer-text-content": "error",
 			"unicorn/prefer-type-error": "error",
 			"unicorn/prefer-node-protocol": "error",
 			"unicorn/prefer-negative-index": "error",

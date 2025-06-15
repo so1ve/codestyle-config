@@ -100,11 +100,6 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 				],
 				"constructor-super": "error",
 				"default-case-last": "error",
-				"lines-between-class-members": [
-					"error",
-					"always",
-					{ exceptAfterSingleLine: true },
-				],
 				"new-cap": [
 					"error",
 					{ newIsCap: true, capIsNew: false, properties: true },

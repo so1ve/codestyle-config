@@ -31,6 +31,11 @@ export async function formatting(
 						"error",
 						{ blankLine: "always", prev: "*", next: "return" },
 					],
+					"style/lines-between-class-members": [
+						"error",
+						"always",
+						{ exceptAfterSingleLine: true },
+					],
 				},
 			},
 			(options?.jsonc ?? true) && [

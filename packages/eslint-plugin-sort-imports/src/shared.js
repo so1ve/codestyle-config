@@ -811,16 +811,16 @@ function getSpecifierItems(tokens) {
 			const sliceIndex =
 				// If both a newline and a multiline block comment exists, choose the
 				// earlier one.
-				newlineIndex >= 0 && multilineBlockCommentIndex >= 0
+				newlineIndex >= 0 && multilineBlockCommentIndex !== -1
 					? Math.min(newlineIndex, multilineBlockCommentIndex)
 					: newlineIndex >= 0
 						? newlineIndex
-						: multilineBlockCommentIndex >= 0
-							? multilineBlockCommentIndex
-							: // If there are no newlines, move the last whitespace into `result.after`.
-								endsWithSpaces(after)
+						: multilineBlockCommentIndex === -1
+							? endsWithSpaces(after)
 								? after.length - 1
-								: -1;
+								: -1
+							: // If there are no newlines, move the last whitespace into `result.after`.
+								multilineBlockCommentIndex;
 
 			current.specifier = specifier;
 			current.after = sliceIndex === -1 ? after : after.slice(0, sliceIndex);
