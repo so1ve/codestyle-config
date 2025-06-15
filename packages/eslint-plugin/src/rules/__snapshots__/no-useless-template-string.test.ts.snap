@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`no-useless-template-string > invalid > Invalid #0: const a = \`1\` 1`] = `"const a = "1""`;
+
 exports[`no-useless-template-string > invalid > const a = \`1\` 1`] = `"const a = "1""`;

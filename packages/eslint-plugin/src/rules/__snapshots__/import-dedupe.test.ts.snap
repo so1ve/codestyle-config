@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`import-dedupe > invalid > Invalid #0: import { a, b, a, a, c, a , } from "foo"; 1`] = `"import { a, b,   c,  } from "foo";"`;
+
 exports[`import-dedupe > invalid > import { a, b, a, a, c, a , } from "foo"; 1`] = `"import { a, b,   c,  } from "foo";"`;

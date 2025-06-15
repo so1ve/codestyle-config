@@ -1,5 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`no-inline-type-import > invalid > Invalid #0: import { type a } from "foo"; 1`] = `"import type { a } from "foo";"`;
+
+exports[`no-inline-type-import > invalid > Invalid #1: import { type a, b } from "foo"; 1`] = `
+"import type { a } from "foo";
+import { b } from "foo";"
+`;
+
+exports[`no-inline-type-import > invalid > Invalid #2: import D, { type a, b } from "foo"; 1`] = `
+"import type { a } from "foo";
+import D, { b } from "foo";"
+`;
+
 exports[`no-inline-type-import > invalid > import { type a } from "foo"; 1`] = `"import type { a } from "foo";"`;
 
 exports[`no-inline-type-import > invalid > import { type a, b } from "foo"; 1`] = `

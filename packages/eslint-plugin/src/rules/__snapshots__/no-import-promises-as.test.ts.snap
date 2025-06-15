@@ -1,5 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`no-import-promises-as > invalid > Invalid #0: import { promises as fs } from "fs"; 1`] = `
+"import {  } from "fs";
+import fs from "fs/promises";"
+`;
+
+exports[`no-import-promises-as > invalid > Invalid #1: import { promises as fs } from "node:fs"; 1`] = `
+"import {  } from "node:fs";
+import fs from "node:fs/promises";"
+`;
+
 exports[`no-import-promises-as > invalid > import { promises as fs } from "fs"; 1`] = `
 "import {  } from "fs";
 import fs from "fs/promises";"

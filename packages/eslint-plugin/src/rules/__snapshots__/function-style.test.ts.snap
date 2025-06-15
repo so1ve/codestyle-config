@@ -1,5 +1,53 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`function-style > invalid > Invalid #0: const a = () => { return 1; }; 1`] = `"const a = () => (1);"`;
+
+exports[`function-style > invalid > Invalid #1: const a = () => { stuff; return 1; }; 1`] = `"function a() { stuff; return 1; }"`;
+
+exports[`function-style > invalid > Invalid #2: const a = () => { stuff; }; 1`] = `"function a() { stuff; }"`;
+
+exports[`function-style > invalid > Invalid #3: const a = async () => { return 1; }; 1`] = `"const a = async () => (1);"`;
+
+exports[`function-style > invalid > Invalid #4: const a = async () => { stuff; return 1; }; 1`] = `"async function a() { stuff; return 1; }"`;
+
+exports[`function-style > invalid > Invalid #5: const a = async (): Promise<1> => { stuff; return 1; }; 1`] = `"async function a(): Promise<1> { stuff; return 1; }"`;
+
+exports[`function-style > invalid > Invalid #6: const a: Some = async (): Type => { return 1; }; 1`] = `"const a: Some = async (): Type => (1);"`;
+
+exports[`function-style > invalid > Invalid #7: async function a(): Type { return 1; } 1`] = `"const a = async (): Type => (1);"`;
+
+exports[`function-style > invalid > Invalid #8: const a = async function foo(): Returns {} 1`] = `"async function a(): Returns {}"`;
+
+exports[`function-style > invalid > Invalid #9: const a = () => {
+  return {
+    a: 1,
+  };
+}; 1`] = `
+"const a = () => ({
+    a: 1,
+  });"
+`;
+
+exports[`function-style > invalid > Invalid #10: export default function a() {
+  return {};
+} 1`] = `"export default () => ({});"`;
+
+exports[`function-style > invalid > Invalid #11: export default function() {
+  return {};
+} 1`] = `"export default () => ({});"`;
+
+exports[`function-style > invalid > Invalid #12: function foo() {
+  return [
+    // foo
+  ];
+} 1`] = `
+"const foo = () => ([
+    // foo
+  ]);"
+`;
+
+exports[`function-style > invalid > Invalid #13: function foo() { return{} } 1`] = `"const foo = () => ({});"`;
+
 exports[`function-style > invalid > async function a(): Type { return 1; } 1`] = `"const a = async (): Type => (1);"`;
 
 exports[`function-style > invalid > const a = () => {

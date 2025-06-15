@@ -6,6 +6,28 @@ exports[`require-async-with-await > invalid > () => { await 1; } 1`] = `"async (
 
 exports[`require-async-with-await > invalid > () => { function a() { await 1; } } 1`] = `"() => { async function a() { await 1; } }"`;
 
+exports[`require-async-with-await > invalid > Invalid #0: () => { await 1; } 1`] = `"async () => { await 1; }"`;
+
+exports[`require-async-with-await > invalid > Invalid #1: function a() { await 1; } 1`] = `"async function a() { await 1; }"`;
+
+exports[`require-async-with-await > invalid > Invalid #2: () => { function a() { await 1; } } 1`] = `"() => { async function a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #3: () => { () => {}; await 1; } 1`] = `"async () => { () => {}; await 1; }"`;
+
+exports[`require-async-with-await > invalid > Invalid #4: class a { a() { await 1; } } 1`] = `"class a { async a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #5: class a { @foo a() { await 1; } } 1`] = `"class a { @foo async a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #6: class a { static a() { await 1; } } 1`] = `"class a { static async a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #7: class a { @foo static a() { await 1; } } 1`] = `"class a { @foo static async a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #8: class a { @foo static a() { await 1; } } 1`] = `"class a { @foo static async a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #9: class a { a = function a() { await 1; } } 1`] = `"class a { a = async function a() { await 1; } }"`;
+
+exports[`require-async-with-await > invalid > Invalid #10: const a = { a() { await 1; } } 1`] = `"const a = { async a() { await 1; } }"`;
+
 exports[`require-async-with-await > invalid > class a { @foo a() { await 1; } } 1`] = `"class a { @foo async a() { await 1; } }"`;
 
 exports[`require-async-with-await > invalid > class a { @foo static a() { await 1; } } 1`] = `"class a { @foo static async a() { await 1; } }"`;
