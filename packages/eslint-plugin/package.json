@@ -40,5 +40,8 @@
 	"dependencies": {
 		"@typescript-eslint/types": "^8.34.0",
 		"@typescript-eslint/utils": "^8.34.0"
+	},
+	"devDependencies": {
+		"vue-eslint-parser": "^10.1.3"
 	}
 }

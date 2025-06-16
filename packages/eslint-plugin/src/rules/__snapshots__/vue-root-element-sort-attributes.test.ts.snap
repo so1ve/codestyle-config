@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`vue-sort-root-element-attributes > invalid > Invalid #0: <script lang="ts" setup></script> 1`] = `"<script   setup lang="ts"></script>"`;
+
+exports[`vue-sort-root-element-attributes > invalid > Invalid #1: <script lang="ts" setup></script>
+<template b a></template> 1`] = `
+"<script lang="ts" setup></script>
+<template   a b></template>"
+`;
