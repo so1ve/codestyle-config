@@ -87,7 +87,7 @@ export default createEslintRule<Options, MessageIds>({
 					}
 					if (reprintAttributes) {
 						context.report({
-							node: element as any,
+							node: element.startTag as any,
 							messageId: "wrongOrder",
 							*fix(fixer) {
 								const sortedAttributes = attributesToCheck.sort(
