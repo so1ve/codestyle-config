@@ -2,7 +2,7 @@ import type { AST as VueAST } from "vue-eslint-parser";
 
 import { createEslintRule } from "../utils";
 
-export const RULE_NAME = "vue-sort-root-element-attributes";
+export const RULE_NAME = "vue-root-element-sort-attributes";
 export type MessageIds = "wrongOrder";
 export type Options = [
 	{

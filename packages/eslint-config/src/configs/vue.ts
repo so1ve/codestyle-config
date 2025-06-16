@@ -200,6 +200,8 @@ export async function vue({
 				],
 				"vue/no-useless-concat": "error",
 
+				"so1ve/vue-root-element-sort-attributes": "error",
+
 				// off
 				"vue/no-multiple-template-root": "off",
 				"vue/multiline-html-element-content-newline": "off",
