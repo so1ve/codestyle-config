@@ -15,19 +15,3 @@ const b = 1; 1`] = `
 // comment
 const b = 1;"
 `;
-
-exports[`pad-after-last-import > invalid > import a from "foo";
-// comment
-const b = 1; 1`] = `
-"import a from "foo";
-
-// comment
-const b = 1;"
-`;
-
-exports[`pad-after-last-import > invalid > import a from "foo";
-const b = 1; 1`] = `
-"import a from "foo";
-
-const b = 1;"
-`;
