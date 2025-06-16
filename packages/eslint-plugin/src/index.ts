@@ -6,6 +6,7 @@ import noNegatedComparison from "./rules/no-negated-comparison";
 import noUselessTemplateString from "./rules/no-useless-template-string";
 import padAfterLastImport from "./rules/pad-after-last-import";
 import requireAsyncWithAwait from "./rules/require-async-with-await";
+import vueRootElementSortAttributes from "./rules/vue-root-element-sort-attributes";
 
 export default {
 	rules: {
@@ -17,5 +18,6 @@ export default {
 		"no-import-promises-as": noImportPromisesAs,
 		"pad-after-last-import": padAfterLastImport,
 		"require-async-with-await": requireAsyncWithAwait,
+		"vue-root-element-sort-attributes": vueRootElementSortAttributes,
 	},
 };
