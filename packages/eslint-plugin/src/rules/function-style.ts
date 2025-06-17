@@ -8,6 +8,19 @@ export const RULE_NAME = "function-style";
 export type MessageIds = "arrow" | "declaration";
 export type Options = [];
 
+type FunctionNode =
+	| TSESTree.FunctionDeclaration
+	| TSESTree.FunctionExpression
+	| TSESTree.ArrowFunctionExpression;
+
+interface FunctionInfo {
+	async: boolean;
+	generics: string;
+	params: string;
+	returnType: string;
+	body: string;
+}
+
 export default createEslintRule<Options, MessageIds>({
 	name: RULE_NAME,
 	meta: {
@@ -25,75 +38,67 @@ export default createEslintRule<Options, MessageIds>({
 	defaultOptions: [],
 	create: (context) => {
 		const sourceCode = context.sourceCode;
+		const scopeStack: Scope.Scope[] = [];
+		let haveThisAccess = false;
 
-		function getLoneReturnStatement(
+		function getSingleReturnStatement(
 			node: TSESTree.FunctionDeclaration | TSESTree.ArrowFunctionExpression,
 		) {
 			const { body } = node;
 			if (body.type !== AST_NODE_TYPES.BlockStatement) {
 				return;
 			}
+
 			const { body: blockBody } = body;
-			const allComments = sourceCode.getCommentsInside(node);
 			if (blockBody.length !== 1) {
 				return;
 			}
+
 			const [statement] = blockBody;
+			if (statement?.type !== AST_NODE_TYPES.ReturnStatement) {
+				return;
+			}
+
+			const allComments = sourceCode.getCommentsInside(node);
 			const statementComments = sourceCode.getCommentsInside(statement);
 			if (allComments.length !== statementComments.length) {
 				return;
 			}
-			if (statement?.type === AST_NODE_TYPES.ReturnStatement) {
-				return statement;
-			}
+
+			return statement;
 		}
 
-		function generateFunction(
-			type: "arrow",
-			name: string | null,
-			node: TSESTree.FunctionDeclaration | TSESTree.FunctionExpression,
-			rawStatement: string,
-			asVariable?: boolean,
-		): string;
-		function generateFunction(
-			type: "declaration",
-			name: string,
-			node:
-				| TSESTree.FunctionDeclaration
-				| TSESTree.FunctionExpression
-				| TSESTree.ArrowFunctionExpression,
-		): string;
-		function generateFunction(
-			type: "arrow" | "declaration",
-			name: string | null,
-			node:
-				| TSESTree.FunctionDeclaration
-				| TSESTree.FunctionExpression
-				| TSESTree.ArrowFunctionExpression,
-			rawStatement?: string,
-			asVariable = true,
-		) {
-			const async = node.async ? "async " : "";
-			const generics = node.typeParameters
+		const extractFunctionInfo = (node: FunctionNode): FunctionInfo => ({
+			async: node.async,
+			generics: node.typeParameters
 				? sourceCode.getText(node.typeParameters)
-				: "";
-			const params = node.params
-				.map((param) => sourceCode.getText(param))
-				.join(", ");
-			const returnType = node.returnType
-				? sourceCode.getText(node.returnType)
-				: "";
-			const body = sourceCode.getText(node.body);
+				: "",
+			params: node.params.map((param) => sourceCode.getText(param)).join(", "),
+			returnType: node.returnType ? sourceCode.getText(node.returnType) : "",
+			body: sourceCode.getText(node.body),
+		});
+
+		function generateArrowFunction(
+			name: string | null,
+			info: FunctionInfo,
+			returnValue: string,
+			asVariable = true,
+		): string {
+			const asyncKeyword = info.async ? "async " : "";
 			const variableDeclaration = asVariable && name ? `const ${name} = ` : "";
 
-			return type === "arrow"
-				? `${variableDeclaration}${async}${generics}(${params})${returnType} => ${rawStatement!};`
-				: `${async}function ${name!}${generics}(${params})${returnType} ${body}`;
+			return `${variableDeclaration}${asyncKeyword}${info.generics}(${info.params})${info.returnType} => ${returnValue};`;
+		}
+		function generateFunctionDeclaration(
+			name: string,
+			info: FunctionInfo,
+		): string {
+			const asyncKeyword = info.async ? "async " : "";
+
+			return `${asyncKeyword}function ${name}${info.generics}(${info.params})${info.returnType} ${info.body}`;
 		}
 
-		const scopeStack: Scope.Scope[] = [];
-		let haveThisAccess = false;
-		function setupScope(node: TSESTree.Node) {
+		function setupScope(node: TSESTree.Node): void {
 			scopeStack.push(sourceCode.getScope(node));
 		}
 		function clearThisAccess() {
@@ -101,28 +106,78 @@ export default createEslintRule<Options, MessageIds>({
 			haveThisAccess = false;
 		}
 
+		function getFunctionExpressionParentNameString(
+			node: TSESTree.FunctionExpression,
+		): string | null {
+			const parent = node.parent;
+
+			if (
+				(parent as any)?.id?.typeAnnotation ||
+				parent?.type !== AST_NODE_TYPES.VariableDeclarator ||
+				haveThisAccess
+			) {
+				return null;
+			}
+
+			return (parent.id as any).name as string;
+		}
+
+		function shouldConvertFunctionDeclarationToArrow(
+			node: TSESTree.FunctionDeclaration,
+		): { shouldConvert: boolean; returnStatement?: TSESTree.ReturnStatement } {
+			if (haveThisAccess) {
+				return { shouldConvert: false };
+			}
+
+			const previousNode = getPreviousNode(node.parent);
+			if (
+				previousNode?.type === AST_NODE_TYPES.ExportNamedDeclaration &&
+				previousNode.declaration?.type === AST_NODE_TYPES.TSDeclareFunction
+			) {
+				return { shouldConvert: false };
+			}
+
+			const returnStatement = getSingleReturnStatement(node);
+			const isExportDefault =
+				node.parent?.type === AST_NODE_TYPES.ExportDefaultDeclaration;
+
+			if (
+				!returnStatement?.argument ||
+				(!node.id?.name && !isExportDefault) ||
+				node.generator
+			) {
+				return { shouldConvert: false };
+			}
+
+			return { shouldConvert: true, returnStatement };
+		}
+
 		return {
 			"FunctionExpression": setupScope,
 			"FunctionExpression:exit"(node: TSESTree.FunctionExpression) {
-				if (
-					(node.parent as any)?.id?.typeAnnotation ||
-					node.parent?.type !== AST_NODE_TYPES.VariableDeclarator ||
-					haveThisAccess
-				) {
+				const name = getFunctionExpressionParentNameString(node);
+				if (!name) {
 					clearThisAccess();
 
 					return;
 				}
-				const name = (node.parent.id as any).name as string;
+
+				const info = extractFunctionInfo(node);
+				const grandParent = node.parent?.parent;
+				if (!grandParent) {
+					return;
+				}
+
 				context.report({
 					node,
 					messageId: "declaration",
 					fix: (fixer) =>
 						fixer.replaceText(
-							node.parent.parent!,
-							generateFunction("declaration", name, node),
+							grandParent,
+							generateFunctionDeclaration(name, info),
 						),
 				});
+
 				clearThisAccess();
 			},
 			"FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)":
@@ -133,56 +188,51 @@ export default createEslintRule<Options, MessageIds>({
 				if (haveThisAccess) {
 					return;
 				}
-				const previousNode = getPreviousNode(node.parent);
-				if (
-					previousNode?.type === AST_NODE_TYPES.ExportNamedDeclaration &&
-					previousNode.declaration?.type === AST_NODE_TYPES.TSDeclareFunction
-				) {
-					return;
-				}
-				const statement = getLoneReturnStatement(node);
-				const isExportDefault =
-					node.parent?.type === AST_NODE_TYPES.ExportDefaultDeclaration;
-				if (
-					!statement?.argument ||
-					(!node.id?.name && !isExportDefault) ||
-					node.generator
-				) {
+				const { shouldConvert, returnStatement } =
+					shouldConvertFunctionDeclarationToArrow(node);
+				if (!shouldConvert || !returnStatement?.argument) {
 					clearThisAccess();
 
 					return;
 				}
-				const returnVal = `(${sourceCode.getText(statement.argument)})`;
+
+				const info = extractFunctionInfo(node);
+				const isExportDefault =
+					node.parent?.type === AST_NODE_TYPES.ExportDefaultDeclaration;
+				const returnValue = `(${sourceCode.getText(returnStatement.argument)})`;
+
 				context.report({
 					node,
 					messageId: "arrow",
 					fix: (fixer) =>
 						fixer.replaceText(
 							node,
-							generateFunction(
-								"arrow",
+							generateArrowFunction(
 								node.id?.name ?? null,
-								node,
-								returnVal,
+								info,
+								returnValue,
 								!isExportDefault,
 							),
 						),
 				});
 				clearThisAccess();
 			},
+
 			"ArrowFunctionExpression": setupScope,
 			"ArrowFunctionExpression:exit"(node: TSESTree.ArrowFunctionExpression) {
 				if (haveThisAccess) {
 					return;
 				}
+
 				const { body, parent } = node;
-				const statement = getLoneReturnStatement(node);
-				if (statement?.argument) {
-					const returnVal = `(${sourceCode.getText(statement.argument)})`;
+				const returnStatement = getSingleReturnStatement(node);
+
+				if (returnStatement?.argument) {
+					const returnValue = `(${sourceCode.getText(returnStatement.argument)})`;
 					context.report({
 						node,
 						messageId: "arrow",
-						fix: (fixer) => fixer.replaceText(node.body, returnVal),
+						fix: (fixer) => fixer.replaceText(node.body, returnValue),
 					});
 				} else if (
 					body.type === AST_NODE_TYPES.BlockStatement &&
@@ -193,18 +243,17 @@ export default createEslintRule<Options, MessageIds>({
 						blockBody.length > 0 &&
 						node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
 					) {
-						const { parent: grandParent } = node.parent;
+						const grandParent = node.parent.parent;
+						const name = (node.parent as any).id.name as string;
+						const info = extractFunctionInfo(node);
+
 						context.report({
 							node: grandParent,
 							messageId: "declaration",
 							fix: (fixer) =>
 								fixer.replaceText(
 									grandParent,
-									generateFunction(
-										"declaration",
-										(node.parent as any).id.name,
-										node,
-									),
+									generateFunctionDeclaration(name, info),
 								),
 						});
 					}
