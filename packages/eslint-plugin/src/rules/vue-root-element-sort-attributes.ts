@@ -90,26 +90,22 @@ export default createEslintRule<Options, MessageIds>({
 							node: element.startTag as any,
 							messageId: "wrongOrder",
 							*fix(fixer) {
-								const sortedAttributes = attributesToCheck.sort(
+								const sortedAttributes = [...attributesToCheck].sort(
 									(a, b) =>
 										expectedOrder.indexOf(a.key.name) -
 										expectedOrder.indexOf(b.key.name),
 								);
 
-								const attributeText = ` ${sortedAttributes
-									.map((attr) => sourceCode.getText(attr as any))
-									.join(" ")}`;
+								for (const [i, originalAttr] of attributesToCheck.entries()) {
+									const sortedAttr = sortedAttributes[i];
 
-								for (const attribute of sortedAttributes) {
-									yield fixer.remove(attribute as any);
+									if (originalAttr.key.name !== sortedAttr.key.name) {
+										yield fixer.replaceText(
+											originalAttr as any,
+											sourceCode.getText(sortedAttr as any),
+										);
+									}
 								}
-								yield fixer.replaceTextRange(
-									[
-										element.startTag.range[1] - 1,
-										element.startTag.range[1] - 1,
-									],
-									attributeText,
-								);
 							},
 						});
 					}
