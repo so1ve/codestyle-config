@@ -4,11 +4,9 @@ export const RULE_NAME = "no-import-promises-as";
 export type MessageIds = "noImportPromisesAs";
 export type Options = [];
 
-const _POSSIBLE_IMPORT_SOURCES = ["dns", "fs", "readline", "stream"];
-const POSSIBLE_IMPORT_SOURCES = [
-	..._POSSIBLE_IMPORT_SOURCES,
-	..._POSSIBLE_IMPORT_SOURCES.map((s) => `node:${s}`),
-];
+const POSSIBLE_IMPORT_SOURCES = ["dns", "fs", "readline", "stream"].flatMap(
+	(s) => [s, `node:${s}`],
+);
 
 export default createEslintRule<Options, MessageIds>({
 	name: RULE_NAME,
