@@ -32,7 +32,6 @@
 	"dependencies": {
 		"@so1ve/prettier-plugin-toml": "workspace:*",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-curly": "0.3.2",
 		"prettier-plugin-pkgsort": "^0.2.1"
 	},
 	"peerDependencies": {

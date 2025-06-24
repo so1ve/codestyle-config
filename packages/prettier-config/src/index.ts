@@ -5,10 +5,8 @@ import type { Config } from "prettier";
 const require = createRequire(import.meta.url);
 
 const plugins = [
-	...["astro", "curly", "pkgsort"].map((p) =>
-		require.resolve(`prettier-plugin-${p}`),
-	),
 	require.resolve("@so1ve/prettier-plugin-toml"),
+	...["astro", "pkgsort"].map((p) => require.resolve(`prettier-plugin-${p}`)),
 ];
 
 export default {

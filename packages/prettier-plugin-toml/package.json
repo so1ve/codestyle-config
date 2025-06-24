@@ -5,7 +5,6 @@
 	"contributors": [
 		"Ray <i@mk1.io> (https://github.com/so1ve)"
 	],
-	"type": "module",
 	"description": "CJS version of prettier-plugin-toml.",
 	"keywords": [
 		"prettier",
