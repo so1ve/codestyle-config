@@ -5,7 +5,7 @@ import type { Config } from "prettier";
 const require = createRequire(import.meta.url);
 
 const plugins = [
-	...["astro", "curly-and-jsdoc", "pkgsort"].map((p) =>
+	...["astro", "curly", "pkgsort"].map((p) =>
 		require.resolve(`prettier-plugin-${p}`),
 	),
 	require.resolve("@so1ve/prettier-plugin-toml"),
@@ -40,8 +40,8 @@ export default {
 	plugins,
 
 	// Plugin Options
-	// JSDoc
-	jsdocPreferCodeFences: true,
-	jsdocCommentLineStrategy: "multiline",
-	tsdoc: true,
+	// JSDoc, disabled due to https://github.com/hosseinmd/prettier-plugin-jsdoc/issues/245
+	// jsdocPreferCodeFences: true,
+	// jsdocCommentLineStrategy: "multiline",
+	// tsdoc: true,
 } satisfies Config & Record<string, unknown>;
