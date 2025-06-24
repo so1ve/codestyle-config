@@ -55,12 +55,12 @@ export default createEslintRule<Options, MessageIds>({
 				}
 
 				if (
-					node.type === TSESTree.AST_NODE_TYPES.FunctionDeclaration ||
-					node.type === TSESTree.AST_NODE_TYPES.FunctionExpression
+					node.type === TSESTree.AST_NODE_TYPES.FunctionDeclaration
+					|| node.type === TSESTree.AST_NODE_TYPES.FunctionExpression
 				) {
 					if (
-						node.parent.type === TSESTree.AST_NODE_TYPES.Property ||
-						node.parent.type === TSESTree.AST_NODE_TYPES.MethodDefinition
+						node.parent.type === TSESTree.AST_NODE_TYPES.Property
+						|| node.parent.type === TSESTree.AST_NODE_TYPES.MethodDefinition
 					) {
 						if (node.parent.kind === "method" || node.parent.kind === "init") {
 							fixRange = node.parent.key.range;

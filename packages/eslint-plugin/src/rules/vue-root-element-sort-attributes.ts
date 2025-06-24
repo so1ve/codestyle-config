@@ -79,8 +79,8 @@ export default createEslintRule<Options, MessageIds>({
 					for (const attribute of attributesToCheck) {
 						const index = expectedOrder.indexOf(attribute.key.name);
 						if (
-							index !== -1 &&
-							index !== attributesToCheck.indexOf(attribute)
+							index !== -1
+							&& index !== attributesToCheck.indexOf(attribute)
 						) {
 							reprintAttributes = true;
 						}
@@ -92,8 +92,8 @@ export default createEslintRule<Options, MessageIds>({
 							*fix(fixer) {
 								const sortedAttributes = [...attributesToCheck].sort(
 									(a, b) =>
-										expectedOrder.indexOf(a.key.name) -
-										expectedOrder.indexOf(b.key.name),
+										expectedOrder.indexOf(a.key.name)
+										- expectedOrder.indexOf(b.key.name),
 								);
 
 								for (const [i, originalAttr] of attributesToCheck.entries()) {

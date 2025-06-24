@@ -37,11 +37,11 @@ export default createEslintRule<Options, MessageIds>({
 					const nextTokenStartLine = nextToken?.loc.start.line;
 
 					if (
-						nextToken &&
+						nextToken
 						// Workaround: Vue
-						nextToken.value !== "</script>" &&
-						(expectedLine === nextTokenStartLine ||
-							expectedLine === firstCommentAfterTokenStartLine)
+						&& nextToken.value !== "</script>"
+						&& (expectedLine === nextTokenStartLine
+							|| expectedLine === firstCommentAfterTokenStartLine)
 					) {
 						context.report({
 							node: lastImportNode,

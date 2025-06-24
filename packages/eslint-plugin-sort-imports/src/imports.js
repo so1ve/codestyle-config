@@ -33,9 +33,12 @@ const isImport = (node) => node.type === "ImportDeclaration";
 // But not: import {} from "setup"
 // And not: import type {} from "setup"
 const isSideEffectImport = (importNode, sourceCode) =>
-	importNode.specifiers.length === 0 &&
-	(!importNode.importKind || importNode.importKind === "value") &&
-	!shared.isPunctuator(sourceCode.getFirstToken(importNode, { skip: 1 }), "{");
+	importNode.specifiers.length === 0
+	&& (!importNode.importKind || importNode.importKind === "value")
+	&& !shared.isPunctuator(
+		sourceCode.getFirstToken(importNode, { skip: 1 }),
+		"{",
+	);
 
 module.exports = {
 	meta: {
@@ -128,8 +131,9 @@ function makeSortedItems(items, outerGroups) {
 			)
 			.reduce(
 				([group, longestMatch], [nextGroup, nextMatch]) =>
-					nextMatch != null &&
-					(longestMatch == null || nextMatch[0].length > longestMatch[0].length)
+					nextMatch != null
+					&& (longestMatch == null
+						|| nextMatch[0].length > longestMatch[0].length)
 						? [nextGroup, nextMatch]
 						: [group, longestMatch],
 				[undefined, undefined],

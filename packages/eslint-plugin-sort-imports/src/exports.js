@@ -10,9 +10,9 @@ const getSpecifiers = (exportNode) => exportNode.specifiers || [];
 // export * from "A"
 // export * as A from "A"
 const isExportFrom = (node) =>
-	(node.type === "ExportNamedDeclaration" ||
-		node.type === "ExportAllDeclaration") &&
-	node.source != null;
+	(node.type === "ExportNamedDeclaration"
+		|| node.type === "ExportAllDeclaration")
+	&& node.source != null;
 
 function isPartOfChunk(node, lastNode, sourceCode) {
 	if (!isExportFrom(node)) {
@@ -23,8 +23,8 @@ function isPartOfChunk(node, lastNode, sourceCode) {
 		.getCommentsBefore(node)
 		.some(
 			(comment) =>
-				(lastNode == null || comment.loc.start.line > lastNode.loc.end.line) &&
-				comment.loc.end.line < node.loc.start.line,
+				(lastNode == null || comment.loc.start.line > lastNode.loc.end.line)
+				&& comment.loc.end.line < node.loc.start.line,
 		);
 
 	return hasGroupingComment ? "PartOfNewChunk" : "PartOfChunk";

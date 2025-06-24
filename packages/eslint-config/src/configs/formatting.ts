@@ -27,6 +27,7 @@ export async function formatting(
 					"so1ve/pad-after-last-import": "error",
 					"so1ve/function-style": "error",
 					"style/quote-props": ["error", "consistent-as-needed"],
+					"style/curly-newline": ["error", { minElements: 1 }],
 					"style/padding-line-between-statements": [
 						"error",
 						{ blankLine: "always", prev: "*", next: "return" },
