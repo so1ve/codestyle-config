@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/export
-export * from "prettier-plugin-toml";
+import pluginToml from "prettier-plugin-toml";
+
+export default pluginToml;
