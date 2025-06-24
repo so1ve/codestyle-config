@@ -9,7 +9,7 @@ export async function test({ overrides }: OptionsOverrides = {}): Promise<
 		// @ts-expect-error No declaration
 		import("eslint-plugin-no-only-tests"),
 	);
-	const pluginVitest = await interopDefault(import("eslint-plugin-vitest"));
+	const pluginVitest = await interopDefault(import("@vitest/eslint-plugin"));
 	const pluginJestFormatting = await interopDefault(
 		// @ts-expect-error No declaration
 		import("eslint-plugin-jest-formatting"),
