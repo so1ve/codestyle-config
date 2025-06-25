@@ -54,8 +54,6 @@ export async function vue({
 				"vue/require-default-prop": "off",
 				"vue/multi-word-component-names": "off",
 
-				"vue/no-ref-object-reactivity-loss": "error",
-				"vue/no-setup-props-reactivity-loss": "error",
 				"vue/block-order": [
 					"error",
 					{
