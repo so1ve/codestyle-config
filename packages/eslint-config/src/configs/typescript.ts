@@ -226,8 +226,7 @@ export async function typescript({
 				parser: tseslint.parser as any,
 				parserOptions: {
 					sourceType: "module",
-					// EXPERIMENTAL_useProjectService: true,
-					project: true,
+					projectService: true,
 					tsconfigRootDir: process.cwd(),
 				},
 			},
