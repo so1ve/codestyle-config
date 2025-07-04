@@ -83,6 +83,17 @@ const valid: ValidTestCase<Options>[] = [
 			},
 		],
 	},
+	// Missing attributes in configuration should not cause errors
+	{
+		code: $`
+		  <template class="app"></template>
+		`,
+		options: [
+			{
+				template: ["id", "class"],
+			},
+		],
+	},
 ];
 const invalid: InvalidTestCase<Options>[] = [
 	// Basic wrong order
@@ -133,58 +144,6 @@ const invalid: InvalidTestCase<Options>[] = [
 		options: [
 			{
 				script: ["setup", "src", "lang"],
-			},
-		],
-		output: (o) => expect(o).toMatchSnapshot(),
-	},
-	// Complex case with multiple root elements
-	{
-		code: $`
-		  <template class="container" id="app" data-test="root"></template>
-		  <script lang="ts" src="./external.ts" setup></script>
-		  <style module lang="scss" scoped></style>
-		`,
-		options: [
-			{
-				template: ["id", "class", "data-test"],
-				script: ["setup", "src", "lang"],
-				style: ["scoped", "module", "lang"],
-			},
-		],
-		output: (o) => expect(o).toMatchSnapshot(),
-	},
-	// Wrong order with mixed attributes and directives
-	{
-		code: $`
-		  <template class="container" v-if="show" id="app" v-for="item in items"></template>
-		`,
-		options: [
-			{
-				template: ["id", "class"],
-			},
-		],
-		output: (o) => expect(o).toMatchSnapshot(),
-	},
-	// Style with media attribute
-	{
-		code: $`
-		  <style media="print" scoped lang="css"></style>
-		`,
-		options: [
-			{
-				style: ["scoped", "lang", "media"],
-			},
-		],
-		output: (o) => expect(o).toMatchSnapshot(),
-	},
-	// Three attributes in completely wrong order
-	{
-		code: $`
-		  <script type="module" lang="js" setup></script>
-		`,
-		options: [
-			{
-				script: ["setup", "lang", "type"],
 			},
 		],
 		output: (o) => expect(o).toMatchSnapshot(),

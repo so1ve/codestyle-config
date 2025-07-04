@@ -76,15 +76,17 @@ export default createEslintRule<Options, MessageIds>({
 							attributesToCheck.push(attribute);
 						}
 					}
-					for (const attribute of attributesToCheck) {
-						const index = expectedOrder.indexOf(attribute.key.name);
-						if (
-							index !== -1
-							&& index !== attributesToCheck.indexOf(attribute)
-						) {
-							reprintAttributes = true;
-						}
+					const currentOrder = attributesToCheck.map((attr) => attr.key.name);
+					const expectedFilteredOrder = expectedOrder.filter((name) =>
+						currentOrder.includes(name),
+					);
+					if (
+						JSON.stringify(currentOrder)
+						!== JSON.stringify(expectedFilteredOrder)
+					) {
+						reprintAttributes = true;
 					}
+
 					if (reprintAttributes) {
 						context.report({
 							node: element.startTag as any,
