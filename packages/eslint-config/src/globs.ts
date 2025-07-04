@@ -1,4 +1,4 @@
-export const GLOB_SRC_EXT = "?([cm])[jt]s?(x)|vue|astro";
+export const GLOB_SRC_EXT = "?([cm])[jt]s?(x)";
 export const GLOB_SRC = `**/*.${GLOB_SRC_EXT}`;
 
 export const GLOB_JS = "**/*.?([cm])js";
@@ -27,7 +27,7 @@ export const GLOB_HTML = "**/*.htm?(l)";
 export const GLOB_PACKAGEJSON = "**/package.json";
 export const GLOB_TSCONFIG = ["**/tsconfig.json", "**/tsconfig.*.json"];
 
-export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`;
+export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/**`;
 
 export const GLOB_TESTS = [
 	`**/__tests__/**/*.${GLOB_SRC_EXT}`,
