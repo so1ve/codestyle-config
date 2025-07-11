@@ -190,10 +190,8 @@ function printCommentsBefore(node, comments, sourceCode) {
 			const next = index === lastIndex ? node : comments[index + 1];
 
 			return (
-				sourceCode.getText(comment)
-				+ removeBlankLines(
-					sourceCode.text.slice(comment.range[1], next.range[0]),
-				)
+				sourceCode.getText(comment) +
+				removeBlankLines(sourceCode.text.slice(comment.range[1], next.range[0]))
 			);
 		})
 		.join("");
@@ -257,19 +255,16 @@ const sortImportExportItems = (items) =>
 				: itemB.isSideEffectImport
 					? 1
 					: // Compare the `from` part.
-						compare(itemA.source.source, itemB.source.source)
+						compare(itemA.source.source, itemB.source.source) ||
 						// The `.source` has been slightly tweaked. To stay fully deterministic,
 						// also sort on the original value.
-						|| compare(
-							itemA.source.originalSource,
-							itemB.source.originalSource,
-						)
+						compare(itemA.source.originalSource, itemB.source.originalSource) ||
 						// Then put type imports/exports before regular ones.
-						|| compare(itemA.source.kind, itemB.source.kind)
+						compare(itemA.source.kind, itemB.source.kind) ||
 						// Keep the original order if the sources are the same. It’s not worth
 						// trying to compare anything else, and you can use `import/no-duplicates`
 						// to get rid of the problem anyway.
-						|| itemA.index - itemB.index,
+						itemA.index - itemB.index,
 	);
 
 const sortSpecifierItems = (items) =>
@@ -283,23 +278,23 @@ const sortSpecifierItems = (items) =>
 			compare(
 				(itemA.node.imported || itemA.node.exported).name,
 				(itemB.node.imported || itemB.node.exported).name,
-			)
+			) ||
 			// Then compare by the file-local name.
 			// import { a as b } from "a"
 			//               ^
 			// export { b as a }
 			//          ^
-			|| compare(itemA.node.local.name, itemB.node.local.name)
+			compare(itemA.node.local.name, itemB.node.local.name) ||
 			// Then put type specifiers before regular ones.
-			|| compare(
+			compare(
 				getImportExportKind(itemA.node),
 				getImportExportKind(itemB.node),
-			)
+			) ||
 			// Keep the original order if the names are the same. It’s not worth
 			// trying to compare anything else, `import {a, a} from "mod"` is a syntax
 			// error anyway (but @babel/eslint-parser kind of supports it).
 			// istanbul ignore next
-			|| itemA.index - itemB.index,
+			itemA.index - itemB.index,
 	);
 
 // A “chunk” is a sequence of statements of a certain type with only comments
@@ -385,16 +380,16 @@ function printSortedItems(sortedItems, originalItems, sourceCode) {
 		? sourceCode.getTokenAfter(lastOriginalItem.node, {
 				includeComments: true,
 				filter: (token) =>
-					!isLineComment(token)
-					&& !(
-						isBlockComment(token)
-						&& token.loc.end.line === lastOriginalItem.node.loc.end.line
+					!isLineComment(token) &&
+					!(
+						isBlockComment(token) &&
+						token.loc.end.line === lastOriginalItem.node.loc.end.line
 					),
 			})
 		: undefined;
 	const maybeNewline =
-		nextToken != null
-		&& nextToken.loc.start.line === lastOriginalItem.node.loc.end.line
+		nextToken != null &&
+		nextToken.loc.start.line === lastOriginalItem.node.loc.end.line
 			? newline
 			: "";
 
@@ -430,9 +425,9 @@ function getImportExportItems(
 			.getCommentsBefore(node)
 			.filter(
 				(comment) =>
-					comment.loc.start.line <= node.loc.start.line
-					&& comment.loc.end.line > lastLine
-					&& (nodeIndex > 0 || comment.loc.start.line > lastLine),
+					comment.loc.start.line <= node.loc.start.line &&
+					comment.loc.end.line > lastLine &&
+					(nodeIndex > 0 || comment.loc.start.line > lastLine),
 			);
 
 		// Get all comments after the import/export that are on the same line.
@@ -461,11 +456,11 @@ function getImportExportItems(
 		);
 
 		const code =
-			indentation
-			+ before
-			+ printWithSortedSpecifiers(node, sourceCode, getSpecifiers)
-			+ after
-			+ trailingSpaces;
+			indentation +
+			before +
+			printWithSortedSpecifiers(node, sourceCode, getSpecifiers) +
+			after +
+			trailingSpaces;
 
 		const all = [...commentsBefore, node, ...commentsAfter];
 		const [start] = all[0].range;
@@ -482,8 +477,8 @@ function getImportExportItems(
 			source,
 			index: nodeIndex,
 			needsNewline:
-				commentsAfter.length > 0
-				&& isLineComment(commentsAfter[commentsAfter.length - 1]),
+				commentsAfter.length > 0 &&
+				isLineComment(commentsAfter[commentsAfter.length - 1]),
 		};
 	});
 }
@@ -512,10 +507,10 @@ function handleLastSemicolon(chunk, sourceCode) {
 	}
 
 	const semicolonBelongsToNode =
-		nextToLastToken.loc.end.line === lastToken.loc.start.line
+		nextToLastToken.loc.end.line === lastToken.loc.start.line ||
 		// If there’s no more code after the last import/export the semicolon has to
 		// belong to the import/export, even if it is not on the same line.
-		|| sourceCode.getTokenAfter(lastToken) == null;
+		sourceCode.getTokenAfter(lastToken) == null;
 
 	if (semicolonBelongsToNode) {
 		return chunk;
@@ -546,9 +541,9 @@ function printWithSortedSpecifiers(node, sourceCode, getSpecifiers) {
 	const specifiers = getSpecifiers(node);
 
 	if (
-		openBraceIndex === -1
-		|| closeBraceIndex === -1
-		|| specifiers.length <= 1
+		openBraceIndex === -1 ||
+		closeBraceIndex === -1 ||
+		specifiers.length <= 1
 	) {
 		return printTokens(allTokens);
 	}
@@ -579,11 +574,11 @@ function printWithSortedSpecifiers(node, sourceCode, getSpecifiers) {
 		// Add a newline if the item needs one, unless the previous item (if any)
 		// already ends with a newline.
 		const maybeNewline =
-			previous != null
-			&& needsStartingNewline(item.before)
-			&& !(
-				previous.after.length > 0
-				&& isNewline(previous.after[previous.after.length - 1])
+			previous != null &&
+			needsStartingNewline(item.before) &&
+			!(
+				previous.after.length > 0 &&
+				isNewline(previous.after[previous.after.length - 1])
 			)
 				? [{ type: "Newline", code: newline }]
 				: [];
@@ -615,8 +610,8 @@ function printWithSortedSpecifiers(node, sourceCode, getSpecifiers) {
 	});
 
 	const maybeNewline =
-		needsStartingNewline(itemsResult.after)
-		&& !isNewline(sorted[sorted.length - 1])
+		needsStartingNewline(itemsResult.after) &&
+		!isNewline(sorted[sorted.length - 1])
 			? [{ type: "Newline", code: newline }]
 			: [];
 
@@ -869,8 +864,8 @@ function needsStartingNewline(tokens) {
 	const firstToken = before[0];
 
 	return (
-		isLineComment(firstToken)
-		|| (isBlockComment(firstToken) && !hasNewline(firstToken.code))
+		isLineComment(firstToken) ||
+		(isBlockComment(firstToken) && !hasNewline(firstToken.code))
 	);
 }
 

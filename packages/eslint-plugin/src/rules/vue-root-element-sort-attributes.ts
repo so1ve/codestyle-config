@@ -81,8 +81,8 @@ export default createEslintRule<Options, MessageIds>({
 						currentOrder.includes(name),
 					);
 					if (
-						JSON.stringify(currentOrder)
-						!== JSON.stringify(expectedFilteredOrder)
+						JSON.stringify(currentOrder) !==
+						JSON.stringify(expectedFilteredOrder)
 					) {
 						reprintAttributes = true;
 					}
@@ -94,8 +94,8 @@ export default createEslintRule<Options, MessageIds>({
 							*fix(fixer) {
 								const sortedAttributes = [...attributesToCheck].sort(
 									(a, b) =>
-										expectedOrder.indexOf(a.key.name)
-										- expectedOrder.indexOf(b.key.name),
+										expectedOrder.indexOf(a.key.name) -
+										expectedOrder.indexOf(b.key.name),
 								);
 
 								for (const [i, originalAttr] of attributesToCheck.entries()) {

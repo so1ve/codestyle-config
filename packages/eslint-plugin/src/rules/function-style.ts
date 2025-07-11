@@ -112,9 +112,9 @@ export default createEslintRule<Options, MessageIds>({
 			const parent = node.parent;
 
 			if (
-				(parent as any)?.id?.typeAnnotation
-				|| parent?.type !== AST_NODE_TYPES.VariableDeclarator
-				|| haveThisAccess
+				(parent as any)?.id?.typeAnnotation ||
+				parent?.type !== AST_NODE_TYPES.VariableDeclarator ||
+				haveThisAccess
 			) {
 				return null;
 			}
@@ -131,8 +131,8 @@ export default createEslintRule<Options, MessageIds>({
 
 			const previousNode = getPreviousNode(node.parent);
 			if (
-				previousNode?.type === AST_NODE_TYPES.ExportNamedDeclaration
-				&& previousNode.declaration?.type === AST_NODE_TYPES.TSDeclareFunction
+				previousNode?.type === AST_NODE_TYPES.ExportNamedDeclaration &&
+				previousNode.declaration?.type === AST_NODE_TYPES.TSDeclareFunction
 			) {
 				return { shouldConvert: false };
 			}
@@ -142,9 +142,9 @@ export default createEslintRule<Options, MessageIds>({
 				node.parent?.type === AST_NODE_TYPES.ExportDefaultDeclaration;
 
 			if (
-				!returnStatement?.argument
-				|| (!node.id?.name && !isExportDefault)
-				|| node.generator
+				!returnStatement?.argument ||
+				(!node.id?.name && !isExportDefault) ||
+				node.generator
 			) {
 				return { shouldConvert: false };
 			}
@@ -235,13 +235,13 @@ export default createEslintRule<Options, MessageIds>({
 						fix: (fixer) => fixer.replaceText(node.body, returnValue),
 					});
 				} else if (
-					body.type === AST_NODE_TYPES.BlockStatement
-					&& !(parent as any)?.id?.typeAnnotation
+					body.type === AST_NODE_TYPES.BlockStatement &&
+					!(parent as any)?.id?.typeAnnotation
 				) {
 					const { body: blockBody } = body;
 					if (
-						blockBody.length > 0
-						&& node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
+						blockBody.length > 0 &&
+						node.parent?.parent?.type === AST_NODE_TYPES.VariableDeclaration
 					) {
 						const grandParent = node.parent.parent;
 						const name = (node.parent as any).id.name as string;

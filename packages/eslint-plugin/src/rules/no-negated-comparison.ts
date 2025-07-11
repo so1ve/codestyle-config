@@ -40,9 +40,9 @@ export default createEslintRule<Options, MessageIds>({
 				return;
 			}
 			if (
-				negatives.includes(operator as any)
-				&& parent.type === AST_NODE_TYPES.UnaryExpression // Is this necessary?
-				&& parent.operator === "!"
+				negatives.includes(operator as any) &&
+				parent.type === AST_NODE_TYPES.UnaryExpression && // Is this necessary?
+				parent.operator === "!"
 			) {
 				context.report({
 					node,

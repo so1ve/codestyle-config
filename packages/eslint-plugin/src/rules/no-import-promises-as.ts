@@ -33,10 +33,10 @@ export default createEslintRule<Options, MessageIds>({
 				}
 				const promisesSpecifier = node.specifiers.find(
 					(s) =>
-						s.type === "ImportSpecifier"
-						&& s.imported.type === "Identifier"
-						&& s.imported.name === "promises"
-						&& s.local.name !== "promises",
+						s.type === "ImportSpecifier" &&
+						s.imported.type === "Identifier" &&
+						s.imported.name === "promises" &&
+						s.local.name !== "promises",
 				);
 				const as = promisesSpecifier?.local.name;
 				if (!promisesSpecifier || !as) {

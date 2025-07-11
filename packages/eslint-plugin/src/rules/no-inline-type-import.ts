@@ -28,13 +28,13 @@ export default createEslintRule<Options, MessageIds>({
 				const { specifiers } = node;
 				const typeSpecifiers = specifiers.filter(
 					(s) =>
-						s.type === AST_NODE_TYPES.ImportSpecifier
-						&& s.importKind === "type",
+						s.type === AST_NODE_TYPES.ImportSpecifier &&
+						s.importKind === "type",
 				);
 				const valueSpecifiers = specifiers.filter(
 					(s) =>
-						s.type === AST_NODE_TYPES.ImportSpecifier
-						&& s.importKind === "value",
+						s.type === AST_NODE_TYPES.ImportSpecifier &&
+						s.importKind === "value",
 				);
 				const defaultImportSpecifier = specifiers.find(
 					(s) => s.type === AST_NODE_TYPES.ImportDefaultSpecifier,
