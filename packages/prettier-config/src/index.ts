@@ -15,7 +15,7 @@ export default {
 	quoteProps: "preserve",
 	trailingComma: "all",
 	htmlWhitespaceSensitivity: "ignore",
-	experimentalOperatorPosition: "start",
+	// experimentalOperatorPosition: "start",
 	overrides: [
 		{
 			files: "*.html",
