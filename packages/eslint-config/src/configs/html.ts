@@ -3,12 +3,14 @@ import type { TypedFlatConfigItem } from "../types";
 import { interopDefault, renameRules } from "../utils";
 
 export async function html(): Promise<TypedFlatConfigItem[]> {
-	const parserHtml = await interopDefault(import("@html-eslint/parser"));
-	const pluginHtml = await interopDefault(import("@html-eslint/eslint-plugin"));
-	const pluginHtmlJsSupport = await interopDefault(
-		// @ts-expect-error No declaration
-		import("eslint-plugin-html"),
-	);
+	const [parserHtml, pluginHtml, pluginHtmlJsSupport] = await Promise.all([
+		interopDefault(import("@html-eslint/parser")),
+		interopDefault(import("@html-eslint/eslint-plugin")),
+		interopDefault(
+			// @ts-expect-error No declaration
+			import("eslint-plugin-html"),
+		),
+	]);
 
 	return [
 		{

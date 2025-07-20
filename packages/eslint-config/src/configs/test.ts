@@ -5,15 +5,18 @@ import { interopDefault } from "../utils";
 export async function test({ overrides }: OptionsOverrides = {}): Promise<
 	TypedFlatConfigItem[]
 > {
-	const pluginNoOnlyTests = await interopDefault(
-		// @ts-expect-error No declaration
-		import("eslint-plugin-no-only-tests"),
-	);
-	const pluginVitest = await interopDefault(import("@vitest/eslint-plugin"));
-	const pluginJestFormatting = await interopDefault(
-		// @ts-expect-error No declaration
-		import("eslint-plugin-jest-formatting"),
-	);
+	const [pluginNoOnlyTests, pluginVitest, pluginJestFormatting] =
+		await Promise.all([
+			interopDefault(
+				// @ts-expect-error No declaration
+				import("eslint-plugin-no-only-tests"),
+			),
+			interopDefault(import("@vitest/eslint-plugin")),
+			interopDefault(
+				// @ts-expect-error No declaration
+				import("eslint-plugin-jest-formatting"),
+			),
+		]);
 
 	return [
 		{

@@ -5,8 +5,10 @@ import { interopDefault } from "../utils";
 export async function toml({ overrides }: OptionsOverrides = {}): Promise<
 	TypedFlatConfigItem[]
 > {
-	const parserToml = await interopDefault(import("toml-eslint-parser"));
-	const pluginToml = await interopDefault(import("eslint-plugin-toml"));
+	const [parserToml, pluginToml] = await Promise.all([
+		interopDefault(import("toml-eslint-parser")),
+		interopDefault(import("eslint-plugin-toml")),
+	]);
 
 	return [
 		{

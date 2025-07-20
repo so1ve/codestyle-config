@@ -3,8 +3,10 @@ import type { TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
 export async function jsonc(): Promise<TypedFlatConfigItem[]> {
-	const parserJsonc = await interopDefault(import("jsonc-eslint-parser"));
-	const pluginJsonc = await interopDefault(import("eslint-plugin-jsonc"));
+	const [parserJsonc, pluginJsonc] = await Promise.all([
+		interopDefault(import("jsonc-eslint-parser")),
+		interopDefault(import("eslint-plugin-jsonc")),
+	]);
 
 	return [
 		{

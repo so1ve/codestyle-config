@@ -5,8 +5,10 @@ import { interopDefault, renameRules } from "../utils";
 export async function yaml({ overrides }: OptionsOverrides = {}): Promise<
 	TypedFlatConfigItem[]
 > {
-	const parserYaml = await interopDefault(import("yaml-eslint-parser"));
-	const pluginYaml = await interopDefault(import("eslint-plugin-yml"));
+	const [parserYaml, pluginYaml] = await Promise.all([
+		interopDefault(import("yaml-eslint-parser")),
+		interopDefault(import("eslint-plugin-yml")),
+	]);
 
 	return [
 		{

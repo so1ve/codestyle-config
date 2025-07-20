@@ -14,8 +14,10 @@ export async function vue({
 }: OptionsHasTypeScript & OptionsOverrides = {}): Promise<
 	TypedFlatConfigItem[]
 > {
-	const parserVue = await interopDefault(import("vue-eslint-parser"));
-	const pluginVue = await interopDefault(import("eslint-plugin-vue"));
+	const [parserVue, pluginVue] = await Promise.all([
+		interopDefault(import("vue-eslint-parser")),
+		interopDefault(import("eslint-plugin-vue")),
+	]);
 
 	return [
 		{
