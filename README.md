@@ -19,7 +19,7 @@
 - **Style principle**: Consistent for reading, stable for diff. More automated style fixes is better.
 
 > [!IMPORTANT]
-> The main branch is for v3.0, which rewrites to ESLint Flat config and requires ESLint v8.57.0 or v9.0.0+.
+> The main branch is for v3.0, which rewrites to ESLint Flat config and requires ESLint v9.0.0+.
 
 ## Usage
 
