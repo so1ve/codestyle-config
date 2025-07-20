@@ -46,12 +46,9 @@ export const imports = (options: Options = {}): TypedFlatConfigItem[] => [
 			"import/no-mutable-exports": "error",
 			"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
 			"import/no-named-as-default": "error",
-			"import/no-unresolved": "off",
-			"import/no-absolute-path": "off",
 			"import/no-duplicates": "error",
 			"import/no-named-default": "error",
 			"import/no-webpack-loader-syntax": "error",
-			"import/no-named-as-default-member": "off",
 		},
 	},
 	{
