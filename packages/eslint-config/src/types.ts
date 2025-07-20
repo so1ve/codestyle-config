@@ -58,6 +58,13 @@ export interface Options extends OptionsComponentExts {
 	gitignore?: boolean | FlatGitignoreOptions;
 
 	/**
+	 * Enable pnpm catalogs support.
+	 *
+	 * @default false
+	 */
+	pnpm?: boolean;
+
+	/**
 	 * Core rules. Can't be disabled.
 	 */
 	javascript?: OptionsOverrides;

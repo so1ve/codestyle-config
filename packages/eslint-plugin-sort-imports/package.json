@@ -34,9 +34,9 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"natsort": "^2.0.3"
+		"natsort": "catalog:"
 	},
 	"peerDependencies": {
-		"eslint": ">=8.40.0"
+		"eslint": "catalog:peers"
 	}
 }

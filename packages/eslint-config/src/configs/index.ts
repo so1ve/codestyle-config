@@ -8,6 +8,7 @@ export * from "./jsonc";
 export * from "./mdx";
 export * from "./node";
 export * from "./only-error";
+export * from "./pnpm";
 export * from "./promise";
 export * from "./solid";
 export * from "./sort-imports";

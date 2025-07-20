@@ -14,6 +14,7 @@ import {
 	mdx,
 	node,
 	onlyError,
+	pnpm,
 	promise,
 	solid,
 	sortImports,
@@ -67,6 +68,7 @@ export function so1ve(
 		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
 		gitignore: enableGitignore = true,
+		pnpm: enableCatalogs = false,
 		componentExts = [],
 	} = options;
 
@@ -104,6 +106,10 @@ export function so1ve(
 		imports(),
 		unicorn(),
 	);
+
+	if (enableCatalogs) {
+		configs.push(pnpm());
+	}
 
 	if (enableVue) {
 		componentExts.push("vue");

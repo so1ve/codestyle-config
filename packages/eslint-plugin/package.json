@@ -38,10 +38,10 @@
 		"watch": "tsdown --watch"
 	},
 	"dependencies": {
-		"@typescript-eslint/types": "^8.34.0",
-		"@typescript-eslint/utils": "^8.34.0"
+		"@typescript-eslint/types": "catalog:eslint",
+		"@typescript-eslint/utils": "catalog:eslint"
 	},
 	"devDependencies": {
-		"vue-eslint-parser": "^10.1.3"
+		"vue-eslint-parser": "catalog:eslint"
 	}
 }

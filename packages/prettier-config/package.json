@@ -31,10 +31,10 @@
 	},
 	"dependencies": {
 		"@so1ve/prettier-plugin-toml": "workspace:*",
-		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-pkgsort": "^0.2.1"
+		"prettier-plugin-astro": "catalog:prettier",
+		"prettier-plugin-pkgsort": "catalog:prettier"
 	},
 	"peerDependencies": {
-		"prettier": "^3.6.0"
+		"prettier": "catalog:peers"
 	}
 }
