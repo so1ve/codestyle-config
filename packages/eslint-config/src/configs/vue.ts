@@ -158,7 +158,6 @@ export async function vue({
 					"error",
 					{ allow: ["error", "warn", "table", "time"] },
 				],
-				"vue/camelcase": "error",
 				"vue/v-for-delimiter-style": ["error", "in"],
 				"vue/attributes-order": [
 					"error",
