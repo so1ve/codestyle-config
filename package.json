@@ -1,7 +1,7 @@
 {
 	"name": "@so1ve/codestyle-config-monorepo",
 	"private": true,
-	"packageManager": "pnpm@10.12.1",
+	"packageManager": "pnpm@10.15.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"type": "module",
 	"description": "Monorepo for Ray's codestyle config.",
