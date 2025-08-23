@@ -1,6 +1,6 @@
 {
 	"name": "@so1ve/prettier-config",
-	"version": "3.8.1",
+	"version": "3.9.0",
 	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
 	"type": "module",
 	"description": "Ray's prettier config.",
