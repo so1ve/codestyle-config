@@ -91,6 +91,13 @@ export interface Options extends OptionsComponentExts {
 	test?: boolean | OptionsOverrides;
 
 	/**
+	 * Enable Astro support.
+	 *
+	 * @default auto-detect based on the dependencies
+	 */
+	astro?: boolean | OptionsOverrides;
+
+	/**
 	 * Enable Vue support.
 	 *
 	 * @default auto-detect based on the dependencies

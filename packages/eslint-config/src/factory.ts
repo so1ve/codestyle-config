@@ -25,6 +25,7 @@ import {
 	vue,
 	yaml,
 } from "./configs";
+import { astro } from "./configs/astro";
 import type { ConfigNames } from "./typegen";
 import type {
 	MaybeArray,
@@ -64,6 +65,7 @@ export function so1ve(
 	...userConfigs: MaybeArray<TypedFlatConfigItem>[]
 ) {
 	const {
+		astro: enableAstro = isPackageExists("astro"),
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
 		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
@@ -132,6 +134,14 @@ export function so1ve(
 		configs.push(
 			test({
 				overrides: getOverrides(options, "test"),
+			}),
+		);
+	}
+
+	if (enableAstro) {
+		configs.push(
+			astro({
+				overrides: getOverrides(options, "astro"),
 			}),
 		);
 	}
