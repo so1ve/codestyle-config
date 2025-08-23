@@ -34,6 +34,7 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 			"unicorn/no-lonely-if": "error",
 			"unicorn/no-negated-condition": "error",
 			"unicorn/no-useless-spread": "error",
+			"unicorn/require-module-specifiers": "error",
 			"unicorn/prefer-ternary": "error",
 			"unicorn/prefer-query-selector": "error",
 			"unicorn/prefer-modern-dom-apis": "error",
@@ -57,6 +58,7 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 			"unicorn/prefer-optional-catch-binding": "error",
 			"unicorn/prefer-object-from-entries": "error",
 			"unicorn/prefer-prototype-methods": "error",
+			"unicorn/prefer-class-fields": "error",
 		},
 	},
 ];
