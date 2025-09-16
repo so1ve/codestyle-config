@@ -43,6 +43,8 @@
 		"@so1ve/eslint-plugin": "workspace:*",
 		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
 		"@stylistic/eslint-plugin": "catalog:eslint",
+		"@typescript-eslint/parser": "catalog:eslint",
+		"@typescript-eslint/utils": "catalog:eslint",
 		"@unocss/eslint-config": "catalog:eslint",
 		"@vitest/eslint-plugin": "catalog:eslint",
 		"astro-eslint-parser": "catalog:eslint",
@@ -79,9 +81,6 @@
 		"typescript-eslint": "catalog:eslint",
 		"vue-eslint-parser": "catalog:eslint",
 		"yaml-eslint-parser": "catalog:eslint"
-	},
-	"devDependencies": {
-		"@typescript-eslint/utils": "catalog:eslint"
 	},
 	"peerDependencies": {
 		"eslint": "catalog:peers",

@@ -1,3 +1,4 @@
+export * from "./astro";
 export * from "./comments";
 export * from "./formatting";
 export * from "./html";

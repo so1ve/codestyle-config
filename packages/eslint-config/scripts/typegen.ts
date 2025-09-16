@@ -28,6 +28,7 @@ import {
 async function combine(
 	...configs: MaybePromise<MaybeArray<TypedFlatConfigItem>>[]
 ): Promise<any[]> {
+	// eslint-disable-next-line ts/await-thenable
 	const resolved = await Promise.all(configs);
 
 	return resolved.flat();

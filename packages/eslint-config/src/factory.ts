@@ -4,6 +4,7 @@ import { FlatConfigComposer } from "eslint-flat-config-utils";
 import { isPackageExists } from "local-pkg";
 
 import {
+	astro,
 	comments,
 	formatting,
 	html,
@@ -25,7 +26,6 @@ import {
 	vue,
 	yaml,
 } from "./configs";
-import { astro } from "./configs/astro";
 import type { ConfigNames } from "./typegen";
 import type {
 	MaybeArray,
