@@ -20,39 +20,34 @@ export default createEslintRule<Options, MessageIds>({
 		},
 	},
 	defaultOptions: [],
-	create: (context) => {
-		const sourceCode = context.sourceCode;
-
-		return {
-			ImportDeclaration: (node) => {
-				const { specifiers } = node;
-				const typeSpecifiers = specifiers.filter(
-					(s) =>
-						s.type === AST_NODE_TYPES.ImportSpecifier &&
-						s.importKind === "type",
-				);
-				const valueSpecifiers = specifiers.filter(
-					(s) =>
-						s.type === AST_NODE_TYPES.ImportSpecifier &&
-						s.importKind === "value",
-				);
-				const defaultImportSpecifier = specifiers.find(
-					(s) => s.type === AST_NODE_TYPES.ImportDefaultSpecifier,
-				);
-				if (typeSpecifiers.length > 0 && valueSpecifiers.length > 0) {
+	create: (context) => ({
+		ImportDeclaration: (node) => {
+			const { specifiers } = node;
+			const typeSpecifiers = specifiers.filter(
+				(s) =>
+					s.type === AST_NODE_TYPES.ImportSpecifier && s.importKind === "type",
+			);
+			const valueSpecifiers = specifiers.filter(
+				(s) =>
+					s.type === AST_NODE_TYPES.ImportSpecifier && s.importKind === "value",
+			);
+			const defaultImportSpecifier = specifiers.find(
+				(s) => s.type === AST_NODE_TYPES.ImportDefaultSpecifier,
+			);
+			if (typeSpecifiers.length > 0) {
+				if (valueSpecifiers.length > 0) {
 					context.report({
 						node,
 						messageId: "noInlineTypeImport",
 						fix(fixer) {
 							const typeSpecifiersText = typeSpecifiers
-								.map((s) => sourceCode.getText(s).replace("type ", ""))
+								.map((s) => s.local.name)
 								.join(", ");
 							const valueSpecifiersText = valueSpecifiers
-								.map((s) => sourceCode.getText(s))
+								.map((s) => s.local.name)
 								.join(", ");
-							const defaultImportSpecifierText = sourceCode.getText(
-								defaultImportSpecifier,
-							);
+							const defaultImportSpecifierText =
+								defaultImportSpecifier?.local.name;
 							const defaultAndValueSpecifiersText = defaultImportSpecifier
 								? `import ${defaultImportSpecifierText}, { ${valueSpecifiersText} } from "${node.source.value}";`
 								: `import { ${valueSpecifiersText} } from "${node.source.value}";`;
@@ -64,13 +59,13 @@ export default createEslintRule<Options, MessageIds>({
 							return fixer.replaceText(node, texts.join("\n"));
 						},
 					});
-				} else if (typeSpecifiers.length > 0) {
+				} else {
 					context.report({
 						node,
 						messageId: "noInlineTypeImport",
 						fix(fixer) {
 							const typeSpecifiersText = typeSpecifiers
-								.map((s) => sourceCode.getText(s).replace("type ", ""))
+								.map((s) => s.local.name)
 								.join(", ");
 
 							return fixer.replaceText(
@@ -80,7 +75,7 @@ export default createEslintRule<Options, MessageIds>({
 						},
 					});
 				}
-			},
-		};
-	},
+			}
+		},
+	}),
 });
