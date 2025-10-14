@@ -26,7 +26,7 @@ export async function toml({ overrides }: OptionsOverrides = {}): Promise<
 			rules: {
 				...(pluginToml.configs.recommended.rules as any),
 				"no-irregular-whitespace": "off",
-				"spaced-comment": "off",
+				"style/spaced-comment": "off",
 				...overrides,
 			},
 		},

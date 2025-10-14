@@ -205,7 +205,6 @@ export async function vue({
 				"vue/no-multiple-template-root": "off",
 				"vue/multiline-html-element-content-newline": "off",
 				"vue/singleline-html-element-content-newline": "off",
-				"vue/no-extra-parens": "off",
 				"vue/array-bracket-spacing": "off",
 				"vue/arrow-spacing": "off",
 				"vue/block-spacing": "off",

@@ -27,7 +27,7 @@ export async function yaml({ overrides }: OptionsOverrides = {}): Promise<
 				...renameRules(pluginYaml.configs.prettier.rules, { yml: "yaml" }),
 				...renameRules(pluginYaml.configs.recommended.rules, { yml: "yaml" }),
 				"yaml/no-empty-document": "off",
-				"spaced-comment": "off",
+				"style/spaced-comment": "off",
 				...overrides,
 			},
 		},

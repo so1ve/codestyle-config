@@ -66,7 +66,6 @@ export const typescript = async ({
 			"ts/indent": "off",
 			"ts/keyword-spacing": "off",
 			"ts/member-delimiter-style": "off",
-			"ts/no-extra-parens": "off",
 			"ts/no-extra-semi": "off",
 			"ts/quotes": "off",
 			"ts/semi": "off",
@@ -160,8 +159,6 @@ export const typescript = async ({
 			"space-before-function-paren": "off",
 			"no-dupe-class-members": "off",
 			"ts/no-dupe-class-members": "error",
-			"no-loss-of-precision": "off",
-			"ts/no-loss-of-precision": "error",
 
 			// so1ve
 			"so1ve/no-inline-type-import": "error",

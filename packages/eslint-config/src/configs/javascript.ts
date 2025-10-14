@@ -131,7 +131,6 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 				"no-extend-native": "error",
 				"no-extra-bind": "error",
 				"no-extra-boolean-cast": "error",
-				"no-extra-parens": ["error", "functions"],
 				"no-fallthrough": "error",
 				"no-func-assign": "error",
 				"no-global-assign": "error",
@@ -145,8 +144,8 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 				"no-loss-of-precision": "error",
 				"no-misleading-character-class": "error",
 				"no-new-func": "error",
-				"no-new-object": "error",
-				"no-new-symbol": "error",
+				"no-object-constructor": "error",
+				"no-new-native-nonconstructor": "error",
 				"no-new-wrappers": "error",
 				"no-prototype-builtins": "error",
 				"no-useless-catch": "error",
@@ -268,21 +267,6 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 				"prefer-promise-reject-errors": "error",
 				"prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
 				"yoda": ["error", "never"],
-				"spaced-comment": [
-					"error",
-					"always",
-					{
-						line: {
-							markers: ["/"],
-							exceptions: ["/", "#"],
-						},
-						block: {
-							markers: ["!"],
-							exceptions: ["*"],
-							balanced: true,
-						},
-					},
-				],
 
 				// best-practice
 				"array-callback-return": "error",

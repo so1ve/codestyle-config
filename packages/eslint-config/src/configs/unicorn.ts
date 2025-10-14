@@ -25,7 +25,7 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 			"unicorn/error-message": "error",
 			"unicorn/escape-case": "error",
 			"unicorn/explicit-length-check": "error",
-			"unicorn/no-instanceof-array": "error",
+			"unicorn/no-instanceof-builtins": "error",
 			"unicorn/no-new-buffer": "error",
 			"unicorn/no-new-array": "error",
 			"unicorn/no-array-for-each": "error",

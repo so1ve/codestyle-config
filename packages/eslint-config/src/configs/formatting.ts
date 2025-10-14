@@ -28,6 +28,7 @@ export async function formatting(
 					"so1ve/function-style": "error",
 					"style/quote-props": ["error", "consistent-as-needed"],
 					"style/curly-newline": ["error", { minElements: 1 }],
+					"style/no-extra-parens": ["error", "functions"],
 					"style/padding-line-between-statements": [
 						"error",
 						{ blankLine: "always", prev: "*", next: "return" },
@@ -36,6 +37,21 @@ export async function formatting(
 						"error",
 						"always",
 						{ exceptAfterSingleLine: true },
+					],
+					"style/spaced-comment": [
+						"error",
+						"always",
+						{
+							line: {
+								markers: ["/"],
+								exceptions: ["/", "#"],
+							},
+							block: {
+								markers: ["!"],
+								exceptions: ["*"],
+								balanced: true,
+							},
+						},
 					],
 				},
 			},
