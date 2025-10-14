@@ -5,6 +5,7 @@ import noInlineTypeImport from "./rules/no-inline-type-import";
 import noNegatedComparison from "./rules/no-negated-comparison";
 import noUselessTemplateString from "./rules/no-useless-template-string";
 import padAfterLastImport from "./rules/pad-after-last-import";
+import preferTsExpectError from "./rules/prefer-ts-expect-error";
 import requireAsyncWithAwait from "./rules/require-async-with-await";
 import vueRootElementSortAttributes from "./rules/vue-root-element-sort-attributes";
 
@@ -17,6 +18,7 @@ export default {
 		"no-useless-template-string": noUselessTemplateString,
 		"no-import-promises-as": noImportPromisesAs,
 		"pad-after-last-import": padAfterLastImport,
+		"prefer-ts-expect-error": preferTsExpectError,
 		"require-async-with-await": requireAsyncWithAwait,
 		"vue-root-element-sort-attributes": vueRootElementSortAttributes,
 	},

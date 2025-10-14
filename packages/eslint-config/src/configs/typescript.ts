@@ -58,6 +58,8 @@ export const typescript = async ({
 
 			"import/named": "off",
 
+			"so1ve/prefer-ts-expect-error": "error",
+
 			// TS
 			"ts/comma-dangle": "off",
 			"ts/brace-style": "off",
@@ -126,7 +128,6 @@ export const typescript = async ({
 			],
 			"ts/consistent-type-definitions": ["error", "interface"],
 			"ts/consistent-indexed-object-style": ["error", "record"],
-			"ts/prefer-ts-expect-error": "error",
 			"ts/prefer-for-of": "error",
 			"ts/no-duplicate-enum-values": "error",
 			"ts/no-non-null-asserted-nullish-coalescing": "error",
