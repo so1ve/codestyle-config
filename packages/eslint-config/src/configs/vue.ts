@@ -158,6 +158,13 @@ export async function vue({
 					"error",
 					{ allow: ["error", "warn", "table", "time"] },
 				],
+				"vue/v-bind-style": [
+					"error",
+					"shorthand",
+					{
+						sameNameShorthand: "always",
+					},
+				],
 				"vue/v-for-delimiter-style": ["error", "in"],
 				"vue/attributes-order": [
 					"error",
