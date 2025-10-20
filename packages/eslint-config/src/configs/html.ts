@@ -38,6 +38,7 @@ export async function html(): Promise<TypedFlatConfigItem[]> {
 				"html/require-closing-tags": "off",
 				"html/no-extra-spacing-attrs": "off",
 				"html/quotes": "off",
+				"html/attrs-newline": "off",
 			},
 		},
 	];
