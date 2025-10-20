@@ -164,6 +164,10 @@ export function so1ve(
 		);
 	}
 
+	if (options.formatting ?? true) {
+		configs.push(formatting(options));
+	}
+
 	if (options.jsonc ?? true) {
 		configs.push(jsonc());
 	}
@@ -191,10 +195,6 @@ export function so1ve(
 				overrides: getOverrides(options, "mdx"),
 			}),
 		);
-	}
-
-	if (options.formatting ?? true) {
-		configs.push(formatting(options));
 	}
 
 	// User can optionally pass a flat config item to the first argument
