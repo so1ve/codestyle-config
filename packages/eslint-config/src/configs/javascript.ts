@@ -321,9 +321,9 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 
 				// array-func
 				"array-func/prefer-array-from": "off",
+				"array-func/no-unnecessary-this-arg": "off", // `filter` is a common naming. avoid false positives.
 				"array-func/prefer-flat": "off", // Handled by unicorn
 				"array-func/from-map": "off", // Conflicts with unicorn/prefer-spread
-				"array-func/no-unnecessary-this-arg": "error",
 				"array-func/avoid-reverse": "error",
 				"array-func/prefer-flat-map": "error",
 
