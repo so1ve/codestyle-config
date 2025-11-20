@@ -15,6 +15,7 @@ import {
 	mdx,
 	node,
 	onlyError,
+	perfectionist,
 	pnpm,
 	promise,
 	solid,
@@ -49,9 +50,9 @@ const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
 const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
 
 export const defaultPluginRenaming = {
+	"@html-eslint": "html",
 	"@stylistic": "style",
 	"@typescript-eslint": "ts",
-	"@html-eslint": "html",
 	"import-x": "import",
 	"n": "node",
 	"yml": "yaml",
@@ -66,12 +67,12 @@ export function so1ve(
 ) {
 	const {
 		astro: enableAstro = isPackageExists("astro"),
-		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
-		solid: enableSolid = isPackageExists("solid-js"),
-		typescript: enableTypeScript = isPackageExists("typescript"),
+		componentExts = [],
 		gitignore: enableGitignore = true,
 		pnpm: enableCatalogs = false,
-		componentExts = [],
+		solid: enableSolid = isPackageExists("solid-js"),
+		typescript: enableTypeScript = isPackageExists("typescript"),
+		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
 	} = options;
 
 	const configs: MaybePromise<TypedFlatConfigItem[]>[] = [];
@@ -166,6 +167,10 @@ export function so1ve(
 
 	if (options.formatting ?? true) {
 		configs.push(formatting(options));
+	}
+
+	if (options.perfectionist ?? true) {
+		configs.push(perfectionist());
 	}
 
 	if (options.jsonc ?? true) {

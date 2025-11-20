@@ -65,6 +65,7 @@
 		"eslint-plugin-no-explicit-type-exports": "catalog:eslint",
 		"eslint-plugin-no-only-tests": "catalog:eslint",
 		"eslint-plugin-only-error": "catalog:eslint",
+		"eslint-plugin-perfectionist": "catalog:eslint",
 		"eslint-plugin-pnpm": "catalog:eslint",
 		"eslint-plugin-promise": "catalog:eslint",
 		"eslint-plugin-regexp": "catalog:eslint",

@@ -9,6 +9,7 @@ export * from "./jsonc";
 export * from "./mdx";
 export * from "./node";
 export * from "./only-error";
+export * from "./perfectionist";
 export * from "./pnpm";
 export * from "./promise";
 export * from "./solid";

@@ -62,6 +62,7 @@ catalogs:
     "eslint-plugin-no-explicit-type-exports": "^0.12.1"
     "eslint-plugin-no-only-tests": "^3.3.0"
     "eslint-plugin-only-error": "^1.0.2"
+    "eslint-plugin-perfectionist": "^4.15.1"
     "eslint-plugin-pnpm": "^1.2.0"
     "eslint-plugin-promise": "^7.2.1"
     "eslint-plugin-regexp": "^2.10.0"
