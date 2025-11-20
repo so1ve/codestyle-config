@@ -4,7 +4,7 @@ import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 
 import type { RuleOptions } from "./typegen";
 
-export type MaybePromise<T> = Promise<T> | T;
+export type MaybePromise<T> = T | Promise<T>;
 export type MaybeArray<T> = T | T[];
 
 export type Rules = RuleOptions;
@@ -160,13 +160,13 @@ export interface Options extends OptionsComponentExts {
 	 */
 	overrides?: {
 		javascript?: TypedFlatConfigItem["rules"];
+		typescript?: TypedFlatConfigItem["rules"];
+		test?: TypedFlatConfigItem["rules"];
+		vue?: TypedFlatConfigItem["rules"];
+		solid?: TypedFlatConfigItem["rules"];
 		jsonc?: TypedFlatConfigItem["rules"];
 		mdx?: TypedFlatConfigItem["rules"];
-		solid?: TypedFlatConfigItem["rules"];
-		test?: TypedFlatConfigItem["rules"];
-		toml?: TypedFlatConfigItem["rules"];
-		typescript?: TypedFlatConfigItem["rules"];
-		vue?: TypedFlatConfigItem["rules"];
 		yaml?: TypedFlatConfigItem["rules"];
+		toml?: TypedFlatConfigItem["rules"];
 	};
 }
