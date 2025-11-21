@@ -30,7 +30,7 @@ export async function html(): Promise<TypedFlatConfigItem[]> {
 			},
 			files: [GLOB_HTML],
 			rules: {
-				...renameRules(pluginHtml.configs.recommended.rules, {
+				...renameRules((pluginHtml.configs!.recommended as any).rules, {
 					"@html-eslint": "html",
 				}),
 				"html/indent": "off",
