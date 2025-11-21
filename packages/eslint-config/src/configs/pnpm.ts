@@ -18,6 +18,7 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
 			plugins: {
 				pnpm: pluginPnpm,
 			},
+			// @keep-sorted
 			rules: {
 				"pnpm/json-enforce-catalog": "error",
 				"pnpm/json-prefer-workspace-settings": "error",

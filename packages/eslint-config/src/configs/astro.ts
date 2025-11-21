@@ -31,6 +31,7 @@ export async function astro({ overrides = {} }: OptionsOverrides = {}): Promise<
 			},
 			name: "antfu/astro/rules",
 			processor: "astro/client-side-ts",
+			// @keep-sorted
 			rules: {
 				// Astro uses top level await for e.g. data fetching
 				// https://docs.astro.build/en/guides/data-fetching/#fetch-in-astro

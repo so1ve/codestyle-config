@@ -11,6 +11,7 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 	},
 	{
 		name: "so1ve/unicorn/rules",
+		// @keep-sorted
 		rules: {
 			"unicorn/consistent-assert": "error",
 			"unicorn/consistent-date-clone": "error",

@@ -15,6 +15,7 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 		},
 		{
 			name: "so1ve/perfectionist/rules",
+			// @keep-sorted
 			rules: {
 				"perfectionist/sort-array-includes": [
 					"error",

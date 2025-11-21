@@ -37,17 +37,18 @@ export const imports = (options: Options = {}): TypedFlatConfigItem[] => [
 						}),
 			},
 		},
+		// @keep-sorted
 		rules: {
-			"import/named": "error",
 			"import/default": "error",
 			"import/export": "error",
 			"import/first": "error",
+			"import/named": "error",
 			"import/namespace": "off", // Disable this for better performance
-			"import/no-mutable-exports": "error",
-			"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
-			"import/no-named-as-default": "error",
 			"import/no-duplicates": "error",
+			"import/no-mutable-exports": "error",
+			"import/no-named-as-default": "error",
 			"import/no-named-default": "error",
+			"import/no-useless-path-segments": ["error", { noUselessIndex: true }],
 			"import/no-webpack-loader-syntax": "error",
 		},
 	},

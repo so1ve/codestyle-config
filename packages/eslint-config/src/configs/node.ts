@@ -10,9 +10,10 @@ export const node = (): TypedFlatConfigItem[] => [
 	},
 	{
 		name: "so1ve/node/rules",
+		// @keep-sorted
 		rules: {
-			"node/no-callback-literal": "off",
 			"node/handle-callback-err": ["error", "^(err|error)$"],
+			"node/no-callback-literal": "off",
 			"node/no-deprecated-api": "error",
 			"node/no-exports-assign": "error",
 			"node/no-new-require": "error",

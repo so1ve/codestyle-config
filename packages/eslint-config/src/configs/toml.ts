@@ -23,6 +23,7 @@ export async function toml({ overrides }: OptionsOverrides = {}): Promise<
 				parser: parserToml,
 			},
 			files: [GLOB_TOML],
+			// @keep-sorted
 			rules: {
 				...(pluginToml.configs.recommended.rules as any),
 				"no-irregular-whitespace": "off",

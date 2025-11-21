@@ -23,11 +23,12 @@ export async function yaml({ overrides }: OptionsOverrides = {}): Promise<
 				parser: parserYaml,
 			},
 			files: [GLOB_YAML],
+			// @keep-sorted
 			rules: {
 				...renameRules(pluginYaml.configs.prettier.rules, { yml: "yaml" }),
 				...renameRules(pluginYaml.configs.recommended.rules, { yml: "yaml" }),
-				"yaml/no-empty-document": "off",
 				"style/spaced-comment": "off",
+				"yaml/no-empty-document": "off",
 				...overrides,
 			},
 		},

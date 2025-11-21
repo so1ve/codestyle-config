@@ -21,12 +21,13 @@ export async function jsonc(): Promise<TypedFlatConfigItem[]> {
 			languageOptions: {
 				parser: parserJsonc,
 			},
+			// @keep-sorted
 			rules: {
 				...(pluginJsonc.configs.base.overrides[0].rules as any),
 				...(pluginJsonc.configs["recommended-with-jsonc"].rules as any),
 				"jsonc/no-octal-escape": "error",
-				"jsonc/quotes": "off",
 				"jsonc/quotes-props": "off",
+				"jsonc/quotes": "off",
 			},
 		},
 	];

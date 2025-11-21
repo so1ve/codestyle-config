@@ -19,24 +19,25 @@ export async function formatting(
 			},
 			{
 				name: "so1ve/formatting/rules",
+				// @keep-sorted
 				rules: {
 					"curly": ["error", "all"],
-					"so1ve/no-useless-template-string": "error",
-					"so1ve/no-negated-comparison": "error",
-					"so1ve/no-import-promises-as": "error",
-					"so1ve/pad-after-last-import": "error",
 					"so1ve/function-style": "error",
-					"style/quote-props": ["error", "consistent-as-needed"],
-					"style/no-extra-parens": ["error", "functions"],
-					"style/padding-line-between-statements": [
-						"error",
-						{ blankLine: "always", prev: "*", next: "return" },
-					],
+					"so1ve/no-import-promises-as": "error",
+					"so1ve/no-negated-comparison": "error",
+					"so1ve/no-useless-template-string": "error",
+					"so1ve/pad-after-last-import": "error",
 					"style/lines-between-class-members": [
 						"error",
 						"always",
 						{ exceptAfterSingleLine: true },
 					],
+					"style/no-extra-parens": ["error", "functions"],
+					"style/padding-line-between-statements": [
+						"error",
+						{ blankLine: "always", prev: "*", next: "return" },
+					],
+					"style/quote-props": ["error", "consistent-as-needed"],
 					"style/spaced-comment": [
 						"error",
 						"always",
