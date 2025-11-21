@@ -55,6 +55,7 @@
 		"eslint-plugin-array-func": "catalog:eslint",
 		"eslint-plugin-astro": "catalog:eslint",
 		"eslint-plugin-case-police": "catalog:eslint",
+		"eslint-plugin-command": "catalog:eslint",
 		"eslint-plugin-html": "catalog:eslint",
 		"eslint-plugin-import-x": "catalog:eslint",
 		"eslint-plugin-jest-formatting": "catalog:eslint",

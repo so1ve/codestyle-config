@@ -5,6 +5,7 @@ import { isPackageExists } from "local-pkg";
 
 import {
 	astro,
+	command,
 	comments,
 	formatting,
 	html,
@@ -108,6 +109,7 @@ export function so1ve(
 		sortImports(),
 		imports(),
 		unicorn(),
+		command(),
 	);
 
 	if (enableCatalogs) {
