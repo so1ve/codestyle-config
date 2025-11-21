@@ -142,6 +142,12 @@ export const typescript = async ({
 					},
 				},
 			],
+			"ts/no-empty-object-type": [
+				"error",
+				{
+					allowInterfaces: "always",
+				},
+			],
 
 			// Override JS
 			"no-useless-constructor": "off",
