@@ -6,4 +6,5 @@ export default defineConfig({
 	format: "esm",
 	clean: true,
 	dts: true,
+	fixedExtension: false,
 });
