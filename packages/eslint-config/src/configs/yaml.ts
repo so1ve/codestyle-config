@@ -32,5 +32,42 @@ export async function yaml({ overrides }: OptionsOverrides = {}): Promise<
 				...overrides,
 			},
 		},
+		{
+			files: ["pnpm-workspace.yaml"],
+			name: "so1ve/yaml/pnpm-workspace",
+			rules: {
+				"yaml/sort-keys": [
+					"error",
+					{
+						order: [
+							"packages",
+							"overrides",
+							"patchedDependencies",
+							"hoistPattern",
+
+							"allowedDeprecatedVersions",
+							"allowNonAppliedPatches",
+							"configDependencies",
+							"ignoredBuiltDependencies",
+							"ignoredOptionalDependencies",
+							"neverBuiltDependencies",
+							"onlyBuiltDependencies",
+							"onlyBuiltDependenciesFile",
+							"packageExtensions",
+							"peerDependencyRules",
+							"supportedArchitectures",
+
+							"catalog",
+							"catalogs",
+						],
+						pathPattern: "^$",
+					},
+					{
+						order: { type: "asc" },
+						pathPattern: ".*",
+					},
+				],
+			},
+		},
 	];
 }
