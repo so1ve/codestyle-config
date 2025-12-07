@@ -80,6 +80,7 @@ export async function formatting(
 						"jsonc/sort-keys": [
 							"error",
 							{
+								pathPattern: "^$",
 								order: [
 									"extends",
 									"compilerOptions",
@@ -88,9 +89,9 @@ export async function formatting(
 									"include",
 									"exclude",
 								],
-								pathPattern: "^$",
 							},
 							{
+								pathPattern: "^compilerOptions$",
 								order: [
 									/* Projects */
 									"incremental",
@@ -190,7 +191,10 @@ export async function formatting(
 									/* Alias */
 									"paths",
 								],
-								pathPattern: "^compilerOptions$",
+							},
+							{
+								pathPattern: "^compilerOptions\\.paths$",
+								order: { type: "asc" },
 							},
 						],
 					},
