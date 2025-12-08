@@ -152,16 +152,16 @@ export const typescript = async ({
 							message: "Use `bigint` instead.",
 							fixWith: "bigint",
 						},
-						Object: {
-							message:
-								"The `Object` type is mostly the same as `unknown`. You probably want `Record<PropertyKey, unknown>` instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848",
-							fixWith: "Record<PropertyKey, unknown>",
-						},
-						object: {
-							message:
-								"The `object` type is hard to use. Use `Record<PropertyKey, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848",
-							fixWith: "Record<PropertyKey, unknown>",
-						},
+						// Object: {
+						// 	message:
+						// 		"The `Object` type is mostly the same as `unknown`. You probably want `Record<PropertyKey, unknown>` instead. See https://github.com/typescript-eslint/typescript-eslint/pull/848",
+						// 	fixWith: "Record<PropertyKey, unknown>",
+						// },
+						// object: {
+						// 	message:
+						// 		"The `object` type is hard to use. Use `Record<PropertyKey, unknown>` instead. See: https://github.com/typescript-eslint/typescript-eslint/pull/848",
+						// 	fixWith: "Record<PropertyKey, unknown>",
+						// },
 						Function: {
 							message: "Use `(...args: any[]) => any` instead.",
 							fixWith: "(...args: any[]) => any",
