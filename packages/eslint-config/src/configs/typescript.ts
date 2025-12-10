@@ -114,12 +114,13 @@ export const typescript = async ({
 			"ts/no-duplicate-enum-values": "error",
 			"ts/no-empty-function": "off",
 			"ts/no-empty-interface": "off",
-			"ts/no-empty-object-type": [
-				"error",
-				{
-					allowInterfaces: "always",
-				},
-			],
+			// "ts/no-empty-object-type": [
+			// 	"error",
+			// 	{
+			// 		allowInterfaces: "always",
+			// 	},
+			// ],
+			"ts/no-empty-object-type": "off",
 			"ts/no-explicit-any": "off",
 			"ts/no-extra-semi": "off",
 			"ts/no-invalid-this": "error",
