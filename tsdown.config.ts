@@ -1,7 +1,10 @@
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-	tsconfig: "../../tsconfig.json",
+	workspace: {
+		include: ["packages/*"],
+		exclude: ["packages/eslint-plugin-sort-imports"],
+	},
 	entry: ["src/index.ts"],
 	format: "esm",
 	clean: true,

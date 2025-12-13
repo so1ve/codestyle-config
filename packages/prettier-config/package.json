@@ -25,10 +25,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"scripts": {
-		"build": "tsdown",
-		"watch": "tsdown --watch"
-	},
 	"dependencies": {
 		"@so1ve/prettier-plugin-toml": "workspace:*",
 		"prettier-plugin-astro": "catalog:prettier",

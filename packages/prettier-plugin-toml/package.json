@@ -29,10 +29,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"scripts": {
-		"build": "tsdown",
-		"watch": "tsdown --watch"
-	},
 	"devDependencies": {
 		"prettier-plugin-toml": "catalog:prettier"
 	},

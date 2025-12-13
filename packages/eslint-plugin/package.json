@@ -33,9 +33,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsdown",
-		"test": "vitest",
-		"watch": "tsdown --watch"
+		"test": "vitest"
 	},
 	"dependencies": {
 		"@typescript-eslint/types": "catalog:eslint",

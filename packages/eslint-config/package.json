@@ -32,9 +32,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "nr typegen && tsdown",
-		"typegen": "tsx ./scripts/typegen.ts",
-		"watch": "tsdown --watch"
+		"typegen": "tsx ./scripts/typegen.ts"
 	},
 	"dependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "catalog:eslint",
