@@ -5,18 +5,10 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 24.x
-
-      - run: npx changelogithub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    uses: so1ve/workflows/.github/workflows/release.yml@v1
