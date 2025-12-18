@@ -19,7 +19,7 @@
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag",
-		"test": "nr -r --filter=./packages/* test",
+		"test": "vitest",
 		"typecheck": "tsgo --noEmit",
 		"typegen": "nr -r --filter=./packages/* typegen",
 		"watch": "nr -r --filter=./packages/* watch"
