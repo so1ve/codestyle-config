@@ -20,7 +20,9 @@
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag",
 		"test": "vitest",
-		"typecheck": "tsgo --noEmit",
+		"typecheck": "nr typecheck:isolated && nr typecheck:non-isolated",
+		"typecheck:isolated": "tsgo -p tsconfig.isolated.json",
+		"typecheck:non-isolated": "tsgo -p tsconfig.non-isolated.json",
 		"typegen": "nr -r --filter=./packages/* typegen",
 		"watch": "nr -r --filter=./packages/* watch"
 	},

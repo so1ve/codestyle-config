@@ -1,4 +1,5 @@
 import { TSESTree } from "@typescript-eslint/types";
+import type { ESLintUtils } from "@typescript-eslint/utils";
 
 import { createEslintRule } from "../utils";
 
@@ -11,7 +12,10 @@ type FunctionNode =
 	| TSESTree.FunctionDeclaration
 	| TSESTree.ArrowFunctionExpression;
 
-export default createEslintRule<Options, MessageIds>({
+const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
+	Options,
+	MessageIds
+>({
 	name: RULE_NAME,
 	meta: {
 		type: "problem",
@@ -81,3 +85,5 @@ export default createEslintRule<Options, MessageIds>({
 		};
 	},
 });
+
+export default rule;

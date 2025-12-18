@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-unnecessary-type-assertion */
 import functionStyle from "./rules/function-style";
 import importDedupe from "./rules/import-dedupe";
 import noImportPromisesAs from "./rules/no-import-promises-as";
@@ -12,15 +13,18 @@ import vueRootElementSortAttributes from "./rules/vue-root-element-sort-attribut
 export default {
 	// @keep-sorted
 	rules: {
-		"function-style": functionStyle,
-		"import-dedupe": importDedupe,
-		"no-import-promises-as": noImportPromisesAs,
-		"no-inline-type-import": noInlineTypeImport,
-		"no-negated-comparison": noNegatedComparison,
-		"no-useless-template-string": noUselessTemplateString,
-		"pad-after-last-import": padAfterLastImport,
-		"prefer-ts-expect-error": preferTsExpectError,
-		"require-async-with-await": requireAsyncWithAwait,
-		"vue-root-element-sort-attributes": vueRootElementSortAttributes,
+		"function-style": functionStyle as typeof functionStyle,
+		"import-dedupe": importDedupe as typeof importDedupe,
+		"no-import-promises-as": noImportPromisesAs as typeof noImportPromisesAs,
+		"no-inline-type-import": noInlineTypeImport as typeof noInlineTypeImport,
+		"no-negated-comparison": noNegatedComparison as typeof noNegatedComparison,
+		"no-useless-template-string":
+			noUselessTemplateString as typeof noUselessTemplateString,
+		"pad-after-last-import": padAfterLastImport as typeof padAfterLastImport,
+		"prefer-ts-expect-error": preferTsExpectError as typeof preferTsExpectError,
+		"require-async-with-await":
+			requireAsyncWithAwait as typeof requireAsyncWithAwait,
+		"vue-root-element-sort-attributes":
+			vueRootElementSortAttributes as typeof vueRootElementSortAttributes,
 	},
 };

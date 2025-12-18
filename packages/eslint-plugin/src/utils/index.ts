@@ -1,7 +1,8 @@
 import type { TSESTree } from "@typescript-eslint/utils";
 import { ESLintUtils } from "@typescript-eslint/utils";
 
-export const createEslintRule = ESLintUtils.RuleCreator((ruleName) => ruleName);
+export const createEslintRule: ReturnType<typeof ESLintUtils.RuleCreator> =
+	ESLintUtils.RuleCreator((ruleName) => ruleName);
 
 export function getPreviousNode(
 	node?: TSESTree.Node,

@@ -43,4 +43,4 @@ export default {
 	// jsdocPreferCodeFences: true,
 	// jsdocCommentLineStrategy: "multiline",
 	// tsdoc: true,
-} satisfies Config & Record<string, unknown>;
+} as Config & Record<string, unknown>;

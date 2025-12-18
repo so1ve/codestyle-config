@@ -23,7 +23,7 @@ import type { MaybePromise } from "./types";
 export const renameRules = (
 	rules: Record<string, any>,
 	map: Record<string, string>,
-) =>
+): Record<string, any> =>
 	Object.fromEntries(
 		Object.entries(rules).map(([key, value]) => {
 			for (const [from, to] of Object.entries(map)) {

@@ -1,4 +1,5 @@
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import type { ESLintUtils } from "@typescript-eslint/utils";
 
 import { createEslintRule } from "../utils";
 
@@ -19,7 +20,10 @@ const negatedToPositive = {
 type Negatives = keyof typeof negatedToPositive;
 const negatives = Object.keys(negatedToPositive) as Negatives[];
 
-export default createEslintRule<Options, MessageIds>({
+const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
+	Options,
+	MessageIds
+>({
 	name: RULE_NAME,
 	meta: {
 		type: "problem",
@@ -58,3 +62,5 @@ export default createEslintRule<Options, MessageIds>({
 		},
 	}),
 });
+
+export default rule;

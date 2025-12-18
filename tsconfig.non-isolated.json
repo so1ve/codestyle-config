@@ -1,0 +1,17 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"allowImportingTsExtensions": true
+	},
+	"include": [
+		"test",
+		"packages/*/test",
+		"packages/eslint-config/scripts",
+		"packages/eslint-plugin/src/rules/_test.ts",
+		"packages/*/src/**/*.test.ts",
+		"packages/*/src",
+		"packages/*/tsdown.config.ts",
+		"tsdown.config.ts",
+		"vite.config.ts"
+	]
+}

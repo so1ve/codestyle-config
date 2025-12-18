@@ -65,7 +65,7 @@ export const defaultPluginRenaming = {
 export function so1ve(
 	options: Options & TypedFlatConfigItem = {},
 	...userConfigs: MaybeArray<TypedFlatConfigItem>[]
-) {
+): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
 	const {
 		astro: enableAstro = isPackageExists("astro"),
 		componentExts = [],
@@ -238,7 +238,7 @@ export const resolveSubOptions = <K extends keyof Options>(
 export function getOverrides<K extends keyof Options>(
 	options: Options,
 	key: K,
-) {
+): TypedFlatConfigItem["rules"] {
 	const sub = resolveSubOptions(options, key);
 
 	return {

@@ -1,4 +1,5 @@
 import type { TSESTree } from "@typescript-eslint/types";
+import type { ESLintUtils } from "@typescript-eslint/utils";
 
 import { createEslintRule } from "../utils";
 
@@ -6,7 +7,10 @@ export const RULE_NAME = "no-useless-template-string";
 export type MessageIds = "noUselessTemplateString";
 export type Options = [];
 
-export default createEslintRule<Options, MessageIds>({
+const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
+	Options,
+	MessageIds
+>({
 	name: RULE_NAME,
 	meta: {
 		type: "problem",
@@ -44,3 +48,5 @@ export default createEslintRule<Options, MessageIds>({
 		},
 	}),
 });
+
+export default rule;

@@ -8,6 +8,8 @@ export default defineConfig({
 	entry: ["src/index.ts"],
 	format: "esm",
 	clean: true,
-	dts: true,
+	dts: {
+		oxc: true,
+	},
 	fixedExtension: false,
 });

@@ -11,3 +11,8 @@ exports[`no-inline-type-import > invalid > Invalid #2: import D, { type a, b } f
 "import type { a } from "foo";
 import D, { b } from "foo";"
 `;
+
+exports[`no-inline-type-import > invalid > Invalid #3: import { D, type a as b } from "foo"; 1`] = `
+"import type { b } from "foo";
+import { D } from "foo";"
+`;

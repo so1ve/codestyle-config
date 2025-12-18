@@ -1,3 +1,4 @@
+import type { ESLintUtils } from "@typescript-eslint/utils";
 import type { AST as VueAST } from "vue-eslint-parser";
 
 import { createEslintRule } from "../utils";
@@ -15,7 +16,10 @@ const defaultOptions = {
 	script: ["setup", "lang"],
 };
 
-export default createEslintRule<Options, MessageIds>({
+const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule<
+	Options,
+	MessageIds
+>({
 	name: RULE_NAME,
 	meta: {
 		type: "layout",
@@ -116,3 +120,5 @@ export default createEslintRule<Options, MessageIds>({
 		};
 	},
 });
+
+export default rule;

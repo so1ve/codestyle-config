@@ -1,5 +1,5 @@
 // Credits: https://github.com/typescript-eslint/typescript-eslint/blob/3f5fbf698e75ddd87874885ffbf937913761cdb0/packages/eslint-plugin/src/rules/prefer-ts-expect-error.ts
-import type { TSESTree } from "@typescript-eslint/utils";
+import type { ESLintUtils, TSESTree } from "@typescript-eslint/utils";
 import { AST_TOKEN_TYPES } from "@typescript-eslint/utils";
 import type { RuleFix, RuleFixer } from "@typescript-eslint/utils/ts-eslint";
 
@@ -9,7 +9,10 @@ export const RULE_NAME = "prefer-ts-expect-error";
 export type MessageIds = "preferExpectErrorComment";
 export type Options = [];
 
-export default createEslintRule<[], MessageIds>({
+const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
+	[],
+	MessageIds
+>({
 	name: "prefer-ts-expect-error",
 	meta: {
 		type: "problem",
@@ -84,3 +87,5 @@ export default createEslintRule<[], MessageIds>({
 		};
 	},
 });
+
+export default rule;

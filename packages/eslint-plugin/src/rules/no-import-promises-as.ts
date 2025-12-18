@@ -1,3 +1,5 @@
+import type { ESLintUtils } from "@typescript-eslint/utils";
+
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "no-import-promises-as";
@@ -8,7 +10,10 @@ const POSSIBLE_IMPORT_SOURCES = ["dns", "fs", "readline", "stream"].flatMap(
 	(s) => [s, `node:${s}`],
 );
 
-export default createEslintRule<Options, MessageIds>({
+const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
+	Options,
+	MessageIds
+>({
 	name: RULE_NAME,
 	meta: {
 		type: "problem",
@@ -63,3 +68,5 @@ export default createEslintRule<Options, MessageIds>({
 		};
 	},
 });
+
+export default rule;

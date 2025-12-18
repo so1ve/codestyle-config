@@ -80,3 +80,5 @@ dist
 *.lerna_backup
 
 packages/eslint-config/src/typegen.d.ts
+
+*.tsbuildinfo
