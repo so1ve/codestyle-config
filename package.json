@@ -15,7 +15,7 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "nr typegen && tsdown",
+		"build": "tsdown --workspace.include packages/eslint-plugin && nr typegen && tsdown",
 		"lint": "eslint . && prettier . --check",
 		"lint:fix": "eslint . --fix && prettier . --write",
 		"release": "bumpp packages/*/package.json --commit --push --tag",
