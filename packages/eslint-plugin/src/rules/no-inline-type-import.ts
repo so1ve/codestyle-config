@@ -45,10 +45,30 @@ const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 						messageId: "noInlineTypeImport",
 						fix(fixer) {
 							const typeSpecifiersText = typeSpecifiers
-								.map((s) => s.local.name)
+								.map((s) => {
+									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
+										const importedName = s.imported.type === AST_NODE_TYPES.Identifier ? s.imported.name : s.imported.value;
+
+										return importedName === s.local.name
+											? s.local.name
+											: `${importedName} as ${s.local.name}`;
+									}
+
+									return s.local.name;
+								})
 								.join(", ");
 							const valueSpecifiersText = valueSpecifiers
-								.map((s) => s.local.name)
+								.map((s) => {
+									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
+										const importedName = s.imported.type === AST_NODE_TYPES.Identifier ? s.imported.name : s.imported.value;
+
+										return importedName === s.local.name
+											? s.local.name
+											: `${importedName} as ${s.local.name}`;
+									}
+
+									return s.local.name;
+								})
 								.join(", ");
 							const defaultImportSpecifierText =
 								defaultImportSpecifier?.local.name;
@@ -69,7 +89,17 @@ const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 						messageId: "noInlineTypeImport",
 						fix(fixer) {
 							const typeSpecifiersText = typeSpecifiers
-								.map((s) => s.local.name)
+								.map((s) => {
+									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
+										const importedName = s.imported.type === AST_NODE_TYPES.Identifier ? s.imported.name : s.imported.value;
+
+										return importedName === s.local.name
+											? s.local.name
+											: `${importedName} as ${s.local.name}`;
+									}
+
+									return s.local.name;
+								})
 								.join(", ");
 
 							return fixer.replaceText(

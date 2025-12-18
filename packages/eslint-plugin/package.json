@@ -32,9 +32,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"scripts": {
-		"test": "vitest"
-	},
 	"dependencies": {
 		"@typescript-eslint/types": "catalog:eslint",
 		"@typescript-eslint/utils": "catalog:eslint"

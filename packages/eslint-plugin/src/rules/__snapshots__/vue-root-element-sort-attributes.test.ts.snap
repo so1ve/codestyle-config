@@ -16,22 +16,4 @@ exports[`vue-root-element-sort-attributes > invalid > Invalid #4: <script lang="
 
 exports[`vue-root-element-sort-attributes > invalid > Invalid #5: <custom-element attr-c attr-a attr-b></custom-element> 1`] = `"<custom-element attr-a attr-b attr-c></custom-element>"`;
 
-exports[`vue-root-element-sort-attributes > invalid > Invalid #5: <template class="container" id="app" data-test="root"></template>
-<script lang="ts" src="./external.ts" setup></script>
-<style module lang="scss" scoped></style> 1`] = `
-"<template id="app" class="container" data-test="root"></template>
-<script setup src="./external.ts" lang="ts"></script>
-<style scoped module lang="scss"></style>"
-`;
-
 exports[`vue-root-element-sort-attributes > invalid > Invalid #6: <script other-attr lang="ts" setup custom-attr></script> 1`] = `"<script other-attr setup lang="ts" custom-attr></script>"`;
-
-exports[`vue-root-element-sort-attributes > invalid > Invalid #6: <template class="container" v-if="show" id="app" v-for="item in items"></template> 1`] = `"<template id="app" v-if="show" class="container" v-for="item in items"></template>"`;
-
-exports[`vue-root-element-sort-attributes > invalid > Invalid #7: <style media="print" scoped lang="css"></style> 1`] = `"<style scoped lang="css" media="print"></style>"`;
-
-exports[`vue-root-element-sort-attributes > invalid > Invalid #8: <script type="module" lang="js" setup></script> 1`] = `"<script setup lang="js" type="module"></script>"`;
-
-exports[`vue-root-element-sort-attributes > invalid > Invalid #9: <custom-element attr-c attr-a attr-b></custom-element> 1`] = `"<custom-element attr-a attr-b attr-c></custom-element>"`;
-
-exports[`vue-root-element-sort-attributes > invalid > Invalid #10: <script other-attr lang="ts" setup custom-attr></script> 1`] = `"<script other-attr setup lang="ts" custom-attr></script>"`;
