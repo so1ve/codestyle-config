@@ -227,19 +227,24 @@ export function so1ve(
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
-export const resolveSubOptions = <K extends keyof Options>(
-	options: Options & TypedFlatConfigItem,
-	key: K,
-): ResolvedOptions<Options[K]> =>
-	typeof options[key] === "boolean"
-		? ({} as any)
-		: ((options[key] as any) ?? {});
+// TODO: re-enable this function after tsgo fixed
+// The inferred type of 'resolveSubOptions' cannot be named without a reference to '.pnpm/@eslint+core@0.17.0/node_modules/@eslint/core'
+// export const resolveSubOptions = <K extends keyof Options>(
+// 	options: Options & TypedFlatConfigItem,
+// 	key: K,
+// ): ResolvedOptions<Options[K]> =>
+// 	typeof options[key] === "boolean"
+// 		? ({} as any)
+// 		: ((options[key] as any) ?? {});
 
 export function getOverrides<K extends keyof Options>(
 	options: Options,
 	key: K,
 ): TypedFlatConfigItem["rules"] {
-	const sub = resolveSubOptions(options, key);
+	const sub =
+		typeof options[key] === "boolean"
+			? ({} as any)
+			: ((options[key] as any) ?? {});
 
 	return {
 		...(options.overrides as any)?.[key],
