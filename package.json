@@ -23,7 +23,7 @@
 		"typecheck": "nr typecheck:isolated && nr typecheck:non-isolated",
 		"typecheck:isolated": "tsgo -p tsconfig.isolated.json",
 		"typecheck:non-isolated": "tsgo -p tsconfig.non-isolated.json",
-		"typegen": "nr -r --filter=./packages/* typegen",
+		"typegen": "nr -r --filter=./packages/eslint-config typegen",
 		"watch": "nr -r --filter=./packages/* watch"
 	},
 	"devDependencies": {
