@@ -47,7 +47,10 @@ const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 							const typeSpecifiersText = typeSpecifiers
 								.map((s) => {
 									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
-										const importedName = s.imported.type === AST_NODE_TYPES.Identifier ? s.imported.name : s.imported.value;
+										const importedName =
+											s.imported.type === AST_NODE_TYPES.Identifier
+												? s.imported.name
+												: s.imported.value;
 
 										return importedName === s.local.name
 											? s.local.name
@@ -60,7 +63,10 @@ const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 							const valueSpecifiersText = valueSpecifiers
 								.map((s) => {
 									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
-										const importedName = s.imported.type === AST_NODE_TYPES.Identifier ? s.imported.name : s.imported.value;
+										const importedName =
+											s.imported.type === AST_NODE_TYPES.Identifier
+												? s.imported.name
+												: s.imported.value;
 
 										return importedName === s.local.name
 											? s.local.name
@@ -91,7 +97,10 @@ const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 							const typeSpecifiersText = typeSpecifiers
 								.map((s) => {
 									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
-										const importedName = s.imported.type === AST_NODE_TYPES.Identifier ? s.imported.name : s.imported.value;
+										const importedName =
+											s.imported.type === AST_NODE_TYPES.Identifier
+												? s.imported.name
+												: s.imported.value;
 
 										return importedName === s.local.name
 											? s.local.name
