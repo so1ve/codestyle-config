@@ -26,7 +26,6 @@ export const unicorn = (): TypedFlatConfigItem[] => [
 			"unicorn/no-await-expression-member": "error",
 			"unicorn/no-await-in-promise-methods": "error",
 			"unicorn/no-for-loop": "error",
-			"unicorn/no-immediate-mutation": "error",
 			"unicorn/no-instanceof-builtins": "error",
 			"unicorn/no-lonely-if": "error",
 			"unicorn/no-negated-condition": "error",
