@@ -7,12 +7,17 @@ exports[`no-inline-type-import > invalid > Invalid #1: import { type a, b } from
 import { b } from "foo";"
 `;
 
-exports[`no-inline-type-import > invalid > Invalid #2: import D, { type a, b } from "foo"; 1`] = `
+exports[`no-inline-type-import > invalid > Invalid #2: import D, { type a } from "foo"; 1`] = `
+"import type { a } from "foo";
+import D from "foo";"
+`;
+
+exports[`no-inline-type-import > invalid > Invalid #3: import D, { type a, b } from "foo"; 1`] = `
 "import type { a } from "foo";
 import D, { b } from "foo";"
 `;
 
-exports[`no-inline-type-import > invalid > Invalid #3: import { D, type a as b } from "foo"; 1`] = `
+exports[`no-inline-type-import > invalid > Invalid #4: import { D, type a as b } from "foo"; 1`] = `
 "import type { a as b } from "foo";
 import { D } from "foo";"
 `;

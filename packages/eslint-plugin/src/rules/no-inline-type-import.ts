@@ -1,11 +1,61 @@
 import { AST_NODE_TYPES } from "@typescript-eslint/types";
-import type { ESLintUtils } from "@typescript-eslint/utils";
+import type { ESLintUtils, TSESTree } from "@typescript-eslint/utils";
 
 import { createEslintRule } from "../utils";
 
 export const RULE_NAME = "no-inline-type-import";
 export type MessageIds = "noInlineTypeImport";
 export type Options = [];
+
+function generateImportsText(specifiers: TSESTree.ImportSpecifier[]) {
+	let text = "{ ";
+	const texts = [];
+	for (const s of specifiers) {
+		const importedName =
+			s.imported.type === AST_NODE_TYPES.Identifier
+				? s.imported.name
+				: s.imported.raw;
+
+		texts.push(
+			importedName === s.local.name
+				? s.local.name
+				: `${importedName} as ${s.local.name}`,
+		);
+	}
+	text += texts.join(", ");
+	text += " }";
+
+	return text;
+}
+
+function generateTypeImportText(typeSpecifiers: TSESTree.ImportSpecifier[]) {
+	let text = "type ";
+
+	text += generateImportsText(typeSpecifiers);
+
+	return text;
+}
+
+function generateValueImportText(
+	defaultImportSpecifier: TSESTree.ImportDefaultSpecifier | undefined,
+	valueSpecifiers: TSESTree.ImportSpecifier[],
+) {
+	const hasValueImport = valueSpecifiers.length > 0;
+	let text = "";
+
+	if (defaultImportSpecifier) {
+		text += defaultImportSpecifier.local.name;
+		if (hasValueImport) {
+			text += ", ";
+		}
+	}
+
+	if (hasValueImport) {
+		text += generateImportsText(valueSpecifiers);
+	}
+
+	return text;
+}
 
 const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 	Options,
@@ -30,95 +80,43 @@ const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
 			const typeSpecifiers = specifiers.filter(
 				(s) =>
 					s.type === AST_NODE_TYPES.ImportSpecifier && s.importKind === "type",
-			);
+			) as TSESTree.ImportSpecifier[];
 			const valueSpecifiers = specifiers.filter(
 				(s) =>
 					s.type === AST_NODE_TYPES.ImportSpecifier && s.importKind === "value",
-			);
+			) as TSESTree.ImportSpecifier[];
 			const defaultImportSpecifier = specifiers.find(
 				(s) => s.type === AST_NODE_TYPES.ImportDefaultSpecifier,
 			);
-			if (typeSpecifiers.length > 0) {
-				if (valueSpecifiers.length > 0) {
-					context.report({
-						node,
-						messageId: "noInlineTypeImport",
-						fix(fixer) {
-							const typeSpecifiersText = typeSpecifiers
-								.map((s) => {
-									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
-										const importedName =
-											s.imported.type === AST_NODE_TYPES.Identifier
-												? s.imported.name
-												: s.imported.value;
+			const hasDefaultImport = !!defaultImportSpecifier;
+			const hasTypeImport = typeSpecifiers.length > 0;
+			const hasValueImport = valueSpecifiers.length > 0;
 
-										return importedName === s.local.name
-											? s.local.name
-											: `${importedName} as ${s.local.name}`;
-									}
-
-									return s.local.name;
-								})
-								.join(", ");
-							const valueSpecifiersText = valueSpecifiers
-								.map((s) => {
-									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
-										const importedName =
-											s.imported.type === AST_NODE_TYPES.Identifier
-												? s.imported.name
-												: s.imported.value;
-
-										return importedName === s.local.name
-											? s.local.name
-											: `${importedName} as ${s.local.name}`;
-									}
-
-									return s.local.name;
-								})
-								.join(", ");
-							const defaultImportSpecifierText =
-								defaultImportSpecifier?.local.name;
-							const defaultAndValueSpecifiersText = defaultImportSpecifier
-								? `import ${defaultImportSpecifierText}, { ${valueSpecifiersText} } from "${node.source.value}";`
-								: `import { ${valueSpecifiersText} } from "${node.source.value}";`;
-							const texts = [
-								`import type { ${typeSpecifiersText} } from "${node.source.value}";`,
-								defaultAndValueSpecifiersText,
-							];
-
-							return fixer.replaceText(node, texts.join("\n"));
-						},
-					});
-				} else {
-					context.report({
-						node,
-						messageId: "noInlineTypeImport",
-						fix(fixer) {
-							const typeSpecifiersText = typeSpecifiers
-								.map((s) => {
-									if (s.type === AST_NODE_TYPES.ImportSpecifier) {
-										const importedName =
-											s.imported.type === AST_NODE_TYPES.Identifier
-												? s.imported.name
-												: s.imported.value;
-
-										return importedName === s.local.name
-											? s.local.name
-											: `${importedName} as ${s.local.name}`;
-									}
-
-									return s.local.name;
-								})
-								.join(", ");
-
-							return fixer.replaceText(
-								node,
-								`import type { ${typeSpecifiersText} } from "${node.source.value}";`,
-							);
-						},
-					});
-				}
+			if (!hasTypeImport) {
+				return;
 			}
+
+			const texts: string[] = [];
+
+			texts.push(generateTypeImportText(typeSpecifiers));
+
+			if (hasDefaultImport || hasValueImport) {
+				texts.push(
+					generateValueImportText(defaultImportSpecifier, valueSpecifiers),
+				);
+			}
+
+			const textToReport = texts
+				.map((text) => `import ${text} from "${node.source.value}";`)
+				.join("\n");
+
+			context.report({
+				node,
+				messageId: "noInlineTypeImport",
+				fix(fixer) {
+					return fixer.replaceText(node, textToReport);
+				},
+			});
 		},
 	}),
 });
