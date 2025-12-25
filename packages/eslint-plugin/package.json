@@ -37,6 +37,7 @@
 		"@typescript-eslint/utils": "catalog:eslint"
 	},
 	"devDependencies": {
+		"@html-eslint/parser": "catalog:eslint",
 		"vue-eslint-parser": "catalog:eslint"
 	}
 }

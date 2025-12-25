@@ -1,5 +1,6 @@
 /* eslint-disable ts/no-unnecessary-type-assertion */
 import functionStyle from "./rules/function-style";
+import htmlSpacedComment from "./rules/html-spaced-comment";
 import importDedupe from "./rules/import-dedupe";
 import noImportPromisesAs from "./rules/no-import-promises-as";
 import noInlineTypeImport from "./rules/no-inline-type-import";
@@ -14,6 +15,7 @@ export default {
 	// @keep-sorted
 	rules: {
 		"function-style": functionStyle as typeof functionStyle,
+		"html-spaced-comment": htmlSpacedComment as typeof htmlSpacedComment,
 		"import-dedupe": importDedupe as typeof importDedupe,
 		"no-import-promises-as": noImportPromisesAs as typeof noImportPromisesAs,
 		"no-inline-type-import": noInlineTypeImport as typeof noInlineTypeImport,

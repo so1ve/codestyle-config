@@ -34,12 +34,14 @@ export async function html(): Promise<TypedFlatConfigItem[]> {
 				...renameRules((pluginHtml.configs!.recommended as any).rules, {
 					"@html-eslint": "html",
 				}),
+				"@so1ve/html-spaced-comment": "error",
 				"html/attrs-newline": "off",
 				"html/indent": "off",
 				"html/no-extra-spacing-attrs": "off",
 				"html/no-trailing-spaces": "off",
 				"html/quotes": "off",
 				"html/require-closing-tags": "off",
+				"style/spaced-comment": "off",
 			},
 		},
 	];
