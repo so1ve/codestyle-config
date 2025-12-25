@@ -9,10 +9,8 @@ export const RULE_NAME = "prefer-ts-expect-error";
 export type MessageIds = "preferExpectErrorComment";
 export type Options = [];
 
-const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
-	[],
-	MessageIds
->({
+// eslint-disable-next-line ts/no-unnecessary-type-arguments
+const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 	name: "prefer-ts-expect-error",
 	meta: {
 		type: "problem",

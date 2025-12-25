@@ -16,10 +16,7 @@ const defaultOptions = {
 	script: ["setup", "lang"],
 };
 
-const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule<
-	Options,
-	MessageIds
->({
+const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 	name: RULE_NAME,
 	meta: {
 		type: "layout",

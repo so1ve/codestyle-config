@@ -22,10 +22,8 @@ interface FunctionInfo {
 	body: string;
 }
 
-const rule: ESLintUtils.RuleModule<MessageIds> = createEslintRule<
-	Options,
-	MessageIds
->({
+// eslint-disable-next-line ts/no-unnecessary-type-arguments
+const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 	name: RULE_NAME,
 	meta: {
 		type: "problem",
