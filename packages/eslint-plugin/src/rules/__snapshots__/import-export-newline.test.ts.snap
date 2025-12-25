@@ -16,13 +16,6 @@ const b = 1; 1`] = `
 const b = 1;"
 `;
 
-exports[`import-export-newline > invalid > Invalid #5: const a = 1;
-export const b = 1; 1`] = `
-"const a = 1;
-
-export const b = 1;"
-`;
-
 exports[`import-export-newline > invalid > Invalid #5: export * from 'a';
 // a
 export const c = 3;
@@ -41,39 +34,4 @@ const d = 4;
 
 export default 1;
 "
-`;
-
-exports[`import-export-newline > invalid > Invalid #6: const a = 1;
-export default a; 1`] = `
-"const a = 1;
-
-export default a;"
-`;
-
-exports[`import-export-newline > invalid > Invalid #7: const a = 1;
-export * from 'a'; 1`] = `
-"const a = 1;
-
-export * from 'a';"
-`;
-
-exports[`import-export-newline > invalid > Invalid #8: const a = 1;
-export * from 'a';
-const b = 2;
-export const c = 3; 1`] = `
-"const a = 1;
-
-export * from 'a';
-
-const b = 2;
-
-export const c = 3;"
-`;
-
-exports[`import-export-newline > invalid > Invalid #9: export * from 'a';
-// a
-export const c = 3; 1`] = `
-"export * from 'a';
-// a
-export const c = 3;"
 `;
