@@ -4,8 +4,9 @@ import { ESLintUtils } from "@typescript-eslint/utils";
 export const createEslintRule: ReturnType<typeof ESLintUtils.RuleCreator> =
 	ESLintUtils.RuleCreator((ruleName) => ruleName);
 
-export function getPreviousNode(
-	node?: TSESTree.Node,
+function getSiblingNode(
+	node: TSESTree.Node | undefined,
+	offset: number,
 ): TSESTree.Node | undefined {
 	if (!node) {
 		return;
@@ -18,8 +19,16 @@ export function getPreviousNode(
 		}
 		// @ts-expect-error
 		const index = body.indexOf(node);
-		if (index > 0) {
-			return body[index - 1];
+		const targetIndex = index + offset;
+		if (targetIndex >= 0 && targetIndex < body.length) {
+			return body[targetIndex];
 		}
 	}
 }
+
+export const getPreviousNode = (
+	node?: TSESTree.Node,
+): TSESTree.Node | undefined => getSiblingNode(node, -1);
+
+export const getNextNode = (node?: TSESTree.Node): TSESTree.Node | undefined =>
+	getSiblingNode(node, 1);

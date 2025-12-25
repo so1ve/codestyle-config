@@ -1,7 +1,7 @@
 import type { TSESTree } from "@typescript-eslint/types";
 import type { ESLintUtils } from "@typescript-eslint/utils";
 
-import { createEslintRule } from "../utils";
+import { createEslintRule, getNextNode, getPreviousNode } from "../utils";
 
 export const RULE_NAME = "import-export-newline";
 export type MessageIds =
@@ -14,29 +14,6 @@ const isExportDeclaration = (node: TSESTree.Node) =>
 	node.type === "ExportNamedDeclaration" ||
 	node.type === "ExportDefaultDeclaration" ||
 	node.type === "ExportAllDeclaration";
-
-function getSiblingNode(
-	node: TSESTree.Node,
-	direction: "prev" | "next",
-): TSESTree.Node | null {
-	const parent = node.parent;
-	if (!parent || !("body" in parent) || !Array.isArray(parent.body)) {
-		return null;
-	}
-	const body = parent.body as TSESTree.Statement[];
-	const index = body.indexOf(node as TSESTree.Statement);
-	if (index === -1) {
-		return null;
-	}
-
-	return direction === "prev"
-		? index > 0
-			? body[index - 1]
-			: null
-		: index < body.length - 1
-			? body[index + 1]
-			: null;
-}
 
 // eslint-disable-next-line ts/no-unnecessary-type-arguments
 const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
@@ -111,7 +88,7 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 				}
 
 				for (const node of exportNodes) {
-					const prevNode = getSiblingNode(node, "prev");
+					const prevNode = getPreviousNode(node);
 					if (
 						// If previous node is not an export
 						(!prevNode || !isExportDeclaration(prevNode)) &&
@@ -126,7 +103,7 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 						});
 					}
 
-					const nextNode = getSiblingNode(node, "next");
+					const nextNode = getNextNode(node);
 					if (
 						nextNode &&
 						!isExportDeclaration(nextNode) &&
