@@ -24,14 +24,11 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 	defaultOptions: [],
 	create: (context) => ({
 		Comment(node: any) {
-			if (node.type !== "Comment" || node.value?.type !== "CommentContent") {
+			if (node.value?.type !== "CommentContent") {
 				return;
 			}
 
-			const rawValue = node.value.value;
-			if (typeof rawValue !== "string") {
-				return;
-			}
+			const rawValue: string = node.value.value;
 
 			if (rawValue.trim().length === 0) {
 				return;
