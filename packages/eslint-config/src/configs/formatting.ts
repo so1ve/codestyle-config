@@ -23,10 +23,10 @@ export async function formatting(
 				rules: {
 					"curly": ["error", "all"],
 					"so1ve/function-style": "error",
+					"so1ve/import-export-newline": "error",
 					"so1ve/no-import-promises-as": "error",
 					"so1ve/no-negated-comparison": "error",
 					"so1ve/no-useless-template-string": "error",
-					"so1ve/pad-after-last-import": "error",
 					"style/lines-between-class-members": [
 						"error",
 						"always",
