@@ -10,7 +10,6 @@ import {
 	pluginUnusedImports,
 } from "../plugins";
 import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
-import { interopDefault } from "../utils";
 
 export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 	TypedFlatConfigItem[]
@@ -24,7 +23,7 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
 			plugins: {
 				"array-func": pluginArrayFunc,
 				"no-await-in-promise": pluginNoAwaitInPromise,
-				"so1ve": await interopDefault(pluginSo1ve),
+				"so1ve": pluginSo1ve,
 				"sort-imports": pluginSortImports,
 				"unused-imports": pluginUnusedImports,
 			},
