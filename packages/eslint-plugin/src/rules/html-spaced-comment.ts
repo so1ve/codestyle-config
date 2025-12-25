@@ -34,7 +34,7 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 				return;
 			}
 
-			if (!rawValue.startsWith(" ")) {
+			if (!rawValue.startsWith(" ") && !rawValue.startsWith("\n")) {
 				context.report({
 					node: node.value,
 					messageId: "expectedSpaceBefore",
@@ -44,7 +44,7 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 				});
 			}
 
-			if (!rawValue.endsWith(" ")) {
+			if (!rawValue.endsWith(" ") && !rawValue.endsWith("\n")) {
 				context.report({
 					node: node.value,
 					messageId: "expectedSpaceAfter",

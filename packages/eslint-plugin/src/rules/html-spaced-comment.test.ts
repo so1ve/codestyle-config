@@ -3,7 +3,14 @@ import parser from "@html-eslint/parser";
 import { run } from "./_test";
 import rule, { RULE_NAME } from "./html-spaced-comment";
 
-const valid = ["<!-- a -->", "<!-- a b -->", "<!-- -->", "<!---->"];
+const valid = [
+	"<!-- a -->",
+	"<!-- a b -->",
+	"<!-- -->",
+	"<!---->",
+	`<!--
+	-->`,
+];
 
 const invalid = [
 	{
