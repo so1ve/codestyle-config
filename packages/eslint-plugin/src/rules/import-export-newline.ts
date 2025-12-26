@@ -117,7 +117,7 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 						// If previous node is not an export
 						(!prevNode || !isExportDeclaration(prevNode)) &&
 						// And not the last import (handled above)
-						!(lastImportNode && prevNode === lastImportNode)
+						(!lastImportNode || prevNode !== lastImportNode)
 					) {
 						const beforeFixNode = checkNewline(node, "before");
 						if (beforeFixNode) {

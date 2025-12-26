@@ -381,10 +381,8 @@ function printSortedItems(sortedItems, originalItems, sourceCode) {
 				includeComments: true,
 				filter: (token) =>
 					!isLineComment(token) &&
-					!(
-						isBlockComment(token) &&
-						token.loc.end.line === lastOriginalItem.node.loc.end.line
-					),
+					(!isBlockComment(token) ||
+						token.loc.end.line !== lastOriginalItem.node.loc.end.line),
 			})
 		: undefined;
 	const maybeNewline =
@@ -576,10 +574,8 @@ function printWithSortedSpecifiers(node, sourceCode, getSpecifiers) {
 		const maybeNewline =
 			previous != null &&
 			needsStartingNewline(item.before) &&
-			!(
-				previous.after.length > 0 &&
-				isNewline(previous.after[previous.after.length - 1])
-			)
+			(previous.after.length <= 0 ||
+				!isNewline(previous.after[previous.after.length - 1]))
 				? [{ type: "Newline", code: newline }]
 				: [];
 
