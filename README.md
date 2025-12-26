@@ -117,6 +117,7 @@ export default so1ve(
 	},
 	{
 		// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+		// also supports function to modify the default ignores
 		ignores: [
 			"./fixtures",
 			// ...globs

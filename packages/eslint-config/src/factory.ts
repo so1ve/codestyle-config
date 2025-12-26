@@ -70,6 +70,7 @@ export function so1ve(
 		astro: enableAstro = isPackageExists("astro"),
 		componentExts = [],
 		gitignore: enableGitignore = true,
+		ignores: userIgnores = [],
 		pnpm: enableCatalogs = false,
 		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
@@ -98,7 +99,7 @@ export function so1ve(
 
 	// Base configs
 	configs.push(
-		ignores(),
+		ignores(userIgnores),
 		javascript({
 			overrides: getOverrides(options, "javascript"),
 		}),
