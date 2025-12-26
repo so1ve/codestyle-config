@@ -24,7 +24,7 @@
 		"typecheck:isolated": "tsgo -p tsconfig.isolated.json",
 		"typecheck:non-isolated": "tsgo -p tsconfig.non-isolated.json",
 		"typegen": "nr -r --filter=./packages/eslint-config typegen",
-		"watch": "nr -r --filter=./packages/* watch"
+		"watch": "tsdown --watch"
 	},
 	"devDependencies": {
 		"@antfu/ni": "catalog:build",

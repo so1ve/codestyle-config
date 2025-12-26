@@ -90,6 +90,16 @@ export const b = 2;`,
 		parser: vueParser,
 		errors: [{ messageId: "newlineAfterLastImport" }],
 	},
+	{
+		code: "export const a = 1;expression;",
+		output: "export const a = 1;\n\nexpression;",
+		errors: [{ messageId: "newlineAfterExport" }],
+	},
+	{
+		code: `import foo from 'a';expression;`,
+		output: `import foo from 'a';\n\nexpression;`,
+		errors: [{ messageId: "newlineAfterLastImport" }],
+	},
 ];
 
 run({

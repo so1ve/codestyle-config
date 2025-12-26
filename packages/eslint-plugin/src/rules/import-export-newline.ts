@@ -65,7 +65,9 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 
 				if (
 					token &&
-					(expectedLine === tokenLine || expectedLine === commentLine) &&
+					(expectedLine === tokenLine ||
+						expectedLine === commentLine ||
+						tokenLine === endNode.loc.end.line) &&
 					token.value !== "}" &&
 					token.value !== "</script>"
 				) {
