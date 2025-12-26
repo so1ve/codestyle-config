@@ -100,24 +100,48 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 			ExportDefaultDeclaration: checkExport,
 			ExportAllDeclaration: checkExport,
 			"Program:exit"() {
-				const lastImportFixNode = lastImportNode
-					? checkNewline(lastImportNode, "after")
-					: null;
-				if (lastImportNode && lastImportFixNode) {
-					context.report({
-						node: lastImportNode,
-						messageId: "newlineAfterLastImport",
-						fix: (fixer) => fixer.insertTextAfter(lastImportFixNode, "\n"),
-					});
+				// Check if last import needs a blank line after it
+				if (lastImportNode) {
+					const parent = lastImportNode.parent;
+					const nextNode = getNextNode(lastImportNode);
+
+					// Check if there's a next node and it's not the first statement in a block
+					const isLastInBlock =
+						parent &&
+						"body" in parent &&
+						Array.isArray(parent.body) &&
+						parent.body[parent.body.length - 1] === lastImportNode;
+
+					if (nextNode && !isLastInBlock) {
+						const lastImportFixNode = checkNewline(lastImportNode, "after");
+						if (lastImportFixNode) {
+							context.report({
+								node: lastImportNode,
+								messageId: "newlineAfterLastImport",
+								fix: (fixer) => fixer.insertTextAfter(lastImportFixNode, "\n"),
+							});
+						}
+					}
 				}
 
 				for (const node of exportNodes) {
 					const prevNode = getPreviousNode(node);
+					const parent = node.parent;
+
+					// Check if this is the first statement in a block (like declare module, namespace)
+					const isFirstInBlock =
+						parent &&
+						"body" in parent &&
+						Array.isArray(parent.body) &&
+						parent.body[0] === node;
+
 					if (
 						// If previous node is not an export
 						(!prevNode || !isExportDeclaration(prevNode)) &&
 						// And not the last import (handled above)
-						(!lastImportNode || prevNode !== lastImportNode)
+						(!lastImportNode || prevNode !== lastImportNode) &&
+						// And not the first statement in a block
+						!isFirstInBlock
 					) {
 						const beforeFixNode = checkNewline(node, "before");
 						if (beforeFixNode) {

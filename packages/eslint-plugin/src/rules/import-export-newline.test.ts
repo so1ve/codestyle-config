@@ -23,6 +23,18 @@ const a = 1;
  */
 export const b = 1;
 `,
+	`declare module "foo" {
+	export interface Foo {}
+}`,
+	`namespace Bar {
+	export const a = 1;
+}`,
+	`declare module "foo" {
+	/**
+	 * JSDoc
+	 */
+	export interface Foo {}
+}`,
 	{
 		code: `<script>import a from "foo";</script>`,
 		filename: "test.vue",
