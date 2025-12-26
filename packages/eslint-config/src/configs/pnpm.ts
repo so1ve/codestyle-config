@@ -49,5 +49,93 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
 				"pnpm/yaml-no-unused-catalog-item": "error",
 			},
 		},
+		{
+			files: ["pnpm-workspace.yaml"],
+			name: "so1ve/yaml/pnpm-workspace-yaml-sort",
+			rules: {
+				"yaml/sort-keys": [
+					"error",
+					{
+						order: [
+							// @keep-sorted
+							// eslint-disable-next-line unicorn/no-useless-spread
+							...[
+								"cacheDir",
+								"catalogMode",
+								"cleanupUnusedCatalogs",
+								"dedupeDirectDeps",
+								"deployAllFiles",
+								"enablePrePostScripts",
+								"engineStrict",
+								"extendNodePath",
+								"hoist",
+								"hoistPattern",
+								"hoistWorkspacePackages",
+								"ignoreCompatibilityDb",
+								"ignoreDepScripts",
+								"ignoreScripts",
+								"ignoreWorkspaceRootCheck",
+								"managePackageManagerVersions",
+								"minimumReleaseAge",
+								"minimumReleaseAgeExclude",
+								"modulesDir",
+								"nodeLinker",
+								"nodeVersion",
+								"optimisticRepeatInstall",
+								"packageManagerStrict",
+								"packageManagerStrictVersion",
+								"preferSymlinkedExecutables",
+								"preferWorkspacePackages",
+								"publicHoistPattern",
+								"registrySupportsTimeField",
+								"requiredScrpts",
+								"resolutionMode",
+								"savePrefix",
+								"scriptShell",
+								"shamefullyHoist",
+								"shellEmulator",
+								"stateDir",
+								"supportedArchitectures",
+								"symlink",
+								"tag",
+								"trustPolicy",
+								"trustPolicyExclude",
+								"updateNotifier",
+							],
+
+							// Packages and dependencies
+							"packages",
+							"overrides",
+							"patchedDependencies",
+
+							// Other
+							// @keep-sorted
+							// eslint-disable-next-line unicorn/no-useless-spread
+							...[
+								"allowedDeprecatedVersions",
+								"allowNonAppliedPatches",
+								"configDependencies",
+								"ignoredBuiltDependencies",
+								"ignoredOptionalDependencies",
+								"neverBuiltDependencies",
+								"onlyBuiltDependencies",
+								"onlyBuiltDependenciesFile",
+								"packageExtensions",
+								"peerDependencyRules",
+							],
+
+							// Catalogs
+							"catalog",
+							"catalogs",
+						],
+						pathPattern: "^$",
+					},
+					{
+						order: { type: "asc" },
+						pathPattern: ".*",
+					},
+				],
+			},
+		},
 	];
 }
