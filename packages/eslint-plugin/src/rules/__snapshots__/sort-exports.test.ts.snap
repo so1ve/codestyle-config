@@ -13,3 +13,13 @@ exports[`sort-exports > invalid > Invalid #1: export { b, a }
 "export { a,b }
 "
 `;
+
+exports[`sort-exports > invalid > Invalid #2: export {
+			a,
+			type b,
+		} from ''; 1`] = `
+"export {
+			type b,
+			a,
+		} from '';"
+`;

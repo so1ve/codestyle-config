@@ -331,15 +331,26 @@ const getExternalName = (node: SortableSpecifier): string =>
 const getLocalName = (node: SortableSpecifier): string =>
   getSpecifierName(node.local);
 
+function compareImportExportKind(
+  kindA: "type" | "value",
+  kindB: "type" | "value",
+): number {
+  if (kindA === kindB) {
+    return 0;
+  }
+
+  return kindA === "type" ? -1 : 1;
+}
+
 const sortSpecifierItems = (items: readonly SpecifierItem[]): SpecifierItem[] =>
   [...items].sort(
     (itemA, itemB) =>
-      compare(getExternalName(itemA.node), getExternalName(itemB.node)) ||
-      compare(getLocalName(itemA.node), getLocalName(itemB.node)) ||
-      compare(
+      compareImportExportKind(
         getImportExportKind(itemA.node),
         getImportExportKind(itemB.node),
       ) ||
+      compare(getExternalName(itemA.node), getExternalName(itemB.node)) ||
+      compare(getLocalName(itemA.node), getLocalName(itemB.node)) ||
       itemA.index - itemB.index,
   );
 

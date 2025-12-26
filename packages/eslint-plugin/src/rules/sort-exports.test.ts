@@ -11,5 +11,9 @@ run({
   invalid: [
     "export { c } from 'c';\nexport { a } from 'a';\n",
     "export { b, a }\n",
+    `export {
+			a,
+			type b,
+		} from '';`,
   ],
 });
