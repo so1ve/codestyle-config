@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 
 const plugins = [
 	require.resolve("@so1ve/prettier-plugin-toml"),
-	...["astro", "pkgsort"].map((p) => require.resolve(`prettier-plugin-${p}`)),
+	...["astro"].map((p) => require.resolve(`prettier-plugin-${p}`)),
 ];
 
 export default {
