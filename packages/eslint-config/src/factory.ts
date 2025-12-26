@@ -1,6 +1,7 @@
 import fs from "node:fs";
 
 import { FlatConfigComposer } from "eslint-flat-config-utils";
+import { findUpSync } from "find-up-simple";
 import { isPackageExists } from "local-pkg";
 
 import {
@@ -71,7 +72,7 @@ export function so1ve(
 		componentExts = [],
 		gitignore: enableGitignore = true,
 		ignores: userIgnores = [],
-		pnpm: enableCatalogs = false,
+		pnpm: enableCatalogs = !!findUpSync("pnpm-workspace.yaml"),
 		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),

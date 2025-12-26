@@ -83,6 +83,9 @@
 		"vue-eslint-parser": "catalog:eslint",
 		"yaml-eslint-parser": "catalog:eslint"
 	},
+	"devDependencies": {
+		"find-up-simple": "catalog:inline"
+	},
 	"peerDependencies": {
 		"eslint": "catalog:peers",
 		"prettier": "catalog:peers"

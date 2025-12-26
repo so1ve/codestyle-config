@@ -191,6 +191,10 @@ catalogs:
     yaml-eslint-parser:
       specifier: ^1.3.2
       version: 1.3.2
+  inline:
+    find-up-simple:
+      specifier: ^1.0.1
+      version: 1.0.1
   peers:
     eslint:
       specifier: ^9.39.2
@@ -426,6 +430,10 @@ importers:
       yaml-eslint-parser:
         specifier: catalog:eslint
         version: 1.3.2
+    devDependencies:
+      find-up-simple:
+        specifier: catalog:inline
+        version: 1.0.1
 
   packages/eslint-plugin:
     dependencies:
