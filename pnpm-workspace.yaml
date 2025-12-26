@@ -1,4 +1,7 @@
 shellEmulator: true
+strictPeerDependencies: false
+ignoreWorkspaceRootCheck: true
+gitChecks: false
 
 packages:
   - "packages/*"
