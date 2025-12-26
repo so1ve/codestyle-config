@@ -68,9 +68,8 @@ export const typescript = async ({
       "object-curly-spacing": "off",
 
       // so1ve
-      "so1ve/no-inline-type-import": "error",
-
       "so1ve/prefer-ts-expect-error": "error",
+
       "space-before-blocks": "off",
       "space-before-function-paren": "off",
       "ts/ban-ts-comment": [
@@ -81,18 +80,17 @@ export const typescript = async ({
       ],
       "ts/ban-ts-ignore": "off",
       "ts/brace-style": "off",
-
-      // off
       "ts/camelcase": "off",
-
-      // TS
       "ts/comma-dangle": "off",
       "ts/comma-spacing": "off",
       "ts/consistent-indexed-object-style": ["error", "record"],
       "ts/consistent-type-definitions": ["error", "interface"],
       "ts/consistent-type-imports": [
         "error",
-        { prefer: "type-imports", disallowTypeAnnotations: false },
+        {
+          disallowTypeAnnotations: false,
+          prefer: "type-imports",
+        },
       ],
       "ts/explicit-function-return-type": "off",
       "ts/explicit-member-accessibility": [
