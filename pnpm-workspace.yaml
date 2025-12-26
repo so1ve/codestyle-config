@@ -1,6 +1,6 @@
-shellEmulator: true
 strictPeerDependencies: false
 ignoreWorkspaceRootCheck: true
+shellEmulator: true
 gitChecks: false
 
 packages:
