@@ -60,7 +60,6 @@ export async function pnpm(
 					"error",
 					{
 						settings: {
-							catalogMode: "prefer",
 							shellEmulator: true,
 						},
 					},
