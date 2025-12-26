@@ -116,6 +116,10 @@ export async function formatting(
                 ],
               },
               {
+                pathPattern: "^scripts$",
+                order: { type: "asc" },
+              },
+              {
                 pathPattern: "^exports$",
                 order: { type: "asc" },
               },
@@ -123,6 +127,7 @@ export async function formatting(
                 pathPattern: "^exports.*$",
                 order: ["types", "require", "import", "default"],
               },
+
               {
                 pathPattern:
                   "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
