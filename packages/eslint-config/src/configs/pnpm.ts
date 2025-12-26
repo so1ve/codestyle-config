@@ -40,7 +40,12 @@ export async function pnpm(
 			// @keep-sorted
 			rules: {
 				...(catalogs && {
-					"pnpm/json-enforce-catalog": "error",
+					"pnpm/json-enforce-catalog": [
+						"error",
+						{
+							ignores: ["@types/vscode"],
+						},
+					],
 				}),
 				"pnpm/json-prefer-workspace-settings": "error",
 				"pnpm/json-valid-catalog": "error",
