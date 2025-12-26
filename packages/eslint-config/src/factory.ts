@@ -72,7 +72,7 @@ export function so1ve(
 		componentExts = [],
 		gitignore: enableGitignore = true,
 		ignores: userIgnores = [],
-		pnpm: enableCatalogs = !!findUpSync("pnpm-workspace.yaml"),
+		pnpm: enablePnpm = !!findUpSync("pnpm-workspace.yaml"),
 		solid: enableSolid = isPackageExists("solid-js"),
 		typescript: enableTypeScript = isPackageExists("typescript"),
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
@@ -114,8 +114,14 @@ export function so1ve(
 		command(),
 	);
 
-	if (enableCatalogs) {
-		configs.push(pnpm());
+	if (enablePnpm) {
+		configs.push(
+			pnpm({
+				json: options.jsonc !== false,
+				yaml: options.yaml !== false,
+				...(typeof enablePnpm === "boolean" ? {} : enablePnpm),
+			}),
+		);
 	}
 
 	if (enableVue) {

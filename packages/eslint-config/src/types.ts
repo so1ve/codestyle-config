@@ -47,6 +47,20 @@ export interface OptionsPnpm {
 	 * Requires catalogs usage
 	 */
 	catalogs?: boolean;
+
+	/**
+	 * Enable linting for package.json
+	 *
+	 * @default true
+	 */
+	json?: boolean;
+
+	/**
+	 * Enable linting for pnpm-workspace.yaml
+	 *
+	 * @default true
+	 */
+	yaml?: boolean;
 }
 
 export interface OptionsOverrides {
@@ -79,7 +93,7 @@ export interface Options extends OptionsComponentExts {
 	 *
 	 * @default false
 	 */
-	pnpm?: boolean;
+	pnpm?: boolean | OptionsPnpm;
 
 	/**
 	 * Core rules. Can't be disabled.
