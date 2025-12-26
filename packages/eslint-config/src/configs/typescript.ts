@@ -68,6 +68,7 @@ export const typescript = async ({
       "object-curly-spacing": "off",
 
       // so1ve
+      "so1ve/no-inline-type-modifier": "error",
       "so1ve/prefer-ts-expect-error": "error",
 
       "space-before-blocks": "off",

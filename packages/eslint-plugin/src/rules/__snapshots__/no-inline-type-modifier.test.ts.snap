@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`no-inline-type-modifier > invalid > Invalid #0: import { type a } from "foo"; 1`] = `"import type { a } from "foo";"`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #1: import { type a, b } from "foo"; 1`] = `
+"import type { a } from "foo";
+import { b } from "foo";"
+`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #2: import D, { type a } from "foo"; 1`] = `
+"import type { a } from "foo";
+import D from "foo";"
+`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #3: import D, { type a, b } from "foo"; 1`] = `
+"import type { a } from "foo";
+import D, { b } from "foo";"
+`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #4: import { D, type a as b } from "foo"; 1`] = `
+"import type { a as b } from "foo";
+import { D } from "foo";"
+`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #5: export { type a } from "foo"; 1`] = `"export type { a } from "foo";"`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #6: export { type a, b } from "foo"; 1`] = `
+"export type { a } from "foo";
+export { b } from "foo";"
+`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #7: export { a, type b } from "foo"; 1`] = `
+"export type { b } from "foo";
+export { a } from "foo";"
+`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #8: export { type a as b } from "foo"; 1`] = `"export type { a as b } from "foo";"`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #9: export { type a }; 1`] = `"export type { a };"`;
+
+exports[`no-inline-type-modifier > invalid > Invalid #10: export { type a, b }; 1`] = `
+"export type { a };
+export { b };"
+`;
