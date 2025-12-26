@@ -244,6 +244,7 @@ export async function formatting(
 									"allowUnreachableCode",
 									"allowUnusedLabels",
 									"alwaysStrict",
+									"erasableSyntaxOnly",
 									"exactOptionalPropertyTypes",
 									"noFallthroughCasesInSwitch",
 									"noImplicitAny",
