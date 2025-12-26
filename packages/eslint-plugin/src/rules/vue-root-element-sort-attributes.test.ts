@@ -10,21 +10,21 @@ import rule, { RULE_NAME } from "./vue-root-element-sort-attributes";
 const valid: ValidTestCase<Options>[] = [
   // Basic correct order
   $`
-	  <script setup lang="ts"></script>
-	`,
+    <script setup lang="ts"></script>
+  `,
   // Single attribute
   $`
-	  <script setup></script>
-	`,
+    <script setup></script>
+  `,
   // No attributes
   $`
-	  <script></script>
-	`,
+    <script></script>
+  `,
   // Template with correct order
   {
     code: $`
-		  <template id="app" class="container"></template>
-		`,
+      <template id="app" class="container"></template>
+    `,
     options: [
       {
         template: ["id", "class"],
@@ -34,8 +34,8 @@ const valid: ValidTestCase<Options>[] = [
   // Style with correct order
   {
     code: $`
-		  <style scoped lang="scss"></style>
-		`,
+      <style scoped lang="scss"></style>
+    `,
     options: [
       {
         style: ["scoped", "lang"],
@@ -45,10 +45,10 @@ const valid: ValidTestCase<Options>[] = [
   // Multiple elements with correct order
   {
     code: $`
-		  <template id="app" class="container"></template>
-		  <script setup lang="ts"></script>
-		  <style scoped lang="scss"></style>
-		`,
+      <template id="app" class="container"></template>
+      <script setup lang="ts"></script>
+      <style scoped lang="scss"></style>
+    `,
     options: [
       {
         template: ["id", "class"],
@@ -60,8 +60,8 @@ const valid: ValidTestCase<Options>[] = [
   // Attributes not in configuration should be ignored
   {
     code: $`
-		  <script setup lang="ts" custom-attr></script>
-		`,
+      <script setup lang="ts" custom-attr></script>
+    `,
     options: [
       {
         script: ["setup", "lang"],
@@ -70,13 +70,13 @@ const valid: ValidTestCase<Options>[] = [
   },
   // Directives should be ignored
   $`
-	  <template v-if="show" v-for="item in items"></template>
-	`,
+    <template v-if="show" v-for="item in items"></template>
+  `,
   // Mixed attributes and directives
   {
     code: $`
-		  <template id="app" v-if="show" class="container"></template>
-		`,
+      <template id="app" v-if="show" class="container"></template>
+    `,
     options: [
       {
         template: ["id", "class"],
@@ -86,8 +86,8 @@ const valid: ValidTestCase<Options>[] = [
   // Missing attributes in configuration should not cause errors
   {
     code: $`
-		  <template class="app"></template>
-		`,
+      <template class="app"></template>
+    `,
     options: [
       {
         template: ["id", "class"],
@@ -101,9 +101,9 @@ const invalid: InvalidTestCase<Options>[] = [
   // Multiple elements with wrong order
   {
     code: $`
-		  <script lang="ts" setup></script>
-		  <template b a></template>
-		`,
+      <script lang="ts" setup></script>
+      <template b a></template>
+    `,
     options: [
       {
         script: ["lang", "setup"],
@@ -115,8 +115,8 @@ const invalid: InvalidTestCase<Options>[] = [
   // Template with wrong order
   {
     code: $`
-		  <template class="container" id="app"></template>
-		`,
+      <template class="container" id="app"></template>
+    `,
     options: [
       {
         template: ["id", "class"],
@@ -127,8 +127,8 @@ const invalid: InvalidTestCase<Options>[] = [
   // Style with wrong order
   {
     code: $`
-		  <style lang="scss" scoped></style>
-		`,
+      <style lang="scss" scoped></style>
+    `,
     options: [
       {
         style: ["scoped", "lang"],
@@ -139,8 +139,8 @@ const invalid: InvalidTestCase<Options>[] = [
   // Script with multiple wrong attributes
   {
     code: $`
-		  <script lang="ts" src="./external.ts" setup></script>
-		`,
+      <script lang="ts" src="./external.ts" setup></script>
+    `,
     options: [
       {
         script: ["setup", "src", "lang"],
@@ -151,8 +151,8 @@ const invalid: InvalidTestCase<Options>[] = [
   // Custom element with wrong order
   {
     code: $`
-		  <custom-element attr-c attr-a attr-b></custom-element>
-		`,
+      <custom-element attr-c attr-a attr-b></custom-element>
+    `,
     options: [
       {
         "custom-element": ["attr-a", "attr-b", "attr-c"],
@@ -163,8 +163,8 @@ const invalid: InvalidTestCase<Options>[] = [
   // Only some attributes are configured (partial ordering)
   {
     code: $`
-		  <script other-attr lang="ts" setup custom-attr></script>
-		`,
+      <script other-attr lang="ts" setup custom-attr></script>
+    `,
     options: [
       {
         script: ["setup", "lang"], // other-attr and custom-attr are not configured

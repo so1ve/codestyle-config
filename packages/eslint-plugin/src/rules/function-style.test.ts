@@ -8,24 +8,24 @@ import rule, { RULE_NAME } from "./function-style";
 const valid = [
   "const a = () => 1;",
   $`
-	  function a() {
-	    stuff;
-	    return 1;
-	  }
-	`,
+    function a() {
+      stuff;
+      return 1;
+    }
+  `,
   $`
-	  function a(some: Type)
-	    function a(some: Another)
-	    function a() {
-	      return 1;
-	  }
-	`,
+    function a(some: Type)
+      function a(some: Another)
+      function a() {
+        return 1;
+    }
+  `,
   $`
-	  const a: Annotation = () => {
-	    stuff;
-	    return 1;
-	  };
-	`,
+    const a: Annotation = () => {
+      stuff;
+      return 1;
+    };
+  `,
   "function* a() {}",
   "const a = () => {}",
   "function a() {}",
@@ -36,29 +36,29 @@ const valid = [
   "function a() { return () => this }",
   "const a = () => { foo; function a() { this; } }",
   $`
-	  export function last(array: readonly []): undefined;
-	  export function last<T>(array: readonly T[]): T;
-	  export function last<T>(array: readonly T[]): T | undefined {
-	    return at(array, -1);
-	  }
-	`,
+    export function last(array: readonly []): undefined;
+    export function last<T>(array: readonly T[]): T;
+    export function last<T>(array: readonly T[]): T | undefined {
+      return at(array, -1);
+    }
+  `,
   $`
-	  export default function () {
-	    return
-	  }
-	`,
+    export default function () {
+      return
+    }
+  `,
   $`
-	  function a() {
-	    return
-	  }
-	`,
+    function a() {
+      return
+    }
+  `,
   "const a = () => { const b = () => { return this; }; return this; };",
   $`
-	  function a() {
-	    // foo
-	    return 1
-	  }
-	`,
+    function a() {
+      // foo
+      return 1
+    }
+  `,
 ];
 
 const invalid: InvalidTestCase[] = [
@@ -72,29 +72,29 @@ const invalid: InvalidTestCase[] = [
   "async function a(): Type { return 1; }",
   "const a = async function foo(): Returns {}",
   $`
-	  const a = () => {
-	    return {
-	      a: 1,
-	    };
-	  };
-	`,
+    const a = () => {
+      return {
+        a: 1,
+      };
+    };
+  `,
   $`
-	  export default function a() {
-	    return {};
-	  }
-	`,
+    export default function a() {
+      return {};
+    }
+  `,
   $`
-	  export default function() {
-	    return {};
-	  }
-	`,
+    export default function() {
+      return {};
+    }
+  `,
   $`
-	  function foo() {
-	    return [
-	      // foo
-	    ];
-	  }
-	`,
+    function foo() {
+      return [
+        // foo
+      ];
+    }
+  `,
   "function foo() { return{} }",
 ];
 
