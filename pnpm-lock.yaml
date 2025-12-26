@@ -110,6 +110,9 @@ catalogs:
     eslint-plugin-command:
       specifier: ^3.4.0
       version: 3.4.0
+    eslint-plugin-de-morgan:
+      specifier: ^2.0.0
+      version: 2.0.0
     eslint-plugin-html:
       specifier: ^8.1.3
       version: 8.1.3
@@ -431,6 +434,9 @@ importers:
         specifier: catalog:eslint
         version: 1.3.2
     devDependencies:
+      eslint-plugin-de-morgan:
+        specifier: catalog:eslint
+        version: 2.0.0(eslint@9.39.2(jiti@2.6.1))
       find-up-simple:
         specifier: catalog:inline
         version: 1.0.1
@@ -2328,6 +2334,12 @@ packages:
     resolution: {integrity: sha512-EW4eg/a7TKEhG0s5IEti72kh3YOTlnhfFNuctq5WnB1fst37/IHTd5OkD+vnlRf3opTvUcSRihAateP6bT5ZcA==}
     peerDependencies:
       eslint: '*'
+
+  eslint-plugin-de-morgan@2.0.0:
+    resolution: {integrity: sha512-oGkawlmwOp7p3yYG/abEkQRw6IfQ677E5ejQulUZdXdXpSHv/jNNaHPokA7mo1SaxcQWRn5vojaBLrwJ7wy5MQ==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      eslint: '>=8.0.0'
 
   eslint-plugin-es-x@7.8.0:
     resolution: {integrity: sha512-7Ds8+wAAoV3T+LAKeu39Y5BzXCrGKrcISfgKEqTS4BDN8SFEDQd0S43jiQ8vIa3wUKD07qitZdfzlenSi8/0qQ==}
@@ -6042,6 +6054,10 @@ snapshots:
   eslint-plugin-command@3.4.0(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       '@es-joy/jsdoccomment': 0.78.0
+      eslint: 9.39.2(jiti@2.6.1)
+
+  eslint-plugin-de-morgan@2.0.0(eslint@9.39.2(jiti@2.6.1)):
+    dependencies:
       eslint: 9.39.2(jiti@2.6.1)
 
   eslint-plugin-es-x@7.8.0(eslint@9.39.2(jiti@2.6.1)):

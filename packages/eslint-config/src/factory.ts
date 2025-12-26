@@ -8,6 +8,7 @@ import {
 	astro,
 	command,
 	comments,
+	deMorgan,
 	formatting,
 	html,
 	ignores,
@@ -112,6 +113,7 @@ export function so1ve(
 		imports(),
 		unicorn(),
 		command(),
+		deMorgan(),
 	);
 
 	if (enablePnpm) {

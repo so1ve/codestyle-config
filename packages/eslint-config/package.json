@@ -83,6 +83,7 @@
 		"yaml-eslint-parser": "catalog:eslint"
 	},
 	"devDependencies": {
+		"eslint-plugin-de-morgan": "catalog:eslint",
 		"find-up-simple": "catalog:inline"
 	},
 	"peerDependencies": {

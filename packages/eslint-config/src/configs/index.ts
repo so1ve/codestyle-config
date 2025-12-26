@@ -1,6 +1,7 @@
 export * from "./astro";
 export * from "./command";
 export * from "./comments";
+export * from "./de-morgan";
 export * from "./formatting";
 export * from "./html";
 export * from "./ignores";
