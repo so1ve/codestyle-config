@@ -11,4 +11,5 @@ export default defineConfig({
 	dts: {
 		oxc: true,
 	},
+	exports: true,
 });

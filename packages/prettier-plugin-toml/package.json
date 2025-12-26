@@ -22,7 +22,12 @@
 		"url": "https://github.com/so1ve/codestyle-config/issues"
 	},
 	"license": "MIT",
+	"exports": {
+		".": "./dist/index.mjs",
+		"./package.json": "./package.json"
+	},
 	"main": "./dist/index.mjs",
+	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.mts",
 	"files": [
 		"dist"
