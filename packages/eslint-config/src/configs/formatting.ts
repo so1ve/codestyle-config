@@ -77,6 +77,21 @@ export async function formatting(
 					name: "so1ve/formatting/rules/sort-tsconfig",
 					files: GLOB_TSCONFIG,
 					rules: {
+						"jsonc/sort-array-values": [
+							"error",
+							{
+								pathPattern: "^compilerOptions\\.types$",
+								order: { type: "asc" },
+							},
+							{
+								pathPattern: "^include$",
+								order: { type: "asc" },
+							},
+							{
+								pathPattern: "^exclude$",
+								order: { type: "asc" },
+							},
+						],
 						"jsonc/sort-keys": [
 							"error",
 							{

@@ -4,13 +4,13 @@
 		"allowImportingTsExtensions": true
 	},
 	"include": [
-		"test",
+		"packages/*/src",
+		"packages/*/src/**/*.test.ts",
 		"packages/*/test",
+		"packages/*/tsdown.config.ts",
 		"packages/eslint-config/scripts",
 		"packages/eslint-plugin/src/rules/_test.ts",
-		"packages/*/src/**/*.test.ts",
-		"packages/*/src",
-		"packages/*/tsdown.config.ts",
+		"test",
 		"tsdown.config.ts",
 		"vite.config.ts"
 	]
