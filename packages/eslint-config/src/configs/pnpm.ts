@@ -88,7 +88,7 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
 								"preferWorkspacePackages",
 								"publicHoistPattern",
 								"registrySupportsTimeField",
-								"requiredScrpts",
+								"requiredScripts",
 								"resolutionMode",
 								"savePrefix",
 								"scriptShell",
