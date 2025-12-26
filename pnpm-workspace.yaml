@@ -93,4 +93,5 @@ catalogs:
   prettier:
     "prettier": "^3.7.4"
     "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-jsdoc": "^1.8.0"
     "prettier-plugin-toml": "^2.0.6"

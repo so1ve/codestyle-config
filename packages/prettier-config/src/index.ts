@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 
 const plugins = [
 	require.resolve("@so1ve/prettier-plugin-toml"),
-	...["astro"].map((p) => require.resolve(`prettier-plugin-${p}`)),
+	...["astro", "jsdoc"].map((p) => require.resolve(`prettier-plugin-${p}`)),
 ];
 
 export default {
@@ -39,8 +39,8 @@ export default {
 	plugins,
 
 	// Plugin Options
-	// JSDoc, disabled due to https://github.com/hosseinmd/prettier-plugin-jsdoc/issues/245
-	// jsdocPreferCodeFences: true,
-	// jsdocCommentLineStrategy: "multiline",
-	// tsdoc: true,
+	// JSDoc
+	jsdocPreferCodeFences: true,
+	jsdocCommentLineStrategy: "multiline",
+	tsdoc: true,
 } as Config & Record<string, unknown>;

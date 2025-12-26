@@ -32,7 +32,8 @@
 	},
 	"dependencies": {
 		"@so1ve/prettier-plugin-toml": "workspace:*",
-		"prettier-plugin-astro": "catalog:prettier"
+		"prettier-plugin-astro": "catalog:prettier",
+		"prettier-plugin-jsdoc": "catalog:prettier"
 	},
 	"peerDependencies": {
 		"prettier": "catalog:peers"

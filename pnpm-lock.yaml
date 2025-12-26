@@ -209,6 +209,9 @@ catalogs:
     prettier-plugin-astro:
       specifier: ^0.14.1
       version: 0.14.1
+    prettier-plugin-jsdoc:
+      specifier: ^1.8.0
+      version: 1.8.0
     prettier-plugin-toml:
       specifier: ^2.0.6
       version: 2.0.6
@@ -468,6 +471,9 @@ importers:
       prettier-plugin-astro:
         specifier: catalog:prettier
         version: 0.14.1
+      prettier-plugin-jsdoc:
+        specifier: catalog:prettier
+        version: 1.8.0(prettier@3.7.4)
 
   packages/prettier-plugin-toml:
     dependencies:
@@ -1832,6 +1838,9 @@ packages:
   baseline-browser-mapping@2.8.30:
     resolution: {integrity: sha512-aTUKW4ptQhS64+v2d6IkPzymEzzhw+G0bA1g3uBRV3+ntkH+svttKseW5IOR4Ed6NUVKqnY7qT3dKvzQ7io4AA==}
     hasBin: true
+
+  binary-searching@2.0.5:
+    resolution: {integrity: sha512-v4N2l3RxL+m4zDxyxz3Ne2aTmiPn8ZUpKFpdPtO+ItW1NcTCXA7JeHG5GMBSvoKSkQZ9ycS+EouDVxYB9ufKWA==}
 
   birpc@4.0.0:
     resolution: {integrity: sha512-LShSxJP0KTmd101b6DRyGBj57LZxSDYWKitQNW/mi8GRMvZb078Uf9+pveax1DrVL89vm7mWe+TovdI/UDOuPw==}
@@ -3465,6 +3474,12 @@ packages:
   prettier-plugin-astro@0.14.1:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
+
+  prettier-plugin-jsdoc@1.8.0:
+    resolution: {integrity: sha512-byW8EBZ1DSA3CPdDGBXfcdqqhh2eq0+HlIOPTGZ6rf9O2p/AwBmtS0e49ot5ZeOdcszj81FyzbyHr/VS0eYpCg==}
+    engines: {node: '>=14.13.1 || >=16.0.0'}
+    peerDependencies:
+      prettier: ^3.0.0
 
   prettier-plugin-toml@2.0.6:
     resolution: {integrity: sha512-12N/wBuHa9jd/KVy9pRP20NMKxQfQLMseQCt66lIbLaPLItvGUcSIryE1eZZMJ7loSws6Ig3M2Elc2EreNh76w==}
@@ -5455,6 +5470,8 @@ snapshots:
   balanced-match@1.0.2: {}
 
   baseline-browser-mapping@2.8.30: {}
+
+  binary-searching@2.0.5: {}
 
   birpc@4.0.0: {}
 
@@ -7465,6 +7482,15 @@ snapshots:
       '@astrojs/compiler': 2.12.2
       prettier: 3.7.4
       sass-formatter: 0.7.8
+
+  prettier-plugin-jsdoc@1.8.0(prettier@3.7.4):
+    dependencies:
+      binary-searching: 2.0.5
+      comment-parser: 1.4.1
+      mdast-util-from-markdown: 2.0.2
+      prettier: 3.7.4
+    transitivePeerDependencies:
+      - supports-color
 
   prettier-plugin-toml@2.0.6(prettier@3.7.4):
     dependencies:

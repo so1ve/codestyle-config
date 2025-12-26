@@ -81,10 +81,10 @@ export interface Options extends OptionsComponentExts {
 	/**
 	 * Extend the global ignores.
 	 *
-	 * Passing an array to extends the ignores.
-	 * Passing a function to modify the default ignores.
+	 * Passing an array to extends the ignores. Passing a function to modify the
+	 * default ignores.
 	 *
-	 * @default []
+	 * @default [ ]
 	 */
 	ignores?: string[] | ((originals: string[]) => string[]);
 
