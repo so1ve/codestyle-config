@@ -21,6 +21,8 @@
 > [!IMPORTANT]
 > The main branch is for v3.0, which rewrites to ESLint Flat config and requires ESLint v9.0.0+.
 
+> Thanks to [sxzz/eslint-config](https://github.com/sxzz/eslint-config) and [antfu/eslint-config](https://github.com/antfu/eslint-config) for the inspiration and reference.
+
 ## Usage
 
 ### Install
@@ -136,7 +138,6 @@ export default so1ve(
 	{
 		// Configures for so1ve's config
 	},
-
 	// From the second arguments they are ESLint Flat Configs
 	// you can have multiple configs
 	{
@@ -148,59 +149,6 @@ export default so1ve(
 	},
 );
 ```
-
-Going more advanced, you can also import fine-grained configs and compose them as you wish:
-
-```js
-// eslint.config.js
-import {
-	comments,
-	formatting,
-	html,
-	ignores,
-	imports,
-	javascript,
-	jsonc,
-	mdx,
-	node,
-	onlyError,
-	promise,
-	solid,
-	sortImports,
-	test,
-	toml,
-	typescript,
-	unicorn,
-	vue,
-	yaml,
-} from "@so1ve/eslint-config";
-
-export default [
-	...comments(),
-	...formatting(),
-	...html(),
-	...ignores(),
-	...imports(),
-	...javascript(),
-	...jsonc(),
-	...mdx(),
-	...node(),
-	...onlyError(),
-	...promise(),
-	...solid(),
-	...sortImports(),
-	...test(),
-	...toml(),
-	...typescript(),
-	...unicorn(),
-	...vue(),
-	...yaml(),
-];
-```
-
-Check out the [configs](https://github.com/so1ve/codestyle-config/blob/main/packages/codestyle-config/configs) and [factory](https://github.com/so1ve/codestyle-config/blob/main/packages/codestyle-config/factory.ts) for more details.
-
-> Thanks to [sxzz/eslint-config](https://github.com/sxzz/eslint-config) and [antfu/eslint-config](https://github.com/antfu/eslint-config) for the inspiration and reference.
 
 ## Plugins Renaming
 
@@ -222,8 +170,6 @@ When you want to override rules, or disable them inline, you need to update to t
 +// eslint-disable-next-line ts/consistent-type-definitions
 type foo = { bar: 2 }
 ```
-
-Since v2.1.0, this preset will automatically rename the plugins also for your custom configs. You can use the original prefix to override the rules directly.
 
 ### Rules Overrides
 
@@ -278,7 +224,7 @@ export default so1ve({
 
 ### Config Composer
 
-Since v2.1.0, the factory function `so1ve()` returns a [`FlatConfigComposer` object from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer) where you can chain the methods to compose the config even more flexibly.
+The factory function `so1ve()` returns a [`FlatConfigComposer` object from `eslint-flat-config-utils`](https://github.com/antfu/eslint-flat-config-utils#composer) where you can chain the methods to compose the config even more flexibly.
 
 ```js
 // eslint.config.js
