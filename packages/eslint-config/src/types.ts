@@ -42,6 +42,13 @@ export interface OptionsHasTypeScript {
 	typescript?: boolean;
 }
 
+export interface OptionsPnpm {
+	/**
+	 * Requires catalogs usage
+	 */
+	catalogs?: boolean;
+}
+
 export interface OptionsOverrides {
 	overrides?: TypedFlatConfigItem["rules"];
 }
