@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`sort-exports > invalid > Invalid #0: export { c } from 'c';
+export { a } from 'a';
+ 1`] = `
+"export { a } from 'a';
+export { c } from 'c';
+"
+`;
+
+exports[`sort-exports > invalid > Invalid #1: export { b, a }
+ 1`] = `
+"export { a,b }
+"
+`;

@@ -9,6 +9,8 @@ import noNegatedComparison from "./rules/no-negated-comparison";
 import noUselessTemplateString from "./rules/no-useless-template-string";
 import preferTsExpectError from "./rules/prefer-ts-expect-error";
 import requireAsyncWithAwait from "./rules/require-async-with-await";
+import sortExports from "./rules/sort-exports";
+import sortImports from "./rules/sort-imports";
 import vueRootElementSortAttributes from "./rules/vue-root-element-sort-attributes";
 
 export default {
@@ -26,6 +28,8 @@ export default {
     "prefer-ts-expect-error": preferTsExpectError as typeof preferTsExpectError,
     "require-async-with-await":
       requireAsyncWithAwait as typeof requireAsyncWithAwait,
+    "sort-exports": sortExports as typeof sortExports,
+    "sort-imports": sortImports as typeof sortImports,
     "vue-root-element-sort-attributes":
       vueRootElementSortAttributes as typeof vueRootElementSortAttributes,
   },

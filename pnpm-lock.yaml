@@ -232,9 +232,6 @@ importers:
       '@so1ve/eslint-plugin':
         specifier: workspace:*
         version: link:packages/eslint-plugin
-      '@so1ve/eslint-plugin-sort-imports':
-        specifier: workspace:*
-        version: link:packages/eslint-plugin-sort-imports
       '@so1ve/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -298,9 +295,6 @@ importers:
       '@so1ve/eslint-plugin':
         specifier: workspace:*
         version: link:../eslint-plugin
-      '@so1ve/eslint-plugin-sort-imports':
-        specifier: workspace:*
-        version: link:../eslint-plugin-sort-imports
       '@stylistic/eslint-plugin':
         specifier: catalog:eslint
         version: 5.6.1(eslint@9.39.2(jiti@2.6.1))
@@ -449,6 +443,9 @@ importers:
       '@typescript-eslint/utils':
         specifier: catalog:eslint
         version: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      natsort:
+        specifier: 'catalog:'
+        version: 2.0.3
     devDependencies:
       '@html-eslint/parser':
         specifier: catalog:eslint
@@ -456,15 +453,6 @@ importers:
       vue-eslint-parser:
         specifier: catalog:eslint
         version: 10.2.0(eslint@9.39.2(jiti@2.6.1))
-
-  packages/eslint-plugin-sort-imports:
-    dependencies:
-      eslint:
-        specifier: catalog:peers
-        version: 9.39.2(jiti@2.6.1)
-      natsort:
-        specifier: 'catalog:'
-        version: 2.0.3
 
   packages/prettier-config:
     dependencies:

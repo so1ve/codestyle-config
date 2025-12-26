@@ -6,7 +6,6 @@ import {
   pluginNoAwaitInPromise,
   pluginRegexp,
   pluginSo1ve,
-  pluginSortImports,
   pluginUnusedImports,
 } from "../plugins";
 import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
@@ -24,7 +23,6 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
         "array-func": pluginArrayFunc,
         "no-await-in-promise": pluginNoAwaitInPromise,
         "so1ve": pluginSo1ve,
-        "sort-imports": pluginSortImports,
         "unused-imports": pluginUnusedImports,
       },
     },
@@ -303,10 +301,6 @@ export async function javascript({ overrides }: OptionsOverrides = {}): Promise<
         // so1ve
         "so1ve/import-dedupe": "error",
         "so1ve/require-async-with-await": "error",
-        "sort-imports/exports": "error",
-
-        // Sort Imports
-        "sort-imports/imports": ["error"],
         "switch-colon-spacing": "off",
         "symbol-description": "off",
 

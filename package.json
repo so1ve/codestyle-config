@@ -30,7 +30,6 @@
     "@antfu/ni": "catalog:build",
     "@so1ve/eslint-config": "workspace:*",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@so1ve/eslint-plugin-sort-imports": "workspace:*",
     "@so1ve/prettier-config": "workspace:*",
     "@types/node": "catalog:build",
     "@typescript-eslint/parser": "catalog:eslint",

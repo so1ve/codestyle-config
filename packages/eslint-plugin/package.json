@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "@typescript-eslint/types": "catalog:eslint",
-    "@typescript-eslint/utils": "catalog:eslint"
+    "@typescript-eslint/utils": "catalog:eslint",
+    "natsort": "catalog:"
   },
   "devDependencies": {
     "@html-eslint/parser": "catalog:eslint",

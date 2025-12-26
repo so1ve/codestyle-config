@@ -38,7 +38,6 @@
     "@html-eslint/eslint-plugin": "catalog:eslint",
     "@html-eslint/parser": "catalog:eslint",
     "@so1ve/eslint-plugin": "workspace:*",
-    "@so1ve/eslint-plugin-sort-imports": "workspace:*",
     "@stylistic/eslint-plugin": "catalog:eslint",
     "@typescript-eslint/parser": "catalog:eslint",
     "@typescript-eslint/utils": "catalog:eslint",

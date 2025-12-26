@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`sort-imports > invalid > Invalid #0: import x from "./x";
+import b from "b";
+import fs from "node:fs";
+import a from "a";
+ 1`] = `
+"import fs from "node:fs";
+
+import a from "a";
+import b from "b";
+
+import x from "./x";
+"
+`;

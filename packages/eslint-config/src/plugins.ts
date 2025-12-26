@@ -3,7 +3,6 @@
 
 export { default as pluginComments } from "@eslint-community/eslint-plugin-eslint-comments";
 export { default as pluginSo1ve } from "@so1ve/eslint-plugin";
-export { default as pluginSortImports } from "@so1ve/eslint-plugin-sort-imports";
 export { default as pluginArrayFunc } from "eslint-plugin-array-func";
 export { default as pluginDeMorgan } from "eslint-plugin-de-morgan";
 export { default as pluginImportLite } from "eslint-plugin-import-lite";
