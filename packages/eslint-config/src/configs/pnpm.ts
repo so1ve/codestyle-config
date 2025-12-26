@@ -35,6 +35,16 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
 				pnpm: pluginPnpm,
 			},
 			rules: {
+				"pnpm/yaml-enforce-settings": [
+					"error",
+					{
+						settings: {
+							catalogMode: "prefer",
+							cleanupUnusedCatalogs: true,
+							shellEmulator: true,
+						},
+					},
+				],
 				// "pnpm/yaml-no-duplicate-catalog-item": "error",
 				"pnpm/yaml-no-unused-catalog-item": "error",
 			},
