@@ -3,33 +3,33 @@ import type { OptionsOverrides, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
 export async function toml({ overrides }: OptionsOverrides = {}): Promise<
-	TypedFlatConfigItem[]
+  TypedFlatConfigItem[]
 > {
-	const [parserToml, pluginToml] = await Promise.all([
-		interopDefault(import("toml-eslint-parser")),
-		interopDefault(import("eslint-plugin-toml")),
-	]);
+  const [parserToml, pluginToml] = await Promise.all([
+    interopDefault(import("toml-eslint-parser")),
+    interopDefault(import("eslint-plugin-toml")),
+  ]);
 
-	return [
-		{
-			name: "so1ve/toml/setup",
-			plugins: {
-				toml: pluginToml,
-			},
-		},
-		{
-			name: "so1ve/toml/rules",
-			languageOptions: {
-				parser: parserToml,
-			},
-			files: [GLOB_TOML],
-			// @keep-sorted
-			rules: {
-				...(pluginToml.configs.recommended.rules as any),
-				"no-irregular-whitespace": "off",
-				"style/spaced-comment": "off",
-				...overrides,
-			},
-		},
-	];
+  return [
+    {
+      name: "so1ve/toml/setup",
+      plugins: {
+        toml: pluginToml,
+      },
+    },
+    {
+      name: "so1ve/toml/rules",
+      languageOptions: {
+        parser: parserToml,
+      },
+      files: [GLOB_TOML],
+      // @keep-sorted
+      rules: {
+        ...(pluginToml.configs.recommended.rules as any),
+        "no-irregular-whitespace": "off",
+        "style/spaced-comment": "off",
+        ...overrides,
+      },
+    },
+  ];
 }

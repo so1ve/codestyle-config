@@ -1,41 +1,41 @@
 {
-	"name": "@so1ve/eslint-plugin",
-	"version": "3.26.0",
-	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-	"type": "module",
-	"keywords": [
-		"eslint",
-		"eslint-config",
-		"eslint-plugin"
-	],
-	"homepage": "https://github.com/so1ve/codestyle-config#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/so1ve/codestyle-config.git"
-	},
-	"bugs": {
-		"url": "https://github.com/so1ve/codestyle-config/issues"
-	},
-	"license": "MIT",
-	"exports": {
-		".": "./dist/index.mjs",
-		"./package.json": "./package.json"
-	},
-	"main": "./dist/index.mjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.mts",
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"dependencies": {
-		"@typescript-eslint/types": "catalog:eslint",
-		"@typescript-eslint/utils": "catalog:eslint"
-	},
-	"devDependencies": {
-		"@html-eslint/parser": "catalog:eslint",
-		"vue-eslint-parser": "catalog:eslint"
-	}
+  "name": "@so1ve/eslint-plugin",
+  "version": "3.26.0",
+  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+  "type": "module",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-plugin"
+  ],
+  "homepage": "https://github.com/so1ve/codestyle-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/codestyle-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/codestyle-config/issues"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@typescript-eslint/types": "catalog:eslint",
+    "@typescript-eslint/utils": "catalog:eslint"
+  },
+  "devDependencies": {
+    "@html-eslint/parser": "catalog:eslint",
+    "vue-eslint-parser": "catalog:eslint"
+  }
 }

@@ -8,53 +8,53 @@ export type Options = [];
 
 // eslint-disable-next-line ts/no-unnecessary-type-arguments
 const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
-	name: RULE_NAME,
-	meta: {
-		type: "layout",
-		docs: {
-			description: "Enforce consistent spacing in HTML comments",
-		},
-		fixable: "whitespace",
-		schema: [],
-		messages: {
-			expectedSpaceBefore: "Expected space after '<!--'.",
-			expectedSpaceAfter: "Expected space before '-->'.",
-		},
-	},
-	defaultOptions: [],
-	create: (context) => ({
-		Comment(node: any) {
-			if (node.value?.type !== "CommentContent") {
-				return;
-			}
+  name: RULE_NAME,
+  meta: {
+    type: "layout",
+    docs: {
+      description: "Enforce consistent spacing in HTML comments",
+    },
+    fixable: "whitespace",
+    schema: [],
+    messages: {
+      expectedSpaceBefore: "Expected space after '<!--'.",
+      expectedSpaceAfter: "Expected space before '-->'.",
+    },
+  },
+  defaultOptions: [],
+  create: (context) => ({
+    Comment(node: any) {
+      if (node.value?.type !== "CommentContent") {
+        return;
+      }
 
-			const rawValue: string = node.value.value;
+      const rawValue: string = node.value.value;
 
-			if (rawValue.trim().length === 0) {
-				return;
-			}
+      if (rawValue.trim().length === 0) {
+        return;
+      }
 
-			if (!rawValue.startsWith(" ") && !rawValue.startsWith("\n")) {
-				context.report({
-					node: node.value,
-					messageId: "expectedSpaceBefore",
-					fix(fixer) {
-						return fixer.insertTextBefore(node.value, " ");
-					},
-				});
-			}
+      if (!rawValue.startsWith(" ") && !rawValue.startsWith("\n")) {
+        context.report({
+          node: node.value,
+          messageId: "expectedSpaceBefore",
+          fix(fixer) {
+            return fixer.insertTextBefore(node.value, " ");
+          },
+        });
+      }
 
-			if (!rawValue.endsWith(" ") && !rawValue.endsWith("\n")) {
-				context.report({
-					node: node.value,
-					messageId: "expectedSpaceAfter",
-					fix(fixer) {
-						return fixer.insertTextAfter(node.value, " ");
-					},
-				});
-			}
-		},
-	}),
+      if (!rawValue.endsWith(" ") && !rawValue.endsWith("\n")) {
+        context.report({
+          node: node.value,
+          messageId: "expectedSpaceAfter",
+          fix(fixer) {
+            return fixer.insertTextAfter(node.value, " ");
+          },
+        });
+      }
+    },
+  }),
 });
 
 export default rule;

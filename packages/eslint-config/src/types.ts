@@ -10,194 +10,194 @@ export type MaybeArray<T> = T | T[];
 export type Rules = RuleOptions;
 
 export type TypedFlatConfigItem = Omit<
-	Linter.Config<Linter.RulesRecord & Rules>,
-	"plugins"
+  Linter.Config<Linter.RulesRecord & Rules>,
+  "plugins"
 > & {
-	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
-	/**
-	 * An object containing a name-value mapping of plugin names to plugin
-	 * objects. When `files` is specified, these plugins are only available to the
-	 * matching files.
-	 *
-	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
-	 */
-	plugins?: Record<string, any>;
+  // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
+  /**
+   * An object containing a name-value mapping of plugin names to plugin
+   * objects. When `files` is specified, these plugins are only available to the
+   * matching files.
+   *
+   * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
+   */
+  plugins?: Record<string, any>;
 };
 
 export interface OptionsComponentExts {
-	/**
-	 * Additional extensions for components.
-	 */
-	componentExts?: string[];
+  /**
+   * Additional extensions for components.
+   */
+  componentExts?: string[];
 }
 
 export interface OptionsTypeScriptParserOptions {
-	/**
-	 * Additional parser options for TypeScript.
-	 */
-	parserOptions?: Partial<ParserOptions>;
+  /**
+   * Additional parser options for TypeScript.
+   */
+  parserOptions?: Partial<ParserOptions>;
 }
 
 export interface OptionsHasTypeScript {
-	typescript?: boolean;
+  typescript?: boolean;
 }
 
 export interface OptionsPnpm {
-	/**
-	 * Requires catalogs usage
-	 */
-	catalogs?: boolean;
+  /**
+   * Requires catalogs usage
+   */
+  catalogs?: boolean;
 
-	/**
-	 * Enable linting for package.json
-	 *
-	 * @default true
-	 */
-	json?: boolean;
+  /**
+   * Enable linting for package.json
+   *
+   * @default true
+   */
+  json?: boolean;
 
-	/**
-	 * Enable linting for pnpm-workspace.yaml
-	 *
-	 * @default true
-	 */
-	yaml?: boolean;
+  /**
+   * Enable linting for pnpm-workspace.yaml
+   *
+   * @default true
+   */
+  yaml?: boolean;
 }
 
 export interface OptionsOverrides {
-	overrides?: TypedFlatConfigItem["rules"];
+  overrides?: TypedFlatConfigItem["rules"];
 }
 
 export interface Options extends OptionsComponentExts {
-	/**
-	 * Enable gitignore support.
-	 *
-	 * Passing an object to configure the options.
-	 *
-	 * @default true
-	 * @see https://github.com/antfu/eslint-config-flat-gitignore
-	 */
-	gitignore?: boolean | FlatGitignoreOptions;
+  /**
+   * Enable gitignore support.
+   *
+   * Passing an object to configure the options.
+   *
+   * @default true
+   * @see https://github.com/antfu/eslint-config-flat-gitignore
+   */
+  gitignore?: boolean | FlatGitignoreOptions;
 
-	/**
-	 * Extend the global ignores.
-	 *
-	 * Passing an array to extends the ignores. Passing a function to modify the
-	 * default ignores.
-	 *
-	 * @default [ ]
-	 */
-	ignores?: string[] | ((originals: string[]) => string[]);
+  /**
+   * Extend the global ignores.
+   *
+   * Passing an array to extends the ignores. Passing a function to modify the
+   * default ignores.
+   *
+   * @default [ ]
+   */
+  ignores?: string[] | ((originals: string[]) => string[]);
 
-	/**
-	 * Enable pnpm catalogs support.
-	 *
-	 * @default false
-	 */
-	pnpm?: boolean | OptionsPnpm;
+  /**
+   * Enable pnpm catalogs support.
+   *
+   * @default false
+   */
+  pnpm?: boolean | OptionsPnpm;
 
-	/**
-	 * Core rules. Can't be disabled.
-	 */
-	javascript?: OptionsOverrides;
+  /**
+   * Core rules. Can't be disabled.
+   */
+  javascript?: OptionsOverrides;
 
-	/**
-	 * Enable HTML support.
-	 */
-	html?: boolean;
+  /**
+   * Enable HTML support.
+   */
+  html?: boolean;
 
-	/**
-	 * Enable TypeScript support.
-	 *
-	 * Passing an object to enable TypeScript Language Server support.
-	 *
-	 * @default auto-detect based on the dependencies
-	 */
-	typescript?: boolean | OptionsOverrides;
+  /**
+   * Enable TypeScript support.
+   *
+   * Passing an object to enable TypeScript Language Server support.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  typescript?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable test support.
-	 *
-	 * @default true
-	 */
-	test?: boolean | OptionsOverrides;
+  /**
+   * Enable test support.
+   *
+   * @default true
+   */
+  test?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable Astro support.
-	 *
-	 * @default auto-detect based on the dependencies
-	 */
-	astro?: boolean | OptionsOverrides;
+  /**
+   * Enable Astro support.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  astro?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable Vue support.
-	 *
-	 * @default auto-detect based on the dependencies
-	 */
-	vue?: boolean | OptionsOverrides;
+  /**
+   * Enable Vue support.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  vue?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable Solid.js support.
-	 *
-	 * @default auto-detect based on the dependencies
-	 */
-	solid?: boolean | OptionsOverrides;
+  /**
+   * Enable Solid.js support.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  solid?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable JSONC support.
-	 *
-	 * @default true
-	 */
-	jsonc?: boolean | OptionsOverrides;
+  /**
+   * Enable JSONC support.
+   *
+   * @default true
+   */
+  jsonc?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable YAML support.
-	 *
-	 * @default true
-	 */
-	yaml?: boolean | OptionsOverrides;
+  /**
+   * Enable YAML support.
+   *
+   * @default true
+   */
+  yaml?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable TOML support.
-	 *
-	 * @default true
-	 */
-	toml?: boolean | OptionsOverrides;
+  /**
+   * Enable TOML support.
+   *
+   * @default true
+   */
+  toml?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable markdown and mdx support.
-	 *
-	 * @default true
-	 */
-	mdx?: boolean | OptionsOverrides;
+  /**
+   * Enable markdown and mdx support.
+   *
+   * @default true
+   */
+  mdx?: boolean | OptionsOverrides;
 
-	/**
-	 * Enable formatting rules.
-	 *
-	 * @default true
-	 */
-	formatting?: boolean;
+  /**
+   * Enable formatting rules.
+   *
+   * @default true
+   */
+  formatting?: boolean;
 
-	/**
-	 * Enable perfectionist rules.
-	 *
-	 * @default true
-	 */
-	perfectionist?: boolean;
+  /**
+   * Enable perfectionist rules.
+   *
+   * @default true
+   */
+  perfectionist?: boolean;
 
-	/**
-	 * Provide overrides for rules for each integration.
-	 *
-	 * @deprecated Use `overrides` option in each integration key instead
-	 */
-	overrides?: {
-		javascript?: TypedFlatConfigItem["rules"];
-		typescript?: TypedFlatConfigItem["rules"];
-		test?: TypedFlatConfigItem["rules"];
-		vue?: TypedFlatConfigItem["rules"];
-		solid?: TypedFlatConfigItem["rules"];
-		jsonc?: TypedFlatConfigItem["rules"];
-		mdx?: TypedFlatConfigItem["rules"];
-		yaml?: TypedFlatConfigItem["rules"];
-		toml?: TypedFlatConfigItem["rules"];
-	};
+  /**
+   * Provide overrides for rules for each integration.
+   *
+   * @deprecated Use `overrides` option in each integration key instead
+   */
+  overrides?: {
+    javascript?: TypedFlatConfigItem["rules"];
+    typescript?: TypedFlatConfigItem["rules"];
+    test?: TypedFlatConfigItem["rules"];
+    vue?: TypedFlatConfigItem["rules"];
+    solid?: TypedFlatConfigItem["rules"];
+    jsonc?: TypedFlatConfigItem["rules"];
+    mdx?: TypedFlatConfigItem["rules"];
+    yaml?: TypedFlatConfigItem["rules"];
+    toml?: TypedFlatConfigItem["rules"];
+  };
 }

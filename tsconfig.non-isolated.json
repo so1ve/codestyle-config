@@ -1,17 +1,17 @@
 {
-	"extends": "./tsconfig.base.json",
-	"compilerOptions": {
-		"allowImportingTsExtensions": true
-	},
-	"include": [
-		"packages/*/src",
-		"packages/*/src/**/*.test.ts",
-		"packages/*/test",
-		"packages/*/tsdown.config.ts",
-		"packages/eslint-config/scripts",
-		"packages/eslint-plugin/src/rules/_test.ts",
-		"test",
-		"tsdown.config.ts",
-		"vite.config.ts"
-	]
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "packages/*/src",
+    "packages/*/src/**/*.test.ts",
+    "packages/*/test",
+    "packages/*/tsdown.config.ts",
+    "packages/eslint-config/scripts",
+    "packages/eslint-plugin/src/rules/_test.ts",
+    "test",
+    "tsdown.config.ts",
+    "vite.config.ts"
+  ]
 }

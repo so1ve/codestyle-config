@@ -1,42 +1,42 @@
 {
-	"name": "@so1ve/eslint-plugin-sort-imports",
-	"version": "3.26.0",
-	"author": "Simon Lydell",
-	"contributors": [
-		"Ray <i@mk1.io> (https://github.com/so1ve)"
-	],
-	"description": "Easy autofixable import sorting",
-	"keywords": [
-		"eslint",
-		"eslint-plugin",
-		"eslintplugin",
-		"import",
-		"imports",
-		"order",
-		"sort",
-		"sorter",
-		"sorting"
-	],
-	"homepage": "https://github.com/so1ve/codestyle-config#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/so1ve/codestyle-config.git"
-	},
-	"bugs": {
-		"url": "https://github.com/so1ve/codestyle-config/issues"
-	},
-	"license": "MIT",
-	"main": "src/index.js",
-	"files": [
-		"src"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"dependencies": {
-		"natsort": "catalog:"
-	},
-	"peerDependencies": {
-		"eslint": "catalog:peers"
-	}
+  "name": "@so1ve/eslint-plugin-sort-imports",
+  "version": "3.26.0",
+  "author": "Simon Lydell",
+  "contributors": [
+    "Ray <i@mk1.io> (https://github.com/so1ve)"
+  ],
+  "description": "Easy autofixable import sorting",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin",
+    "import",
+    "imports",
+    "order",
+    "sort",
+    "sorter",
+    "sorting"
+  ],
+  "homepage": "https://github.com/so1ve/codestyle-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/codestyle-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/codestyle-config/issues"
+  },
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "natsort": "catalog:"
+  },
+  "peerDependencies": {
+    "eslint": "catalog:peers"
+  }
 }

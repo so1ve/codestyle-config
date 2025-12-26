@@ -1,41 +1,41 @@
 {
-	"name": "@so1ve/prettier-config",
-	"version": "3.26.0",
-	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-	"type": "module",
-	"description": "Ray's prettier config.",
-	"keywords": [
-		"eslint",
-		"eslint-config"
-	],
-	"homepage": "https://github.com/so1ve/codestyle-config#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/so1ve/codestyle-config.git"
-	},
-	"bugs": {
-		"url": "https://github.com/so1ve/codestyle-config/issues"
-	},
-	"license": "MIT",
-	"exports": {
-		".": "./dist/index.mjs",
-		"./package.json": "./package.json"
-	},
-	"main": "./dist/index.mjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.mts",
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"dependencies": {
-		"@so1ve/prettier-plugin-toml": "workspace:*",
-		"prettier-plugin-astro": "catalog:prettier",
-		"prettier-plugin-jsdoc": "catalog:prettier"
-	},
-	"peerDependencies": {
-		"prettier": "catalog:peers"
-	}
+  "name": "@so1ve/prettier-config",
+  "version": "3.26.0",
+  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+  "type": "module",
+  "description": "Ray's prettier config.",
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "homepage": "https://github.com/so1ve/codestyle-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/codestyle-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/codestyle-config/issues"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@so1ve/prettier-plugin-toml": "workspace:*",
+    "prettier-plugin-astro": "catalog:prettier",
+    "prettier-plugin-jsdoc": "catalog:prettier"
+  },
+  "peerDependencies": {
+    "prettier": "catalog:peers"
+  }
 }

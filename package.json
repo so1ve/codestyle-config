@@ -1,51 +1,51 @@
 {
-	"name": "@so1ve/codestyle-config-monorepo",
-	"private": true,
-	"packageManager": "pnpm@10.26.2",
-	"author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
-	"type": "module",
-	"description": "Monorepo for Ray's codestyle config.",
-	"homepage": "https://github.com/so1ve/codestyle-config#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/so1ve/codestyle-config.git"
-	},
-	"bugs": {
-		"url": "https://github.com/so1ve/codestyle-config/issues"
-	},
-	"license": "MIT",
-	"scripts": {
-		"build": "tsdown --workspace.include packages/eslint-plugin && nr typegen && tsdown",
-		"lint": "eslint . && prettier . --check",
-		"lint:fix": "eslint . --fix && prettier . --write",
-		"release": "bumpp packages/*/package.json --commit --push --tag",
-		"test": "vitest",
-		"typecheck": "nr typecheck:isolated && nr typecheck:non-isolated",
-		"typecheck:isolated": "tsgo -p tsconfig.isolated.json",
-		"typecheck:non-isolated": "tsgo -p tsconfig.non-isolated.json",
-		"typegen": "nr -r --filter=./packages/eslint-config typegen",
-		"watch": "tsdown --watch"
-	},
-	"devDependencies": {
-		"@antfu/ni": "catalog:build",
-		"@so1ve/eslint-config": "workspace:*",
-		"@so1ve/eslint-plugin": "workspace:*",
-		"@so1ve/eslint-plugin-sort-imports": "workspace:*",
-		"@so1ve/prettier-config": "workspace:*",
-		"@types/node": "catalog:build",
-		"@typescript-eslint/parser": "catalog:eslint",
-		"@typescript/native-preview": "catalog:build",
-		"bumpp": "catalog:build",
-		"eslint": "catalog:eslint",
-		"eslint-plugin-antfu": "catalog:eslint",
-		"eslint-typegen": "catalog:build",
-		"eslint-vitest-rule-tester": "catalog:build",
-		"execa": "catalog:build",
-		"prettier": "catalog:prettier",
-		"tsdown": "catalog:build",
-		"tsup": "catalog:build",
-		"tsx": "catalog:build",
-		"typescript": "catalog:build",
-		"vitest": "catalog:build"
-	}
+  "name": "@so1ve/codestyle-config-monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.26.2",
+  "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
+  "type": "module",
+  "description": "Monorepo for Ray's codestyle config.",
+  "homepage": "https://github.com/so1ve/codestyle-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/so1ve/codestyle-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/so1ve/codestyle-config/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsdown --workspace.include packages/eslint-plugin && nr typegen && tsdown",
+    "lint": "eslint . && prettier . --check",
+    "lint:fix": "eslint . --fix && prettier . --write",
+    "release": "bumpp packages/*/package.json --commit --push --tag",
+    "test": "vitest",
+    "typecheck": "nr typecheck:isolated && nr typecheck:non-isolated",
+    "typecheck:isolated": "tsgo -p tsconfig.isolated.json",
+    "typecheck:non-isolated": "tsgo -p tsconfig.non-isolated.json",
+    "typegen": "nr -r --filter=./packages/eslint-config typegen",
+    "watch": "tsdown --watch"
+  },
+  "devDependencies": {
+    "@antfu/ni": "catalog:build",
+    "@so1ve/eslint-config": "workspace:*",
+    "@so1ve/eslint-plugin": "workspace:*",
+    "@so1ve/eslint-plugin-sort-imports": "workspace:*",
+    "@so1ve/prettier-config": "workspace:*",
+    "@types/node": "catalog:build",
+    "@typescript-eslint/parser": "catalog:eslint",
+    "@typescript/native-preview": "catalog:build",
+    "bumpp": "catalog:build",
+    "eslint": "catalog:eslint",
+    "eslint-plugin-antfu": "catalog:eslint",
+    "eslint-typegen": "catalog:build",
+    "eslint-vitest-rule-tester": "catalog:build",
+    "execa": "catalog:build",
+    "prettier": "catalog:prettier",
+    "tsdown": "catalog:build",
+    "tsup": "catalog:build",
+    "tsx": "catalog:build",
+    "typescript": "catalog:build",
+    "vitest": "catalog:build"
+  }
 }

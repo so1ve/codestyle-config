@@ -6,34 +6,34 @@ import { flatConfigsToRulesDTS } from "eslint-typegen/core";
 import { so1ve } from "../src";
 
 const configs = await so1ve(
-	// @keep-sorted
-	{
-		astro: true,
-		formatting: true,
-		html: true,
-		jsonc: true,
-		mdx: true,
-		perfectionist: true,
-		pnpm: true,
-		solid: true,
-		test: true,
-		toml: true,
-		typescript: true,
-		vue: true,
-		yaml: true,
-	},
+  // @keep-sorted
+  {
+    astro: true,
+    formatting: true,
+    html: true,
+    jsonc: true,
+    mdx: true,
+    perfectionist: true,
+    pnpm: true,
+    solid: true,
+    test: true,
+    toml: true,
+    typescript: true,
+    vue: true,
+    yaml: true,
+  },
 ).prepend({
-	plugins: {
-		"": {
-			rules: Object.fromEntries(builtinRules.entries()),
-		},
-	},
+  plugins: {
+    "": {
+      rules: Object.fromEntries(builtinRules.entries()),
+    },
+  },
 });
 
 const configNames = configs.map((i) => i.name).filter(Boolean) as string[];
 
 let dts = await flatConfigsToRulesDTS(configs, {
-	includeAugmentation: false,
+  includeAugmentation: false,
 });
 
 dts += `

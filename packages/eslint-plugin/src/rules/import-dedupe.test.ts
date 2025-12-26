@@ -5,8 +5,8 @@ const valid = ['import { a } from "foo";'];
 const invalid = ['import { a, b, a, a, c, a , } from "foo";'];
 
 run({
-	name: RULE_NAME,
-	rule,
-	valid,
-	invalid,
+  name: RULE_NAME,
+  rule,
+  valid,
+  invalid,
 });

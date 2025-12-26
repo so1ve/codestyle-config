@@ -7,7 +7,7 @@
 ## Features
 
 - Double quotes, with semicolons
-- Use tabs for indent ([Read more](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/))
+- Use 2 spaces for indent
 - Auto fix for formatting (Powered by [Prettier](https://github.com/prettier/prettier))
 - Supports TypeScript, Vue, React, Svelte, Solid, MDX, JSON, Yaml, Markdown, HTML out-of-box!
 - Sorted imports, dangling commas for cleaner commit diff
@@ -53,10 +53,10 @@ For example:
 
 ```json
 {
-	"scripts": {
-		"lint": "eslint . && prettier . --check",
-		"lint:fix": "eslint . --fix && prettier . --write"
-	}
+  "scripts": {
+    "lint": "eslint . && prettier . --check",
+    "lint:fix": "eslint . --fix && prettier . --write"
+  }
 }
 ```
 
@@ -66,27 +66,27 @@ Create `.vscode/settings.json`
 
 ```json
 {
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
-	},
-	"eslint.validate": [
-		"javascript",
-		"typescript",
-		"javascriptreact",
-		"typescriptreact",
-		"vue",
-		"html",
-		"markdown",
-		"json",
-		"jsonc",
-		"json5",
-		"toml",
-		"yaml",
-		"svelte",
-		"github-actions-workflow"
-	]
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "json5",
+    "toml",
+    "yaml",
+    "svelte",
+    "github-actions-workflow"
+  ]
 }
 ```
 
@@ -110,21 +110,21 @@ And that's it! Or you can configure each integration individually, for example:
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve(
-	{
-		typescript: true,
-		vue: true,
-		solid: false,
-		jsonc: false,
-		yaml: false,
-	},
-	{
-		// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
-		// also supports function to modify the default ignores
-		ignores: [
-			"./fixtures",
-			// ...globs
-		],
-	},
+  {
+    typescript: true,
+    vue: true,
+    solid: false,
+    jsonc: false,
+    yaml: false,
+  },
+  {
+    // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+    // also supports function to modify the default ignores
+    ignores: [
+      "./fixtures",
+      // ...globs
+    ],
+  },
 );
 ```
 
@@ -135,18 +135,18 @@ The `so1ve` factory function also accepts any number of arbitrary custom config 
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve(
-	{
-		// Configures for so1ve's config
-	},
-	// From the second arguments they are ESLint Flat Configs
-	// you can have multiple configs
-	{
-		files: ["**/*.ts"],
-		rules: {},
-	},
-	{
-		rules: {},
-	},
+  {
+    // Configures for so1ve's config
+  },
+  // From the second arguments they are ESLint Flat Configs
+  // you can have multiple configs
+  {
+    files: ["**/*.ts"],
+    rules: {},
+  },
+  {
+    rules: {},
+  },
 );
 ```
 
@@ -180,20 +180,20 @@ Certain rules would only be enabled in specific files, for example, `ts/*` rules
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve(
-	{ vue: true, typescript: true },
-	{
-		// Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
-		files: ["**/*.vue"],
-		rules: {
-			"vue/operator-linebreak": ["error", "before"],
-		},
-	},
-	{
-		// Without `files`, they are general rules for all files
-		rules: {
-			"style/semi": ["error", "never"],
-		},
-	},
+  { vue: true, typescript: true },
+  {
+    // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
+    files: ["**/*.vue"],
+    rules: {
+      "vue/operator-linebreak": ["error", "before"],
+    },
+  },
+  {
+    // Without `files`, they are general rules for all files
+    rules: {
+      "style/semi": ["error", "never"],
+    },
+  },
 );
 ```
 
@@ -204,21 +204,21 @@ We also provided a `overrides` options in each integration to make it easier:
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve({
-	vue: {
-		overrides: {
-			"vue/operator-linebreak": ["error", "before"],
-		},
-	},
-	typescript: {
-		overrides: {
-			"ts/consistent-type-definitions": ["error", "interface"],
-		},
-	},
-	yaml: {
-		overrides: {
-			// ...
-		},
-	},
+  vue: {
+    overrides: {
+      "vue/operator-linebreak": ["error", "before"],
+    },
+  },
+  typescript: {
+    overrides: {
+      "ts/consistent-type-definitions": ["error", "interface"],
+    },
+  },
+  yaml: {
+    overrides: {
+      // ...
+    },
+  },
 });
 ```
 
@@ -231,19 +231,19 @@ The factory function `so1ve()` returns a [`FlatConfigComposer` object from `esli
 import { so1ve } from "@so1ve/eslint-config";
 
 export default so1ve()
-	// some configs before the main config
-	.prepend()
-	// overrides any named configs
-	.override("so1ve/imports/rules", {
-		rules: {
-			"import/named": "off",
-		},
-	})
-	// rename plugin prefixes
-	.renamePlugins({
-		"old-prefix": "new-prefix",
-		// ...
-	});
+  // some configs before the main config
+  .prepend()
+  // overrides any named configs
+  .override("so1ve/imports/rules", {
+    rules: {
+      "import/named": "off",
+    },
+  })
+  // rename plugin prefixes
+  .renamePlugins({
+    "old-prefix": "new-prefix",
+    // ...
+  });
 // ...
 ```
 
