@@ -1,4 +1,5 @@
 import type { InvalidTestCase } from "eslint-vitest-rule-tester";
+import vueParser from "vue-eslint-parser";
 
 import { run } from "./_test";
 import rule, { RULE_NAME } from "./import-export-newline";
@@ -22,6 +23,16 @@ const a = 1;
  */
 export const b = 1;
 `,
+	{
+		code: `<script>import a from "foo";</script>`,
+		filename: "test.vue",
+		parser: vueParser,
+	},
+	{
+		code: `<script>import a from "foo";\n\nconst b = 1;</script>`,
+		filename: "test.vue",
+		parser: vueParser,
+	},
 ];
 const invalid: InvalidTestCase[] = [
 	`import a from "foo";
@@ -72,6 +83,13 @@ export default 1;
  * JSDoc
  */
 export const b = 2;`,
+	{
+		code: `<script>import a from "foo";\nconst b = 1;</script>`,
+		output: `<script>import a from "foo";\n\nconst b = 1;</script>`,
+		filename: "test.vue",
+		parser: vueParser,
+		errors: [{ messageId: "newlineAfterLastImport" }],
+	},
 ];
 
 run({
