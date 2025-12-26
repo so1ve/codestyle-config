@@ -4,5 +4,8 @@
     "isolatedDeclarations": true
   },
   "include": ["packages/*/src"],
-  "exclude": ["packages/*/src/**/*.test.ts"]
+  "exclude": [
+    "packages/*/src/**/*.test.ts",
+    "packages/eslint-plugin/src/rules/_test.ts"
+  ]
 }

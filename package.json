@@ -21,7 +21,7 @@
     "release": "bumpp packages/*/package.json --commit --push --tag",
     "test": "vitest",
     "typecheck": "nr typecheck:isolated && nr typecheck:non-isolated",
-    "typecheck:isolated": "tsgo -p tsconfig.isolated.json",
+    "typecheck:isolated": "tsc -p tsconfig.isolated.json",
     "typecheck:non-isolated": "tsgo -p tsconfig.non-isolated.json",
     "typegen": "nr -r --filter=./packages/eslint-config typegen",
     "watch": "tsdown --watch"
