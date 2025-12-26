@@ -8,6 +8,20 @@ const valid = [
 	'import a from "foo";\n\nexport const b = 1;',
 	"const a = 1;\n\nexport const b = 1;",
 	"export const a = 1;",
+	`
+/**
+ * JSDoc
+ */
+export const a = 1;
+`,
+	`
+const a = 1;
+
+/**
+ * JSDoc
+ */
+export const b = 1;
+`,
 ];
 const invalid: InvalidTestCase[] = [
 	`import a from "foo";
@@ -53,6 +67,11 @@ const d = 4;
 1;
 export default 1;
 `,
+	`const a = 1;
+/**
+ * JSDoc
+ */
+export const b = 2;`,
 ];
 
 run({

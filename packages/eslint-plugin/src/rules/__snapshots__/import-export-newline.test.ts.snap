@@ -35,3 +35,16 @@ const d = 4;
 export default 1;
 "
 `;
+
+exports[`import-export-newline > invalid > Invalid #6: const a = 1;
+/**
+ * JSDoc
+ */
+export const b = 2; 1`] = `
+"const a = 1;
+
+/**
+ * JSDoc
+ */
+export const b = 2;"
+`;

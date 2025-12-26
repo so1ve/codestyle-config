@@ -41,34 +41,53 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 			exportNodes.push(node);
 		}
 
-		function shouldHaveNewline(
+		function checkNewline(
 			node: TSESTree.Node,
 			direction: "before" | "after",
-		) {
+		): TSESTree.Node | TSESTree.Comment | null {
 			let token: TSESTree.Token | null;
-			let commentLine: number;
 			let expectedLine: number;
 			let tokenLine: number | undefined;
 
 			if (direction === "after") {
-				token = sourceCode.getTokenAfter(node);
-				commentLine = sourceCode.getCommentsAfter(node)[0]?.loc.start.line;
-				expectedLine = node.loc.end.line + 1;
+				const comments = sourceCode.getCommentsAfter(node);
+				const sameLineComment = comments.find(
+					(c) => c.loc.start.line === node.loc.end.line,
+				);
+				const endNode = sameLineComment ?? node;
+
+				token = sourceCode.getTokenAfter(endNode);
+				const nextComment = sourceCode.getCommentsAfter(endNode)[0];
+
+				expectedLine = endNode.loc.end.line + 1;
 				tokenLine = token?.loc.start.line;
-			} else {
-				token = sourceCode.getTokenBefore(node);
-				commentLine = sourceCode.getCommentsBefore(node)[0]?.loc.end.line;
-				expectedLine = node.loc.start.line - 1;
-				tokenLine = token?.loc.end.line;
+				const commentLine = nextComment?.loc.start.line;
+
+				if (
+					token &&
+					(expectedLine === tokenLine || expectedLine === commentLine) &&
+					token.value !== "}" &&
+					token.value !== "</script>"
+				) {
+					return endNode;
+				}
+
+				return null;
 			}
 
-			return (
-				token &&
-				(expectedLine === tokenLine || expectedLine === commentLine) &&
-				(direction === "after"
-					? token.value !== "}" && token.value !== "</script>"
-					: true)
-			);
+			const comments = sourceCode.getCommentsBefore(node);
+			const firstComment = comments[0];
+			const startNode = firstComment || node;
+
+			token = sourceCode.getTokenBefore(startNode);
+			expectedLine = startNode.loc.start.line - 1;
+			tokenLine = token?.loc.end.line;
+
+			if (token && expectedLine === tokenLine) {
+				return startNode;
+			}
+
+			return null;
 		}
 
 		return {
@@ -79,11 +98,14 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 			ExportDefaultDeclaration: checkExport,
 			ExportAllDeclaration: checkExport,
 			"Program:exit"() {
-				if (lastImportNode && shouldHaveNewline(lastImportNode, "after")) {
+				const lastImportFixNode = lastImportNode
+					? checkNewline(lastImportNode, "after")
+					: null;
+				if (lastImportNode && lastImportFixNode) {
 					context.report({
 						node: lastImportNode,
 						messageId: "newlineAfterLastImport",
-						fix: (fixer) => fixer.insertTextAfter(lastImportNode!, "\n"),
+						fix: (fixer) => fixer.insertTextAfter(lastImportFixNode, "\n"),
 					});
 				}
 
@@ -93,27 +115,28 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
 						// If previous node is not an export
 						(!prevNode || !isExportDeclaration(prevNode)) &&
 						// And not the last import (handled above)
-						!(lastImportNode && prevNode === lastImportNode) &&
-						shouldHaveNewline(node, "before")
+						!(lastImportNode && prevNode === lastImportNode)
 					) {
-						context.report({
-							node,
-							messageId: "newlineBeforeExport",
-							fix: (fixer) => fixer.insertTextBefore(node, "\n"),
-						});
+						const beforeFixNode = checkNewline(node, "before");
+						if (beforeFixNode) {
+							context.report({
+								node,
+								messageId: "newlineBeforeExport",
+								fix: (fixer) => fixer.insertTextBefore(beforeFixNode, "\n"),
+							});
+						}
 					}
 
 					const nextNode = getNextNode(node);
-					if (
-						nextNode &&
-						!isExportDeclaration(nextNode) &&
-						shouldHaveNewline(node, "after")
-					) {
-						context.report({
-							node,
-							messageId: "newlineAfterExport",
-							fix: (fixer) => fixer.insertTextAfter(node, "\n"),
-						});
+					if (nextNode && !isExportDeclaration(nextNode)) {
+						const afterFixNode = checkNewline(node, "after");
+						if (afterFixNode) {
+							context.report({
+								node,
+								messageId: "newlineAfterExport",
+								fix: (fixer) => fixer.insertTextAfter(afterFixNode, "\n"),
+							});
+						}
 					}
 				}
 			},
