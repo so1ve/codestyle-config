@@ -40,7 +40,6 @@ export async function pnpm(): Promise<TypedFlatConfigItem[]> {
 					{
 						settings: {
 							catalogMode: "prefer",
-							cleanupUnusedCatalogs: true,
 							shellEmulator: true,
 						},
 					},
