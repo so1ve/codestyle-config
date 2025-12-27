@@ -58,7 +58,6 @@ export const unicorn = (): TypedFlatConfigItem[] => [
       "unicorn/prefer-spread": "error",
       "unicorn/prefer-string-slice": "error",
       "unicorn/prefer-string-starts-ends-with": "error",
-      "unicorn/prefer-ternary": "error",
       // "unicorn/prefer-text-content": "error",
       "unicorn/prefer-type-error": "error",
       "unicorn/relative-url-style": ["error", "always"],
