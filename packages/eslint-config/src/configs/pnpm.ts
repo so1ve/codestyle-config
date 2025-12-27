@@ -5,7 +5,7 @@ import { findUp } from "find-up-simple";
 import type { OptionsPnpm, TypedFlatConfigItem } from "../types";
 import { interopDefault } from "../utils";
 
-async function detectCatalogUsage(): Promise<boolean> {
+async function _detectCatalogUsage(): Promise<boolean> {
   const workspaceFile = await findUp("pnpm-workspace.yaml");
   if (!workspaceFile) {
     return false;
@@ -20,7 +20,7 @@ export async function pnpm(
   options: OptionsPnpm,
 ): Promise<TypedFlatConfigItem[]> {
   const {
-    catalogs = await detectCatalogUsage(),
+    // catalogs = await detectCatalogUsage(),
     json = true,
     yaml = true,
   } = options;
@@ -45,16 +45,16 @@ export async function pnpm(
       },
       // @keep-sorted
       rules: {
-        ...(catalogs && {
-          "pnpm/json-enforce-catalog": [
-            "error",
-            {
-              ignores: ["@types/vscode"],
-            },
-          ],
-        }),
+        // ...(catalogs && {
+        //   "pnpm/json-enforce-catalog": [
+        //     "error",
+        //     {
+        //       ignores: ["@types/vscode"],
+        //     },
+        //   ],
+        // }),
         "pnpm/json-prefer-workspace-settings": "error",
-        "pnpm/json-valid-catalog": "error",
+        // "pnpm/json-valid-catalog": "error",
       },
     });
   }
@@ -80,7 +80,7 @@ export async function pnpm(
             },
           ],
           // "pnpm/yaml-no-duplicate-catalog-item": "error",
-          "pnpm/yaml-no-unused-catalog-item": "error",
+          // "pnpm/yaml-no-unused-catalog-item": "error",
         },
       },
       {
