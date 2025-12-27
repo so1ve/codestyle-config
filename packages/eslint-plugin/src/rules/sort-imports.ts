@@ -121,9 +121,17 @@ const rule: ESLintUtils.RuleModule<MessageIds, Options> = createEslintRule({
         const sourceCode = context.sourceCode;
 
         for (const parent of parents) {
-          for (const chunk of extractChunks(parent, (node) =>
-            isImport(node) ? "PartOfChunk" : "NotPartOfChunk",
-          )) {
+          for (const chunk of extractChunks(parent, (node, lastNode) => {
+            if (!isImport(node)) {
+              return "NotPartOfChunk";
+            }
+
+            return lastNode != null &&
+              isImport(lastNode) &&
+              lastNode.loc.end.line === node.loc.start.line
+              ? "PartOfNewChunk"
+              : "PartOfChunk";
+          })) {
             maybeReportChunkSorting(chunk, context, outerGroups, sourceCode);
           }
         }

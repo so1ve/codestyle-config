@@ -257,7 +257,12 @@ function getIndentationAt(
   const text = sourceCode.text.slice(0, index);
   const lines = text.split(NEWLINE);
 
-  return lines[lines.length - 1];
+  const linePrefix = lines[lines.length - 1];
+
+  // Only treat leading whitespace as "indentation".
+  // If the node starts mid-line (e.g. `;import "x"`), the prefix contains code,
+  // and using it as indentation breaks range calculations and can cause unstable fixes.
+  return /^\s*$/u.test(linePrefix) ? linePrefix : "";
 }
 
 function getTrailingSpacesAt(

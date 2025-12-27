@@ -12,6 +12,7 @@ import b from "b";
 
 import x from "./x";
 `,
+    `import "./rpc-bridge";import "./styles/main.css";`,
   ],
   invalid: [
     `import x from "./x";
