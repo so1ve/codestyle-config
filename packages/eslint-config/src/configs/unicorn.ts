@@ -22,7 +22,6 @@ export const unicorn = (): TypedFlatConfigItem[] => [
       "unicorn/explicit-length-check": "error",
       "unicorn/new-for-builtins": "error",
       "unicorn/no-array-for-each": "error",
-      "unicorn/no-array-method-this-argument": "error",
       "unicorn/no-await-expression-member": "error",
       "unicorn/no-await-in-promise-methods": "error",
       "unicorn/no-for-loop": "error",
