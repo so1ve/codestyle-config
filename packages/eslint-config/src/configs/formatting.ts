@@ -119,10 +119,10 @@ export async function formatting(
                 pathPattern: "^scripts$",
                 order: { type: "asc" },
               },
-              {
-                pathPattern: "^exports$",
-                order: { type: "asc" },
-              },
+              // {
+              //   pathPattern: "^exports$",
+              //   order: { type: "asc" },
+              // },
               {
                 pathPattern: "^exports.*$",
                 order: ["types", "require", "import", "default"],
