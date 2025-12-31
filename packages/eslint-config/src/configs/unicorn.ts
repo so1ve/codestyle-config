@@ -32,7 +32,6 @@ export const unicorn = (): TypedFlatConfigItem[] => [
       "unicorn/no-useless-collection-argument": "error",
       "unicorn/no-useless-spread": "error",
       "unicorn/no-zero-fractions": "error",
-      "unicorn/number-literal-case": "error",
       "unicorn/numeric-separators-style": "error",
       "unicorn/prefer-array-find": "error",
       "unicorn/prefer-array-flat": "error",
