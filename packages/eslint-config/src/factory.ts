@@ -130,10 +130,6 @@ export function so1ve(
     componentExts.push("vue");
   }
 
-  if (options.html ?? true) {
-    configs.push(html());
-  }
-
   if (enableTypeScript) {
     configs.push(
       typescript({
@@ -183,6 +179,10 @@ export function so1ve(
 
   if (options.perfectionist ?? true) {
     configs.push(perfectionist());
+  }
+
+  if (options.html ?? true) {
+    configs.push(html());
   }
 
   if (options.jsonc ?? true) {
