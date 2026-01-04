@@ -4,10 +4,9 @@ import type { Config } from "prettier";
 
 const require = createRequire(import.meta.url);
 
-const plugins = [
-  require.resolve("@so1ve/prettier-plugin-toml"),
-  ...["astro", "jsdoc"].map((p) => require.resolve(`prettier-plugin-${p}`)),
-];
+const plugins = ["astro", "jsdoc", "toml"].map((p) =>
+  require.resolve(`prettier-plugin-${p}`),
+);
 
 export default {
   useTabs: false,
