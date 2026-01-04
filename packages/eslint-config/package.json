@@ -52,6 +52,7 @@
     "eslint-plugin-astro": "catalog:eslint",
     "eslint-plugin-case-police": "catalog:eslint",
     "eslint-plugin-command": "catalog:eslint",
+    "eslint-plugin-de-morgan": "catalog:eslint",
     "eslint-plugin-html": "catalog:eslint",
     "eslint-plugin-import-lite": "catalog:eslint",
     "eslint-plugin-import-x": "catalog:eslint",
@@ -73,6 +74,7 @@
     "eslint-plugin-unused-imports": "catalog:eslint",
     "eslint-plugin-vue": "catalog:eslint",
     "eslint-plugin-yml": "catalog:eslint",
+    "find-up-simple": "catalog:",
     "globals": "catalog:eslint",
     "jsonc-eslint-parser": "catalog:eslint",
     "local-pkg": "catalog:",
@@ -80,10 +82,6 @@
     "typescript-eslint": "catalog:eslint",
     "vue-eslint-parser": "catalog:eslint",
     "yaml-eslint-parser": "catalog:eslint"
-  },
-  "devDependencies": {
-    "eslint-plugin-de-morgan": "catalog:eslint",
-    "find-up-simple": "catalog:inline"
   },
   "peerDependencies": {
     "eslint": "catalog:peers",

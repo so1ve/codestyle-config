@@ -6,7 +6,7 @@ export default defineConfig({
   },
   entry: ["src/index.ts"],
   format: "esm",
-  clean: true,
+  unbundle: true,
   dts: {
     oxc: true,
   },
