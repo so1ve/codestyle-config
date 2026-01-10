@@ -31,7 +31,7 @@ catalogs:
     "eslint-typegen": "^2.3.0"
     "eslint-vitest-rule-tester": "^3.0.1"
     "execa": "^9.6.1"
-    "tsdown": "^0.18.3"
+    "tsdown": "^0.19.0"
     "tsup": "^8.5.1"
     "tsx": "^4.21.0"
     "typescript": "^5.9.3"
