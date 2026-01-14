@@ -1,6 +1,6 @@
 {
   "name": "@so1ve/eslint-config",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "type": "module",
   "description": "Ray's eslint config.",
