@@ -13,7 +13,7 @@ export async function astro({ overrides = {} }: OptionsOverrides = {}): Promise<
 
   return [
     {
-      name: "antfu/astro/setup",
+      name: "so1ve/astro/setup",
       plugins: {
         astro: pluginAstro,
       },
@@ -27,16 +27,17 @@ export async function astro({ overrides = {} }: OptionsOverrides = {}): Promise<
           extraFileExtensions: [".astro"],
           parser: parserTs,
         },
+        env: {
+          "node": true,
+          "astro/astro": true,
+          "es2020": true,
+        },
         sourceType: "module",
       },
-      name: "antfu/astro/rules",
+      name: "so1ve/astro/rules",
       processor: "astro/client-side-ts",
       // @keep-sorted
       rules: {
-        // Astro uses top level await for e.g. data fetching
-        // https://docs.astro.build/en/guides/data-fetching/#fetch-in-astro
-        "antfu/no-top-level-await": "off",
-
         // use recommended rules
         "astro/missing-client-only-directive-value": "error",
         "astro/no-conflict-set-directives": "error",

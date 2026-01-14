@@ -130,6 +130,10 @@ export function so1ve(
     componentExts.push("vue");
   }
 
+  if (enableAstro) {
+    componentExts.push("astro");
+  }
+
   if (enableTypeScript) {
     configs.push(
       typescript({
