@@ -27,11 +27,6 @@ export async function astro({ overrides = {} }: OptionsOverrides = {}): Promise<
           extraFileExtensions: [".astro"],
           parser: parserTs,
         },
-        env: {
-          "node": true,
-          "astro/astro": true,
-          "es2020": true,
-        },
         sourceType: "module",
       },
       name: "so1ve/astro/rules",
