@@ -38,8 +38,8 @@ catalogs:
     "vitest": "^4.0.16"
   eslint:
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0"
-    "@html-eslint/eslint-plugin": "^0.52.0"
-    "@html-eslint/parser": "^0.52.0"
+    "@html-eslint/eslint-plugin": "^0.53.0"
+    "@html-eslint/parser": "^0.53.0"
     "@stylistic/eslint-plugin": "^5.6.1"
     "@typescript-eslint/parser": "^8.50.1"
     "@typescript-eslint/types": "^8.50.1"

@@ -31,7 +31,7 @@ export async function html(): Promise<TypedFlatConfigItem[]> {
       files: [GLOB_HTML],
       // @keep-sorted
       rules: {
-        ...renameRules((pluginHtml.configs!.recommended as any).rules, {
+        ...renameRules((pluginHtml.configs.recommended as any).rules, {
           "@html-eslint": "html",
         }),
         "html/attrs-newline": "off",
