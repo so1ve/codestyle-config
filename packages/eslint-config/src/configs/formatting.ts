@@ -35,7 +35,11 @@ export async function formatting(
           "style/no-extra-parens": ["error", "functions"],
           "style/padding-line-between-statements": [
             "error",
-            { blankLine: "always", prev: "*", next: "return" },
+            {
+              blankLine: "always",
+              prev: "*",
+              next: ["return", "continue", "break", "throw", "debugger"],
+            },
           ],
           "style/quote-props": ["error", "consistent-as-needed"],
           "style/spaced-comment": [
