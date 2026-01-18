@@ -276,8 +276,10 @@ function getTrailingSpacesAt(
     const char = text[end];
     if (char === " " || char === "\t") {
       end++;
+
       continue;
     }
+
     break;
   }
 
@@ -375,6 +377,7 @@ export function extractChunks<TNode extends TSESTree.Node>(
     switch (result) {
       case "PartOfChunk": {
         chunk.push(node);
+
         break;
       }
 
@@ -383,6 +386,7 @@ export function extractChunks<TNode extends TSESTree.Node>(
           chunks.push(chunk);
         }
         chunk = [node];
+
         break;
       }
 
@@ -391,12 +395,14 @@ export function extractChunks<TNode extends TSESTree.Node>(
           chunks.push(chunk);
           chunk = [];
         }
+
         break;
       }
 
       default: {
         // Exhaustive check
         const _never: never = result;
+
         throw new Error(`Unknown chunk result: ${String(_never)}`);
       }
     }
@@ -518,6 +524,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
               result.before = current.before;
               current = makeEmptyItem();
             }
+
             break;
           }
 
@@ -525,6 +532,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
           case "Block":
           case "Line": {
             current.before.push(token);
+
             break;
           }
 
@@ -538,6 +546,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
             current.specifier.push(token);
           }
         }
+
         break;
       }
 
@@ -550,6 +559,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
             } else {
               current.specifier.push(token);
             }
+
             break;
           }
 
@@ -557,6 +567,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
             current.specifier.push(token);
           }
         }
+
         break;
       }
 
@@ -566,12 +577,14 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
             current.after.push(token);
             result.items.push(current);
             current = makeEmptyItem();
+
             break;
           }
 
           case "Spaces":
           case "Line": {
             current.after.push(token);
+
             break;
           }
 
@@ -583,6 +596,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
             } else {
               current.after.push(token);
             }
+
             break;
           }
 
@@ -593,11 +607,13 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
             current.specifier.push(token);
           }
         }
+
         break;
       }
 
       default: {
         const _never: never = current.state;
+
         throw new Error(`Unknown state: ${String(_never)}`);
       }
     }
@@ -606,6 +622,7 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
   switch (current.state) {
     case "before": {
       result.after = current.before;
+
       break;
     }
 
@@ -657,11 +674,13 @@ function getSpecifierItems(tokens: readonly PrintedToken[]): {
         }
       }
       result.items.push(current);
+
       break;
     }
 
     default: {
       const _never: never = current.state;
+
       throw new Error(`Unknown state: ${String(_never)}`);
     }
   }
