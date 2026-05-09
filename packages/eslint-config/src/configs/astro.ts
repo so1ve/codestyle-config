@@ -13,7 +13,7 @@ export async function astro({ overrides = {} }: OptionsOverrides = {}): Promise<
 
   return [
     {
-      name: "rayxiom/astro/setup",
+      name: "so1ve/astro/setup",
       plugins: {
         astro: pluginAstro,
       },
@@ -29,7 +29,7 @@ export async function astro({ overrides = {} }: OptionsOverrides = {}): Promise<
         },
         sourceType: "module",
       },
-      name: "rayxiom/astro/rules",
+      name: "so1ve/astro/rules",
       processor: "astro/client-side-ts",
       // @keep-sorted
       rules: {

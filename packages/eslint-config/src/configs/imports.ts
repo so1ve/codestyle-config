@@ -4,14 +4,14 @@ import type { Options, TypedFlatConfigItem } from "../types";
 
 export const imports = (options: Options = {}): TypedFlatConfigItem[] => [
   {
-    name: "rayxiom/imports/setup",
+    name: "so1ve/imports/setup",
     plugins: {
       "import": pluginImport,
       "import-lite": pluginImportLite,
     },
   },
   {
-    name: "rayxiom/imports/rules",
+    name: "so1ve/imports/rules",
     languageOptions: {
       parserOptions: {
         ecmaVersion: "latest",
@@ -53,7 +53,7 @@ export const imports = (options: Options = {}): TypedFlatConfigItem[] => [
     },
   },
   {
-    name: "rayxiom/imports/rules/dts",
+    name: "so1ve/imports/rules/dts",
     files: [GLOB_DTS],
     rules: {
       "import/no-duplicates": "off",

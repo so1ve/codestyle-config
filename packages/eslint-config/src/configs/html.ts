@@ -14,14 +14,14 @@ export async function html(): Promise<TypedFlatConfigItem[]> {
 
   return [
     {
-      name: "rayxiom/html/setup",
+      name: "so1ve/html/setup",
       plugins: {
         "html": pluginHtml,
         "html-js-support": pluginHtmlJsSupport,
       },
     },
     {
-      name: "rayxiom/html/rules",
+      name: "so1ve/html/rules",
       languageOptions: {
         parser: parserHtml,
       },
@@ -40,7 +40,7 @@ export async function html(): Promise<TypedFlatConfigItem[]> {
         "html/no-trailing-spaces": "off",
         "html/quotes": "off",
         "html/require-closing-tags": "off",
-        "rayxiom/html-spaced-comment": "error",
+        "so1ve/html-spaced-comment": "error",
         "style/spaced-comment": "off",
       },
     },

@@ -16,13 +16,13 @@ export async function solid({
 
   return [
     {
-      name: "rayxiom/solid/setup",
+      name: "so1ve/solid/setup",
       plugins: {
         solid: pluginSolid,
       },
     },
     {
-      name: "rayxiom/solid/rules",
+      name: "so1ve/solid/rules",
       languageOptions: {
         sourceType: "module",
         parserOptions: {

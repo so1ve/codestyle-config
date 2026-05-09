@@ -1,5 +1,5 @@
 {
-  "name": "@rayxiom/prettier-config",
+  "name": "@so1ve/prettier-config",
   "version": "4.5.1",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "type": "module",
@@ -8,13 +8,13 @@
     "eslint",
     "eslint-config"
   ],
-  "homepage": "https://github.com/rayxiom/rayxiom#readme",
+  "homepage": "https://github.com/so1ve/codestyle-config#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rayxiom/rayxiom.git"
+    "url": "git+https://github.com/so1ve/codestyle-config.git"
   },
   "bugs": {
-    "url": "https://github.com/rayxiom/rayxiom/issues"
+    "url": "https://github.com/so1ve/codestyle-config/issues"
   },
   "license": "MIT",
   "exports": {

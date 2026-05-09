@@ -17,7 +17,7 @@ export async function mdx({
   return [
     {
       ...(pluginMdx.flat as TypedFlatConfigItem),
-      name: "rayxiom/mdx/setup",
+      name: "so1ve/mdx/setup",
       processor: pluginMdx.createRemarkProcessor({
         lintCodeBlocks: true,
         languageMapper: {},
@@ -25,7 +25,7 @@ export async function mdx({
     },
     {
       ...(pluginMdx.flatCodeBlocks as TypedFlatConfigItem),
-      name: "rayxiom/mdx/rules",
+      name: "so1ve/mdx/rules",
       files: [
         ...(pluginMdx.flatCodeBlocks.files as string[]),
         ...componentExts.map((ext) => `${GLOB_MARKDOWN}/*.${ext}`),

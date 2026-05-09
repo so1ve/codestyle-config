@@ -5,6 +5,6 @@ import type { TypedFlatConfigItem } from "../types";
 export const command = async (): Promise<TypedFlatConfigItem[]> => [
   {
     ...createCommand(),
-    name: "rayxiom/command",
+    name: "so1ve/command",
   },
 ];

@@ -21,13 +21,13 @@ export async function vue({
 
   return [
     {
-      name: "rayxiom/vue/setup",
+      name: "so1ve/vue/setup",
       plugins: {
         vue: pluginVue,
       },
     },
     {
-      name: "rayxiom/vue/rules",
+      name: "so1ve/vue/rules",
       files: [GLOB_VUE],
       languageOptions: {
         parser: parserVue,
@@ -49,7 +49,7 @@ export async function vue({
         ...pluginVue.configs.recommended.rules,
         "no-undef": "off",
         "no-unused-vars": "off",
-        "rayxiom/vue-root-element-sort-attributes": "error",
+        "so1ve/vue-root-element-sort-attributes": "error",
         "ts/no-unused-vars": "off",
         "vue/array-bracket-spacing": "off",
         "vue/arrow-spacing": "off",

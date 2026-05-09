@@ -18,7 +18,7 @@ export const typescript = async ({
   OptionsComponentExts &
   OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> => [
   {
-    name: "rayxiom/typescript/setup",
+    name: "so1ve/typescript/setup",
     // Install the plugins without globs, so they can be configured separately.
     plugins: {
       import: pluginImport,
@@ -26,7 +26,7 @@ export const typescript = async ({
     },
   },
   {
-    name: "rayxiom/typescript/rules",
+    name: "so1ve/typescript/rules",
     files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
     languageOptions: {
       parser: tseslint.parser as any,
@@ -67,9 +67,9 @@ export const typescript = async ({
       "no-useless-constructor": "off",
       "object-curly-spacing": "off",
 
-      // rayxiom
-      "rayxiom/no-inline-type-modifier": "error",
-      "rayxiom/prefer-ts-expect-error": "error",
+      // so1ve
+      "so1ve/no-inline-type-modifier": "error",
+      "so1ve/prefer-ts-expect-error": "error",
 
       "space-before-blocks": "off",
       "space-before-function-paren": "off",
@@ -189,7 +189,7 @@ export const typescript = async ({
     },
   },
   {
-    name: "rayxiom/typescript/rules/type-aware",
+    name: "so1ve/typescript/rules/type-aware",
     files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
     ignores: [GLOB_MARKDOWN_CODE, GLOB_ASTRO_TS],
     languageOptions: {
@@ -245,7 +245,7 @@ export const typescript = async ({
     },
   },
   {
-    name: "rayxiom/typescript/rules/dts",
+    name: "so1ve/typescript/rules/dts",
     files: ["**/*.d.ts"],
     // @keep-sorted
     rules: {
@@ -255,7 +255,7 @@ export const typescript = async ({
     },
   },
   {
-    name: "rayxiom/typescript/rules/js",
+    name: "so1ve/typescript/rules/js",
     files: ["**/*.js", "**/*.cjs"],
     // @keep-sorted
     rules: {

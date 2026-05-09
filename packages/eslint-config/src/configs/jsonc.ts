@@ -7,13 +7,13 @@ export async function jsonc(): Promise<TypedFlatConfigItem[]> {
 
   return [
     {
-      name: "rayxiom/jsonc/setup",
+      name: "so1ve/jsonc/setup",
       plugins: {
         jsonc: pluginJsonc,
       },
     },
     {
-      name: "rayxiom/jsonc/rules",
+      name: "so1ve/jsonc/rules",
       files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_ESLINTRC],
       language: "jsonc/x",
       // @keep-sorted
