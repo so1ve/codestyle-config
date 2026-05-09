@@ -29,7 +29,7 @@ export const typescript = async ({
     name: "so1ve/typescript/rules",
     files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
     languageOptions: {
-      parser: tseslint.parser as any,
+      parser: tseslint.parser,
       parserOptions: {
         sourceType: "module",
         extraFileExtensions: componentExts.map((ext) => `.${ext}`),
@@ -193,7 +193,7 @@ export const typescript = async ({
     files: [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)],
     ignores: [GLOB_MARKDOWN_CODE, GLOB_ASTRO_TS],
     languageOptions: {
-      parser: tseslint.parser as any,
+      parser: tseslint.parser,
       parserOptions: {
         sourceType: "module",
         projectService: true,

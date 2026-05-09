@@ -33,7 +33,7 @@ export async function solid({
       },
       rules: {
         ...(pluginSolid.configs.recommended.rules as Rules),
-        ...(typescript ? (pluginSolid.configs.typescript.rules as Rules) : {}),
+        ...(typescript ? pluginSolid.configs.typescript.rules : {}),
         ...overrides,
       },
     },
