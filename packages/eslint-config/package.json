@@ -73,10 +73,14 @@
     "eslint-plugin-yml": "catalog:eslint",
     "find-up-simple": "catalog:",
     "globals": "catalog:eslint",
+    "local-pkg": "catalog:",
+    "toml-eslint-parser": "catalog:eslint",
     "typescript-eslint": "catalog:eslint",
+    "vue-eslint-parser": "catalog:eslint",
     "yaml-eslint-parser": "catalog:eslint"
   },
-  "devDependencies": {
-    "tsx": "catalog:"
+  "peerDependencies": {
+    "eslint": "catalog:peers",
+    "prettier": "catalog:peers"
   }
 }
