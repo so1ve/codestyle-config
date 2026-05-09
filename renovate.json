@@ -1,6 +1,6 @@
 {
   "extends": [
-    "github>rayxiom/renovate-config"
+    "github>so1ve/renovate-config"
   ],
   "ignoreDeps": [
     "eslint-plugin-html",
