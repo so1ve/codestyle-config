@@ -1,7 +1,7 @@
-import { rayxiom } from "@rayxiom/eslint-config";
+import { so1ve } from "@so1ve/eslint-config";
 import pluginAntfu from "eslint-plugin-antfu";
 
-export default rayxiom({ pnpm: true }).append({
+export default so1ve({ pnpm: true }).append({
   name: "tests",
   files: ["**/*.test.ts"],
   plugins: {

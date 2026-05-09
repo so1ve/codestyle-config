@@ -8,13 +8,13 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 
   return [
     {
-      name: "rayxiom/perfectionist/setup",
+      name: "so1ve/perfectionist/setup",
       plugins: {
         perfectionist: pluginPerfectionist,
       },
     },
     {
-      name: "rayxiom/perfectionist/rules",
+      name: "so1ve/perfectionist/rules",
       // @keep-sorted
       rules: {
         "perfectionist/sort-array-includes": [

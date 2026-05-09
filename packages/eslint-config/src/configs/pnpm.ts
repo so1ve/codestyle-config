@@ -36,7 +36,7 @@ export async function pnpm(
     configs.push({
       files: ["package.json", "**/package.json"],
       language: "jsonc/x",
-      name: "rayxiom/pnpm/package-json",
+      name: "so1ve/pnpm/package-json",
       plugins: {
         pnpm: pluginPnpm,
       },
@@ -63,7 +63,7 @@ export async function pnpm(
         languageOptions: {
           parser: yamlParser,
         },
-        name: "rayxiom/pnpm/pnpm-workspace-yaml",
+        name: "so1ve/pnpm/pnpm-workspace-yaml",
         plugins: {
           pnpm: pluginPnpm,
         },
@@ -82,7 +82,7 @@ export async function pnpm(
       },
       {
         files: ["pnpm-workspace.yaml"],
-        name: "rayxiom/yaml/pnpm-workspace-yaml-sort",
+        name: "so1ve/yaml/pnpm-workspace-yaml-sort",
         rules: {
           "yaml/sort-keys": [
             "error",

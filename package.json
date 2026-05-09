@@ -1,17 +1,17 @@
 {
-  "name": "@rayxiom/rayxiom",
+  "name": "@so1ve/codestyle-config-monorepo",
   "private": true,
   "packageManager": "pnpm@10.30.3",
   "author": "Ray <i@mk1.io> (https://github.com/so1ve/)",
   "type": "module",
-  "description": "Monorepo for rayxiom.",
-  "homepage": "https://github.com/rayxiom/rayxiom#readme",
+  "description": "Monorepo for Ray's codestyle config.",
+  "homepage": "https://github.com/so1ve/codestyle-config#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rayxiom/rayxiom.git"
+    "url": "git+https://github.com/so1ve/codestyle-config.git"
   },
   "bugs": {
-    "url": "https://github.com/rayxiom/rayxiom/issues"
+    "url": "https://github.com/so1ve/codestyle-config/issues"
   },
   "license": "MIT",
   "scripts": {
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@antfu/ni": "catalog:build",
-    "@rayxiom/eslint-config": "workspace:*",
-    "@rayxiom/eslint-plugin": "workspace:*",
-    "@rayxiom/prettier-config": "workspace:*",
+    "@so1ve/eslint-config": "workspace:*",
+    "@so1ve/eslint-plugin": "workspace:*",
+    "@so1ve/prettier-config": "workspace:*",
     "@types/node": "catalog:build",
     "@typescript-eslint/parser": "catalog:eslint",
     "@typescript/native-preview": "catalog:build",

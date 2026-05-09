@@ -15,7 +15,7 @@ export async function test({ overrides }: OptionsOverrides = {}): Promise<
 
   return [
     {
-      name: "rayxiom/test/setup",
+      name: "so1ve/test/setup",
       // @keep-sorted
       plugins: {
         "no-only-tests": pluginNoOnlyTests,
@@ -23,7 +23,7 @@ export async function test({ overrides }: OptionsOverrides = {}): Promise<
       },
     },
     {
-      name: "rayxiom/test/rules",
+      name: "so1ve/test/rules",
       files: GLOB_TESTS,
       // @keep-sorted
       rules: {

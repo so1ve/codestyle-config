@@ -1,5 +1,5 @@
 export * from "./configs";
-export { rayxiom } from "./factory";
+export { so1ve } from "./factory";
 export * from "./factory";
 export * from "./globs";
 export type * from "./types";

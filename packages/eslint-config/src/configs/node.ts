@@ -3,13 +3,13 @@ import type { TypedFlatConfigItem } from "../types";
 
 export const node = (): TypedFlatConfigItem[] => [
   {
-    name: "rayxiom/node/setup",
+    name: "so1ve/node/setup",
     plugins: {
       node: pluginNode,
     },
   },
   {
-    name: "rayxiom/node/rules",
+    name: "so1ve/node/rules",
     // @keep-sorted
     rules: {
       "node/handle-callback-err": ["error", "^(err|error)$"],
