@@ -7,4 +7,7 @@ on:
 
 jobs:
   lock:
+    permissions:
+      issues: write
+      pull-requests: write
     uses: so1ve/workflows/.github/workflows/lock.yml@v1
