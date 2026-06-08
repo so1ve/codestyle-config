@@ -91,6 +91,7 @@ export async function pnpm(
                 // @keep-sorted
                 // eslint-disable-next-line unicorn/no-useless-spread
                 ...[
+                  "allowBuilds",
                   "cacheDir",
                   "catalogMode",
                   "cleanupUnusedCatalogs",
@@ -103,18 +104,15 @@ export async function pnpm(
                   "hoistPattern",
                   "hoistWorkspacePackages",
                   "ignoreCompatibilityDb",
-                  "ignoreDepScripts",
                   "ignoreScripts",
                   "ignoreWorkspaceRootCheck",
-                  "managePackageManagerVersions",
                   "minimumReleaseAge",
                   "minimumReleaseAgeExclude",
                   "modulesDir",
                   "nodeLinker",
                   "nodeVersion",
                   "optimisticRepeatInstall",
-                  "packageManagerStrict",
-                  "packageManagerStrictVersion",
+                  "pmOnFail",
                   "preferSymlinkedExecutables",
                   "preferWorkspacePackages",
                   "publicHoistPattern",
@@ -144,13 +142,9 @@ export async function pnpm(
                 // eslint-disable-next-line unicorn/no-useless-spread
                 ...[
                   "allowedDeprecatedVersions",
-                  "allowNonAppliedPatches",
+                  "allowUnusedPatches",
                   "configDependencies",
-                  "ignoredBuiltDependencies",
                   "ignoredOptionalDependencies",
-                  "neverBuiltDependencies",
-                  "onlyBuiltDependencies",
-                  "onlyBuiltDependenciesFile",
                   "packageExtensions",
                   "peerDependencyRules",
                 ],

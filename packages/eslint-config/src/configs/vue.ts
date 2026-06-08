@@ -185,7 +185,7 @@ export async function vue({
         ],
         "vue/object-property-newline": [
           "error",
-          { allowMultiplePropertiesPerLine: true },
+          { allowAllPropertiesOnSameLine: true },
         ],
         "vue/object-shorthand": [
           "error",
