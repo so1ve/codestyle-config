@@ -91,7 +91,6 @@ export async function pnpm(
                 // @keep-sorted
                 // eslint-disable-next-line unicorn/no-useless-spread
                 ...[
-                  "allowBuilds",
                   "cacheDir",
                   "catalogMode",
                   "cleanupUnusedCatalogs",
@@ -141,6 +140,7 @@ export async function pnpm(
                 // @keep-sorted
                 // eslint-disable-next-line unicorn/no-useless-spread
                 ...[
+                  "allowBuilds",
                   "allowedDeprecatedVersions",
                   "allowUnusedPatches",
                   "configDependencies",

@@ -1,15 +1,14 @@
 gitChecks: false
-allowBuilds:
-  esbuild: true
-  unrs-resolver: true
-
 ignoreWorkspaceRootCheck: true
 minimumReleaseAge: 0
-
 shellEmulator: true
 
 packages:
   - packages/*
+
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
 
 peerDependencyRules:
   ignoreMissing:
