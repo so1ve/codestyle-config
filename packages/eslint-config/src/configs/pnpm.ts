@@ -105,8 +105,6 @@ export async function pnpm(
                   "ignoreCompatibilityDb",
                   "ignoreScripts",
                   "ignoreWorkspaceRootCheck",
-                  "minimumReleaseAge",
-                  "minimumReleaseAgeExclude",
                   "modulesDir",
                   "nodeLinker",
                   "nodeVersion",
@@ -126,9 +124,11 @@ export async function pnpm(
                   "supportedArchitectures",
                   "symlink",
                   "tag",
+                  "updateNotifier",
                   "trustPolicy",
                   "trustPolicyExclude",
-                  "updateNotifier",
+                  "minimumReleaseAge",
+                  "minimumReleaseAgeExclude",
                 ],
 
                 // Packages and dependencies
