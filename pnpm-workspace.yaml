@@ -1,8 +1,8 @@
 gitChecks: false
 ignoreWorkspaceRootCheck: true
-minimumReleaseAge: 0
 shellEmulator: true
 
+minimumReleaseAge: 0
 packages:
   - packages/*
 
