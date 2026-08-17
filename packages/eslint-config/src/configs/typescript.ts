@@ -197,7 +197,6 @@ export const typescript = async ({
       parserOptions: {
         sourceType: "module",
         projectService: true,
-        tsconfigRootDir: process.cwd(),
       },
     },
     settings: {
