@@ -106,7 +106,6 @@ export async function pnpm(
                   "ignoreScripts",
                   "ignoreWorkspaceRootCheck",
                   "minimumReleaseAge",
-                  "minimumReleaseAgeExclude",
                   "modulesDir",
                   "nodeLinker",
                   "nodeVersion",
@@ -136,22 +135,19 @@ export async function pnpm(
                 "overrides",
                 "patchedDependencies",
 
-                // Other
-                // @keep-sorted
-                // eslint-disable-next-line unicorn/no-useless-spread
-                ...[
-                  "allowBuilds",
-                  "allowedDeprecatedVersions",
-                  "allowUnusedPatches",
-                  "configDependencies",
-                  "ignoredOptionalDependencies",
-                  "packageExtensions",
-                  "peerDependencyRules",
-                ],
-
                 // Catalogs
                 "catalog",
                 "catalogs",
+
+                // Other
+                "minimumReleaseAgeExclude",
+                "allowBuilds",
+                "allowedDeprecatedVersions",
+                "allowUnusedPatches",
+                "configDependencies",
+                "ignoredOptionalDependencies",
+                "packageExtensions",
+                "peerDependencyRules",
               ],
               pathPattern: "^$",
             },
