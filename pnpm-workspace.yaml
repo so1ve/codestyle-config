@@ -9,18 +9,6 @@ packages:
 overrides:
   typescript: npm:typescript-native-bridge@6.0.3-bridge.15.tsgo.7.0.2
 
-allowBuilds:
-  esbuild: true
-  unrs-resolver: true
-
-peerDependencyRules:
-  ignoreMissing:
-    - typescript
-    - svelte
-    - eslint-plugin-import
-    - eslint
-    - prettier
-
 catalog:
   find-up-simple: ^1.0.1
   local-pkg: ^1.2.1
@@ -88,5 +76,17 @@ catalogs:
     prettier-plugin-astro: ^0.14.1
     prettier-plugin-jsdoc: ^1.8.1
     prettier-plugin-toml: ^2.0.6
+
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+
+peerDependencyRules:
+  ignoreMissing:
+    - typescript
+    - svelte
+    - eslint-plugin-import
+    - eslint
+    - prettier
 
 strictPeerDependencies: false
